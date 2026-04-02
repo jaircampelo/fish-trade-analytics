@@ -10,16 +10,16 @@ import logging
 #===========================================================#
 #                       Basic configs                       #
 #===========================================================#
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 # Base URL from comexstat API
-BASE_URL = "https://api-comexstat.mdic.gov.br"
+BASE_URL = 'https://api-comexstat.mdic.gov.br'
 
 #===========================================================#
 #                  Getting years interval                   #
 #===========================================================#
 def get_year_interval(
         interval_scope: int = 0,
-        initial_month: str = "01",
+        initial_month: str = '01',
 ) -> dict[str, str]:
     """
     Returns the start and end year-month of the analysis, in the format used by the API (the end year is always the last updated data date).
@@ -36,20 +36,20 @@ def get_year_interval(
         get_year_interval(5, '01')
 ```
     """
-    resp = requests.get(f"{BASE_URL}/cities/dates/updated")
+    resp = requests.get(f'{BASE_URL}/cities/dates/updated')
 
     if not resp.ok:
         try:
-            error_msg = resp.json().get("error", {}).get("message", resp.text)
+            error_msg = resp.json().get('error', {}).get('message', resp.text)
         except Exception:
             error_msg = resp.text
-        raise requests.HTTPError(f"{resp.status_code}: {error_msg}", response=resp)
+        raise requests.HTTPError(f'{resp.status_code}: {error_msg}', response=resp)
     
-    max_year = int(resp.json()["data"]["year"])
-    max_month = resp.json()["data"]["monthNumber"]
+    max_year = int(resp.json()['data']['year'])
+    max_month = resp.json()['data']['monthNumber']
     return {
-        "from": f"{max_year - interval_scope}-{initial_month}",
-        "to": f"{max_year}-{max_month}"
+        'from': f'{max_year - interval_scope}-{initial_month}',
+        'to': f'{max_year}-{max_month}'
     }
 
 #===========================================================#
@@ -64,14 +64,14 @@ def get_heading_filter() -> list[dict[str, list]]:
         get_heading_filter()
 ```
     """
-    resp = requests.get(f"{BASE_URL}/cities/filters/heading", params={"language": "pt"})
+    resp = requests.get(f'{BASE_URL}/cities/filters/heading', params={'language': 'pt'})
 
     if not resp.ok:
         try:
-            error_msg = resp.json().get("error", {}).get("message", resp.text)
+            error_msg = resp.json().get('error', {}).get('message', resp.text)
         except Exception:
             error_msg = resp.text
-        raise requests.HTTPError(f"{resp.status_code}: {error_msg}", response=resp)
+        raise requests.HTTPError(f'{resp.status_code}: {error_msg}', response=resp)
 
     headings = resp.json()['data'][0]
 
@@ -83,8 +83,8 @@ def get_heading_filter() -> list[dict[str, list]]:
 
     return [
         {
-            "filter": "heading",
-            "values": filtered
+            'filter': 'heading',
+            'values': filtered
         }
     ]
 
@@ -97,7 +97,7 @@ def query_comexstat(
         metrics: list[str],
         details: list[str],
         *,
-        flow: Literal["import", "export"] = "export",
+        flow: Literal['import', 'export'] = 'export',
         month_detail: bool = True,
         df: bool = True,
 ) -> pd.DataFrame:
@@ -119,11 +119,11 @@ def query_comexstat(
     Examples:
 ```python
         query_comexstat(
-            ("2025-01", "2025-12"),
-            {heading: ["0301", "0302", "0303"]},
-            ["metricFOB", "metricKG"],
-            ["state", "heading"],
-            flow="import",
+            ('2025-01', '2025-12'),
+            {heading: ['0301', '0302', '0303']},
+            ['metricFOB', 'metricKG'],
+            ['state', 'heading'],
+            flow='import',
             month_detail=True,
             df=True
         )
@@ -131,38 +131,38 @@ def query_comexstat(
     """
     heading_values = [filter['values'] for filter in filters]
 
-    logging.info(f"Headings found: {heading_values}")
-    logging.info(f"Consulting {flow} from {year_interval['from']} → {year_interval['to']}")
+    logging.info(f'Headings found: {heading_values}')
+    logging.info(f'Consulting {flow} from {year_interval['from']} → {year_interval['to']}')
 
     payload = {
-        "flow": flow,
-        "monthDetail": month_detail,
-        "period": year_interval,
-        "filters": filters,
-        "details": details,
-        "metrics": metrics,
+        'flow': flow,
+        'monthDetail': month_detail,
+        'period': year_interval,
+        'filters': filters,
+        'details': details,
+        'metrics': metrics,
     }
  
     resp = requests.post(
-        f"{BASE_URL}/cities",
+        f'{BASE_URL}/cities',
         json=payload,
-        params={"language": "pt"},
+        params={'language': 'pt'},
     )
 
     if not resp.ok:
         try:
-            error_msg = resp.json().get("error", {}).get("message", resp.text)
+            error_msg = resp.json().get('error', {}).get('message', resp.text)
         except Exception:
             error_msg = resp.text
-        raise requests.HTTPError(f"{resp.status_code}: {error_msg}", response=resp)
+        raise requests.HTTPError(f'{resp.status_code}: {error_msg}', response=resp)
     
     body = resp.json()
-    data = body.get("data", {})
-    records = data.get("list", data) if isinstance(data, dict) else data
+    data = body.get('data', {})
+    records = data.get('list', data) if isinstance(data, dict) else data
     df_records = pd.DataFrame(records)
     
     rows = len(records)
-    logging.info(f"Rows read: {rows}")
+    logging.info(f'Rows read: {rows}')
 
     if df == True:
         result = df_records
@@ -178,24 +178,24 @@ def query_comexstat(
 years_interval = get_year_interval(20)
 headings = get_heading_filter()
 
-for flow in ["export", "import"]:
+for flow in ['export', 'import']:
     df = query_comexstat(
         year_interval=years_interval,
         filters=headings,
-        metrics=["metricFOB", "metricKG"],
-        details=["country", "state", "city", "heading"],
+        metrics=['metricFOB', 'metricKG'],
+        details=['country', 'state', 'city', 'heading'],
         flow=flow,
     )
 
     PROJECT_ROOT = Path(__file__).parent.parent
-    output_file = f"fish_trade_{flow}_{years_interval["from"][:4]}{years_interval["from"][5:]}_{years_interval["to"][:4]}{years_interval["to"][5:]}.parquet"
-    output_path = PROJECT_ROOT / "data" / "raw" / output_file
+    output_file = f'fish_trade_{flow}_{years_interval['from'][:4]}{years_interval['from'][5:]}_{years_interval['to'][:4]}{years_interval['to'][5:]}.parquet'
+    output_path = PROJECT_ROOT / 'data' / 'raw' / output_file
     output_dir = output_path.parent
     output_dir.mkdir(parents=True, exist_ok=True)
 
     if not output_path.exists():
-        logging.info(f"Persisting data to '{output_file}'.")
-        df.to_parquet(output_path, index=False, engine="pyarrow")
-        logging.info(f"File '{output_file}'' sucessfully created. Skipping...")
+        logging.info(f'Persisting data to "{output_file}".')
+        df.to_parquet(output_path, index=False, engine='pyarrow')
+        logging.info(f'File "{output_file}" sucessfully created. Skipping...')
     else:
-        logging.warning(f"File '{output_file}' already exists on {output_dir}.")
+        logging.warning(f'File "{output_file}" already exists on {output_dir}.')
