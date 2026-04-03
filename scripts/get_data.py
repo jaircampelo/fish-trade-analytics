@@ -40,11 +40,11 @@ def get_engine():
     return create_engine(f'postgresql+psycopg2://{user}:{quote_plus(password)}@{host}:{port}/{database}')
 
 #===========================================================#
-#                     Create metatable                      #
+#                 Create landing metatable                  #
 #===========================================================#
-def create_metatable(engine):
+def create_landing_metatable(engine):
     """
-    Create a metatable (if not exists) for monitoring the data ingestion.
+    Create a landing metatable (if not exists) for monitoring the data ingestion.
 
     Args:
         engine: the resulting engine of the function get_engine().
@@ -53,17 +53,17 @@ def create_metatable(engine):
         conn.execute(text('CREATE SCHEMA IF NOT EXISTS metadata;'))
         conn.execute(text(f"""
             CREATE TABLE IF NOT EXISTS metadata.landing_meta_table (
-                  id            INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY
-                , heading_code  VARCHAR(4)      NOT NULL
-                , flow          VARCHAR(20)     NOT NULL
-                , date_from     DATE            NOT NULL
-                , date_to       DATE            NOT NULL
-                , file_path     VARCHAR(500)    NOT NULL
-                , ingested_at   TIMESTAMP       NOT NULL DEFAULT NOW()
+                  id                    INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY
+                , heading_code          VARCHAR(4)      NOT NULL
+                , flow                  VARCHAR(20)     NOT NULL
+                , date_from             DATE            NOT NULL
+                , date_to               DATE            NOT NULL
+                , relative_file_path    VARCHAR(500)    NOT NULL
+                , ingested_at           TIMESTAMP       NOT NULL DEFAULT NOW()
             );
         """))
         conn.commit()
-        logging.info('Metatable created/verified successfully.')
+        logging.info('Landing metatable created/verified successfully.')
 
 #===========================================================#
 #              Getting fish related SH4 codes               #
@@ -205,9 +205,12 @@ def get_latest_api_last_date() -> date:
     return date(int(data['year']), int(data['monthNumber']), 1)
 
 #===========================================================#
-#           Get latest ingested date from metatable         #
+#      Get latest ingested date from landing metatable      #
 #===========================================================#
-def get_latest_meta_last_date(engine, flow: Literal['import', 'export']) -> date | None:
+def get_latest_meta_last_date(
+        engine,
+        flow: Literal['import', 'export']
+    ) -> date | None:
     """
     Returns the last date from landing_meta_table
 
@@ -238,9 +241,9 @@ def get_latest_meta_last_date(engine, flow: Literal['import', 'export']) -> date
         return row[0] if row and row[0] else None
     
 #===========================================================#
-#              Insert record into metatable                 #
+#           Insert record into landing metatable            #
 #===========================================================#
-def insert_meta_record(engine, heading_code: str, flow: Literal['import', 'export'], date_from: date, date_to: date, file_path: str):
+def insert_landing_meta_record(engine, heading_code: str, flow: Literal['import', 'export'], date_from: date, date_to: date, relative_file_path: str):
     """
     Insert metadata from the API request.
 
@@ -250,24 +253,24 @@ def insert_meta_record(engine, heading_code: str, flow: Literal['import', 'expor
         flow (str): flow (import, export) extracted from API request.
         date_from (date): initial date from the data extracted.
         date_to (date): final date from the data extracted.
-        file_path (str): relative path where the data extracted persist.
+        relative_file_path (str): relative path where the data extracted persist.
 
     Examples:
 ```python
-        insert_meta_record(
+        insert_landing_meta_record(
             engine=get_engine(),
             flow='import',
             date_from=date(2006-1-1),
             date_to=date(2020-31-1),
-            file_path='project_name/data/raw/file.parquet'
+            relative_file_path='project_name/data/raw/file.parquet'
         )
 ```
     """
     query = text(f"""
         INSERT INTO metadata.landing_meta_table
-            (heading_code, flow, date_from, date_to, file_path)
+            (heading_code, flow, date_from, date_to, relative_file_path)
         VALUES
-            (:heading_code, :flow, :date_from, :date_to, :file_path)
+            (:heading_code, :flow, :date_from, :date_to, :relative_file_path)
     """)
 
     with engine.connect() as conn:
@@ -278,7 +281,7 @@ def insert_meta_record(engine, heading_code: str, flow: Literal['import', 'expor
                 'flow': flow,
                 'date_from': date_from,
                 'date_to': date_to,
-                'file_path': file_path,
+                'relative_file_path': relative_file_path,
             }
         )
         conn.commit()
@@ -315,7 +318,7 @@ def run_incremental_ingestion(
                     'values': ['0301', '0302', ..., '0308']
                 }
             ]
-            flow=['import', 'export'],
+            flows=['import', 'export'],
             start_year=2006,
             final_year=2020,
         )
@@ -329,7 +332,7 @@ def run_incremental_ingestion(
         logging.info(f'Checking Flow {flow}.')
         meta_last_date = get_latest_meta_last_date(engine, flow)
 
-        # First ingestion — no metatable record
+        # First ingestion — no landing metatable record
         if meta_last_date is None:
             date_from = date(start_year, 1, 1)
 
@@ -378,10 +381,11 @@ def run_incremental_ingestion(
         df.to_parquet(output_path, index=False, engine='pyarrow')
         logging.info(f'File "{output_file}" successfully created.')
 
-        file_path_relative = str(Path('data') / 'raw' / output_file)
+        relative_file_path = str(Path('data') / 'raw' / output_file)
         for heading_code in heading_codes[0]['values']:
-            insert_meta_record(engine, heading_code, flow, date_from, date_to, file_path_relative)
-            logging.info(f'Metatable updated for heading {heading_code} / {flow}.')
+            insert_landing_meta_record(engine, heading_code, flow, date_from, date_to, relative_file_path)
+
+        logging.info(f'Landing metatable updated for flow {flow}.')
 
         sleep(5)
 
@@ -389,7 +393,7 @@ def run_incremental_ingestion(
 #                          Main                             #
 #===========================================================#
 engine = get_engine()
-create_metatable(engine)
+create_landing_metatable(engine)
 
 heading_codes = get_heading_filter()
 flows = ['export', 'import']
