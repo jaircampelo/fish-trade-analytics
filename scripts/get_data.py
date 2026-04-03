@@ -5,52 +5,65 @@ import requests
 import pandas as pd
 from typing import Literal
 from pathlib import Path
+from datetime import date
+from urllib.parse import quote_plus
+from dotenv import load_dotenv
+from sqlalchemy import create_engine, text
+from time import sleep
 import logging
+import os
 
 #===========================================================#
 #                       Basic configs                       #
 #===========================================================#
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-# Base URL from comexstat API
+
 BASE_URL = 'https://api-comexstat.mdic.gov.br'
 
+env_path = Path(__file__).resolve().parent.parent / '.env'
+load_dotenv(env_path)
+
 #===========================================================#
-#                  Getting years interval                   #
+#                     Database connection                   #
 #===========================================================#
-def get_year_interval(
-        interval_scope: int = 0,
-        initial_month: str = '01',
-) -> dict[str, str]:
+def get_engine():
     """
-    Returns the start and end year-month of the analysis, in the format used by the API (the end year is always the last updated data date).
+    Returns the engine for connection with PostgreSQL.
+    """
+    user = os.getenv('POSTGRES_USER')
+    password = os.getenv('POSTGRES_PASSWORD')
+    database = os.getenv('POSTGRES_DB')
+    host = os.getenv('POSTGRES_HOST', 'localhost')
+    port = os.getenv('POSTGRES_PORT', '5432')
+
+    logging.info(f'Connecting to {host}:{port}/{database}.')
+    return create_engine(f'postgresql+psycopg2://{user}:{quote_plus(password)}@{host}:{port}/{database}')
+
+#===========================================================#
+#                     Create metatable                      #
+#===========================================================#
+def create_metatable(engine):
+    """
+    Create a metatable (if not exists) for monitoring the data ingestion.
 
     Args:
-        interval_scope (int): integer corresponding to the year range of the analysis.
-        initial_month (str): month number in 'mm' format, corresponding to the start of the analysis.
-
-    Returns:
-        dict[str, str]: a dictionary containing the start and end period, in the format {from: yyyy-mm, to: yyyy-mm}.
-
-    Examples:
-```python
-        get_year_interval(5, '01')
-```
+        engine: the resulting engine of the function get_engine().
     """
-    resp = requests.get(f'{BASE_URL}/cities/dates/updated')
-
-    if not resp.ok:
-        try:
-            error_msg = resp.json().get('error', {}).get('message', resp.text)
-        except Exception:
-            error_msg = resp.text
-        raise requests.HTTPError(f'{resp.status_code}: {error_msg}', response=resp)
-    
-    max_year = int(resp.json()['data']['year'])
-    max_month = resp.json()['data']['monthNumber']
-    return {
-        'from': f'{max_year - interval_scope}-{initial_month}',
-        'to': f'{max_year}-{max_month}'
-    }
+    with engine.connect() as conn:
+        conn.execute(text('CREATE SCHEMA IF NOT EXISTS metadata;'))
+        conn.execute(text(f"""
+            CREATE TABLE IF NOT EXISTS metadata.landing_meta_table (
+                  id            INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY
+                , heading_code  VARCHAR(4)      NOT NULL
+                , flow          VARCHAR(20)     NOT NULL
+                , date_from     DATE            NOT NULL
+                , date_to       DATE            NOT NULL
+                , file_path     VARCHAR(500)    NOT NULL
+                , ingested_at   TIMESTAMP       NOT NULL DEFAULT NOW()
+            );
+        """))
+        conn.commit()
+        logging.info('Metatable created/verified successfully.')
 
 #===========================================================#
 #              Getting fish related SH4 codes               #
@@ -96,8 +109,8 @@ def query_comexstat(
         filters: list[dict[str, list]],
         metrics: list[str],
         details: list[str],
+        flow: Literal['import', 'export'],
         *,
-        flow: Literal['import', 'export'] = 'export',
         month_detail: bool = True,
         df: bool = True,
 ) -> pd.DataFrame:
@@ -109,7 +122,7 @@ def query_comexstat(
         filters (dict[str, list]): a dictionary with the filter type and its values in a list.
         metrics (list[str]): defines the metrics to be evaluated.
         details (list[str]): defines the categories by which the metrics will be broken down (determines the granularity of the request).
-        flow (str): defines which type of data will be returned. If no value is provided, export data is returned.
+        flow (str): defines which type of data will be returned.
         month_detail (bool): defines the time granularity. If no value is provided, monthly granularity is used.
         df (bool = True): If no value is provided, it returns a dataframe.
 
@@ -171,31 +184,214 @@ def query_comexstat(
 
     return result
 
+#===========================================================#
+#              Get latest available date from API           #
+#===========================================================#
+def get_latest_api_last_date() -> date:
+    """
+    Returns the date from the last updated Comexstat API data.
+    """
+    resp = requests.get(f'{BASE_URL}/cities/dates/updated')
+
+    if not resp.ok:
+        try:
+            error_msg = resp.json().get('error', {}).get('message', resp.text)
+        except Exception:
+            error_msg = resp.text
+        raise requests.HTTPError(f'{resp.status_code}: {error_msg}', response=resp)
+    
+    data = resp.json()['data']
+
+    return date(int(data['year']), int(data['monthNumber']), 1)
 
 #===========================================================#
-#                  Read and persist data                    #
+#           Get latest ingested date from metatable         #
 #===========================================================#
-years_interval = get_year_interval(20)
-headings = get_heading_filter()
+def get_latest_meta_last_date(engine, flow: Literal['import', 'export']) -> date | None:
+    """
+    Returns the last date from landing_meta_table
 
-for flow in ['export', 'import']:
-    df = query_comexstat(
-        year_interval=years_interval,
-        filters=headings,
-        metrics=['metricFOB', 'metricKG'],
-        details=['country', 'state', 'city', 'heading'],
-        flow=flow,
-    )
+    Args:
+        engine: the resulting engine of the function get_engine().
+        flow (str): defines which flow the last date is from.
 
-    PROJECT_ROOT = Path(__file__).parent.parent
-    output_file = f'fish_trade_{flow}_{years_interval['from'][:4]}{years_interval['from'][5:]}_{years_interval['to'][:4]}{years_interval['to'][5:]}.parquet'
-    output_path = PROJECT_ROOT / 'data' / 'raw' / output_file
-    output_dir = output_path.parent
-    output_dir.mkdir(parents=True, exist_ok=True)
+    Returns:
+        (date): a date from the given flow on landing_meta_table.
 
-    if not output_path.exists():
+    Examples:
+```python
+        get_latest_meta_last_date(
+            engine=get_engine(),
+            flow='import',
+        )
+```
+    """
+    query = text(f"""
+        SELECT MAX(date_to)
+          FROM metadata.landing_meta_table
+         WHERE flow = :flow
+    """)
+
+    with engine.connect() as conn:
+        result = conn.execute(query, {'flow': flow})
+        row = result.fetchone()
+        return row[0] if row and row[0] else None
+    
+#===========================================================#
+#              Insert record into metatable                 #
+#===========================================================#
+def insert_meta_record(engine, heading_code: str, flow: Literal['import', 'export'], date_from: date, date_to: date, file_path: str):
+    """
+    Insert metadata from the API request.
+
+    Args:
+        engine: the resulting engine of the function get_engine().
+        heading_code (str): SH4 code extracted from API request.
+        flow (str): flow (import, export) extracted from API request.
+        date_from (date): initial date from the data extracted.
+        date_to (date): final date from the data extracted.
+        file_path (str): relative path where the data extracted persist.
+
+    Examples:
+```python
+        insert_meta_record(
+            engine=get_engine(),
+            flow='import',
+            date_from=date(2006-1-1),
+            date_to=date(2020-31-1),
+            file_path='project_name/data/raw/file.parquet'
+        )
+```
+    """
+    query = text(f"""
+        INSERT INTO metadata.landing_meta_table
+            (heading_code, flow, date_from, date_to, file_path)
+        VALUES
+            (:heading_code, :flow, :date_from, :date_to, :file_path)
+    """)
+
+    with engine.connect() as conn:
+        conn.execute(
+            query,
+            {
+                'heading_code': heading_code,
+                'flow': flow,
+                'date_from': date_from,
+                'date_to': date_to,
+                'file_path': file_path,
+            }
+        )
+        conn.commit()
+
+#===========================================================#
+#                  Incremental ingestion                    #
+#===========================================================#
+def run_incremental_ingestion(
+        engine,
+        heading_codes: list[dict],
+        flows: list[str],
+        start_year: int,
+        *,
+        final_year: int | None = None,
+    ):
+    """
+    Run the incremental Comexstat API ingestion from the given metrics.
+    \nIf metatable is filled with data, the final year is always the year from the last updated data.
+
+    Args:
+        engine: the resulting engine of the function get_engine().
+        heading_codes (list[dict]): SH4 codes for API request.
+        flows (list[str]): list of available flows (import, export) for API request.
+        start_year (int): initial year for data extraction.
+        final_year (int): final year for data extraction.
+
+    Examples:
+```python
+        run_incremental_ingestion(
+            engine=get_engine(),
+            heading_codes=[
+                {
+                    'filter': 'heading',
+                    'values': ['0301', '0302', ..., '0308']
+                }
+            ]
+            flow=['import', 'export'],
+            start_year=2006,
+            final_year=2020,
+        )
+```
+    """
+    PROJECT_ROOT = Path(__file__).resolve().parent.parent
+    api_last_date = get_latest_api_last_date()
+    logging.info(f'Latest available date from API: {api_last_date}.')
+
+    for flow in flows:
+        logging.info(f'Checking Flow {flow}.')
+        meta_last_date = get_latest_meta_last_date(engine, flow)
+
+        # First ingestion — no metatable record
+        if meta_last_date is None:
+            date_from = date(start_year, 1, 1)
+
+            if final_year is None or final_year == api_last_date.year:
+                date_to = api_last_date
+                logging.info(f'No previous ingestion found. Starting from {date_from} to {date_to}.')
+            elif final_year > api_last_date.year:
+                date_to = api_last_date
+                logging.info(f'No data available for {final_year}, running extraction until {api_last_date}.')
+            else:
+                date_to = date(final_year, 12, 1)
+                logging.info(f'No previous ingestion found. Starting from {date_from} to {date_to}.')
+
+        elif api_last_date > meta_last_date:
+            # Skip one month from date_to
+            if meta_last_date.month == 12:
+                date_from = date(meta_last_date.year + 1, 1, 1)
+                date_to = api_last_date
+            else:
+                date_from = date(meta_last_date.year, meta_last_date.month + 1, 1)
+                date_to = api_last_date
+            logging.info(f'New data available. Ingesting from {date_from} to {date_to}.')
+
+        else:
+            logging.info(f'Flow {flow} is up to date. Skipping...')
+            continue
+
+        year_interval = {
+            'from': date_from.strftime('%Y-%m'),
+            'to': date_to.strftime('%Y-%m'),
+        }
+
+        df = query_comexstat(
+            year_interval=year_interval,
+            filters=heading_codes,
+            metrics=['metricFOB', 'metricKG'],
+            details=['country', 'state', 'city', 'heading'],
+            flow=flow,
+        )
+
+        output_file = f'fish_trade_{flow}_{date_from.strftime("%Y%m")}_{date_to.strftime("%Y%m")}.parquet'
+        output_path = PROJECT_ROOT / 'data' / 'raw' / output_file
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+
         logging.info(f'Persisting data to "{output_file}".')
         df.to_parquet(output_path, index=False, engine='pyarrow')
-        logging.info(f'File "{output_file}" sucessfully created. Skipping...')
-    else:
-        logging.warning(f'File "{output_file}" already exists on {output_dir}.')
+        logging.info(f'File "{output_file}" successfully created.')
+
+        file_path_relative = str(Path('data') / 'raw' / output_file)
+        for heading_code in heading_codes[0]['values']:
+            insert_meta_record(engine, heading_code, flow, date_from, date_to, file_path_relative)
+            logging.info(f'Metatable updated for heading {heading_code} / {flow}.')
+
+        sleep(5)
+
+#===========================================================#
+#                          Main                             #
+#===========================================================#
+engine = get_engine()
+create_metatable(engine)
+
+heading_codes = get_heading_filter()
+flows = ['export', 'import']
+
+run_incremental_ingestion(engine, heading_codes, flows, start_year=2006)
