@@ -373,6 +373,8 @@ def run_incremental_ingestion(
             flow=flow,
         )
 
+        df['ingested_at'] = pd.Timestamp.now()
+
         output_file = f'fish_trade_{flow}_{date_from.strftime("%Y%m")}_{date_to.strftime("%Y%m")}.parquet'
         output_path = PROJECT_ROOT / 'data' / 'raw' / output_file
         output_path.parent.mkdir(parents=True, exist_ok=True)
