@@ -39,5 +39,6 @@ select "country_id"
      , "country_name"
      , "ingested_at"
      , "loaded_at"
+	 , timestamp as "processed_at"
   from transformed
  where "row_num" = 1

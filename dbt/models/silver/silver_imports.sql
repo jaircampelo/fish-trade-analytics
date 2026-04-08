@@ -116,6 +116,7 @@ select "trade_date"
 	 , "trade_flag"
 	 , "ingested_at"
 	 , "loaded_at"
+	 , timestamp as "processed_at"
   from final
  where "row_num" 			= 1
    and "is_valid_value" 	= true
