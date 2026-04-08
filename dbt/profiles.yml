@@ -1,0 +1,22 @@
+fish_trade_analytics:
+  target: "{{ env_var('DBT_TARGET', 'dev') }}"
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('POSTGRES_HOST') }}"
+      user: "{{ env_var('POSTGRES_USER', 'dataeng') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD', 'CHANGE_ME_strong_password_here') }}"
+      port: "{{ env_var('POSTGRES_PORT', '5432') | int }}"
+      dbname: "{{ env_var('POSTGRES_DB', 'datawarehouse') }}"
+      schema: public
+      threads: 4
+
+    prod:
+      type: postgres
+      host: "{{ env_var('POSTGRES_HOST', 'postgres') }}"
+      user: "{{ env_var('POSTGRES_USER', 'dataeng') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD', 'CHANGE_ME_strong_password_here') }}"
+      port: "{{ env_var('POSTGRES_PORT', '5432') | int }}"
+      dbname: "{{ env_var('POSTGRES_DB', 'datawarehouse') }}"
+      schema: public
+      threads: 8
