@@ -60,5 +60,6 @@ select "city_id"
      , "city_uf"
      , "ingested_at"
      , "loaded_at"
+	 , timestamp as "processed_at"
   from transformed
  where "row_num" = 1
