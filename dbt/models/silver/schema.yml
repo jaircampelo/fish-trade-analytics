@@ -1,0 +1,179 @@
+version: 2
+
+sources:
+  - name: bronze
+    description: "Raw tables extracted from COMEX STAT API."
+    database: datawarehouse
+    schema: bronze
+    loader: "PostgreSQL database"
+
+    tables:
+      - name: fish_trade_export
+        desciption: "Raw data from exports fish trade."
+      - name: fish_trade_import
+        description: "Raw data from imports fish trade."
+      - name: cities
+        description: "IDs and description from brazilian cities."
+      - name: countries
+        description: "IDs and descriptions from world countries."
+      - name: uf
+        description: "IDs and descriptions from brazilian states."
+
+models:
+  - name: silver_imports
+    description: "Creates date and trade_flag columns, remove unecessary columns and bring the city code."
+    config:
+      materialized: incremental
+      incremental_strategy: merge
+    columns:
+      - name: trade_date
+        description: "Imports date"
+        tests:
+          - not_null
+      - name: city_id
+        description: "ID from the city who exported."
+        tests:
+          - not_null
+      - name: trade_country_id
+        description: "ID of the target country for trade."
+        tests:
+          - not_null
+      - name: product_category_id
+        description: "ID from the SH4 product code."
+        tests:
+          - not_null
+      - name: fob_value
+        description: "A metric that represents the total value of goods at the time they are loaded onto the ship, excluding freight and insurance costs."
+        tests:
+          - not_null
+      - name: net_weight
+        description: "A metric that indicates the total net weight of goods, excluding packaging and other transport materials."
+        tests:
+          - not_null
+      - name: trade_flag
+        description: "A string that indicates the type of trade (imp or exp)."
+        tests:
+          - not_null
+      - name: ingested_at
+        description: "Time of extraction from COMEX STAT API"
+        tests:
+          - not_null
+      - name: loaded_at
+        description: "Time of loading data to bronze table."
+        tests:
+          - not_null
+      - name: processed_at
+        description: "Time of processing data in silver stage."
+        tests:
+          - not_null
+
+  - name: silver_exports
+    description: "Creates date and trade_flag columns, remove unecessary columns and bring the city code."
+    config:
+      materialized: incremental
+      incremental_strategy: merge
+    columns:
+      - name: trade_date
+        description: "Imports date"
+        tests:
+          - not_null
+      - name: city_id
+        description: "ID from the city who exported."
+        tests:
+          - not_null
+      - name: trade_country_id
+        description: "ID of the target country for trade."
+        tests:
+          - not_null
+      - name: product_category_id
+        description: "ID from the SH4 product code."
+        tests:
+          - not_null
+      - name: fob_value
+        description: "A metric that represents the total value of goods at the time they are loaded onto the ship, excluding freight and insurance costs."
+        tests:
+          - not_null
+      - name: net_weight
+        description: "A metric that indicates the total net weight of goods, excluding packaging and other transport materials."
+        tests:
+          - not_null
+      - name: trade_flag
+        description: "A string that indicates the type of trade (imp or exp)."
+        tests:
+          - not_null
+      - name: ingested_at
+        description: "Time of extraction from COMEX STAT API"
+        tests:
+          - not_null
+      - name: loaded_at
+        description: "Time of loading data to bronze table."
+        tests:
+          - not_null
+      - name: processed_at
+        description: "Time of processing data in silver stage."
+        tests:
+          - not_null
+
+  - name: silver_cities
+    description: "Join state table with cities table and applies rename and type transformations."
+    config:
+      materialized: incremental
+      incremental_strategy: merge
+    columns:
+      - name: city_id
+        description: "Unique ID from cities."
+        tests:
+          - unique
+          - not_null
+      - name: city_name
+        description: "Name of the city."
+        tests:
+          - not_null
+      - name: state_name
+        description: "Name of the state where the city is from."
+        tests:
+          - not_null
+      - name: city_uf
+        description: "Concatenates city and uf in one string (e.g. Belém - PA)."
+        tests:
+          - not_null
+      - name: ingested_at
+        description: "Time of extraction from COMEX STAT API"
+        tests:
+          - not_null
+      - name: loaded_at
+        description: "Time of loading data to bronze table."
+        tests:
+          - not_null
+      - name: processed_at
+        description: "Time of processing data in silver stage."
+        tests:
+          - not_null
+
+  - name: silver_countries
+    description: "Rename and type columns of countries descriptions."
+    config:
+      materialized: incremental
+      incremental_strategy: merge
+    columns:
+      - name: country_id
+        description: "Unique ID from countries."
+        tests:
+          - unique
+          - not_null
+      - name: country_name
+        description: "Name of the country."
+        tests:
+          - not_null
+      - name: ingested_at
+        description: "Time of extraction from COMEX STAT API"
+        tests:
+          - not_null
+      - name: loaded_at
+        description: "Time of loading data to bronze table."
+        tests:
+          - not_null
+      - name: processed_at
+        description: "Time of processing data in silver stage."
+        tests:
+          - not_null

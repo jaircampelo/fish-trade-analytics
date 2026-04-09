@@ -1,0 +1,89 @@
+version: 2
+
+models:
+  - name: fact_trades
+    description: "Joins the import and export tables from Silver Stage."
+    config:
+      materialized: incremental
+      incremental_strategy: merge
+    columns:
+      - name: trade_date
+        description: "Imports and exports date."
+        tests:
+          - not_null
+      - name: city_id
+        description: "ID from the city who exported or imported."
+        tests:
+          - not_null
+      - name: trade_country_id
+        description: "ID of the target country for trade."
+        tests:
+          - not_null
+      - name: product_category_id
+        description: "ID from the SH4 product code."
+        tests:
+          - not_null
+      - name: fob_value
+        description: "A metric that represents the total value of goods at the time they are loaded onto the ship, excluding freight and insurance costs."
+        tests:
+          - not_null
+      - name: net_weight
+        description: "A metric that indicates the total net weight of goods, excluding packaging and other transport materials."
+        tests:
+          - not_null
+      - name: trade_flag
+        description: "A string that indicates the type of trade (imp or exp)."
+        tests:
+          - not_null
+      - name: created_at
+        description: "Time of creation of fact data from Silver Stage."
+        tests:
+          - not_null
+
+  - name: dim_cities
+    description: "Dimension table from cities and their respectives states."
+    config:
+      materialized: incremental
+      incremental_strategy: merge
+    columns:
+      - name: city_id
+        description: "Unique ID from cities."
+        tests:
+          - unique
+          - not_null
+      - name: city_name
+        description: "Name of the city."
+        tests:
+          - not_null
+      - name: state_name
+        description: "Name of the state where the city is from."
+        tests:
+          - not_null
+      - name: city_uf
+        description: "Concatenates city and uf in one string (e.g. Belém - PA)."
+        tests:
+          - not_null
+      - name: created_at
+        description: "Time of creation of dimension data from Silver Stage."
+        tests:
+          - not_null
+
+  - name: dim_countries
+    description: "Dimension table from countries."
+    config:
+      materialized: incremental
+      incremental_strategy: merge
+    columns:
+      - name: country_id
+        description: "Unique ID from countries."
+        tests:
+          - unique
+          - not_null
+      - name: country_name
+        description: "Name of the country."
+        tests:
+          - not_null
+      - name: created_at
+        description: "Time of creation of dimension data from Silver Stage."
+        tests:
+          - not_null

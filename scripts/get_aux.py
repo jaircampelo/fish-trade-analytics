@@ -66,6 +66,8 @@ for aux in ['uf', 'cities', 'countries']:
 
     df = get_aux(BASE_URL, aux)
 
+    df['ingested_at'] = pd.Timestamp.now()
+
     PROJECT_ROOT = Path(__file__).parent.parent
     output_file = f'aux_{aux}.parquet'
     output_path = PROJECT_ROOT / 'data' / 'raw' / output_file
