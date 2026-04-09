@@ -5,7 +5,7 @@ sources:
     description: "Raw tables extracted from COMEX STAT API."
     database: datawarehouse
     schema: bronze
-    loader: "python"
+    loader: "PostgreSQL database"
 
     tables:
       - name: fish_trade_export
