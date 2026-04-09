@@ -4,7 +4,7 @@
     schema='silver',
 	on_schema_change='append_new_columns',
 	indexes=[
-		{'columns': ['trade_date', 'city_id', 'trade_country_id', 'product_category_id'], 'unique': True},
+		{'columns': ['trade_date', 'city_id', 'trade_country_id', 'product_category_id', 'trade_flag'], 'unique': True},
 		
 		{'columns': ['city_id']},
 		{'columns': ['trade_country_id']},
@@ -116,7 +116,7 @@ select "trade_date"
 	 , "trade_flag"
 	 , "ingested_at"
 	 , "loaded_at"
-	 , timestamp as "processed_at"
+	 , current_timestamp as "processed_at"
   from final
  where "row_num" 			= 1
    and "is_valid_value" 	= true
