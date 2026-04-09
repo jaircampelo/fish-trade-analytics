@@ -234,6 +234,8 @@ def run_incremental_loading(
 
     files_dir = Path(__file__).resolve().parent.parent / 'data' / 'raw'
     df = pd.read_parquet(files_dir / file_name)
+    
+    df['loaded_at'] = pd.Timestamp.now()
 
     with engine.connect() as conn:
         conn.execute(text(f'CREATE SCHEMA IF NOT EXISTS {schema};'))
