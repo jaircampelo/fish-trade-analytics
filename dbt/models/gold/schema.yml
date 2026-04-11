@@ -15,16 +15,26 @@ models:
         description: "ID from the city who exported or imported."
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_cities')
+              field: city_id
       - name: trade_country_id
         description: "ID of the target country for trade."
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_countries')
+              field: country_id
       - name: product_category_id
         description: "ID from the SH4 product code."
         tests:
           - not_null
       - name: fob_value
         description: "A metric that represents the total value of goods at the time they are loaded onto the ship, excluding freight and insurance costs."
+        tests:
+          - not_null
+      - name: fob_value_real
+        description: "Bring the values from the past to present days using Consumer Price Index (CPI) from U.S. Bureau of Labor Statistics (BLS)."
         tests:
           - not_null
       - name: net_weight

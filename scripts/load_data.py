@@ -250,7 +250,9 @@ def run_incremental_loading(
             if_exists='append',
             index=False,
             schema=schema,
-        ) 
+        )
+
+        logging.info(f'Auxiliary table {table_name} loaded sucessfully on schema {schema}.')
     else:
         flow = file_name_list[2] # fish_trade_export - índice 2
         logging.info(f'Checking flow {flow}.')
@@ -324,3 +326,5 @@ def run_load_data():
     schema = 'bronze'
     for file_name in files:
         run_incremental_loading(engine, file_name, schema)
+
+run_load_data()

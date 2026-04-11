@@ -76,11 +76,8 @@ def run_get_aux():
         output_dir = output_path.parent
         output_dir.mkdir(parents=True, exist_ok=True)
 
-        if not output_path.exists():
-            logging.info(f'Persisting "{aux}" to "{output_file}".')
-            df.to_parquet(output_path, index=False, engine='pyarrow')
-            logging.info(f'File "{output_file}" successfully created.')
-        else:
-            logging.warning(f'File "{output_file}" already exists. Skipping...')
-
+        logging.info(f'Persisting "{aux}" to "{output_file}".')
+        df.to_parquet(output_path, index=False, engine='pyarrow')
+        logging.info(f'File "{output_file}" successfully created.')
+        
     logging.info('Auxiliary tables extraction completed.')
