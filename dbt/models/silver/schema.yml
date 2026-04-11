@@ -18,6 +18,8 @@ sources:
         description: "IDs and descriptions from world countries."
       - name: uf
         description: "IDs and descriptions from brazilian states."
+      - name: cpi
+        description: "Measure of the average change over time in the prices."
 
 models:
   - name: silver_imports
@@ -167,6 +169,34 @@ models:
           - not_null
       - name: ingested_at
         description: "Time of extraction from COMEX STAT API"
+        tests:
+          - not_null
+      - name: loaded_at
+        description: "Time of loading data to bronze table."
+        tests:
+          - not_null
+      - name: processed_at
+        description: "Time of processing data in silver stage."
+        tests:
+          - not_null
+
+  - name: silver_cpi
+    description: "Casting, typing, normalizing columns."
+    config:
+      materialized: incremental
+      incremental_strategy: merge
+    columns:
+      - name: cpi_date
+        description: "Date from the CPI value."
+        tests:
+          - unique
+          - not_null
+      - name: cpi_value
+        description: "CPI value wich we will going to calculate present FOB value at fact_trades."
+        tests:
+          - not_null
+      - name: ingested_at
+        description: "Time of extraction from CPI API"
         tests:
           - not_null
       - name: loaded_at
