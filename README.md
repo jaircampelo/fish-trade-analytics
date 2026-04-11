@@ -44,3 +44,28 @@ No modelo ETL (Extract, Transform, Load) os dados são carregados para dentro do
 
 ## 📁 Estrutura do Projeto
 
+```markdown
+fish-trade-analytics/
+│
+├── airflow/                    # Orquestração do pipeline com Apache Airflow
+│   ├── dags/                   # Definição das DAGs
+│   ├── logs/                   # Logs de execução
+│   └── plugins/                # Plugins customizados
+│
+├── data/
+│   └── raw/                    # Zona de pouso — arquivos Parquet extraídos da API
+│
+├── dbt/                        # Projeto dbt — transformações das camadas Silver e Gold
+│   ├── macros/                 # Macros SQL reutilizáveis
+│   ├── models/
+│   │   ├── silver/             # Camada Silver — limpeza e padronização
+│   │   └── gold/               # Camada Gold — modelo dimensional para BI
+│   └── tests/                  # Testes de qualidade de dados
+│
+├── notebooks/                  # Análise exploratória dos dados
+│
+├── postgres/
+│   └── init/                   # Scripts de inicialização do PostgreSQL
+│
+└── scripts/                    # Scripts Python de ingestão
+```
