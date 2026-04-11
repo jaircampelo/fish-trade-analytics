@@ -1,4 +1,7 @@
 services:
+  # ===================================
+  # PostgreSQL - Data Warehouse
+  # ===================================
   postgres:
     image: postgres:15
     container_name: postgres_warehouse
@@ -9,12 +12,18 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init/:/docker-entrypoint-initdb.d
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - data_network
   
+  # ===================================
+  # dbt - Data Transformation
+  # ===================================
   dbt:
     image: ghcr.io/dbt-labs/dbt-postgres:1.9.latest
     container_name: dbt_transforms
@@ -29,6 +38,117 @@ services:
       - ./dbt:/usr/app/dbt
     working_dir: /usr/app/dbt
     command: ["--version"]
+    networks:
+      - data_network
+
+  # ===================================
+  # Apache Airflow - Orchestration
+  # ===================================
+  airflow-init:
+    build: ./airflow
+    container_name: airflow_init
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      _AIRFLOW_DB_MIGRATE: 'true'
+      _AIRFLOW_WWW_USER_CREATE: 'true'
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/airflow
+      POSTGRES_HOST: postgres_warehouse
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        airflow db migrate
+        airflow users create \
+          --username admin \
+          --firstname Admin \
+          --lastname User \
+          --role Admin \
+          --email admin@example.com \
+          --password $${AIRFLOW_WWW_USER_PASSWORD:-admin} || true
+    networks:
+      - data_network
+
+  airflow-webserver:
+    build: ./airflow
+    container_name: airflow_webserver
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+    restart: always
+    env_file:
+      - .env
+    environment:
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/airflow
+      POSTGRES_HOST: postgres_warehouse
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+      - ./dbt:/opt/airflow/dbt
+      - ./data:/opt/airflow/data
+      - ./scripts:/opt/airflow/scripts
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - airflow webserver
+    networks:
+      - data_network
+
+  airflow-scheduler:
+    build: ./airflow
+    container_name: airflow_scheduler
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
+    restart: always
+    env_file:
+      - .env
+    environment:
+      AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/airflow
+      POSTGRES_HOST: postgres_warehouse
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+      - ./dbt:/opt/airflow/dbt
+      - ./data:/opt/airflow/data
+      - ./scripts:/opt/airflow/scripts
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8974/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - airflow scheduler
+    networks:
+      - data_network
+       
 
 volumes:
   postgres_data:
+
+networks:
+  data_network:
+    driver: bridge

@@ -25,3 +25,22 @@ Pensando nisso, esse projeto constrói uma solução do início ao fim e demonst
 | 🔀 Orquestração | **Apache Airflow 2.8** | DAGs, scheduling, retry |
 | 📊 Visualização | **Power BI** | Dashboards e KPIs de negócio |
 | 🐳 Infra | **Docker Compose** | Todos os serviços containerizados |
+
+## 📐 Decisões de Desenvolvimento
+
+### Arquitetura Medalhão
+
+Esse tipo de arquitetura em camadas é utilizado para organizar logicamente os dados.
+
+`Bronze`: armazena todos os dados brutos de origem externa.
+
+`Silver`: combina, faz merge, adapta e "limpa" os dados da camada `bronze`.
+
+`Gold`: disponibiliza os dados consumíveis para ferramentas de visualização de dados.
+
+### ELT vs ETL
+
+No modelo ETL (Extract, Transform, Load) os dados são carregados para dentro do banco somente após as transformações, deixando toda a documentação do projeto a cargo do desenvolvedor. Já o padrão ELT (Extract, Load, Transform) aproveita todo o poder do banco de dados para a realização das transformações e aproveita a capacidade do dbt de gerar documentações técnicas acerca do projeto.
+
+## 📁 Estrutura do Projeto
+
