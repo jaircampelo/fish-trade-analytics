@@ -17,7 +17,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 env_path = Path(__file__).resolve().parent.parent / '.env'
-load_dotenv(env_path)
+load_dotenv(env_path, override=False)
 
 #===========================================================#
 #                 Connecting to PostgreSQL                  #
@@ -25,7 +25,7 @@ load_dotenv(env_path)
 user = os.getenv('POSTGRES_USER')
 password = os.getenv('POSTGRES_PASSWORD')
 database = os.getenv('POSTGRES_DB')
-host = os.getenv('POSTGRES_HOST', 'localhost')
+host = os.getenv('POSTGRES_HOST') or 'localhost'
 port = os.getenv('POSTGRES_PORT', '5432')
 
 def get_engine():
@@ -47,7 +47,7 @@ def create_bronze_metatable(engine):
     Args:
         engine: the resulting engine of the function get_engine().
     """
-    with engine.connect() as conn:
+    with engine.begin() as conn:
         conn.execute(text('CREATE SCHEMA IF NOT EXISTS metadata;'))
         conn.execute(text(f"""
             CREATE TABLE IF NOT EXISTS metadata.bronze_meta_table (
@@ -60,7 +60,6 @@ def create_bronze_metatable(engine):
                 , processed_at   TIMESTAMP       NOT NULL DEFAULT NOW()
             );
         """))
-        conn.commit()
         logging.info('Bronze metatable created/verified successfully.')
 
 #===========================================================#
@@ -94,7 +93,7 @@ def get_latest_landing_meta_date_from(
          WHERE flow = :flow
     """)
 
-    with engine.connect() as conn:
+    with engine.begin() as conn:
         result = conn.execute(query, {'flow': flow})
         row = result.fetchone()
         return row[0] if row and row[0] else None
@@ -130,7 +129,7 @@ def get_latest_bronze_meta_date_to(
          WHERE flow = :flow
     """)
 
-    with engine.connect() as conn:
+    with engine.begin() as conn:
         result = conn.execute(query, {'flow': flow})
         row = result.fetchone()
         return row[0] if row and row[0] else None
@@ -175,7 +174,7 @@ def insert_bronze_meta_record(
             (:heading_code, :flow, :date_from, :date_to, :relative_file_path)
     """)
 
-    with engine.connect() as conn:
+    with engine.begin() as conn:
         conn.execute(
             query,
             {
@@ -186,7 +185,6 @@ def insert_bronze_meta_record(
                 'relative_file_path': relative_file_path,
             }
         )
-        conn.commit()
 
 #===========================================================#
 #                    Incremental loading                    #
@@ -215,10 +213,8 @@ def run_incremental_loading(
     """
     if file_name.startswith('aux'):
         table_name = file_name.removeprefix('aux_').removesuffix('.parquet')
-        if_exists = 'delete_rows'
     else:
         table_name = '_'.join(file_name.split('_')[:3])
-        if_exists = 'append'
 
         file_name_list = file_name.split('_')
 
@@ -237,15 +233,21 @@ def run_incremental_loading(
     
     df['loaded_at'] = pd.Timestamp.now()
 
-    with engine.connect() as conn:
+    with engine.begin() as conn:
         conn.execute(text(f'CREATE SCHEMA IF NOT EXISTS {schema};'))
-        conn.commit()
 
     if file_name.startswith('aux'):
+        with engine.begin() as conn:
+            # Use try/except in case table does not exist on first exec
+            try:
+                conn.execute(text(f'TRUNCATE TABLE {schema}.{table_name};'))
+            except Exception:
+                pass
+
         df.to_sql(
             name=table_name,
             con=engine,
-            if_exists=if_exists,
+            if_exists='append',
             index=False,
             schema=schema,
         ) 
@@ -260,7 +262,7 @@ def run_incremental_loading(
             df.to_sql(
                 name=table_name,
                 con=engine,
-                if_exists=if_exists,
+                if_exists='append',
                 index=False,
                 schema=schema,
             )
@@ -275,7 +277,7 @@ def run_incremental_loading(
                 df.to_sql(
                     name=table_name,
                     con=engine,
-                    if_exists=if_exists,
+                    if_exists='append',
                     index=False,
                     schema=schema,
                 )
@@ -291,7 +293,7 @@ def run_incremental_loading(
                 WHERE flow = :flow
         """)
 
-        with engine.connect() as conn:
+        with engine.begin() as conn:
             result = conn.execute(query, {'flow': flow})
             rows = result.fetchall()
 
@@ -307,16 +309,18 @@ def run_incremental_loading(
 #===========================================================#
 #                          Main                             #
 #===========================================================#
-# List table names
-files_dir = Path(__file__).resolve().parent.parent / 'data' / 'raw'
-files = os.listdir(files_dir)
-logging.info(f'Files available to probably be loaded ({len(files)}): {files}')
-engine = get_engine()
+def run_load_data():
 
-# Create (if not exists) bronze_meta_table
-create_bronze_metatable(engine)
+    # List table names
+    files_dir = Path(__file__).resolve().parent.parent / 'data' / 'raw'
+    files = os.listdir(files_dir)
+    logging.info(f'Files available to probably be loaded ({len(files)}): {files}')
+    engine = get_engine()
 
-# For each file, create a table on database
-schema = 'bronze'
-for file_name in files:
-    run_incremental_loading(engine, file_name, schema)
+    # Create (if not exists) bronze_meta_table
+    create_bronze_metatable(engine)
+
+    # For each file, create a table on database
+    schema = 'bronze'
+    for file_name in files:
+        run_incremental_loading(engine, file_name, schema)

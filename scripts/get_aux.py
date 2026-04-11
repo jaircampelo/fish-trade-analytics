@@ -61,24 +61,26 @@ def get_aux(
 #===========================================================#
 #               Extract and persist aux data                #
 #===========================================================#
-for aux in ['uf', 'cities', 'countries']:
-    logging.info(f'Starting extraction of auxiliary table "{aux}".')
+def run_get_aux():
 
-    df = get_aux(BASE_URL, aux)
+    for aux in ['uf', 'cities', 'countries']:
+        logging.info(f'Starting extraction of auxiliary table "{aux}".')
 
-    df['ingested_at'] = pd.Timestamp.now()
+        df = get_aux(BASE_URL, aux)
 
-    PROJECT_ROOT = Path(__file__).parent.parent
-    output_file = f'aux_{aux}.parquet'
-    output_path = PROJECT_ROOT / 'data' / 'raw' / output_file
-    output_dir = output_path.parent
-    output_dir.mkdir(parents=True, exist_ok=True)
+        df['ingested_at'] = pd.Timestamp.now()
 
-    if not output_path.exists():
-        logging.info(f'Persisting "{aux}" to "{output_file}".')
-        df.to_parquet(output_path, index=False, engine='pyarrow')
-        logging.info(f'File "{output_file}" successfully created.')
-    else:
-        logging.warning(f'File "{output_file}" already exists. Skipping...')
+        PROJECT_ROOT = Path(__file__).parent.parent
+        output_file = f'aux_{aux}.parquet'
+        output_path = PROJECT_ROOT / 'data' / 'raw' / output_file
+        output_dir = output_path.parent
+        output_dir.mkdir(parents=True, exist_ok=True)
 
-logging.info('Auxiliary tables extraction completed.')
+        if not output_path.exists():
+            logging.info(f'Persisting "{aux}" to "{output_file}".')
+            df.to_parquet(output_path, index=False, engine='pyarrow')
+            logging.info(f'File "{output_file}" successfully created.')
+        else:
+            logging.warning(f'File "{output_file}" already exists. Skipping...')
+
+    logging.info('Auxiliary tables extraction completed.')

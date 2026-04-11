@@ -21,7 +21,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 BASE_URL = 'https://api-comexstat.mdic.gov.br'
 
 env_path = Path(__file__).resolve().parent.parent / '.env'
-load_dotenv(env_path)
+load_dotenv(env_path, override=False)
 
 #===========================================================#
 #                     Database connection                   #
@@ -33,7 +33,7 @@ def get_engine():
     user = os.getenv('POSTGRES_USER')
     password = os.getenv('POSTGRES_PASSWORD')
     database = os.getenv('POSTGRES_DB')
-    host = os.getenv('POSTGRES_HOST', 'localhost')
+    host = os.getenv('POSTGRES_HOST') or 'localhost'
     port = os.getenv('POSTGRES_PORT', '5432')
 
     logging.info(f'Connecting to {host}:{port}/{database}.')
@@ -49,7 +49,7 @@ def create_landing_metatable(engine):
     Args:
         engine: the resulting engine of the function get_engine().
     """
-    with engine.connect() as conn:
+    with engine.begin() as conn:
         conn.execute(text('CREATE SCHEMA IF NOT EXISTS metadata;'))
         conn.execute(text(f"""
             CREATE TABLE IF NOT EXISTS metadata.landing_meta_table (
@@ -62,7 +62,6 @@ def create_landing_metatable(engine):
                 , ingested_at           TIMESTAMP       NOT NULL DEFAULT NOW()
             );
         """))
-        conn.commit()
         logging.info('Landing metatable created/verified successfully.')
 
 #===========================================================#
@@ -145,7 +144,7 @@ def query_comexstat(
     heading_values = [filter['values'] for filter in filters]
 
     logging.info(f'Headings found: {heading_values}')
-    logging.info(f'Consulting {flow} from {year_interval['from']} → {year_interval['to']}')
+    logging.info(f'Consulting {flow} from {year_interval["from"]} → {year_interval["to"]}')
 
     payload = {
         'flow': flow,
@@ -273,7 +272,7 @@ def insert_landing_meta_record(engine, heading_code: str, flow: Literal['import'
             (:heading_code, :flow, :date_from, :date_to, :relative_file_path)
     """)
 
-    with engine.connect() as conn:
+    with engine.begin() as conn:
         conn.execute(
             query,
             {
@@ -284,7 +283,6 @@ def insert_landing_meta_record(engine, heading_code: str, flow: Literal['import'
                 'relative_file_path': relative_file_path,
             }
         )
-        conn.commit()
 
 #===========================================================#
 #                  Incremental ingestion                    #
@@ -394,10 +392,12 @@ def run_incremental_ingestion(
 #===========================================================#
 #                          Main                             #
 #===========================================================#
-engine = get_engine()
-create_landing_metatable(engine)
+def run_get_data():
+    
+    engine = get_engine()
+    create_landing_metatable(engine)
 
-heading_codes = get_heading_filter()
-flows = ['export', 'import']
+    heading_codes = get_heading_filter()
+    flows = ['export', 'import']
 
-run_incremental_ingestion(engine, heading_codes, flows, start_year=2006)
+    run_incremental_ingestion(engine, heading_codes, flows, start_year=2006)
