@@ -3,9 +3,9 @@ fish_trade_analytics:
   outputs:
     dev:
       type: postgres
-      host: "{{ env_var('POSTGRES_HOST') }}"
-      user: "{{ env_var('POSTGRES_USER', 'dataeng') }}"
-      password: "{{ env_var('POSTGRES_PASSWORD', 'CHANGE_ME_strong_password_here') }}"
+      host: "{{ env_var('POSTGRES_HOST', 'postgres') }}"
+      user: "{{ env_var('POSTGRES_USER', 'dataadmin') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD', 'dataadmin') }}"
       port: "{{ env_var('POSTGRES_PORT', '5432') | int }}"
       dbname: "{{ env_var('POSTGRES_DB', 'datawarehouse') }}"
       schema: public
@@ -14,8 +14,8 @@ fish_trade_analytics:
     prod:
       type: postgres
       host: "{{ env_var('POSTGRES_HOST', 'postgres') }}"
-      user: "{{ env_var('POSTGRES_USER', 'dataeng') }}"
-      password: "{{ env_var('POSTGRES_PASSWORD', 'CHANGE_ME_strong_password_here') }}"
+      user: "{{ env_var('POSTGRES_USER', 'dataadmin') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD', 'dataadmin') }}"
       port: "{{ env_var('POSTGRES_PORT', '5432') | int }}"
       dbname: "{{ env_var('POSTGRES_DB', 'datawarehouse') }}"
       schema: public
