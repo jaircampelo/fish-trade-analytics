@@ -82,6 +82,21 @@ def fish_trade_pipeline():
     def test_aggregate():
         return run_dbt_command('test', 'gold')
     
-    [extract_main(), extract_aux()] >> load() >> transform() >> test_transform() >> aggregate() >> test_aggregate()
+    # Generate DBT docs
+    @task
+    def generate_docs():
+        base_path = '/opt/airflow/dbt'
+        args = [
+            'dbt', 'docs', 'generate',
+            '--profiles-dir', base_path,
+            '--project-dir', base_path
+        ]
+        result = subprocess.run(args, cwd=base_path, capture_output=True, text=True)
+        logging.info(result.stdout)
+        if result.returncode != 0:
+            raise Exception(f"dbt docs generate failure: {result.stderr}")
+        return result.stdout
+    
+    [extract_main(), extract_aux()] >> load() >> transform() >> test_transform() >> aggregate() >> test_aggregate() >> generate_docs()
 
 fish_trade_pipeline()
