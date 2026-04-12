@@ -1,5 +1,6 @@
 name: 'fish_trade_analytics'
 version: '1.0.0'
+config-version: 2
 
 profile: 'fish_trade_analytics'
 
@@ -25,12 +26,16 @@ models:
       +schema: silver
       +tags: ["silver", "transform", "clean"]
       +on_schema_change: "append_new_columns"
+      +docs:
+        node_color: "#10477E"
 
     gold:
       +materialized: incremental
       +schema: gold
       +tags: ["gold", "aggregated"]
       +on_schema_change: "append_new_columns"
+      +docs:
+        node_color: "#FFD700"
 
 seeds:
   fish_trade_analytics:
@@ -41,3 +46,5 @@ seeds:
         product_category_id: char(4)
         product_category_name: varchar(100)
         product_category_description: text
+      +docs:
+        node_color: "#BBC1C7"

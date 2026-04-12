@@ -285,6 +285,64 @@ def insert_landing_meta_record(engine, heading_code: str, flow: Literal['import'
         )
 
 #===========================================================#
+#                     Get years interval                    #
+#===========================================================#
+def get_year_intervals(date_from: date, date_to: date) -> list[tuple[str, str]]:
+    """
+    Returns a list of date intervals formatted for the ComexStat API.
+
+    Periods up to 2023 are grouped in 5-year blocks, which is the maximum
+    interval the /cities endpoint handles without silently truncating monthly data.
+    From 2024 onwards, one request per year is required due to the higher
+    trade volume in recent years causing the API to return incomplete months
+    when larger intervals are used.
+
+    Args:
+        date_from (date): start date of the extraction period.
+        date_to (date): end date of the extraction period. Usually the last
+            available date from the ComexStat API (/cities/dates/updated).
+
+    Returns:
+        list[tuple[str, str]]: list of (from, to) tuples in 'YYYY-MM' format,
+            ready to be used as the 'period' parameter in the API payload.
+
+    Examples:
+```python
+        get_year_intervals(date(2006, 1, 1), date(2026, 3, 1))
+        # Returns:
+        # [('2006-01', '2010-12'),
+        #  ('2011-01', '2015-12'),
+        #  ('2016-01', '2020-12'),
+        #  ('2021-01', '2023-12'),
+        #  ('2024-01', '2024-12'),
+        #  ('2025-01', '2025-12'),
+        #  ('2026-01', '2026-03')]
+```
+    """
+    intervals = []
+    
+    # 2006-2023: 5 years chunk
+    cutoff_year = 2024
+    current = date_from.year
+    
+    while current < min(cutoff_year, date_to.year + 1):
+        end = min(current + 4, cutoff_year - 1, date_to.year)
+        from_str = f'{current}-01'
+        to_str = f'{end}-12' if end < date_to.year else date_to.strftime('%Y-%m')
+        intervals.append((from_str, to_str))
+        current = end + 1
+
+    # 2024 em diante: um ano por requisição
+    current = max(current, cutoff_year)
+    while current <= date_to.year:
+        from_str = f'{current}-01'
+        to_str = f'{current}-12' if current < date_to.year else date_to.strftime('%Y-%m')
+        intervals.append((from_str, to_str))
+        current += 1
+
+    return intervals
+
+#===========================================================#
 #                  Incremental ingestion                    #
 #===========================================================#
 def run_incremental_ingestion(
@@ -358,20 +416,29 @@ def run_incremental_ingestion(
             logging.info(f'Flow {flow} is up to date. Skipping...')
             continue
 
-        year_interval = {
-            'from': date_from.strftime('%Y-%m'),
-            'to': date_to.strftime('%Y-%m'),
-        }
+        intervals = get_year_intervals(date_from, date_to)
+        dfs = []
 
-        df = query_comexstat(
-            year_interval=year_interval,
-            filters=heading_codes,
-            metrics=['metricFOB', 'metricKG'],
-            details=['country', 'state', 'city', 'heading'],
-            flow=flow,
-        )
+        for from_str, to_str in intervals:
+            year_interval = {
+                'from': from_str,
+                'to': to_str,
+            }
 
-        df['ingested_at'] = pd.Timestamp.now()
+            df_chunk = query_comexstat(
+                year_interval=year_interval,
+                filters=heading_codes,
+                metrics=['metricFOB', 'metricKG'],
+                details=['country', 'state', 'city', 'heading'],
+                flow=flow,
+            )
+
+            df_chunk['ingested_at'] = pd.Timestamp.now()
+            dfs.append(df_chunk)
+            logging.info(f'Chunk {from_str} → {to_str} extracted. Rows: {len(df_chunk)}')
+            sleep(10)
+
+        df = pd.concat(dfs, ignore_index=True)
 
         output_file = f'fish_trade_{flow}_{date_from.strftime("%Y%m")}_{date_to.strftime("%Y%m")}.parquet'
         output_path = PROJECT_ROOT / 'data' / 'raw' / output_file
@@ -386,9 +453,6 @@ def run_incremental_ingestion(
             insert_landing_meta_record(engine, heading_code, flow, date_from, date_to, relative_file_path)
 
         logging.info(f'Landing metatable updated for flow {flow}.')
-
-        sleep(5)
-
 #===========================================================#
 #                          Main                             #
 #===========================================================#
@@ -401,3 +465,5 @@ def run_get_data():
     flows = ['export', 'import']
 
     run_incremental_ingestion(engine, heading_codes, flows, start_year=2006)
+
+run_get_data()

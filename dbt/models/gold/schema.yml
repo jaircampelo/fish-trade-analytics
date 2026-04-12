@@ -107,12 +107,12 @@ models:
         description: "SH4 code from 0301 to 0308."
         data_tests:
           - unique
-          - not null
+          - not_null
       - name: product_category_name
         description: "Short name of the product category."
         data_tests:
-          - not null
+          - not_null
       - name: product_category_description
         description: "Full description of the product category."
         data_tests:
-          - not null
+          - not_null
