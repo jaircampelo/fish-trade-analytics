@@ -6,10 +6,6 @@ import sys
 
 sys.path.insert(0, '/opt/airflow/scripts')
 
-from get_data import run_get_data
-from get_aux import run_get_aux
-from load_data import run_load_data
-
 # Set default args
 default_args = {
     'owner': 'jaircampelo',
@@ -50,16 +46,25 @@ def fish_trade_pipeline():
     # Extract main data from fish trade imports and exports using COMEX STAT API.
     @task
     def extract_main():
+        from get_data import run_get_data
         run_get_data()
 
     # Extract aux data from COMEX STAT API.
     @task
     def extract_aux():
+        from get_aux import run_get_aux
         run_get_aux()
+
+    # Extract CPI values from Bureau of Labor Statistics API.
+    @task
+    def extract_cpi():
+        from get_cpi import run_get_cpi
+        run_get_cpi()
 
     # Load data extracted to PostgreSQL.
     @task
     def load():
+        from load_data import run_load_data
         run_load_data()
 
     # Apply DBT transformations on the tables loaded to PostgreSQL.
@@ -71,6 +76,21 @@ def fish_trade_pipeline():
     @task
     def test_transform():
         return run_dbt_command('test', 'silver')
+    
+    # Run seeds
+    @task
+    def seed():
+        base_path = '/opt/airflow/dbt'
+        args = [
+            'dbt', 'seed',
+            '--profiles-dir', base_path,
+            '--project-dir', base_path
+        ]
+        result = subprocess.run(args, cwd=base_path, capture_output=True, text=True)
+        logging.info(result.stdout)
+        if result.returncode != 0:
+            raise Exception(f"dbt seed failure: {result.stderr}")
+        return result.stdout
     
     # Prepare the data for use in visualization tool.
     @task
@@ -95,8 +115,8 @@ def fish_trade_pipeline():
         logging.info(result.stdout)
         if result.returncode != 0:
             raise Exception(f"dbt docs generate failure: {result.stderr}")
-        return result.stdout
+        return result.stdout 
     
-    [extract_main(), extract_aux()] >> load() >> transform() >> test_transform() >> aggregate() >> test_aggregate() >> generate_docs()
+    [extract_main(), extract_aux(), extract_cpi()] >> load() >> transform() >> test_transform() >> seed() >> aggregate() >> test_aggregate() >> generate_docs()
 
 fish_trade_pipeline()

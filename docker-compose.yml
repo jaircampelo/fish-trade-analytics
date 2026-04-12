@@ -41,6 +41,31 @@ services:
     networks:
       - data_network
 
+  dbt-docs:
+    image: ghcr.io/dbt-labs/dbt-postgres:1.9.latest
+    container_name: dbt_docs
+    entrypoint: /bin/bash
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      POSTGRES_HOST: postgres
+    volumes:
+      - ./dbt:/usr/app/dbt
+    working_dir: /usr/app/dbt
+    ports:
+      - "8081:8081"
+    command: >
+      -c "until [[ -f target/index.html ]]; do
+            echo 'Waiting docs generate from pipeline...';
+            sleep 10;
+          done;
+          dbt docs serve --port 8081 --host 0.0.0.0"
+    networks:
+      - data_network
+
   # ===================================
   # Apache Airflow - Orchestration
   # ===================================

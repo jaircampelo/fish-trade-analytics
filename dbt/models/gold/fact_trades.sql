@@ -87,7 +87,7 @@ max_cpi as (
 -- Bring CPI value from silver_cpi
 joined as (
     select u.*
-         , u."fob_value" * (m."max_cpi_value" / c."cpi_value") as "fob_value_real"
+         , u."fob_value" * (m."max_cpi_value" / c."cpi_value")::decimal(20,2) as "fob_value_real"
       from united           u
       left join cpi_values  c on u."trade_date" = c."cpi_date"
      cross join max_cpi     m

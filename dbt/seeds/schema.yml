@@ -9,14 +9,14 @@ seeds:
         description: "ID for SH4 heading codes."
         data_tests:
           - unique
-          - not null
+          - not_null
       - name: product_category_name
         description: "Names of SH4 heading codes."
         data_tests:
           - unique
-          - not null
+          - not_null
       - name: product_category_description
         description: "Detail description of SH4 heading codes."
         data_tests:
           - unique
-          - not null
+          - not_null
