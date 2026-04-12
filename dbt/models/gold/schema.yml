@@ -97,3 +97,22 @@ models:
         description: "Time of creation of dimension data from Silver Stage."
         tests:
           - not_null
+
+  - name: dim_product_categories
+    description: "SH4 product categories related to fishery resources."
+    config:
+      materialized: table
+    columns:
+      - name: product_category_id
+        description: "SH4 code from 0301 to 0308."
+        data_tests:
+          - unique
+          - not null
+      - name: product_category_name
+        description: "Short name of the product category."
+        data_tests:
+          - not null
+      - name: product_category_description
+        description: "Full description of the product category."
+        data_tests:
+          - not null

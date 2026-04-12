@@ -1,0 +1,22 @@
+seeds:
+  - name: seed_product_categories
+    description: "Descriptions from heading codes (SH4 codes), extracted from auxiliary tables at COMEX STAT."
+    config:
+      delimiter: ";"
+      tags: ["SH4", "Category"]
+    columns:
+      - name: product_category_id
+        description: "ID for SH4 heading codes."
+        data_tests:
+          - unique
+          - not null
+      - name: product_category_name
+        description: "Names of SH4 heading codes."
+        data_tests:
+          - unique
+          - not null
+      - name: product_category_description
+        description: "Detail description of SH4 heading codes."
+        data_tests:
+          - unique
+          - not null

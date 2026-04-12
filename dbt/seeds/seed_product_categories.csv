@@ -1,0 +1,9 @@
+product_category_id;product_category_name;product_category_description
+0301;Peixes vivos;Peixes vivos
+0302;Peixes frescos ou refrigerados;Peixes frescos ou refrigerados exceto filés
+0303;Peixes congelados;Peixes congelados exceto filés
+0304;Filés de peixes;Filés de peixes e outra carne de peixes (mesmo picada), frescos, refrigerados ou congelados
+0305;Peixes secos, salgados ou em salmoura;Peixes secos, salgados ou em salmoura, defumados, mesmo cozidos antes ou durante a defumação e farinhas, pós e pellets, de peixe, próprios para alimentação humana
+0306;Crustáceos;Crustáceos, mesmo sem casca, vivos, frescos, refrigerados, congelados, secos, salgados ou em salmoura, com casca, cozidos em água ou vapor, mesmo refrigerados, congelados, secos, salgados ou em salmoura e farinhas, pó e pellets de crustáceos
+0307;Moluscos;Moluscos, com ou sem concha, vivos, frescos, refrigerados, congelados, secos, salgados ou em salmoura, invertebrados aquáticos, exceto crustáceos e moluscos, vivos, frescos, refrigerados, congelados, secos, salgados ou em salmoura e farinhas, pó e pellets
+0308;Invertebrados aquáticos;Invertebrados aquáticos, exceto crustáceos e moluscos, vivos

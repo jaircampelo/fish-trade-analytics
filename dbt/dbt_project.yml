@@ -31,3 +31,13 @@ models:
       +schema: gold
       +tags: ["gold", "aggregated"]
       +on_schema_change: "append_new_columns"
+
+seeds:
+  fish_trade_analytics:
+    seed_product_categories:
+      +delimiter: ";"
+      +schema: bronze
+      +column_types:
+        product_category_id: char(4)
+        product_category_name: varchar(100)
+        product_category_description: text
