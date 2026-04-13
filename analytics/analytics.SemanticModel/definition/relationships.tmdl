@@ -1,0 +1,16 @@
+relationship AutoDetected_55dd1ba1-6b1f-43c5-a117-324efbb552d3
+	fromColumn: fact_trades.city_id
+	toColumn: dim_cities.city_id
+
+relationship AutoDetected_d6aeb4ff-ed25-41f8-95fb-fd63fa8c3def
+	fromColumn: fact_trades.product_category_id
+	toColumn: dim_product_categories.product_category_id
+
+relationship 4a1639f8-8ee3-57e3-a18a-eba3932e5353
+	fromColumn: fact_trades.trade_date
+	toColumn: dim_calendario.Data
+
+relationship bc75091c-855c-f31b-2099-2b6b06bfa391
+	fromColumn: fact_trades.trade_country_id
+	toColumn: dim_countries.country_id
+

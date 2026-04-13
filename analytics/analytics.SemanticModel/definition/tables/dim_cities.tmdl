@@ -1,0 +1,51 @@
+table dim_cities
+	lineageTag: c220c70b-ec8d-47f3-a990-4b1e5e7395b6
+
+	column city_id
+		dataType: string
+		lineageTag: 8d109b20-963a-4300-b008-85c71c15d3cc
+		summarizeBy: none
+		sourceColumn: city_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column city_name
+		dataType: string
+		lineageTag: bdf150ac-db26-4f03-b641-f38b30cd0d7f
+		dataCategory: County
+		summarizeBy: none
+		sourceColumn: city_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column state_name
+		dataType: string
+		lineageTag: c111153e-173c-488f-8e58-b1b9b7143df1
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: state_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column city_uf
+		dataType: string
+		lineageTag: fb89d549-1306-4fe2-8ae8-19dfd6171672
+		summarizeBy: none
+		sourceColumn: city_uf
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_cities = m
+		mode: import
+		source =
+				let
+				    Fonte = PostgreSQL.Database("localhost", "datawarehouse"),
+				    gold_dim_cities = Fonte{[Schema="gold",Item="dim_cities"]}[Data],
+				    outrasColunasRemovidas = Table.SelectColumns(gold_dim_cities,{"city_id", "city_name", "state_name", "city_uf"})
+				in
+				    outrasColunasRemovidas
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

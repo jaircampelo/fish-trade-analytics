@@ -1,0 +1,40 @@
+table dim_product_categories
+	lineageTag: 6a9e999a-cc06-43e6-91d4-0d5f8272c319
+
+	column product_category_id
+		dataType: string
+		lineageTag: c493e0d2-c072-475c-89fc-d423bd82bc5b
+		summarizeBy: none
+		sourceColumn: product_category_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_category_name
+		dataType: string
+		lineageTag: f3404bfe-492b-449d-8098-fbd5be4f08d9
+		summarizeBy: none
+		sourceColumn: product_category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_category_description
+		dataType: string
+		lineageTag: aa5562a7-f010-4bbe-b4b5-80b47c950bf7
+		summarizeBy: none
+		sourceColumn: product_category_description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_product_categories = m
+		mode: import
+		source =
+				let
+				    Fonte = PostgreSQL.Database("localhost", "datawarehouse"),
+				    gold_dim_product_categories = Fonte{[Schema="gold",Item="dim_product_categories"]}[Data]
+				in
+				    gold_dim_product_categories
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

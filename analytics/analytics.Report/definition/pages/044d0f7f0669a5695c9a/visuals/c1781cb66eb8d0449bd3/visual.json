@@ -1,0 +1,163 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "c1781cb66eb8d0449bd3",
+  "position": {
+    "x": 56.558603491271825,
+    "y": 179.10224438902745,
+    "z": 0,
+    "height": 145.43640897755611,
+    "width": 1830.074812967581,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "$ Valor Exportacoes"
+                }
+              },
+              "queryRef": "fact_trades.$ Valor Exportacoes",
+              "nativeQueryRef": "$ Valor Exportacoes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "$ Valor Importacoes"
+                }
+              },
+              "queryRef": "fact_trades.$ Valor Importacoes",
+              "nativeQueryRef": "$ Valor Importacoes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "$ Corrente"
+                }
+              },
+              "queryRef": "fact_trades.$ Corrente Comercial",
+              "nativeQueryRef": "$ Corrente"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "$ Balança Comercial"
+                }
+              },
+              "queryRef": "fact_trades.$ Balança Comercial",
+              "nativeQueryRef": "$ Balança Comercial"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "$ Preco Medio por Quilo"
+                }
+              },
+              "queryRef": "fact_trades.$ Preco Medio por Quilo",
+              "nativeQueryRef": "$ Preco Medio por Quilo"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "% Taxa de Cobertura"
+                }
+              },
+              "queryRef": "fact_trades.% Taxa de Cobertura",
+              "nativeQueryRef": "% Taxa de Cobertura"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "fact_trades"
+                  }
+                },
+                "Property": "$ Valor Exportacoes"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "layout": [
+        {
+          "properties": {
+            "autoGrid": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "columnCount": {
+              "expr": {
+                "Literal": {
+                  "Value": "7L"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
