@@ -1,0 +1,34 @@
+table dim_countries
+	lineageTag: fe7449eb-7b01-461a-af59-fb33036195a6
+
+	column country_id
+		dataType: string
+		lineageTag: a93609dc-e827-4d6d-b7c8-1448d1bd1c2a
+		summarizeBy: none
+		sourceColumn: country_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_name
+		dataType: string
+		lineageTag: 465161a2-ef83-4a3c-95a7-7e23d4b37488
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: country_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_countries = m
+		mode: import
+		source =
+				let
+				    Fonte = PostgreSQL.Database("localhost", "datawarehouse"),
+				    gold_dim_countries = Fonte{[Schema="gold",Item="dim_countries"]}[Data],
+				    outrasColunasRemovidas = Table.SelectColumns(gold_dim_countries,{"country_id", "country_name"})
+				in
+				    outrasColunasRemovidas
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

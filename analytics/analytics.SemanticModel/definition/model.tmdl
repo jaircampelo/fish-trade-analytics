@@ -1,0 +1,22 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["dim_cities","dim_countries","dim_product_categories","fact_trades","dim_calendario"]
+
+annotation PBI_ProTooling = ["TMDLView_Desktop","DevMode","DaxQueryView_Desktop"]
+
+ref table dim_cities
+ref table dim_countries
+ref table dim_product_categories
+ref table fact_trades
+ref table dim_calendario
+
+ref cultureInfo pt-BR
+

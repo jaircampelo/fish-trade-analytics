@@ -1,0 +1,92 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 262.38305001469371,
+            "y": 0
+          },
+          "nodeIndex": "dim_cities",
+          "nodeLineageTag": "c220c70b-ec8d-47f3-a990-4b1e5e7395b6",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 1,
+          "expandedHeight": 176
+        },
+        {
+          "location": {
+            "x": 520.38305001469371,
+            "y": 0
+          },
+          "nodeIndex": "dim_countries",
+          "nodeLineageTag": "fe7449eb-7b01-461a-af59-fb33036195a6",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 5,
+          "expandedHeight": 128
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "dim_product_categories",
+          "nodeLineageTag": "6a9e999a-cc06-43e6-91d4-0d5f8272c319",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 2,
+          "expandedHeight": 152
+        },
+        {
+          "location": {
+            "x": 261.20156119318528,
+            "y": 364
+          },
+          "nodeIndex": "fact_trades",
+          "nodeLineageTag": "285c657e-9154-4d2e-a1c6-7d79ec1130bd",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 3,
+          "expandedHeight": 272
+        },
+        {
+          "location": {
+            "x": 776.38305001469371,
+            "y": 0
+          },
+          "nodeIndex": "dim_calendario",
+          "nodeLineageTag": "b5f301c5-ebad-46ac-8bc3-2713dff36683",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 4,
+          "expandedHeight": 300
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

@@ -1,0 +1,253 @@
+table fact_trades
+	lineageTag: 285c657e-9154-4d2e-a1c6-7d79ec1130bd
+
+	measure '$ Corrente' = SUM(fact_trades[fob_value])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Medidas
+		lineageTag: 317ecf7d-40d9-4333-a168-ba67e8726581
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure '$ Valor Exportacoes' =
+			
+			CALCULATE(
+			    SUM(fact_trades[fob_value]),
+			    fact_trades[trade_flag] = "exp"
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Medidas
+		lineageTag: a90ac50b-1aa3-405c-811d-62a877a67aca
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure '$ Valor Importacoes' =
+			
+			CALCULATE(
+			    SUM(fact_trades[fob_value]),
+			    fact_trades[trade_flag] = "imp"
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Medidas
+		lineageTag: e0676381-f298-48a0-973e-f8961148ee11
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure '$ Balança Comercial' = [$ Valor Exportacoes] - [$ Valor Importacoes]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Medidas
+		lineageTag: 507bec1c-18ff-4d6e-af4a-67811d9b2cd8
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure '# Peso Líquido' = SUM(fact_trades[net_weight])
+		displayFolder: Medidas
+		lineageTag: 0e7e4ce6-7ccf-43cc-8d1f-5143ef98747e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '$ Preco Medio por Quilo' = DIVIDE([$ Corrente], [# Peso Líquido])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Medidas
+		lineageTag: 3eaa3fb0-33cf-4c11-9577-b8da2d194ec0
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure '% Participacao no Total' =
+			
+			VAR __Total =
+			CALCULATE(
+			    [$ Valor Exportacoes],
+			    ALL(fact_trades)
+			)
+			
+			VAR __Result = DIVIDE([$ Valor Exportacoes], __Total)
+			
+			RETURN
+			__Result
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Medidas
+		lineageTag: 025c80d1-c2ee-4b96-b7ab-75f0efdcd968
+
+	measure '% Taxa de Cobertura' = DIVIDE([$ Valor Exportacoes], [$ Valor Importacoes])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Medidas
+		lineageTag: 540b50da-7533-4ce0-bf13-cb8111333819
+
+	measure Ranking =
+			
+			VAR __Rank =
+			RANK(
+			    DENSE,
+			    ALLSELECTED(dim_cities[state_name]),
+			    ORDERBY([$ Valor Exportacoes], DESC)
+			)
+			
+			RETURN
+			__Rank
+		formatString: 0
+		displayFolder: Medidas
+		lineageTag: 6ce5d103-ce7e-4114-b585-0f184742de1c
+
+	measure 'Top 5 Municipios' =
+			
+			VAR __TopN =
+			TOPN(
+			    5,
+			    ALL(dim_cities[city_name]),
+			    [$ Valor Exportacoes], DESC
+			)
+			
+			VAR __Result = 0
+			
+			RETURN
+			CALCULATE(
+			    [$ Valor Exportacoes],
+			    KEEPFILTERS(__TopN)
+			)
+		displayFolder: Medidas
+		lineageTag: a74cea51-dc20-4c93-a4cd-f9dc59fd671b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '# Qtd Parceiros Exp' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_trades[trade_country_id]),
+			    fact_trades[trade_flag] = "exp"
+			)
+		formatString: 0
+		displayFolder: Medidas
+		lineageTag: d7ae89a7-5d4e-4f83-b7fd-c4fe31b944d3
+
+	measure '# Qtd Parceiros Imp' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_trades[trade_country_id]),
+			    fact_trades[trade_flag] = "imp"
+			)
+		formatString: 0
+		displayFolder: Medidas
+		lineageTag: a6c7e583-7cde-4e03-bc02-85ee170151fc
+
+	measure 'Top 5 Paises Parceiros' =
+			
+			VAR __TopN =
+			TOPN(
+			    5,
+			    ALL(dim_countries[country_name]),
+			    [$ Valor Exportacoes], DESC
+			)
+			
+			VAR __Result = 0
+			
+			RETURN
+			CALCULATE(
+			    [$ Valor Exportacoes],
+			    KEEPFILTERS(__TopN)
+			)
+		displayFolder: Medidas
+		lineageTag: eb82da6a-5d3d-4e4f-9893-2615f5df18a6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '$ Valor Importacoes Negativo' = -[$ Valor Importacoes]
+		displayFolder: Medidas
+		lineageTag: 9b38854f-f7d2-494c-b69b-8febe3cf801b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column trade_date
+		dataType: dateTime
+		formatString: Long Date
+		displayFolder: Colunas
+		lineageTag: 7194cb88-4a9c-460e-8e0e-db0f703411fd
+		summarizeBy: none
+		sourceColumn: trade_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column city_id
+		dataType: string
+		displayFolder: Colunas
+		lineageTag: 29c2915c-9655-48fd-9a49-54b8abe59fd4
+		summarizeBy: none
+		sourceColumn: city_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column trade_country_id
+		dataType: string
+		displayFolder: Colunas
+		lineageTag: 5f334f13-e84d-4a2a-9817-e630ab51b4e5
+		summarizeBy: none
+		sourceColumn: trade_country_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_category_id
+		dataType: string
+		displayFolder: Colunas
+		lineageTag: cf24f1b6-a9d5-423c-8f91-3807a1a25986
+		summarizeBy: none
+		sourceColumn: product_category_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fob_value
+		dataType: double
+		displayFolder: Colunas
+		lineageTag: 60ca4a3b-ca16-4f60-b044-785a82e96c9a
+		summarizeBy: sum
+		sourceColumn: fob_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fob_value_real
+		dataType: double
+		displayFolder: Colunas
+		lineageTag: 7fd2462e-11da-4db2-963f-b0e70167f7cc
+		summarizeBy: sum
+		sourceColumn: fob_value_real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column net_weight
+		dataType: double
+		displayFolder: Colunas
+		lineageTag: 3383199b-4efd-4f13-be61-1c6b4aae26eb
+		summarizeBy: sum
+		sourceColumn: net_weight
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column trade_flag
+		dataType: string
+		displayFolder: Colunas
+		lineageTag: fec43dc8-1565-454d-a631-77988fb54ebe
+		summarizeBy: none
+		sourceColumn: trade_flag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_trades = m
+		mode: import
+		source =
+				let
+				    Fonte = PostgreSQL.Database("localhost", "datawarehouse"),
+				    gold_fact_trades = Fonte{[Schema="gold",Item="fact_trades"]}[Data],
+				    outrasColunasRemovidas = Table.SelectColumns(gold_fact_trades,{"trade_date", "city_id", "trade_country_id", "product_category_id", "fob_value", "fob_value_real", "net_weight", "trade_flag"})
+				in
+				    outrasColunasRemovidas
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
