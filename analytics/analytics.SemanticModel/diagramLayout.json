@@ -52,8 +52,8 @@
         },
         {
           "location": {
-            "x": 261.20156119318528,
-            "y": 364
+            "x": 383.20156119318528,
+            "y": 264
           },
           "nodeIndex": "fact_trades",
           "nodeLineageTag": "285c657e-9154-4d2e-a1c6-7d79ec1130bd",

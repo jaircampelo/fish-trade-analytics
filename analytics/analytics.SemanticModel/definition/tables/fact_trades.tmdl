@@ -1,53 +1,53 @@
 table fact_trades
 	lineageTag: 285c657e-9154-4d2e-a1c6-7d79ec1130bd
 
-	measure '$ Corrente' = SUM(fact_trades[fob_value])
+	measure '$ Corrente' = [$ Exportacoes] + [$ Importacoes]
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Medidas
+		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: 317ecf7d-40d9-4333-a168-ba67e8726581
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure '$ Valor Exportacoes' =
+	measure '$ Exportacoes' =
 			
 			CALCULATE(
 			    SUM(fact_trades[fob_value]),
 			    fact_trades[trade_flag] = "exp"
 			)
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Medidas
+		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: a90ac50b-1aa3-405c-811d-62a877a67aca
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure '$ Valor Importacoes' =
+	measure '$ Importacoes' =
 			
 			CALCULATE(
 			    SUM(fact_trades[fob_value]),
 			    fact_trades[trade_flag] = "imp"
 			)
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Medidas
+		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: e0676381-f298-48a0-973e-f8961148ee11
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure '$ Balança Comercial' = [$ Valor Exportacoes] - [$ Valor Importacoes]
+	measure '$ Balança Comercial' = [$ Exportacoes] - [$ Importacoes]
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Medidas
+		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: 507bec1c-18ff-4d6e-af4a-67811d9b2cd8
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
 	measure '# Peso Líquido' = SUM(fact_trades[net_weight])
-		displayFolder: Medidas
+		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: 0e7e4ce6-7ccf-43cc-8d1f-5143ef98747e
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure '$ Preco Medio por Quilo' = DIVIDE([$ Corrente], [# Peso Líquido])
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Medidas
+		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: 3eaa3fb0-33cf-4c11-9577-b8da2d194ec0
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
@@ -56,36 +56,36 @@ table fact_trades
 			
 			VAR __Total =
 			CALCULATE(
-			    [$ Valor Exportacoes],
+			    [$ Exportacoes],
 			    ALL(fact_trades)
 			)
 			
-			VAR __Result = DIVIDE([$ Valor Exportacoes], __Total)
+			VAR __Result = DIVIDE([$ Exportacoes], __Total)
 			
 			RETURN
 			__Result
 		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: Medidas
+		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: 025c80d1-c2ee-4b96-b7ab-75f0efdcd968
 
-	measure '% Taxa de Cobertura' = DIVIDE([$ Valor Exportacoes], [$ Valor Importacoes])
+	measure '% Taxa de Cobertura' = DIVIDE([$ Exportacoes], [$ Importacoes])
 		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: Medidas
+		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: 540b50da-7533-4ce0-bf13-cb8111333819
 
-	measure Ranking =
+	measure 'Ranking Exportacoes' =
 			
 			VAR __Rank =
 			RANK(
 			    DENSE,
 			    ALLSELECTED(dim_cities[state_name]),
-			    ORDERBY([$ Valor Exportacoes], DESC)
+			    ORDERBY([$ Exportacoes], DESC)
 			)
 			
 			RETURN
 			__Rank
 		formatString: 0
-		displayFolder: Medidas
+		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: 6ce5d103-ce7e-4114-b585-0f184742de1c
 
 	measure 'Top 5 Municipios' =
@@ -94,39 +94,39 @@ table fact_trades
 			TOPN(
 			    5,
 			    ALL(dim_cities[city_name]),
-			    [$ Valor Exportacoes], DESC
+			    [$ Exportacoes], DESC
 			)
 			
 			VAR __Result = 0
 			
 			RETURN
 			CALCULATE(
-			    [$ Valor Exportacoes],
+			    [$ Exportacoes],
 			    KEEPFILTERS(__TopN)
 			)
-		displayFolder: Medidas
+		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: a74cea51-dc20-4c93-a4cd-f9dc59fd671b
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure '# Qtd Parceiros Exp' =
+	measure '# Qtd Parceiros Exportacoes' =
 			
 			CALCULATE(
 			    DISTINCTCOUNT(fact_trades[trade_country_id]),
 			    fact_trades[trade_flag] = "exp"
 			)
 		formatString: 0
-		displayFolder: Medidas
+		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: d7ae89a7-5d4e-4f83-b7fd-c4fe31b944d3
 
-	measure '# Qtd Parceiros Imp' =
+	measure '# Qtd Parceiros Importacoes' =
 			
 			CALCULATE(
 			    DISTINCTCOUNT(fact_trades[trade_country_id]),
 			    fact_trades[trade_flag] = "imp"
 			)
 		formatString: 0
-		displayFolder: Medidas
+		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: a6c7e583-7cde-4e03-bc02-85ee170151fc
 
 	measure 'Top 5 Paises Parceiros' =
@@ -135,30 +135,143 @@ table fact_trades
 			TOPN(
 			    5,
 			    ALL(dim_countries[country_name]),
-			    [$ Valor Exportacoes], DESC
+			    [$ Exportacoes], DESC
 			)
 			
 			VAR __Result = 0
 			
 			RETURN
 			CALCULATE(
-			    [$ Valor Exportacoes],
+			    [$ Exportacoes],
 			    KEEPFILTERS(__TopN)
 			)
-		displayFolder: Medidas
+		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: eb82da6a-5d3d-4e4f-9893-2615f5df18a6
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure '$ Valor Importacoes Negativo' = -[$ Valor Importacoes]
-		displayFolder: Medidas
+	measure '$ Importacoes Negativo' = -[$ Importacoes]
+		displayFolder: Medidas\Storytelling
 		lineageTag: 9b38854f-f7d2-494c-b69b-8febe3cf801b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '$ Exportacoes Acc' =
+			
+			CALCULATE(
+			    [$ Exportacoes],
+			    dim_calendario[Data] <= MAX(dim_calendario[Data])
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Medidas\Gerais\Nominal
+		lineageTag: 146b0a9f-7f85-48d2-8505-87e2d8e9328d
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure '$ Importacoes Acc' =
+			
+			CALCULATE(
+			    [$ Importacoes],
+			    dim_calendario[Data] <= MAX(dim_calendario[Data])
+			)
+		displayFolder: Medidas\Gerais\Nominal
+		lineageTag: 6aaa1f0c-5c81-4dd1-b0ee-e4a4c39a8569
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '$ Exportacoes LY' =
+			
+			CALCULATE(
+			    [$ Exportacoes],
+			    SAMEPERIODLASTYEAR(dim_calendario[Data])
+			)
+		displayFolder: Medidas\Inteligência de Tempo
+		lineageTag: cc37b285-4f4d-4dc7-8ecd-b4976126f22a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '$ Importacoes LY' =
+			
+			CALCULATE(
+			    [$ Importacoes],
+			    SAMEPERIODLASTYEAR(dim_calendario[Data])
+			)
+		displayFolder: Medidas\Inteligência de Tempo
+		lineageTag: 489939dc-d672-4b86-b3ce-423a0d368940
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Exportacoes YoY' =
+			
+			VAR __Ly = [$ Exportacoes]
+			
+			VAR __Result = DIVIDE( [$ Exportacoes] - __Ly, __Ly)
+			
+			RETURN
+			__Result
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Medidas\Inteligência de Tempo
+		lineageTag: e029035d-8189-40d8-947e-91ded8160dc1
+
+	measure '% Importacoes YoY' =
+			
+			VAR __Ly = [$ Importacoes]
+			
+			VAR __Result = DIVIDE( [$ Importacoes] - __Ly, __Ly)
+			
+			RETURN
+			__Result
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Medidas\Inteligência de Tempo
+		lineageTag: ba612981-3884-4b45-a141-21f412b6f9b3
+
+	measure 'Ranking Importacoes' =
+			
+			VAR __Rank =
+			RANK(
+			    DENSE,
+			    ALLSELECTED(dim_cities[state_name]),
+			    ORDERBY([$ Importacoes], DESC)
+			)
+			
+			RETURN
+			__Rank
+		formatString: 0
+		displayFolder: Medidas\Gerais\Nominal
+		lineageTag: bb4ab939-ed30-4de1-9b3b-45b4982b1584
+
+	measure '$ Importacoes Real' =
+			
+			CALCULATE(
+			    SUM(fact_trades[fob_value_real]),
+			    fact_trades[trade_flag] = "imp"
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Medidas\Gerais\Real
+		lineageTag: ca9e4265-6fa0-42a1-a244-0d9c6c9806f4
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure '$ Exportacoes Real' =
+			
+			CALCULATE(
+			    SUM(fact_trades[fob_value_real]),
+			    fact_trades[trade_flag] = "exp"
+			)
+		displayFolder: Medidas\Gerais\Real
+		lineageTag: d561e5a1-ef0e-4918-98c5-766cad86af96
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '$ Balança Comercial Real' = [$ Exportacoes Real] - [$ Importacoes Real]
+		displayFolder: Medidas\Gerais\Real
+		lineageTag: a8ad9f67-51b3-481d-82c6-3854360cf78f
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column trade_date
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		displayFolder: Colunas
 		lineageTag: 7194cb88-4a9c-460e-8e0e-db0f703411fd
 		summarizeBy: none

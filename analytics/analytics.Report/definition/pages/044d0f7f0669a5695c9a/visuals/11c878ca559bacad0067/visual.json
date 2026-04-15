@@ -57,11 +57,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "$ Valor Importacoes Negativo"
+                  "Property": "$ Importacoes Negativo"
                 }
               },
               "queryRef": "fact_trades.$ Valor Importacoes Negativo",
-              "nativeQueryRef": "$ Valor Importacoes Negativo"
+              "nativeQueryRef": "$ Importacoes Negativo"
             },
             {
               "field": {
@@ -71,11 +71,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "$ Valor Exportacoes"
+                  "Property": "$ Exportacoes"
                 }
               },
               "queryRef": "fact_trades.$ Valor Exportacoes",
-              "nativeQueryRef": "$ Valor Exportacoes"
+              "nativeQueryRef": "$ Exportacoes"
             }
           ]
         }
@@ -90,7 +90,7 @@
                     "Entity": "fact_trades"
                   }
                 },
-                "Property": "$ Valor Exportacoes"
+                "Property": "$ Exportacoes"
               }
             },
             "direction": "Descending"
