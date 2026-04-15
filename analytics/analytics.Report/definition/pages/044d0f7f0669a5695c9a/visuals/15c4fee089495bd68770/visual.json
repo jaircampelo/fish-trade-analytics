@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "15c4fee089495bd68770",
   "position": {
-    "x": 83.491271820448873,
-    "y": 709.67581047381543,
+    "x": 56.558603491271825,
+    "y": 694.86284289276807,
     "z": 9000,
     "height": 359.55112219451371,
     "width": 603.291770573566,
@@ -23,11 +23,11 @@
                       "Entity": "dim_product_categories"
                     }
                   },
-                  "Property": "product_category_id"
+                  "Property": "product_category_name"
                 }
               },
-              "queryRef": "dim_product_categories.product_category_id",
-              "nativeQueryRef": "product_category_id",
+              "queryRef": "dim_product_categories.product_category_name",
+              "nativeQueryRef": "product_category_name1",
               "active": true
             }
           ]
@@ -36,22 +36,17 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_product_categories"
-                        }
-                      },
-                      "Property": "product_category_name"
+                    "SourceRef": {
+                      "Entity": "fact_trades"
                     }
                   },
-                  "Function": 3
+                  "Property": "# Peso Líquido"
                 }
               },
-              "queryRef": "Min(dim_product_categories.product_category_name)",
-              "nativeQueryRef": "product_category_name"
+              "queryRef": "fact_trades.# Peso Líquido",
+              "nativeQueryRef": "# Peso Líquido"
             }
           ]
         },
@@ -65,11 +60,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "$ Valor Exportacoes"
+                  "Property": "$ Exportacoes"
                 }
               },
               "queryRef": "fact_trades.$ Valor Exportacoes",
-              "nativeQueryRef": "$ Valor Exportacoes"
+              "nativeQueryRef": "$ Exportacoes"
             }
           ]
         }
@@ -84,7 +79,7 @@
                     "Entity": "fact_trades"
                   }
                 },
-                "Property": "$ Valor Exportacoes"
+                "Property": "$ Exportacoes"
               }
             },
             "direction": "Descending"

@@ -2576,7 +2576,7 @@ cultureInfo pt-BR
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "$ Valor Exportacoes"
+			          "ConceptualProperty": "$ Exportacoes"
 			        }
 			      },
 			      "State": "Generated",
@@ -2602,7 +2602,7 @@ cultureInfo pt-BR
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "$ Valor Importacoes"
+			          "ConceptualProperty": "$ Importacoes"
 			        }
 			      },
 			      "State": "Generated",

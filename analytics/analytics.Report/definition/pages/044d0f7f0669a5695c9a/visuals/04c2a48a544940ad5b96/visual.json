@@ -42,11 +42,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "$ Valor Exportacoes"
+                  "Property": "$ Exportacoes"
                 }
               },
               "queryRef": "fact_trades.$ Valor Exportacoes",
-              "nativeQueryRef": "$ Valor Exportacoes"
+              "nativeQueryRef": "$ Exportacoes"
             },
             {
               "field": {
@@ -56,11 +56,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "$ Valor Importacoes"
+                  "Property": "$ Importacoes"
                 }
               },
               "queryRef": "fact_trades.$ Valor Importacoes",
-              "nativeQueryRef": "$ Valor Importacoes"
+              "nativeQueryRef": "$ Importacoes"
             }
           ]
         }
