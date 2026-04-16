@@ -20,3 +20,19 @@ seeds:
         data_tests:
           - unique
           - not_null
+
+  - name: seed_state_regions
+    description: "Add a column of the regions from each Brazil state."
+    config:
+      delimiter: ","
+      tags: ["Regions", "Brazil"]
+    columns:
+      - name: uf
+        description: "Two-letter codes from Brazil states."
+        data_tests:
+          - unique
+          - not_null
+      - name: region
+        description: "Regions of each Brazil state."
+        data_tests:
+          - not_null

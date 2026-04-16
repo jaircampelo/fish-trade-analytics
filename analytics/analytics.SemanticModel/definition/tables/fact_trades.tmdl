@@ -2,11 +2,21 @@ table fact_trades
 	lineageTag: 285c657e-9154-4d2e-a1c6-7d79ec1130bd
 
 	measure '$ Corrente' = [$ Exportacoes] + [$ Importacoes]
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: 317ecf7d-40d9-4333-a168-ba67e8726581
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
 
 	measure '$ Exportacoes' =
 			
@@ -14,11 +24,21 @@ table fact_trades
 			    SUM(fact_trades[fob_value]),
 			    fact_trades[trade_flag] = "exp"
 			)
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: a90ac50b-1aa3-405c-811d-62a877a67aca
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
 
 	measure '$ Importacoes' =
 			
@@ -26,31 +46,70 @@ table fact_trades
 			    SUM(fact_trades[fob_value]),
 			    fact_trades[trade_flag] = "imp"
 			)
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: e0676381-f298-48a0-973e-f8961148ee11
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
 
 	measure '$ Balança Comercial' = [$ Exportacoes] - [$ Importacoes]
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: 507bec1c-18ff-4d6e-af4a-67811d9b2cd8
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor < -1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor < -1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    __Valor < -1000, "#0,.00 K",
+				    __Valor > 0, "#0",
+				    __Valor < 0, "#0"
+				)
+				RETURN
+				__Formato
 
-	measure '# Peso Líquido' = SUM(fact_trades[net_weight])
+	measure '# Peso Líquido Exportacao' =
+			
+			CALCULATE(
+			    SUM(fact_trades[net_weight]),
+			    fact_trades[trade_flag] = "exp"
+			)
 		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: 0e7e4ce6-7ccf-43cc-8d1f-5143ef98747e
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
 
-	measure '$ Preco Medio por Quilo' = DIVIDE([$ Corrente], [# Peso Líquido])
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+	measure '$ Preco Medio por Quilo' = DIVIDE([$ Corrente], [# Peso Líquido Exportacao])
 		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: 3eaa3fb0-33cf-4c11-9577-b8da2d194ec0
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		formatStringDefinition = "#,0.00;#,0.00;#,0.00"
 
 	measure '% Participacao no Total' =
 			
@@ -88,7 +147,7 @@ table fact_trades
 		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: 6ce5d103-ce7e-4114-b585-0f184742de1c
 
-	measure 'Top 5 Municipios' =
+	measure 'Top 5 Municipios Exportacoes' =
 			
 			VAR __TopN =
 			TOPN(
@@ -107,7 +166,18 @@ table fact_trades
 		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: a74cea51-dc20-4c93-a4cd-f9dc59fd671b
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
 
 	measure '# Qtd Parceiros Exportacoes' =
 			
@@ -129,7 +199,7 @@ table fact_trades
 		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: a6c7e583-7cde-4e03-bc02-85ee170151fc
 
-	measure 'Top 5 Paises Parceiros' =
+	measure 'Top 5 Paises Parceiros Exportacoes' =
 			
 			VAR __TopN =
 			TOPN(
@@ -148,7 +218,18 @@ table fact_trades
 		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: eb82da6a-5d3d-4e4f-9893-2615f5df18a6
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
 
 	measure '$ Importacoes Negativo' = -[$ Importacoes]
 		displayFolder: Medidas\Storytelling
@@ -268,6 +349,92 @@ table fact_trades
 		lineageTag: a8ad9f67-51b3-481d-82c6-3854360cf78f
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Top 5 Municipios Importacoes' =
+			
+			VAR __TopN =
+			TOPN(
+			    5,
+			    ALL(dim_cities[city_name]),
+			    [$ Importacoes], DESC
+			)
+			
+			VAR __Result = 0
+			
+			RETURN
+			CALCULATE(
+			    [$ Importacoes],
+			    KEEPFILTERS(__TopN)
+			)
+		displayFolder: Medidas\Gerais\Nominal
+		lineageTag: c800d8f9-6a31-434c-bf92-30d53031020a
+
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
+
+	measure 'Top 5 Paises Parceiros Importacoes' =
+			
+			VAR __TopN =
+			TOPN(
+			    5,
+			    ALL(dim_countries[country_name]),
+			    [$ Importacoes], DESC
+			)
+			
+			VAR __Result = 0
+			
+			RETURN
+			CALCULATE(
+			    [$ Importacoes],
+			    KEEPFILTERS(__TopN)
+			)
+		displayFolder: Medidas\Gerais\Nominal
+		lineageTag: b3293131-bbf7-4157-acb4-9c8f4b65eba7
+
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
+
+	measure '# Peso Líquido Importacao' =
+			
+			CALCULATE(
+			    SUM(fact_trades[net_weight]),
+			    fact_trades[trade_flag] = "imp"
+			)
+		displayFolder: Medidas\Gerais\Nominal
+		lineageTag: 010e1971-8368-4b33-922b-4597644a222b
+
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
 
 	column trade_date
 		dataType: dateTime

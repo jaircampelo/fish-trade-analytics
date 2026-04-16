@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "9d2a281bbd300368d0a8",
+  "name": "4ed2127bcd63c5423048",
   "position": {
-    "x": 987.08229426433911,
-    "y": 107.73067331670823,
-    "z": 2000,
-    "height": 71.3715710723192,
-    "width": 142.7431421446384,
-    "tabOrder": 2000
+    "x": 492.86783042394018,
+    "y": 705.63591022443893,
+    "z": 10000,
+    "height": 43.092269326683294,
+    "width": 156.20947630922694,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,96 +20,41 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_calendario"
+                      "Entity": "Tipo"
                     }
                   },
-                  "Property": "AnoAtual"
+                  "Property": "Tipo"
                 }
               },
-              "queryRef": "dim_calendario.AnoAtual",
-              "nativeQueryRef": "AnoAtual",
+              "queryRef": "Tipo.Tipo",
+              "nativeQueryRef": "Tipo",
               "active": true
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_calendario"
-                    }
-                  },
-                  "Property": "MesAtualNomeAbreviado"
-                }
-              },
-              "queryRef": "dim_calendario.MesAtualNomeAbreviado",
-              "nativeQueryRef": "MesAtualNomeAbreviado",
-              "active": false
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "dim_calendario"
-                  }
-                },
-                "Property": "AnoAtual"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
-    "expansionStates": [
-      {
-        "roles": [
-          "Values"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "dim_calendario.AnoAtual"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_calendario"
-                    }
-                  },
-                  "Property": "AnoAtual"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "dim_calendario.MesAtualNomeAbreviado"
-            ],
-            "isCollapsed": true,
-            "isPinned": true
-          }
-        ],
-        "root": {}
-      }
-    ],
     "objects": {
-      "data": [
+      "header": [
         {
           "properties": {
-            "mode": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "'Dropdown'"
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "selection": [
+        {
+          "properties": {
+            "strictSingleSelect": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -124,8 +69,8 @@
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "d",
-                    "Entity": "dim_calendario",
+                    "Name": "t",
+                    "Entity": "Tipo",
                     "Type": 0
                   }
                 ],
@@ -138,10 +83,10 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Source": "d"
+                                  "Source": "t"
                                 }
                               },
-                              "Property": "AnoAtual"
+                              "Property": "Tipo Fields"
                             }
                           }
                         ],
@@ -149,7 +94,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'2025'"
+                                "Value": "'''fact_trades''[$ Exportacoes]'"
                               }
                             }
                           ]
@@ -163,10 +108,10 @@
                             "Column": {
                               "Expression": {
                                 "SourceRef": {
-                                  "Entity": "dim_calendario"
+                                  "Entity": "Tipo"
                                 }
                               },
-                              "Property": "AnoAtual"
+                              "Property": "Tipo"
                             }
                           }
                         ],
@@ -177,7 +122,7 @@
                                 "0": [
                                   {
                                     "Literal": {
-                                      "Value": "'2025'"
+                                      "Value": "'''fact_trades''[$ Exportacoes]'"
                                     }
                                   }
                                 ]
@@ -190,10 +135,10 @@
                                 "Column": {
                                   "Expression": {
                                     "SourceRef": {
-                                      "Entity": "dim_calendario"
+                                      "Entity": "Tipo"
                                     }
                                   },
-                                  "Property": "AnoAtual"
+                                  "Property": "Tipo Fields"
                                 }
                               }
                             }
@@ -201,26 +146,13 @@
                         },
                         "valueMap": [
                           {
-                            "0": "2025"
+                            "0": "$ Exportacoes"
                           }
                         ]
                       }
                     }
                   }
                 ]
-              }
-            }
-          }
-        }
-      ],
-      "header": [
-        {
-          "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Ano e Mês'"
-                }
               }
             }
           }

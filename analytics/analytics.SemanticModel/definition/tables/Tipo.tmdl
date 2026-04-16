@@ -1,0 +1,48 @@
+table Tipo
+	lineageTag: fb384420-4310-4f61-9aab-c4666c7ace97
+
+	column Tipo
+		lineageTag: 3287ab1a-eca5-4e08-a5a0-663aaca3eab7
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Tipo Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Tipo Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Fields'
+		isHidden
+		lineageTag: 90e9a74e-c44b-4bcc-aef0-8c4a99b74a8b
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Tipo Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tipo Order'
+		isHidden
+		formatString: 0
+		lineageTag: e263e792-969b-4bde-be91-a560f6d6bb67
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Tipo = calculated
+		mode: import
+		source =
+				{
+				    ("$ Exportacoes", NAMEOF('fact_trades'[$ Exportacoes]), 0),
+				    ("$ Importacoes", NAMEOF('fact_trades'[$ Importacoes]), 1)
+				}
+
+	annotation PBI_Id = cbb9fff239854ebe8f811b36a7cb46c7
+
