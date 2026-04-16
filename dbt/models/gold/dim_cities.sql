@@ -11,7 +11,9 @@
 select "city_id"
      , "city_name"
      , "state_name"
+     , "uf"
      , "city_uf"
+     , "region"
      , current_timestamp as created_at
   from {{ ref('silver_cities') }}
 

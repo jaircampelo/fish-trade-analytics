@@ -4,10 +4,10 @@
   "position": {
     "x": 1284.6882793017458,
     "y": 336.65835411471323,
-    "z": 8000,
+    "z": 7000,
     "height": 717.75561097256855,
     "width": 601.9451371571073,
-    "tabOrder": 8000
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -220,7 +220,7 @@
                   "color": {
                     "expr": {
                       "Literal": {
-                        "Value": "'maxColor'"
+                        "Value": "'#005F73'"
                       }
                     }
                   }
@@ -231,7 +231,7 @@
                   "color": {
                     "expr": {
                       "Literal": {
-                        "Value": "'#e68f96'"
+                        "Value": "'#CA6702'"
                       }
                     }
                   }

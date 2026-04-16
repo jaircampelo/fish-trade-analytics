@@ -4,10 +4,10 @@
   "position": {
     "x": 670.62344139650872,
     "y": 694.86284289276807,
-    "z": 10000,
+    "z": 9000,
     "height": 359.55112219451371,
     "width": 603.291770573566,
-    "tabOrder": 10000
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -32,6 +32,29 @@
             }
           ]
         },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_countries"
+                        }
+                      },
+                      "Property": "country_id"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(dim_countries.country_id)",
+              "nativeQueryRef": "First country_id"
+            }
+          ]
+        },
         "Y": {
           "projections": [
             {
@@ -42,11 +65,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "Top 5 Paises Parceiros"
+                  "Property": "Top 5 Paises Parceiros Exportacoes"
                 }
               },
               "queryRef": "fact_trades.Top 5 Paises Parceiros",
-              "nativeQueryRef": "Top 5 Paises Parceiros"
+              "nativeQueryRef": "Top 5 Paises Parceiros Exportacoes"
             }
           ]
         }
@@ -61,7 +84,7 @@
                     "Entity": "fact_trades"
                   }
                 },
-                "Property": "Top 5 Paises Parceiros"
+                "Property": "Top 5 Paises Parceiros Exportacoes"
               }
             },
             "direction": "Descending"
@@ -69,6 +92,41 @@
         ],
         "isDefaultSort": true
       }
+    },
+    "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [

@@ -12,7 +12,7 @@
 with cities_source as (
     select "id"
          , "text"
-         , substring("text" from position(' - ' in "text") + 3) as "uf"
+         , trim(split_part("text", '-', 2) as "uf"
          , "noMunMin"
          , "ingested_at"
          , "loaded_at"
@@ -32,14 +32,26 @@ states_source as (
          , "uf"
       from {{ source('bronze', 'uf') }}
 ),
+regions as (
+    select uf
+         , region
+      from {{ ref('seed_state_regions') }}
+),
 
 -- Join cities with states
 joined as (
-    select c.*
+    select c."id"
+         , c."text"
+         , c."uf"
+         , c."noMunMin"
+         , c."ingested_at"
+         , c."loaded_at"
+         , c."row_num"
          , s."text" as "state_name"
-      from cities_source c
-      left
-      join states_source s on c."uf" = s."uf"
+         , case when r."region" is null then "Não se aplica" else r."region" end as "region"
+      from cities_source        c
+      left join states_source   s on c."uf" = s."uf"
+      left join regions         r on c."uf" = r."uf"
 ),
 
 -- Apply transformations
@@ -48,6 +60,8 @@ transformed as (
          , "noMunMin"::varchar(100)     as "city_name"
          , "text"::varchar(100)         as "city_uf"
          , "state_name"::varchar(50)    as "state_name"
+         , "uf"::char(2)                as "uf"
+         , "region"::varchar(50)        as "region"
          , "ingested_at"
          , "loaded_at"
          , "row_num"
@@ -57,7 +71,9 @@ transformed as (
 select "city_id"
      , "city_name"
      , "state_name"
+     , "uf"
      , "city_uf"
+     , "region"
      , "ingested_at"
      , "loaded_at"
 	 , current_timestamp as "processed_at"

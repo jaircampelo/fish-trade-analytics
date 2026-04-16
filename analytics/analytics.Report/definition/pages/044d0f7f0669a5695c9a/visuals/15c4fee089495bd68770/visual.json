@@ -4,13 +4,13 @@
   "position": {
     "x": 56.558603491271825,
     "y": 694.86284289276807,
-    "z": 9000,
+    "z": 8000,
     "height": 359.55112219451371,
     "width": 603.291770573566,
-    "tabOrder": 9000
+    "tabOrder": 8000
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "barChart",
     "query": {
       "queryState": {
         "Category": {
@@ -42,11 +42,30 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "# Peso Líquido"
+                  "Property": "# Peso Líquido Exportacao"
                 }
               },
               "queryRef": "fact_trades.# Peso Líquido",
-              "nativeQueryRef": "# Peso Líquido"
+              "nativeQueryRef": "# Peso Líquido Exportacao"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_product_categories"
+                        }
+                      },
+                      "Property": "product_category_id"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(dim_product_categories.product_category_id)",
+              "nativeQueryRef": "First product_category_id"
             }
           ]
         },
@@ -63,8 +82,25 @@
                   "Property": "$ Exportacoes"
                 }
               },
-              "queryRef": "fact_trades.$ Valor Exportacoes",
-              "nativeQueryRef": "$ Exportacoes"
+              "queryRef": "fact_trades.$ Exportacoes",
+              "nativeQueryRef": "$ Exportacoes",
+              "displayName": "$ Exportacoes"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Tipo"
+                    }
+                  },
+                  "Property": "Tipo"
+                }
+              },
+              "index": 0,
+              "length": 1
             }
           ]
         }
@@ -87,6 +123,41 @@
         ],
         "isDefaultSort": true
       }
+    },
+    "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
