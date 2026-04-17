@@ -83,7 +83,7 @@ table fact_trades
 				RETURN
 				__Formato
 
-	measure '# Peso Líquido Exportacao' =
+	measure '# Peso Líquido Exportacoes' =
 			
 			CALCULATE(
 			    SUM(fact_trades[net_weight]),
@@ -105,7 +105,7 @@ table fact_trades
 				RETURN
 				__Formato
 
-	measure '$ Preco Medio por Quilo' = DIVIDE([$ Corrente], [# Peso Líquido Exportacao])
+	measure '$ Preco Medio por Quilo Exportacoes' = DIVIDE([$ Exportacoes], [# Peso Líquido Exportacoes])
 		displayFolder: Medidas\Gerais\Nominal
 		lineageTag: 3eaa3fb0-33cf-4c11-9577-b8da2d194ec0
 
@@ -235,7 +235,18 @@ table fact_trades
 		displayFolder: Medidas\Storytelling
 		lineageTag: 9b38854f-f7d2-494c-b69b-8febe3cf801b
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor < -1000000000, "#0,,,.00 Bi",
+				    __Valor < -1000000, "#0,,.00 Mi",
+				    __Valor < -1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
 
 	measure '$ Exportacoes Acc' =
 			
@@ -414,7 +425,7 @@ table fact_trades
 				RETURN
 				__Formato
 
-	measure '# Peso Líquido Importacao' =
+	measure '# Peso Líquido Importacoes' =
 			
 			CALCULATE(
 			    SUM(fact_trades[net_weight]),
@@ -435,6 +446,106 @@ table fact_trades
 				)
 				RETURN
 				__Formato
+
+	measure 'Top 5 Estados Importacoes' =
+			
+			VAR __TopN =
+			TOPN(
+			    5,
+			    ALL(dim_cities[state_name]),
+			    [$ Importacoes], DESC
+			)
+			
+			VAR __Result = 0
+			
+			RETURN
+			CALCULATE(
+			    [$ Importacoes],
+			    KEEPFILTERS(__TopN)
+			)
+		displayFolder: Medidas\Gerais\Nominal
+		lineageTag: 322a61a4-2fc1-45a6-a7d1-c190623d7dd8
+
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
+
+	measure 'Top 5 Estados Exportacoes' =
+			
+			VAR __TopN =
+			TOPN(
+			    5,
+			    ALL(dim_cities[state_name]),
+			    [$ Exportacoes], DESC
+			)
+			
+			VAR __Result = 0
+			
+			RETURN
+			CALCULATE(
+			    [$ Exportacoes],
+			    KEEPFILTERS(__TopN)
+			)
+		displayFolder: Medidas\Gerais\Nominal
+		lineageTag: 59fb601c-300d-4cd6-a349-d3634a7f783f
+
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
+
+	measure '$ Preco Medio por Quilo Importacoes' = DIVIDE([$ Importacoes], [# Peso Líquido Importacoes])
+		displayFolder: Medidas\Gerais\Nominal
+		lineageTag: 0b761699-aa56-4f6f-9c08-40b389917c9d
+
+		formatStringDefinition = "#,0.00;#,0.00;#,0.00"
+
+	measure 'Produto mais Exportado' =
+			
+			TOPN(
+			    1,
+			    ALLSELECTED(dim_product_categories[product_category_name]),
+			    [$ Exportacoes], DESC
+			)
+		displayFolder: Medidas\Gerais\Nominal
+		lineageTag: 5a4e15f1-14c5-4534-b462-c440f9113f42
+
+	measure 'Produto mais Importado' =
+			
+			TOPN(
+			    1,
+			    ALLSELECTED(dim_product_categories[product_category_name]),
+			    [$ Importacoes], DESC
+			)
+		displayFolder: Medidas\Gerais\Nominal
+		lineageTag: 7ade20cc-2a97-4c9d-b355-ee8f06e4d1d9
+
+	measure 'Produto Maior Valor Agregado Exportacoes' =
+			
+			TOPN(
+			    1,
+			    ALLSELECTED(dim_product_categories[product_category_name]),
+			    [$ Preco Medio por Quilo Exportacoes], DESC
+			)
+		displayFolder: Medidas\Gerais\Nominal
+		lineageTag: be0bed65-e13f-4ca8-9277-285518c386dd
 
 	column trade_date
 		dataType: dateTime

@@ -29,14 +29,15 @@ models:
         description: "ID from the SH4 product code."
         tests:
           - not_null
+          - relationships:
+              to: ref('dim_product_categories')
+              field: product_category_id
       - name: fob_value
         description: "A metric that represents the total value of goods at the time they are loaded onto the ship, excluding freight and insurance costs."
         tests:
           - not_null
       - name: fob_value_real
-        description: "Bring the values from the past to present days using Consumer Price Index (CPI) from U.S. Bureau of Labor Statistics (BLS)."
-        tests:
-          - not_null
+        description: "Bring the values from the past to present days using Consumer Price Index (CPI) from U.S. Bureau of Labor Statistics (BLS). It can be null beacuse of source rules."
       - name: net_weight
         description: "A metric that indicates the total net weight of goods, excluding packaging and other transport materials."
         tests:
@@ -69,8 +70,16 @@ models:
         description: "Name of the state where the city is from."
         tests:
           - not_null
+      - name: uf
+        description: "Two-letter codes from Brazil states."
+        tests:
+          - not_null
       - name: city_uf
         description: "Concatenates city and uf in one string (e.g. Belém - PA)."
+        tests:
+          - not_null
+      - name: region
+        description: "Regions of each Brazil state."
         tests:
           - not_null
       - name: created_at

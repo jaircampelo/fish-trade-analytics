@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "15c4fee089495bd68770",
   "position": {
-    "x": 56.558603491271825,
-    "y": 694.86284289276807,
-    "z": 8000,
-    "height": 359.55112219451371,
-    "width": 603.291770573566,
-    "tabOrder": 8000
+    "x": 36.334106728538281,
+    "y": 669.04872389791183,
+    "z": 4000,
+    "height": 375.87006960556846,
+    "width": 602.64501160092811,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "barChart",
@@ -32,43 +32,6 @@
             }
           ]
         },
-        "Tooltips": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "fact_trades"
-                    }
-                  },
-                  "Property": "# Peso Líquido Exportacao"
-                }
-              },
-              "queryRef": "fact_trades.# Peso Líquido",
-              "nativeQueryRef": "# Peso Líquido Exportacao"
-            },
-            {
-              "field": {
-                "Aggregation": {
-                  "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_product_categories"
-                        }
-                      },
-                      "Property": "product_category_id"
-                    }
-                  },
-                  "Function": 3
-                }
-              },
-              "queryRef": "Min(dim_product_categories.product_category_id)",
-              "nativeQueryRef": "First product_category_id"
-            }
-          ]
-        },
         "Y": {
           "projections": [
             {
@@ -83,24 +46,7 @@
                 }
               },
               "queryRef": "fact_trades.$ Exportacoes",
-              "nativeQueryRef": "$ Exportacoes",
-              "displayName": "$ Exportacoes"
-            }
-          ],
-          "fieldParameters": [
-            {
-              "parameterExpr": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Tipo"
-                    }
-                  },
-                  "Property": "Tipo"
-                }
-              },
-              "index": 0,
-              "length": 1
+              "nativeQueryRef": "$ Exportacoes"
             }
           ]
         }
@@ -157,10 +103,100 @@
             }
           }
         }
+      ],
+      "dataPoint": [
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "borderShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "innerPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "25L"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "switchAxisPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
       "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
         {
           "properties": {
             "show": {

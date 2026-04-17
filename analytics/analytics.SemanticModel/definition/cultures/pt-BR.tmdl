@@ -131,7 +131,8 @@ cultureInfo pt-BR
 			            "Weight": 0.714
 			          }
 			        }
-			      ]
+			      ],
+			      "SemanticType": "Location"
 			    },
 			    "dim_city.city_id": {
 			      "Definition": {
@@ -297,6 +298,12 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
+			          "county": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
 			          "city": {
 			            "State": "Generated",
 			            "Weight": 0.97
@@ -427,6 +434,12 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
+			          "state or province": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
 			          "state": {
 			            "State": "Generated",
 			            "Weight": 0.97
@@ -532,7 +545,8 @@ cultureInfo pt-BR
 			            "Weight": 0.6
 			          }
 			        }
-			      ]
+			      ],
+			      "SemanticType": "Location"
 			    },
 			    "dim_city.city_uf": {
 			      "Definition": {
@@ -673,7 +687,8 @@ cultureInfo pt-BR
 			            "Weight": 0.736
 			          }
 			        }
-			      ]
+			      ],
+			      "SemanticType": "Location"
 			    },
 			    "dim_country.country_id": {
 			      "Definition": {
@@ -2572,7 +2587,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.valor_exportacoes": {
+			    "fact_trade.exportacoes": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
@@ -2582,33 +2597,23 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "$ valor exportacoes": {
+			          "$ exportacoes": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "dollar valor exportacoe": {
+			          "dollar exportacoe": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.609
-			          }
-			        },
-			        {
-			          "$ Exportacoes": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
+			            "Weight": 0.6
 			          }
 			        }
 			      ]
 			    },
-			    "fact_trade.valor_importacoes": {
+			    "fact_trade.importacoes": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
@@ -2618,18 +2623,18 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "$ valor importacoes": {
+			          "$ importacoes": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "dollar valor importacoe": {
+			          "dollar importacoe": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.609
+			            "Weight": 0.6
 			          }
 			        }
 			      ]
@@ -5998,9 +6003,2990 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "dim_city.uf": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_cities",
+			          "ConceptualProperty": "uf"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "uf": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_city.region": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dim_cities",
+			          "ConceptualProperty": "region"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "region": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "location": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.818
+			          }
+			        },
+			        {
+			          "province": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "area": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "district": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "section": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "zone": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "continent": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.peso_líquido_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "# Peso Líquido Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "# peso líquido exportacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "no peso líquido exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "num peso líquido exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "number peso líquido exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.preco_medio_por_quilo_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "$ Preco Medio por Quilo Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "$ preco medio por quilo exportacoes": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.participacao_no_total": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "% Participacao no Total"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% participacao no total": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "% participacao no aggregate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "% participacao no overall": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "percentage participacao no total": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "pct participacao no total": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "% participacao number total": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.taxa_de_cobertura": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "% Taxa de Cobertura"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% taxa de cobertura": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage taxon de cobertura": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "pct taxon de cobertura": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.ranking_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Ranking Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ranking exportacoes": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.top_5_municipios_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Top 5 Municipios Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "top 5 municipios exportacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "best 5 municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "first 5 municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "leading 5 municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "maximum 5 municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "peak 5 municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "upper 5 municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.qtd_parceiros_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "# Qtd Parceiros Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "# qtd parceiros exportacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "no qtd parceiro exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "num qtd parceiro exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "number qtd parceiro exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.qtd_parceiros_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "# Qtd Parceiros Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "# qtd parceiros importacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "no qtd parceiro importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "num qtd parceiro importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "number qtd parceiro importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.top_5_paises_parceiros_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Top 5 Paises Parceiros Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "top 5 paises parceiros exportacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "best 5 paise parceiro exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "first 5 paise parceiro exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "leading 5 paise parceiro exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "maximum 5 paise parceiro exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "peak 5 paise parceiro exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "upper 5 paise parceiro exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.importacoes_negativo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "$ Importacoes Negativo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "$ importacoes negativo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dollar importacoe negativo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.exportacoes_acc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "$ Exportacoes Acc"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "$ exportacoes acc": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dollar exportacoe acc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.importacoes_acc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "$ Importacoes Acc"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "$ importacoes acc": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dollar importacoe acc": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.exportacoes_LY": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "$ Exportacoes LY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "$ exportacoes LY": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dollar exportacoe ly": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.importacoes_LY": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "$ Importacoes LY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "$ importacoes LY": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dollar importacoe ly": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.exportacoes_YoY": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "% Exportacoes YoY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% exportacoes YoY": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage exportacoe yoy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct exportacoe yoy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.importacoes_YoY": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "% Importacoes YoY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% importacoes YoY": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage importacoe yoy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct importacoe yoy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.ranking_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Ranking Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ranking importacoes": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.importacoes_real": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "$ Importacoes Real"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "$ importacoes real": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dollar importacoe real": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.exportacoes_real": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "$ Exportacoes Real"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "$ exportacoes real": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dollar exportacoe real": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.balança_comercial_real": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "$ Balança Comercial Real"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "$ balança comercial real": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dollar balança comercial real": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.top_5_municipios_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Top 5 Municipios Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "top 5 municipios importacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "best 5 municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "first 5 municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "leading 5 municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "maximum 5 municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "peak 5 municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "upper 5 municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.top_5_paises_parceiros_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Top 5 Paises Parceiros Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "top 5 paises parceiros importacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "best 5 paise parceiro importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "first 5 paise parceiro importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "leading 5 paise parceiro importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "maximum 5 paise parceiro importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "peak 5 paise parceiro importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "upper 5 paise parceiro importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.peso_líquido_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "# Peso Líquido Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "# peso líquido importacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "no peso líquido importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "num peso líquido importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "number peso líquido importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___corrente_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Corrente FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ corrente FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ dollar corrente formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___exportacoes_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Exportacoes FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ exportacoes FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ dollar exportacoe formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___importacoes_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Importacoes FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ importacoes FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ dollar importacoe formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___balança_comercial_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Balança Comercial FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ balança comercial FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ dollar balança comercial formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.preco_medio_por_quilo_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "$ Preco Medio por Quilo Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "$ preco medio por quilo importacoes": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.top_5_estados_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Top 5 Estados Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "top 5 estados exportacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "best 5 estado exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "first 5 estado exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "leading 5 estado exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "maximum 5 estado exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "peak 5 estado exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "upper 5 estado exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity__top_5_municipios_exportacoes_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_Top 5 Municipios Exportacoes FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_top 5 municipios exportacoes FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity__top_5_paises_parceiros_exportacoes_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_Top 5 Paises Parceiros Exportacoes FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_top 5 paises parceiros exportacoes FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity__top_5_municipios_importacoes_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_Top 5 Municipios Importacoes FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_top 5 municipios importacoes FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity__top_5_paises_parceiros_importacoes_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_Top 5 Paises Parceiros Importacoes FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_top 5 paises parceiros importacoes FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.top_5_estados_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Top 5 Estados Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "top 5 estados importacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "best 5 estado importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "first 5 estado importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "leading 5 estado importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "maximum 5 estado importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "peak 5 estado importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "upper 5 estado importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "tipo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tipo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tipo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "tipo.tipo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tipo",
+			          "ConceptualProperty": "Tipo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tipo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "tipo name": {
+			            "State": "Generated"
+			          }
+			        }
+			      ],
+			      "NameType": "Name"
+			    },
+			    "tipo.tipo_field": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tipo",
+			          "ConceptualProperty": "Tipo Fields"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "tipo field": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "tipo arena": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "tipo turf": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "tipo ground": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "tipo pitch": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "tipo park": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "tipo meadow": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "tipo grassland": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "tipo lea": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "tipo pasture": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "tipo countryside": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        }
+			      ]
+			    },
+			    "tipo.tipo_order": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tipo",
+			          "ConceptualProperty": "Tipo Order"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "tipo order": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "tipo instruction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "tipo direction": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "tipo edict": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "tipo command": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "tipo directive": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "tipo demand": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "tipo mandate": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "tipo imperative": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "tipo stability": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "tipo harmony": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___peso_líquido_exportacoes_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_# Peso Líquido Exportacoes FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_# peso líquido exportacoes FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___preco_medio_por_quilo_exportacoes_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Preco Medio por Quilo Exportacoes FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ preco medio por quilo exportacoes FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___importacoes_negativo_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Importacoes Negativo FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ importacoes negativo FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ dollar importacoe negativo formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___peso_líquido_importacoes_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_# Peso Líquido Importacoes FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_# peso líquido importacoes FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity__top_5_estados_importacoes_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_Top 5 Estados Importacoes FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_top 5 estados importacoes FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity__top_5_estados_exportacoes_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_Top 5 Estados Exportacoes FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_top 5 estados exportacoes FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___preco_medio_por_quilo_importacoes_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Preco Medio por Quilo Importacoes FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ preco medio por quilo importacoes FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.produto_mais_exportado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Produto mais Exportado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "produto mais exportado": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.produto_mais_importado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Produto mais Importado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "produto mais importado": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.produto_maior_valor_agregado_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Produto Maior Valor Agregado Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "produto maior valor agregado exportacoes": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "fact_trade_has_produto_mais_exportado": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.produto_mais_exportado": {
+			          "Target": {
+			            "Entity": "fact_trade.produto_mais_exportado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.produto_mais_exportado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_produto_mais_exportado"
+			        }
+			      ]
+			    },
+			    "dim_product_category_has_fact_trade_produto_mais_exportado": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product_categories"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product_category": {
+			          "Target": {
+			            "Entity": "dim_product_category"
+			          }
+			        },
+			        "fact_trade.produto_mais_exportado": {
+			          "Target": {
+			            "Entity": "fact_trade.produto_mais_exportado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product_category"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.produto_mais_exportado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_product_categories_have_produto_mais_exportado"
+			        }
+			      ]
+			    },
+			    "tipo_has_tipo": {
+			      "Binding": {
+			        "ConceptualEntity": "Tipo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "tipo": {
+			          "Target": {
+			            "Entity": "tipo"
+			          }
+			        },
+			        "tipo.tipo": {
+			          "Target": {
+			            "Entity": "tipo.tipo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "tipo"
+			            },
+			            "Object": {
+			              "Role": "tipo.tipo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tipos_have_tipos"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "tipo"
+			            },
+			            "Name": {
+			              "Role": "tipo.tipo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "tipos_are_names_IDs_of_tipos"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_top_5_estados_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.top_5_estados_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.top_5_estados_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.top_5_estados_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_top_5_estados_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_top_5_estados_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.top_5_estados_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.top_5_estados_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.top_5_estados_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_top_5_estados_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_preco_medio_por_quilo_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.preco_medio_por_quilo_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.preco_medio_por_quilo_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.preco_medio_por_quilo_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__preco_medio_por_quilo_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_peso_líquido_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.peso_líquido_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.peso_líquido_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.peso_líquido_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__peso_líquido_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_top_5_paises_parceiros_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.top_5_paises_parceiros_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.top_5_paises_parceiros_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.top_5_paises_parceiros_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_top_5_paises_parceiros_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_top_5_municipios_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.top_5_municipios_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.top_5_municipios_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.top_5_municipios_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_top_5_municipios_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_balança_comercial_real": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.balança_comercial_real": {
+			          "Target": {
+			            "Entity": "fact_trade.balança_comercial_real"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.balança_comercial_real"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__balança_comercial_real"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_exportacoes_real": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.exportacoes_real": {
+			          "Target": {
+			            "Entity": "fact_trade.exportacoes_real"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.exportacoes_real"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__exportacoes_real"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_importacoes_real": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.importacoes_real": {
+			          "Target": {
+			            "Entity": "fact_trade.importacoes_real"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.importacoes_real"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__importacoes_real"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_ranking_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.ranking_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.ranking_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.ranking_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_ranking_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_importacoes_YoY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.importacoes_YoY": {
+			          "Target": {
+			            "Entity": "fact_trade.importacoes_YoY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.importacoes_YoY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__importacoes_YoY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_exportacoes_YoY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.exportacoes_YoY": {
+			          "Target": {
+			            "Entity": "fact_trade.exportacoes_YoY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.exportacoes_YoY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__exportacoes_YoY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_importacoes_LY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.importacoes_LY": {
+			          "Target": {
+			            "Entity": "fact_trade.importacoes_LY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.importacoes_LY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__importacoes_LY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_exportacoes_LY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.exportacoes_LY": {
+			          "Target": {
+			            "Entity": "fact_trade.exportacoes_LY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.exportacoes_LY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__exportacoes_LY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_importacoes_acc": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.importacoes_acc": {
+			          "Target": {
+			            "Entity": "fact_trade.importacoes_acc"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.importacoes_acc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__importacoes_acc"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_exportacoes_acc": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.exportacoes_acc": {
+			          "Target": {
+			            "Entity": "fact_trade.exportacoes_acc"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.exportacoes_acc"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__exportacoes_acc"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_importacoes_negativo": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.importacoes_negativo": {
+			          "Target": {
+			            "Entity": "fact_trade.importacoes_negativo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.importacoes_negativo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__importacoes_negativo"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_top_5_paises_parceiros_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.top_5_paises_parceiros_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.top_5_paises_parceiros_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.top_5_paises_parceiros_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_top_5_paises_parceiros_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_qtd_parceiros_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.qtd_parceiros_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.qtd_parceiros_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.qtd_parceiros_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__qtd_parceiros_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_qtd_parceiros_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.qtd_parceiros_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.qtd_parceiros_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.qtd_parceiros_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__qtd_parceiros_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_top_5_municipios_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.top_5_municipios_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.top_5_municipios_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.top_5_municipios_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_top_5_municipios_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_ranking_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.ranking_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.ranking_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.ranking_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_ranking_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_taxa_de_cobertura": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.taxa_de_cobertura": {
+			          "Target": {
+			            "Entity": "fact_trade.taxa_de_cobertura"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.taxa_de_cobertura"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__taxa_de_cobertura"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_participacao_no_total": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.participacao_no_total": {
+			          "Target": {
+			            "Entity": "fact_trade.participacao_no_total"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.participacao_no_total"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__participacao_no_total"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_preco_medio_por_quilo_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.preco_medio_por_quilo_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.preco_medio_por_quilo_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.preco_medio_por_quilo_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__preco_medio_por_quilo_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_peso_líquido_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.peso_líquido_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.peso_líquido_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.peso_líquido_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__peso_líquido_exportacoes"
+			        }
+			      ]
+			    },
+			    "dim_city_has_region": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_cities"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_city": {
+			          "Target": {
+			            "Entity": "dim_city"
+			          }
+			        },
+			        "dim_city.region": {
+			          "Target": {
+			            "Entity": "dim_city.region"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_city"
+			            },
+			            "Object": {
+			              "Role": "dim_city.region"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cities_have_regions"
+			        }
+			      ]
+			    },
+			    "dim_city_has_uf": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_cities"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_city": {
+			          "Target": {
+			            "Entity": "dim_city"
+			          }
+			        },
+			        "dim_city.uf": {
+			          "Target": {
+			            "Entity": "dim_city.uf"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_city"
+			            },
+			            "Object": {
+			              "Role": "dim_city.uf"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cities_have_ufs"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_dia_do_trimestre_fiscal": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.dia_do_trimestre_fiscal": {
+			          "Target": {
+			            "Entity": "dim_calendario.dia_do_trimestre_fiscal"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.dia_do_trimestre_fiscal"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_dia_do_trimestre_fiscals"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_trimestre_fiscal_atual": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.trimestre_fiscal_atual": {
+			          "Target": {
+			            "Entity": "dim_calendario.trimestre_fiscal_atual"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.trimestre_fiscal_atual"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_trimestre_fiscal_atuals"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_trimestres_fiscais_para_hoje": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "dim_calendario.trimestres_fiscais_para_hoje": {
+			          "Target": {
+			            "Entity": "dim_calendario.trimestres_fiscais_para_hoje"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dim_calendario.trimestres_fiscais_para_hoje"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_trimestres_fiscais_para_hojes"
+			        }
+			      ]
+			    },
 			    "dim_calendario_has_trimestre_fiscal_fim": {
 			      "Binding": {
 			        "ConceptualEntity": "dim_calendario"
@@ -9697,7 +12683,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_valor_importacoes": {
+			    "fact_trade_has_importacoes": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -9708,9 +12694,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.valor_importacoes": {
+			        "fact_trade.importacoes": {
 			          "Target": {
-			            "Entity": "fact_trade.valor_importacoes"
+			            "Entity": "fact_trade.importacoes"
 			          }
 			        }
 			      },
@@ -9721,16 +12707,16 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.valor_importacoes"
+			              "Role": "fact_trade.importacoes"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have__valor_importacoes"
+			          "ID": "fact_trades_have__importacoes"
 			        }
 			      ]
 			    },
-			    "fact_trade_has_valor_exportacoes": {
+			    "fact_trade_has_exportacoes": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -9741,9 +12727,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.valor_exportacoes": {
+			        "fact_trade.exportacoes": {
 			          "Target": {
-			            "Entity": "fact_trade.valor_exportacoes"
+			            "Entity": "fact_trade.exportacoes"
 			          }
 			        }
 			      },
@@ -9754,12 +12740,12 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.valor_exportacoes"
+			              "Role": "fact_trade.exportacoes"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have__valor_exportacoes"
+			          "ID": "fact_trades_have__exportacoes"
 			        }
 			      ]
 			    },
@@ -10453,6 +13439,51 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
+			    "dim_city_in_region": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_cities"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_city": {
+			          "Target": {
+			            "Entity": "dim_city"
+			          }
+			        },
+			        "dim_city.region": {
+			          "Target": {
+			            "Entity": "dim_city.region"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "Where": {
+			          "Role": "dim_city.region"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "dim_city"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_city.region"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cities_are_in_regions"
+			        }
+			      ]
+			    },
 			    "dim_city_in_city_uf": {
 			      "Binding": {
 			        "ConceptualEntity": "dim_cities"
@@ -10585,20 +13616,20 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "dim_calendario_has_trimestres_fiscais_para_hoje": {
+			    "dim_product_category_has_fact_trade_produto_mais_importado": {
 			      "Binding": {
-			        "ConceptualEntity": "dim_calendario"
+			        "ConceptualEntity": "dim_product_categories"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "dim_calendario": {
+			        "dim_product_category": {
 			          "Target": {
-			            "Entity": "dim_calendario"
+			            "Entity": "dim_product_category"
 			          }
 			        },
-			        "dim_calendario.trimestres_fiscais_para_hoje": {
+			        "fact_trade.produto_mais_importado": {
 			          "Target": {
-			            "Entity": "dim_calendario.trimestres_fiscais_para_hoje"
+			            "Entity": "fact_trade.produto_mais_importado"
 			          }
 			        }
 			      },
@@ -10606,32 +13637,32 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dim_calendario"
+			              "Role": "dim_product_category"
 			            },
 			            "Object": {
-			              "Role": "dim_calendario.trimestres_fiscais_para_hoje"
+			              "Role": "fact_trade.produto_mais_importado"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_calendarios_have_trimestres_fiscais_para_hojes"
+			          "ID": "dim_product_categories_have_produto_mais_importado"
 			        }
 			      ]
 			    },
-			    "dim_calendario_has_trimestre_fiscal_atual": {
+			    "fact_trade_has_produto_mais_importado": {
 			      "Binding": {
-			        "ConceptualEntity": "dim_calendario"
+			        "ConceptualEntity": "fact_trades"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "dim_calendario": {
+			        "fact_trade": {
 			          "Target": {
-			            "Entity": "dim_calendario"
+			            "Entity": "fact_trade"
 			          }
 			        },
-			        "dim_calendario.trimestre_fiscal_atual": {
+			        "fact_trade.produto_mais_importado": {
 			          "Target": {
-			            "Entity": "dim_calendario.trimestre_fiscal_atual"
+			            "Entity": "fact_trade.produto_mais_importado"
 			          }
 			        }
 			      },
@@ -10639,32 +13670,32 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dim_calendario"
+			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "dim_calendario.trimestre_fiscal_atual"
+			              "Role": "fact_trade.produto_mais_importado"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_calendarios_have_trimestre_fiscal_atuals"
+			          "ID": "fact_trades_have_produto_mais_importado"
 			        }
 			      ]
 			    },
-			    "dim_calendario_has_dia_do_trimestre_fiscal": {
+			    "dim_product_category_has_fact_trade_produto_maior_valor_agregado_exportacoes": {
 			      "Binding": {
-			        "ConceptualEntity": "dim_calendario"
+			        "ConceptualEntity": "dim_product_categories"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "dim_calendario": {
+			        "dim_product_category": {
 			          "Target": {
-			            "Entity": "dim_calendario"
+			            "Entity": "dim_product_category"
 			          }
 			        },
-			        "dim_calendario.dia_do_trimestre_fiscal": {
+			        "fact_trade.produto_maior_valor_agregado_exportacoes": {
 			          "Target": {
-			            "Entity": "dim_calendario.dia_do_trimestre_fiscal"
+			            "Entity": "fact_trade.produto_maior_valor_agregado_exportacoes"
 			          }
 			        }
 			      },
@@ -10672,15 +13703,48 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dim_calendario"
+			              "Role": "dim_product_category"
 			            },
 			            "Object": {
-			              "Role": "dim_calendario.dia_do_trimestre_fiscal"
+			              "Role": "fact_trade.produto_maior_valor_agregado_exportacoes"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_calendarios_have_dia_do_trimestre_fiscals"
+			          "ID": "dim_product_categories_have_produto_maior_valor_agregado_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_produto_maior_valor_agregado_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.produto_maior_valor_agregado_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.produto_maior_valor_agregado_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.produto_maior_valor_agregado_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_produto_maior_valor_agregado_exportacoes"
 			        }
 			      ]
 			    },

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "11c878ca559bacad0067",
   "position": {
-    "x": 1284.6882793017458,
-    "y": 336.65835411471323,
-    "z": 7000,
-    "height": 717.75561097256855,
-    "width": 601.9451371571073,
-    "tabOrder": 7000
+    "x": 1282,
+    "y": 368.57142857142861,
+    "z": 2000,
+    "height": 677.14285714285722,
+    "width": 602,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -23,12 +23,12 @@
                       "Entity": "dim_cities"
                     }
                   },
-                  "Property": "state_name"
+                  "Property": "region"
                 }
               },
-              "queryRef": "dim_cities.state_name",
-              "nativeQueryRef": "Primeiro state_name",
-              "active": true
+              "queryRef": "dim_cities.region",
+              "nativeQueryRef": "region",
+              "active": false
             },
             {
               "field": {
@@ -38,12 +38,12 @@
                       "Entity": "dim_cities"
                     }
                   },
-                  "Property": "city_name"
+                  "Property": "state_name"
                 }
               },
-              "queryRef": "dim_cities.city_name",
-              "nativeQueryRef": "city_name",
-              "active": false
+              "queryRef": "dim_cities.state_name",
+              "nativeQueryRef": "state_name",
+              "active": true
             }
           ]
         },
@@ -106,7 +106,7 @@
         "levels": [
           {
             "queryRefs": [
-              "dim_cities.state_name"
+              "dim_cities.region"
             ],
             "isCollapsed": true,
             "identityKeys": [
@@ -117,7 +117,7 @@
                       "Entity": "dim_cities"
                     }
                   },
-                  "Property": "state_name"
+                  "Property": "region"
                 }
               }
             ],
@@ -125,7 +125,7 @@
           },
           {
             "queryRefs": [
-              "dim_cities.city_name"
+              "dim_cities.state_name"
             ],
             "isCollapsed": true,
             "isPinned": true
@@ -195,7 +195,7 @@
               "hideText": {
                 "expr": {
                   "Literal": {
-                    "Value": "true"
+                    "Value": "false"
                   }
                 }
               },
@@ -258,7 +258,7 @@
               "hideText": {
                 "expr": {
                   "Literal": {
-                    "Value": "true"
+                    "Value": "false"
                   }
                 }
               },
@@ -289,7 +289,7 @@
             "rowSubtotals": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             }

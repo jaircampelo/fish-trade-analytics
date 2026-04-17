@@ -35,13 +35,29 @@ table dim_cities
 
 		annotation SummarizationSetBy = Automatic
 
+	column uf
+		dataType: string
+		lineageTag: 622615bb-3a47-4cd8-a903-6e17e3223012
+		summarizeBy: none
+		sourceColumn: uf
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: c5fb7e08-79af-45ff-8797-44aae69a9f16
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
 	partition dim_cities = m
 		mode: import
 		source =
 				let
 				    Fonte = PostgreSQL.Database("localhost", "datawarehouse"),
 				    gold_dim_cities = Fonte{[Schema="gold",Item="dim_cities"]}[Data],
-				    outrasColunasRemovidas = Table.SelectColumns(gold_dim_cities,{"city_id", "city_name", "state_name", "city_uf"})
+				    outrasColunasRemovidas = Table.SelectColumns(gold_dim_cities,{"city_id", "city_name", "state_name", "uf", "city_uf", "region"})
 				in
 				    outrasColunasRemovidas
 

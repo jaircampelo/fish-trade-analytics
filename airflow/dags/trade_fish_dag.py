@@ -66,16 +66,6 @@ def fish_trade_pipeline():
     def load():
         from load_data import run_load_data
         run_load_data()
-
-    # Apply DBT transformations on the tables loaded to PostgreSQL.
-    @task
-    def transform():
-        return run_dbt_command('run', 'silver')
-    
-    # Execute DBT tests in Silver layer.
-    @task
-    def test_transform():
-        return run_dbt_command('test', 'silver')
     
     # Run seeds
     @task
@@ -91,6 +81,16 @@ def fish_trade_pipeline():
         if result.returncode != 0:
             raise Exception(f"dbt seed failure: {result.stderr}")
         return result.stdout
+
+    # Apply DBT transformations on the tables loaded to PostgreSQL.
+    @task
+    def transform():
+        return run_dbt_command('run', 'silver')
+    
+    # Execute DBT tests in Silver layer.
+    @task
+    def test_transform():
+        return run_dbt_command('test', 'silver')
     
     # Prepare the data for use in visualization tool.
     @task
@@ -117,6 +117,6 @@ def fish_trade_pipeline():
             raise Exception(f"dbt docs generate failure: {result.stderr}")
         return result.stdout 
     
-    [extract_main(), extract_aux(), extract_cpi()] >> load() >> transform() >> test_transform() >> seed() >> aggregate() >> test_aggregate() >> generate_docs()
+    [extract_main(), extract_aux(), extract_cpi()] >> load() >> seed() >> transform() >> test_transform() >> aggregate() >> test_aggregate() >> generate_docs()
 
 fish_trade_pipeline()
