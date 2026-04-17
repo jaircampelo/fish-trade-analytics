@@ -18,7 +18,5 @@ dbt/logs/
 dbt/dbt_internal_packages/
 
 # airflow
-airflow/logs/
-
-
-!**/.gitkeep
+airflow/logs/*
+!.gitkeep
