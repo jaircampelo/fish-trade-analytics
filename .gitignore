@@ -6,8 +6,19 @@ dist/
 wheels/
 *.egg-info
 
-# Virtual environments
-.venv
+# Virtual environments & config
+.venv/
 .env
+.vscode/
 
-.vscode
+# dbt
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+dbt/dbt_internal_packages/
+
+# airflow
+airflow/logs/
+
+
+!**/.gitkeep
