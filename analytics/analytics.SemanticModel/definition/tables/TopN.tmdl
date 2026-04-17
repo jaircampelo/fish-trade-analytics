@@ -1,0 +1,26 @@
+table TopN
+	lineageTag: db7a2d43-3ddd-4ed9-b09b-6dfff1059a39
+
+	measure 'TopN Value' = SELECTEDVALUE('TopN'[TopN])
+		formatString: 0
+		lineageTag: 0ce96fa5-f1ca-4918-bed8-2be6e3180122
+
+	column TopN
+		formatString: 0
+		lineageTag: fc4ad933-23a1-4b0e-90d1-3867d32947a7
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition TopN = calculated
+		mode: import
+		source = GENERATESERIES(1, 20, 1)
+
+	annotation PBI_Id = 01e443fea5ba4a37ac36547872531e4d
+

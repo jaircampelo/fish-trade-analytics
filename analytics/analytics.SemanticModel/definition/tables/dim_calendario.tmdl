@@ -1177,7 +1177,7 @@ table dim_calendario
 				    startDate = #date(2006, 1, 1),
 				
 				    // Years ahead today
-				    yearsAhead = 1,
+				    yearsAhead = 0,
 				            
 				    // Specify the start of the week. Default: Day.Monday 
 				    startOfWeek = Day.Monday,

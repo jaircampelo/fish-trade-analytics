@@ -3412,6 +3412,16 @@ cultureInfo pt-BR
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
+			        },
+			        {
+			          "Mês": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -7845,6 +7855,22 @@ cultureInfo pt-BR
 			      "Terms": [
 			        {
 			          "produto maior valor agregado exportacoes": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.visual_heatmap": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Visual Heatmap"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "visual heatmap": {
 			            "State": "Generated"
 			          }
 			        }
@@ -13745,6 +13771,72 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_trades_have_produto_maior_valor_agregado_exportacoes"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_trade_visual_heatmap": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_trade.visual_heatmap": {
+			          "Target": {
+			            "Entity": "fact_trade.visual_heatmap"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.visual_heatmap"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_visual_heatmap"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_visual_heatmap": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.visual_heatmap": {
+			          "Target": {
+			            "Entity": "fact_trade.visual_heatmap"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.visual_heatmap"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_visual_heatmap"
 			        }
 			      ]
 			    },

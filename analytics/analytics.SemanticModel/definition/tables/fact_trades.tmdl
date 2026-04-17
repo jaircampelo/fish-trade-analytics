@@ -2,7 +2,7 @@ table fact_trades
 	lineageTag: 285c657e-9154-4d2e-a1c6-7d79ec1130bd
 
 	measure '$ Corrente' = [$ Exportacoes] + [$ Importacoes]
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\01. Valor
 		lineageTag: 317ecf7d-40d9-4333-a168-ba67e8726581
 
 		formatStringDefinition =
@@ -24,7 +24,7 @@ table fact_trades
 			    SUM(fact_trades[fob_value]),
 			    fact_trades[trade_flag] = "exp"
 			)
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\01. Valor
 		lineageTag: a90ac50b-1aa3-405c-811d-62a877a67aca
 
 		formatStringDefinition =
@@ -46,7 +46,7 @@ table fact_trades
 			    SUM(fact_trades[fob_value]),
 			    fact_trades[trade_flag] = "imp"
 			)
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\01. Valor
 		lineageTag: e0676381-f298-48a0-973e-f8961148ee11
 
 		formatStringDefinition =
@@ -63,7 +63,7 @@ table fact_trades
 				__Formato
 
 	measure '$ Balança Comercial' = [$ Exportacoes] - [$ Importacoes]
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: 507bec1c-18ff-4d6e-af4a-67811d9b2cd8
 
 		formatStringDefinition =
@@ -71,14 +71,14 @@ table fact_trades
 				VAR __Formato =
 				SWITCH(
 				    TRUE(),
+				    __Valor = 0, "0",
 				    __Valor > 1000000000, "#0,,,.00 Bi",
 				    __Valor < -1000000000, "#0,,,.00 Bi",
 				    __Valor > 1000000, "#0,,.00 Mi",
 				    __Valor < -1000000, "#0,,.00 Mi",
 				    __Valor > 1000, "#0,.00 K",
 				    __Valor < -1000, "#0,.00 K",
-				    __Valor > 0, "#0",
-				    __Valor < 0, "#0"
+				    "#0"
 				)
 				RETURN
 				__Formato
@@ -89,7 +89,7 @@ table fact_trades
 			    SUM(fact_trades[net_weight]),
 			    fact_trades[trade_flag] = "exp"
 			)
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\02. Volume
 		lineageTag: 0e7e4ce6-7ccf-43cc-8d1f-5143ef98747e
 
 		formatStringDefinition =
@@ -106,7 +106,7 @@ table fact_trades
 				__Formato
 
 	measure '$ Preco Medio por Quilo Exportacoes' = DIVIDE([$ Exportacoes], [# Peso Líquido Exportacoes])
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: 3eaa3fb0-33cf-4c11-9577-b8da2d194ec0
 
 		formatStringDefinition = "#,0.00;#,0.00;#,0.00"
@@ -124,12 +124,12 @@ table fact_trades
 			RETURN
 			__Result
 		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: 025c80d1-c2ee-4b96-b7ab-75f0efdcd968
 
 	measure '% Taxa de Cobertura' = DIVIDE([$ Exportacoes], [$ Importacoes])
 		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: 540b50da-7533-4ce0-bf13-cb8111333819
 
 	measure 'Ranking Exportacoes' =
@@ -144,14 +144,14 @@ table fact_trades
 			RETURN
 			__Rank
 		formatString: 0
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\04. Rankings
 		lineageTag: 6ce5d103-ce7e-4114-b585-0f184742de1c
 
 	measure 'Top 5 Municipios Exportacoes' =
 			
 			VAR __TopN =
 			TOPN(
-			    5,
+			    [TopN Value],
 			    ALL(dim_cities[city_name]),
 			    [$ Exportacoes], DESC
 			)
@@ -163,7 +163,7 @@ table fact_trades
 			    [$ Exportacoes],
 			    KEEPFILTERS(__TopN)
 			)
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\04. Rankings
 		lineageTag: a74cea51-dc20-4c93-a4cd-f9dc59fd671b
 
 		formatStringDefinition =
@@ -186,7 +186,7 @@ table fact_trades
 			    fact_trades[trade_flag] = "exp"
 			)
 		formatString: 0
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\02. Volume
 		lineageTag: d7ae89a7-5d4e-4f83-b7fd-c4fe31b944d3
 
 	measure '# Qtd Parceiros Importacoes' =
@@ -196,14 +196,14 @@ table fact_trades
 			    fact_trades[trade_flag] = "imp"
 			)
 		formatString: 0
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\02. Volume
 		lineageTag: a6c7e583-7cde-4e03-bc02-85ee170151fc
 
 	measure 'Top 5 Paises Parceiros Exportacoes' =
 			
 			VAR __TopN =
 			TOPN(
-			    5,
+			    [TopN Value],
 			    ALL(dim_countries[country_name]),
 			    [$ Exportacoes], DESC
 			)
@@ -215,7 +215,7 @@ table fact_trades
 			    [$ Exportacoes],
 			    KEEPFILTERS(__TopN)
 			)
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\04. Rankings
 		lineageTag: eb82da6a-5d3d-4e4f-9893-2615f5df18a6
 
 		formatStringDefinition =
@@ -232,7 +232,7 @@ table fact_trades
 				__Formato
 
 	measure '$ Importacoes Negativo' = -[$ Importacoes]
-		displayFolder: Medidas\Storytelling
+		displayFolder: Medidas\07. Storytelling
 		lineageTag: 9b38854f-f7d2-494c-b69b-8febe3cf801b
 
 		formatStringDefinition =
@@ -255,7 +255,7 @@ table fact_trades
 			    dim_calendario[Data] <= MAX(dim_calendario[Data])
 			)
 		formatString: \$#,0;(\$#,0);\$#,0
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: 146b0a9f-7f85-48d2-8505-87e2d8e9328d
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
@@ -266,7 +266,7 @@ table fact_trades
 			    [$ Importacoes],
 			    dim_calendario[Data] <= MAX(dim_calendario[Data])
 			)
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: 6aaa1f0c-5c81-4dd1-b0ee-e4a4c39a8569
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -277,7 +277,7 @@ table fact_trades
 			    [$ Exportacoes],
 			    SAMEPERIODLASTYEAR(dim_calendario[Data])
 			)
-		displayFolder: Medidas\Inteligência de Tempo
+		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: cc37b285-4f4d-4dc7-8ecd-b4976126f22a
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -288,7 +288,7 @@ table fact_trades
 			    [$ Importacoes],
 			    SAMEPERIODLASTYEAR(dim_calendario[Data])
 			)
-		displayFolder: Medidas\Inteligência de Tempo
+		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: 489939dc-d672-4b86-b3ce-423a0d368940
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -302,7 +302,7 @@ table fact_trades
 			RETURN
 			__Result
 		formatString: 0.0%;-0.0%;0.0%
-		displayFolder: Medidas\Inteligência de Tempo
+		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: e029035d-8189-40d8-947e-91ded8160dc1
 
 	measure '% Importacoes YoY' =
@@ -314,7 +314,7 @@ table fact_trades
 			RETURN
 			__Result
 		formatString: 0.0%;-0.0%;0.0%
-		displayFolder: Medidas\Inteligência de Tempo
+		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: ba612981-3884-4b45-a141-21f412b6f9b3
 
 	measure 'Ranking Importacoes' =
@@ -329,7 +329,7 @@ table fact_trades
 			RETURN
 			__Rank
 		formatString: 0
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\04. Rankings
 		lineageTag: bb4ab939-ed30-4de1-9b3b-45b4982b1584
 
 	measure '$ Importacoes Real' =
@@ -339,7 +339,7 @@ table fact_trades
 			    fact_trades[trade_flag] = "imp"
 			)
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Medidas\Gerais\Real
+		displayFolder: Medidas\05. Valor Real
 		lineageTag: ca9e4265-6fa0-42a1-a244-0d9c6c9806f4
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
@@ -350,13 +350,13 @@ table fact_trades
 			    SUM(fact_trades[fob_value_real]),
 			    fact_trades[trade_flag] = "exp"
 			)
-		displayFolder: Medidas\Gerais\Real
+		displayFolder: Medidas\05. Valor Real
 		lineageTag: d561e5a1-ef0e-4918-98c5-766cad86af96
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure '$ Balança Comercial Real' = [$ Exportacoes Real] - [$ Importacoes Real]
-		displayFolder: Medidas\Gerais\Real
+		displayFolder: Medidas\05. Valor Real
 		lineageTag: a8ad9f67-51b3-481d-82c6-3854360cf78f
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -365,7 +365,7 @@ table fact_trades
 			
 			VAR __TopN =
 			TOPN(
-			    5,
+			    [TopN Value],
 			    ALL(dim_cities[city_name]),
 			    [$ Importacoes], DESC
 			)
@@ -377,7 +377,7 @@ table fact_trades
 			    [$ Importacoes],
 			    KEEPFILTERS(__TopN)
 			)
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\04. Rankings
 		lineageTag: c800d8f9-6a31-434c-bf92-30d53031020a
 
 		formatStringDefinition =
@@ -397,7 +397,7 @@ table fact_trades
 			
 			VAR __TopN =
 			TOPN(
-			    5,
+			    [TopN Value],
 			    ALL(dim_countries[country_name]),
 			    [$ Importacoes], DESC
 			)
@@ -409,7 +409,7 @@ table fact_trades
 			    [$ Importacoes],
 			    KEEPFILTERS(__TopN)
 			)
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\04. Rankings
 		lineageTag: b3293131-bbf7-4157-acb4-9c8f4b65eba7
 
 		formatStringDefinition =
@@ -431,7 +431,7 @@ table fact_trades
 			    SUM(fact_trades[net_weight]),
 			    fact_trades[trade_flag] = "imp"
 			)
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\02. Volume
 		lineageTag: 010e1971-8368-4b33-922b-4597644a222b
 
 		formatStringDefinition =
@@ -451,7 +451,7 @@ table fact_trades
 			
 			VAR __TopN =
 			TOPN(
-			    5,
+			    [TopN Value],
 			    ALL(dim_cities[state_name]),
 			    [$ Importacoes], DESC
 			)
@@ -463,7 +463,7 @@ table fact_trades
 			    [$ Importacoes],
 			    KEEPFILTERS(__TopN)
 			)
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\04. Rankings
 		lineageTag: 322a61a4-2fc1-45a6-a7d1-c190623d7dd8
 
 		formatStringDefinition =
@@ -483,7 +483,7 @@ table fact_trades
 			
 			VAR __TopN =
 			TOPN(
-			    5,
+			    [TopN Value],
 			    ALL(dim_cities[state_name]),
 			    [$ Exportacoes], DESC
 			)
@@ -495,7 +495,7 @@ table fact_trades
 			    [$ Exportacoes],
 			    KEEPFILTERS(__TopN)
 			)
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\04. Rankings
 		lineageTag: 59fb601c-300d-4cd6-a349-d3634a7f783f
 
 		formatStringDefinition =
@@ -512,7 +512,7 @@ table fact_trades
 				__Formato
 
 	measure '$ Preco Medio por Quilo Importacoes' = DIVIDE([$ Importacoes], [# Peso Líquido Importacoes])
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: 0b761699-aa56-4f6f-9c08-40b389917c9d
 
 		formatStringDefinition = "#,0.00;#,0.00;#,0.00"
@@ -524,7 +524,7 @@ table fact_trades
 			    ALLSELECTED(dim_product_categories[product_category_name]),
 			    [$ Exportacoes], DESC
 			)
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\07. Storytelling
 		lineageTag: 5a4e15f1-14c5-4534-b462-c440f9113f42
 
 	measure 'Produto mais Importado' =
@@ -534,7 +534,7 @@ table fact_trades
 			    ALLSELECTED(dim_product_categories[product_category_name]),
 			    [$ Importacoes], DESC
 			)
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\07. Storytelling
 		lineageTag: 7ade20cc-2a97-4c9d-b355-ee8f06e4d1d9
 
 	measure 'Produto Maior Valor Agregado Exportacoes' =
@@ -544,8 +544,20 @@ table fact_trades
 			    ALLSELECTED(dim_product_categories[product_category_name]),
 			    [$ Preco Medio por Quilo Exportacoes], DESC
 			)
-		displayFolder: Medidas\Gerais\Nominal
+		displayFolder: Medidas\07. Storytelling
 		lineageTag: be0bed65-e13f-4ca8-9277-285518c386dd
+
+	measure 'Visual Heatmap' =
+			
+			IF(
+			    HASONEVALUE(dim_calendario[MesNomeIniciais]),
+			    "ㅤ",
+			    [$ Balança Comercial]
+			)
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 422d01b3-40dc-4e6a-85ff-2eb1913b8d97
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column trade_date
 		dataType: dateTime
