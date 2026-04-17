@@ -56,6 +56,11 @@
       "type": "RegisteredResources",
       "items": [
         {
+          "name": "balanca_comercial011395829842829941.svg",
+          "path": "balanca_comercial011395829842829941.svg",
+          "type": "Image"
+        },
+        {
           "name": "Custom04951633083905893.json",
           "path": "Custom04951633083905893.json",
           "type": "CustomTheme"
