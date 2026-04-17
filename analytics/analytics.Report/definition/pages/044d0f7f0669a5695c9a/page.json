@@ -5,11 +5,83 @@
   "displayOption": "FitToPage",
   "height": 1080,
   "width": 1920,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'visao_geral.svg'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "visao_geral3287679213817982.svg"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fit'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
   "visualInteractions": [
     {
-      "source": "9d2a281bbd300368d0a8",
+      "source": "11c878ca559bacad0067",
+      "target": "25a6db4793e752700b95",
+      "type": "DataFilter"
+    },
+    {
+      "source": "11c878ca559bacad0067",
+      "target": "15c4fee089495bd68770",
+      "type": "DataFilter"
+    },
+    {
+      "source": "11c878ca559bacad0067",
       "target": "04c2a48a544940ad5b96",
-      "type": "NoFilter"
+      "type": "DataFilter"
+    },
+    {
+      "source": "04c2a48a544940ad5b96",
+      "target": "25a6db4793e752700b95",
+      "type": "DataFilter"
+    },
+    {
+      "source": "04c2a48a544940ad5b96",
+      "target": "15c4fee089495bd68770",
+      "type": "DataFilter"
+    },
+    {
+      "source": "25a6db4793e752700b95",
+      "target": "15c4fee089495bd68770",
+      "type": "DataFilter"
+    },
+    {
+      "source": "15c4fee089495bd68770",
+      "target": "25a6db4793e752700b95",
+      "type": "DataFilter"
     }
   ]
 }

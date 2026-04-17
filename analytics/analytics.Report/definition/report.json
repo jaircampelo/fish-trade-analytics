@@ -59,6 +59,26 @@
           "name": "Custom04951633083905893.json",
           "path": "Custom04951633083905893.json",
           "type": "CustomTheme"
+        },
+        {
+          "name": "produto19509358045543834.svg",
+          "path": "produto19509358045543834.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Vector27768298676988035.svg",
+          "path": "Vector27768298676988035.svg",
+          "type": "Image"
+        },
+        {
+          "name": "Vector5472683917074137.svg",
+          "path": "Vector5472683917074137.svg",
+          "type": "Image"
+        },
+        {
+          "name": "visao_geral3287679213817982.svg",
+          "path": "visao_geral3287679213817982.svg",
+          "type": "Image"
         }
       ]
     }

@@ -12,7 +12,7 @@
 with cities_source as (
     select "id"
          , "text"
-         , trim(split_part("text", '-', 2) as "uf"
+         , right(trim("text"), 2) as "uf"
          , "noMunMin"
          , "ingested_at"
          , "loaded_at"
@@ -48,7 +48,7 @@ joined as (
          , c."loaded_at"
          , c."row_num"
          , s."text" as "state_name"
-         , case when r."region" is null then "Não se aplica" else r."region" end as "region"
+         , case when r."region" is null then 'Não se aplica' else r."region" end as "region"
       from cities_source        c
       left join states_source   s on c."uf" = s."uf"
       left join regions         r on c."uf" = r."uf"

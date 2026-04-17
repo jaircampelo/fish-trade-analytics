@@ -135,8 +135,16 @@ models:
         description: "Name of the state where the city is from."
         tests:
           - not_null
+      - name: uf
+        description: "Two-letter codes from Brazil states."
+        tests:
+          - not_null
       - name: city_uf
         description: "Concatenates city and uf in one string (e.g. Belém - PA)."
+        tests:
+          - not_null
+      - name: region
+        description: "Regions of each Brazil state."
         tests:
           - not_null
       - name: ingested_at
