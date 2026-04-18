@@ -48,7 +48,7 @@ No modelo ETL (Extract, Transform, Load) os dados são carregados para dentro do
 
 ## 📁 Estrutura do Projeto
 
-```markdown
+```
 📁 fish-trade-analytics/
 │
 ├── 📁 airflow/                    # Orquestração do pipeline com Apache Airflow
