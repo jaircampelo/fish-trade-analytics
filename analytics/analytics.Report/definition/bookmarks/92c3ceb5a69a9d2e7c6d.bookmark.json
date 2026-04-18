@@ -5,20 +5,20 @@
   "options": {
     "applyOnlyToTargetVisuals": true,
     "targetVisualNames": [
-      "965600e70ca9ad50c070",
-      "b538bab2dea830853b53",
-      "14a16c93d006b039a90a",
-      "55660021941d6b9c6e00",
-      "d05b402da4e4050c068e",
-      "70f3bde0c030ee395473",
-      "7ca98bc248419306025c",
-      "a9521e3fde0ebbce5000",
-      "78c30e0d143a10a2bad0",
-      "79c1cc7e4a508e0a07d1",
-      "b8cc75c070e8ba669200",
-      "ff45db97cb294be7ac12",
-      "fc5302500514a37a826d",
-      "9ab1dd7b8de4a40e0950"
+      "8f257c1f0669a8a57081",
+      "d309fa93dc840ae55009",
+      "e37a8ea6bdcea014dc70",
+      "79ab8d55000d0b9ea203",
+      "11c086343bebd930baa9",
+      "7f7cde430d7368005c78",
+      "53c457d8d9a91010a1e5",
+      "ea613dc00a4c01e3d718",
+      "020a8b60081b24803c34",
+      "ad79377eb5d008006306",
+      "fa1abd88751a93da9548",
+      "b1a22411a6beb74d3060",
+      "ac2afd8d722d87a64b07",
+      "22f809e19de47be80cab"
     ]
   },
   "explorationState": {
@@ -31,7 +31,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "2fb32ce1126edb23acce",
+                  "name": "fb6e4b2e0e04c72c1141",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
@@ -46,7 +46,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "60e4399b5d03d682c1d3",
+                  "name": "0cba9711d2758b012e2c",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -61,7 +61,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "f66efb639a3a74b77a9b",
+                  "name": "2f6b40bd403c74c2622c",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -115,7 +115,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "ce5f07a004a09473aa00",
+                  "name": "4d5c25299284b0328795",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -130,7 +130,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "5aff49ab4dc11e8550da",
+                  "name": "fcd8e3bbd0beb1037e84",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -184,7 +184,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "d052a43b023ea3d332e7",
+                  "name": "43e5deef90cd16beee4a",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
@@ -199,7 +199,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "aa7a9148cb0662d24a9c",
+                  "name": "b4e24e004aacd347cc4d",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -253,7 +253,7 @@
             "filters": {
               "byExpr": [
                 {
-                  "name": "5fcf9945266cdbdc77b8",
+                  "name": "d6fd6026b013b30bde12",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -262,13 +262,13 @@
                           "Entity": "fact_trades"
                         }
                       },
-                      "Property": "Produto mais Exportado"
+                      "Property": "Produto Mais Exportado"
                     }
                   },
                   "howCreated": 0
                 },
                 {
-                  "name": "c535d4800955e308c560",
+                  "name": "52389249964656378e93",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -277,13 +277,13 @@
                           "Entity": "fact_trades"
                         }
                       },
-                      "Property": "Produto mais Importado"
+                      "Property": "Produto Mais Importado"
                     }
                   },
                   "howCreated": 0
                 },
                 {
-                  "name": "b051367207b0d1011352",
+                  "name": "8986c9bcab0e0e8052e7",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -312,58 +312,441 @@
                           "Entity": "fact_trades"
                         }
                       },
-                      "Property": "Produto mais Exportado"
+                      "Property": "Produto Mais Exportado"
                     }
                   }
                 }
               ]
             }
           },
-          "b538bab2dea830853b53": {
+          "d309fa93dc840ae55009": {
             "singleVisual": {
               "visualType": "actionButton",
               "objects": {}
             }
           },
-          "14a16c93d006b039a90a": {
+          "e37a8ea6bdcea014dc70": {
             "singleVisual": {
               "visualType": "shape",
               "objects": {}
             }
           },
-          "55660021941d6b9c6e00": {
+          "79ab8d55000d0b9ea203": {
             "singleVisual": {
-              "visualType": "shape",
+              "visualType": "actionButton",
               "objects": {}
             }
           },
-          "b8cc75c070e8ba669200": {
+          "11c086343bebd930baa9": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "7053d49b00c8e30050e2",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_product_categories"
+                        }
+                      },
+                      "Property": "product_category_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_product_categories"
+                        }
+                      },
+                      "Property": "product_category_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "7f7cde430d7368005c78": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "fc95f3e4503c5b274765",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_countries"
+                        }
+                      },
+                      "Property": "country_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_countries"
+                        }
+                      },
+                      "Property": "country_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "53c457d8d9a91010a1e5": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "fc2245513c900ca615d2",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_calendario"
+                        }
+                      },
+                      "Property": "Ano"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e0a46f1ded040878de95",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_calendario"
+                        }
+                      },
+                      "Property": "MesNomeAbreviado"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_calendario"
+                        }
+                      },
+                      "Property": "Ano"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Values"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "dim_calendario.Ano"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "dim_calendario"
+                              }
+                            },
+                            "Property": "Ano"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "dim_calendario.MesNomeAbreviado"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null
+                  }
+                }
+              ]
+            }
+          },
+          "ea613dc00a4c01e3d718": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "77b629877740ea8a0dba",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_cities"
+                        }
+                      },
+                      "Property": "region"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_cities"
+                        }
+                      },
+                      "Property": "region"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "020a8b60081b24803c34": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "1bf850175479d98c281d",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_cities"
+                        }
+                      },
+                      "Property": "state_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_cities"
+                        }
+                      },
+                      "Property": "state_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "ad79377eb5d008006306": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "509a67a01dd1374321a2",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_cities"
+                        }
+                      },
+                      "Property": "city_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_cities"
+                        }
+                      },
+                      "Property": "city_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "fa1abd88751a93da9548": {
             "singleVisual": {
               "visualType": "textbox",
               "objects": {}
             }
           },
-          "ff45db97cb294be7ac12": {
+          "b1a22411a6beb74d3060": {
             "singleVisual": {
               "visualType": "actionButton",
               "objects": {}
             }
           },
-          "fc5302500514a37a826d": {
+          "ac2afd8d722d87a64b07": {
             "singleVisual": {
               "visualType": "actionButton",
               "objects": {}
             }
           },
-          "9ab1dd7b8de4a40e0950": {
+          "22f809e19de47be80cab": {
             "singleVisual": {
-              "visualType": "actionButton",
+              "visualType": "shape",
               "objects": {}
             }
           }
         },
         "visualContainerGroups": {
-          "965600e70ca9ad50c070": {
+          "8f257c1f0669a8a57081": {
             "isHidden": false
           }
         }
