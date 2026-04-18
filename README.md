@@ -1,7 +1,7 @@
 # 🎣 Projeto end-to-end de Análise da balança comercial de pescado
 
 ![status](https://img.shields.io/badge/status-in%20development-yellow)
-![Python](https://img.shields.io/badge/python-3.12-blue.svg)
+![Python](https://img.shields.io/badge/python-3.11-blue.svg)
 ![Docker](https://img.shields.io/badge/docker-29.3.1-blue.svg)
 ![DBT](https://img.shields.io/badge/dbt-1.9-orange.svg)
 
