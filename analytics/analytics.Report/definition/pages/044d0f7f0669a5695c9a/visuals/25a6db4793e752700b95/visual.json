@@ -42,7 +42,7 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "Top 5 Estados Exportacoes"
+                  "Property": "Top N Estados Exportacoes"
                 }
               },
               "queryRef": "fact_trades.Top 5 Estados Exportacoes",
@@ -61,7 +61,7 @@
                     "Entity": "fact_trades"
                   }
                 },
-                "Property": "Top 5 Estados Exportacoes"
+                "Property": "Top N Estados Exportacoes"
               }
             },
             "direction": "Descending"

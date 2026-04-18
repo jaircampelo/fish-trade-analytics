@@ -111,7 +111,7 @@ table fact_trades
 
 		formatStringDefinition = "#,0.00;#,0.00;#,0.00"
 
-	measure '% Participacao no Total' =
+	measure '% Participacao no Total Exportacoes' =
 			
 			VAR __Total =
 			CALCULATE(
@@ -132,7 +132,7 @@ table fact_trades
 		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: 540b50da-7533-4ce0-bf13-cb8111333819
 
-	measure 'Ranking Exportacoes' =
+	measure 'Ranking Exportacoes por Estado' =
 			
 			VAR __Rank =
 			RANK(
@@ -147,12 +147,12 @@ table fact_trades
 		displayFolder: Medidas\04. Rankings
 		lineageTag: 6ce5d103-ce7e-4114-b585-0f184742de1c
 
-	measure 'Top 5 Municipios Exportacoes' =
+	measure 'Top N Municipios Exportacoes' =
 			
 			VAR __TopN =
 			TOPN(
 			    [TopN Value],
-			    ALL(dim_cities[city_name]),
+			    ALL(dim_cities[city_uf]),
 			    [$ Exportacoes], DESC
 			)
 			
@@ -199,7 +199,7 @@ table fact_trades
 		displayFolder: Medidas\02. Volume
 		lineageTag: a6c7e583-7cde-4e03-bc02-85ee170151fc
 
-	measure 'Top 5 Paises Parceiros Exportacoes' =
+	measure 'Top N Paises Parceiros Exportacoes' =
 			
 			VAR __TopN =
 			TOPN(
@@ -317,7 +317,7 @@ table fact_trades
 		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: ba612981-3884-4b45-a141-21f412b6f9b3
 
-	measure 'Ranking Importacoes' =
+	measure 'Ranking Importacoes por Estado' =
 			
 			VAR __Rank =
 			RANK(
@@ -361,12 +361,12 @@ table fact_trades
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Top 5 Municipios Importacoes' =
+	measure 'Top N Municipios Importacoes' =
 			
 			VAR __TopN =
 			TOPN(
 			    [TopN Value],
-			    ALL(dim_cities[city_name]),
+			    ALL(dim_cities[city_uf]),
 			    [$ Importacoes], DESC
 			)
 			
@@ -393,7 +393,7 @@ table fact_trades
 				RETURN
 				__Formato
 
-	measure 'Top 5 Paises Parceiros Importacoes' =
+	measure 'Top N Paises Parceiros Importacoes' =
 			
 			VAR __TopN =
 			TOPN(
@@ -447,7 +447,7 @@ table fact_trades
 				RETURN
 				__Formato
 
-	measure 'Top 5 Estados Importacoes' =
+	measure 'Top N Estados Importacoes' =
 			
 			VAR __TopN =
 			TOPN(
@@ -479,7 +479,7 @@ table fact_trades
 				RETURN
 				__Formato
 
-	measure 'Top 5 Estados Exportacoes' =
+	measure 'Top N Estados Exportacoes' =
 			
 			VAR __TopN =
 			TOPN(
@@ -517,7 +517,7 @@ table fact_trades
 
 		formatStringDefinition = "#,0.00;#,0.00;#,0.00"
 
-	measure 'Produto mais Exportado' =
+	measure 'Produto Mais Exportado' =
 			
 			TOPN(
 			    1,
@@ -527,7 +527,7 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 5a4e15f1-14c5-4534-b462-c440f9113f42
 
-	measure 'Produto mais Importado' =
+	measure 'Produto Mais Importado' =
 			
 			TOPN(
 			    1,
@@ -558,6 +558,260 @@ table fact_trades
 		lineageTag: 422d01b3-40dc-4e6a-85ff-2eb1913b8d97
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Participacao no Total Importacoes' =
+			
+			VAR __Total =
+			CALCULATE(
+			    [$ Importacoes],
+			    ALL(fact_trades)
+			)
+			
+			VAR __Result = DIVIDE([$ Importacoes], __Total)
+			
+			RETURN
+			__Result
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Medidas\03. Performance & Preço
+		lineageTag: e778a78c-f81a-426a-96ae-0f4ea7376d5e
+
+	measure 'Rotulo Importacoes' = ABS([$ Importacoes Negativo])
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 6861a073-6496-45ae-985c-f2de7e01d86c
+
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
+
+	measure 'Top N Market Share Importacoes Negativo' = - [Top N Market Share Importacoes (por Corrente)]
+		formatString: #0.00%;#0.00%
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 6fedb16f-a91a-4ed3-a777-6f341295e0e9
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Top N Market Share Importacoes (por Corrente)' =
+			
+			VAR __TopN =
+			TOPN(
+			    [TopN Value],
+			    ALL(dim_countries[country_name]),
+			    [$ Corrente], DESC
+			)
+			
+			VAR __Result = 0
+			
+			RETURN
+			CALCULATE(
+			    [% Participacao no Total Importacoes],
+			    KEEPFILTERS(__TopN)
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Medidas\04. Rankings
+		lineageTag: 4c31a01a-6303-41ef-a6d0-a0e8aa496845
+
+	measure 'Top N Market Share Exportacoes (por Corrente)' =
+			
+			VAR __TopN =
+			TOPN(
+			    [TopN Value],
+			    ALL(dim_countries[country_name]),
+			    [$ Corrente], DESC
+			)
+			
+			VAR __Result = 0
+			
+			RETURN
+			CALCULATE(
+			    [% Participacao no Total Exportacoes],
+			    KEEPFILTERS(__TopN)
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Medidas\04. Rankings
+		lineageTag: dcb8a5a5-21f5-4a7d-8204-055941758787
+
+	measure 'Ranking Corrente por Estado' =
+			
+			VAR __Rank =
+			RANK(
+			    DENSE,
+			    ALLSELECTED(dim_cities[state_name]),
+			    ORDERBY([$ Corrente], DESC)
+			)
+			
+			RETURN
+			__Rank
+		formatString: 0
+		displayFolder: Medidas\04. Rankings
+		lineageTag: 930b8056-f4ca-434d-bd10-004705297176
+
+	measure 'Maior Pais Parceiro Exportacoes' =
+			
+			TOPN(
+			    1,
+			    ALLSELECTED(dim_countries[country_name]),
+			    [$ Exportacoes], DESC
+			)
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 87d700fe-4cdf-432b-9807-2bcf46343b8d
+
+	measure 'Maior Pais Parceiro Importacoes' =
+			
+			TOPN(
+			    1,
+			    ALLSELECTED(dim_countries[country_name]),
+			    [$ Importacoes], DESC
+			)
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 4e1fe88e-90c5-4a0d-a213-659eda618a1c
+
+	measure '# Qtd Parceiros Corrente' = DISTINCTCOUNT(fact_trades[trade_country_id])
+		formatString: 0
+		displayFolder: Medidas\02. Volume
+		lineageTag: 968c417c-77d9-4b28-a649-5a7ef9930722
+
+	measure '% HHI Pais Destino' = ```
+			
+			VAR __TabelaShare = 
+			    ADDCOLUMNS(
+			        VALUES(dim_countries[country_name]),
+			        "@Share", [% Participacao no Total Exportacoes]
+			    )
+			RETURN
+			    SUMX(__TabelaShare, [@Share] ^ 2)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Medidas\03. Performance & Preço
+		lineageTag: 683cff61-98d5-45c7-873c-72abfd71391b
+
+	measure 'Faixa Baixa Medidor HHI' = 0.15
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 0251635b-347c-41fb-8857-a2f34b4a4e82
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Faixa Media Medidor HHI' = 0.1
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: a536a162-99d0-48b2-bc88-78ef9b5fef28
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Faixa Alta Medidor HHI' = 0.75
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: ebc930b7-b8f9-4613-8637-092000a1564c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% HHI Pais Origem' = ```
+			
+			VAR __TabelaShare = 
+			    ADDCOLUMNS(
+			        VALUES(dim_countries[country_name]),
+			        "@Share", [% Participacao no Total Importacoes]
+			    )
+			RETURN
+			    SUMX(__TabelaShare, [@Share] ^ 2)
+			```
+		displayFolder: Medidas\03. Performance & Preço
+		lineageTag: cd92f7b1-ea06-454f-a66b-360a491ef552
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Participacao no Total por Pais' =
+			
+			VAR __Total =
+			CALCULATE(
+			    SUM(fact_trades[fob_value]),
+			    ALL(dim_countries[country_name])
+			)
+			
+			VAR __Result = DIVIDE(SUM(fact_trades[fob_value]), __Total)
+			
+			RETURN
+			__Result
+		displayFolder: Medidas\03. Performance & Preço
+		lineageTag: cb79f373-c847-4973-898b-c562a70f8180
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% HHI Pais Dinamico' = ```
+			
+			VAR __TabelaShare = 
+			    ADDCOLUMNS(
+			        VALUES(dim_countries[country_name]),
+			        "@Share", [% Participacao no Total por Pais]
+			    )
+			RETURN
+			    SUMX(__TabelaShare, [@Share] ^ 2)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Medidas\03. Performance & Preço
+		lineageTag: 86fde091-1e62-4f39-bb8a-29e9ca6bed13
+
+	measure '# Qtd Municipios Exportacoes' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_trades[city_id]),
+			    fact_trades[trade_flag] = "exp"
+			)
+		formatString: 0
+		displayFolder: Medidas\02. Volume
+		lineageTag: fad005c8-e5b7-413d-b8a3-736718c814d5
+
+	measure '# Qtd Municipios Importacoes' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT(fact_trades[city_id]),
+			    fact_trades[trade_flag] = "imp"
+			)
+		formatString: 0
+		displayFolder: Medidas\02. Volume
+		lineageTag: 6aaaed7f-ac67-498d-bfd7-042bdee11084
+
+	measure '% Participacao no Total por Estado' =
+			
+			VAR __Total =
+			CALCULATE(
+			    SUM(fact_trades[fob_value]),
+			    ALL(dim_cities[state_name])
+			)
+			
+			VAR __Result = DIVIDE(SUM(fact_trades[fob_value]), __Total)
+			
+			RETURN
+			__Result
+		displayFolder: Medidas\03. Performance & Preço
+		lineageTag: 922a35eb-2dd1-4dde-882d-1f7883a92049
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% HHI Estado Dinamico' = ```
+			
+			VAR __TabelaShare = 
+			    ADDCOLUMNS(
+			        VALUES(dim_cities[state_name]),
+			        "@Share", [% Participacao no Total por Estado]
+			    )
+			RETURN
+			    SUMX(__TabelaShare, [@Share] ^ 2)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Medidas\03. Performance & Preço
+		lineageTag: 081a4425-0797-40e0-aa4a-e79f5e5d3d94
+
+	measure 'Top N Market Share IExportacoes Positivo' = [Top N Market Share Exportacoes (por Corrente)]
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 03df3fae-e227-4c33-a7fe-f63eded6b146
 
 	column trade_date
 		dataType: dateTime

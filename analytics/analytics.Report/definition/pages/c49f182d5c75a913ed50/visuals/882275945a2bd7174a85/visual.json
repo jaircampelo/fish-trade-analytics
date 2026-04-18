@@ -23,7 +23,7 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "Produto mais Exportado"
+                  "Property": "Produto Mais Exportado"
                 }
               },
               "queryRef": "fact_trades.$ Produto mais Exportado",
@@ -37,7 +37,7 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "Produto mais Importado"
+                  "Property": "Produto Mais Importado"
                 }
               },
               "queryRef": "fact_trades.Produto mais Importado",
@@ -70,7 +70,7 @@
                     "Entity": "fact_trades"
                   }
                 },
-                "Property": "Produto mais Exportado"
+                "Property": "Produto Mais Exportado"
               }
             },
             "direction": "Ascending"

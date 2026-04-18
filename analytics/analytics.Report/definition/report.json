@@ -37,7 +37,9 @@
   },
   "publicCustomVisuals": [
     "smartFilterBarSDKA9F7BD62E04ADCE9DD7450D052A5DB60",
-    "TornadoChart1452517688218"
+    "TornadoChart1452517688218",
+    "InforiverCharts582F6C55AB6442EF8FA129089285CB47",
+    "MapBySquillion"
   ],
   "resourcePackages": [
     {
@@ -56,8 +58,13 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "balanca_comercial011395829842829941.svg",
-          "path": "balanca_comercial011395829842829941.svg",
+          "name": "balanca_comercial6550641216124179.svg",
+          "path": "balanca_comercial6550641216124179.svg",
+          "type": "Image"
+        },
+        {
+          "name": "brasil9007788226827869.svg",
+          "path": "brasil9007788226827869.svg",
           "type": "Image"
         },
         {
@@ -66,23 +73,33 @@
           "type": "CustomTheme"
         },
         {
-          "name": "produto19509358045543834.svg",
-          "path": "produto19509358045543834.svg",
+          "name": "filtro24262966951311316.svg",
+          "path": "filtro24262966951311316.svg",
           "type": "Image"
         },
         {
-          "name": "Vector27768298676988035.svg",
-          "path": "Vector27768298676988035.svg",
+          "name": "parceiros_comerciais286858028506757.svg",
+          "path": "parceiros_comerciais286858028506757.svg",
           "type": "Image"
         },
         {
-          "name": "Vector5472683917074137.svg",
-          "path": "Vector5472683917074137.svg",
+          "name": "produto9339003463943406.svg",
+          "path": "produto9339003463943406.svg",
           "type": "Image"
         },
         {
-          "name": "visao_geral3287679213817982.svg",
-          "path": "visao_geral3287679213817982.svg",
+          "name": "sair7177479315282694.svg",
+          "path": "sair7177479315282694.svg",
+          "type": "Image"
+        },
+        {
+          "name": "sair7777160882486943.svg",
+          "path": "sair7777160882486943.svg",
+          "type": "Image"
+        },
+        {
+          "name": "visao_geral6328611255354779.svg",
+          "path": "visao_geral6328611255354779.svg",
           "type": "Image"
         }
       ]
