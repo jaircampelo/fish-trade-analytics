@@ -9,6 +9,10 @@
 
 >O papel desse projeto é demonstrar o dia-a-dia de um Analitycs Engineer, utilizando ferramentas para tratar de ingestão, qualidade de dados, documentação, performance, e análise de dados.
 
+## 🏛️ Arquitetura
+
+![architecture](docs/images/architecture.png)
+
 ## 🔎 Problema
 
 Decisões estratégicas de negócio, seja no ambiente privado ou institucional, se não são, deveriam ser tomadas através de dados que sejam confiáveis. Porém, quando se trata de recursos pesqueiros, sejam eles advindos da pesca ou da aquicultura, a disponibilidades de dados e estatísticas é muito carente.
@@ -50,7 +54,6 @@ fish-trade-analytics/
 ├── airflow/                    # Orquestração do pipeline com Apache Airflow
 │   ├── dags/                   # Definição das DAGs
 │   ├── logs/                   # Logs de execução
-│   └── plugins/                # Plugins customizados
 │
 ├── data/
 │   └── raw/                    # Zona de pouso — arquivos Parquet extraídos da API
@@ -60,7 +63,6 @@ fish-trade-analytics/
 │   ├── models/
 │   │   ├── silver/             # Camada Silver — limpeza e padronização
 │   │   └── gold/               # Camada Gold — modelo dimensional para BI
-│   └── tests/                  # Testes de qualidade de dados
 │
 ├── notebooks/                  # Análise exploratória dos dados
 │
@@ -69,3 +71,23 @@ fish-trade-analytics/
 │
 └── scripts/                    # Scripts Python de ingestão
 ```
+
+## 🗄️ PostgresSQL - Data Warehouse
+
+Dentro do banco de dados é onde a mágica acontece. Os arquivos *raw* são carregados como tabelas, que em seguida são transformados utilizando fundamentos de **Data Cleaning** e posteriormente são validados e ficam disponíveis para consumo em ferramenta de visualização.
+
+### Schemas Criados
+
+- **metadata**: metadados referentes à extração via API e carga dos dados para o banco.
+- **bronze**: dados brutos extraídos via scripts Python.
+- **silver**: dados limpos. padronizados e validados via DBT.
+- **gold**: dados prontos para consumo/análise.
+
+### Bancos de Dados
+
+- **datawarehouse**: banco principal com as camadas medalhão.
+- **airflow**: banco de metadados do Apache Airflow.
+
+### Scripts de Inicialização
+
+O script `create_database_airflow.sh` na pasta init/ é executado automaticamente na primeira vez que o container PostgreSQL é iniciado, em ordem alfabética.
