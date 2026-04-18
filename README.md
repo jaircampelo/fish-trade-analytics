@@ -7,7 +7,7 @@
 
 **Da ingestão ao dashboard:** esse projeto apresenta uma solução completa de um pipeline de dados utilizando ferramentas open source, partindo desde a ingestão de dados do comércio internacional de pescado da API COMEX STAT, até a elaboração de um dashboard no Power BI demonstrando as principais KPI's envonvidas no setor.
 
->O papel desse projeto é demonstrar o dia-a-dia de um Analitycs Engineer, utilizando ferramentas para tratar de ingestão, qualidade de dados, documentação, performance, e análise de dados.
+>O papel desse projeto é demonstrar o dia-a-dia de um Analytics Engineer, utilizando ferramentas para tratar de ingestão, qualidade de dados, documentação, performance, e análise de dados.
 
 ## 🏛️ Arquitetura
 
@@ -15,7 +15,7 @@
 
 ## 🔎 Problema
 
-Decisões estratégicas de negócio, seja no ambiente privado ou institucional, se não são, deveriam ser tomadas através de dados que sejam confiáveis. Porém, quando se trata de recursos pesqueiros, sejam eles advindos da pesca ou da aquicultura, a disponibilidades de dados e estatísticas é muito carente.
+Decisões estratégicas de negócio, seja no ambiente privado ou institucional, se não são, deveriam ser tomadas através de dados que sejam confiáveis. Porém, quando se trata de recursos pesqueiros, sejam eles advindos da pesca ou da aquicultura, a disponibilidade de dados e estatísticas é muito carente.
 
 Pensando nisso, esse projeto constrói uma solução do início ao fim e demonstra, através de uma série de processos que vão desde a ingestão incremental dos dados, tratamento de registros e visualização, que através dos dados grandes decisões podem ser tomadas de maneira eficiente e com confiança.
 
@@ -49,28 +49,81 @@ No modelo ETL (Extract, Transform, Load) os dados são carregados para dentro do
 ## 📁 Estrutura do Projeto
 
 ```markdown
-fish-trade-analytics/
+📁 fish-trade-analytics/
 │
-├── airflow/                    # Orquestração do pipeline com Apache Airflow
-│   ├── dags/                   # Definição das DAGs
-│   ├── logs/                   # Logs de execução
+├── 📁 airflow/                    # Orquestração do pipeline com Apache Airflow
+│   ├── 📁 dags/                   # Definição das DAGs
+│   ├── 📁 logs/                   # Logs de execução
 │
-├── data/
-│   └── raw/                    # Zona de pouso — arquivos Parquet extraídos da API
+├── 📁 data/
+│   └── 📁 raw/                    # Zona de pouso — arquivos Parquet extraídos da API
 │
-├── dbt/                        # Projeto dbt — transformações das camadas Silver e Gold
-│   ├── macros/                 # Macros SQL reutilizáveis
-│   ├── models/
-│   │   ├── silver/             # Camada Silver — limpeza e padronização
-│   │   └── gold/               # Camada Gold — modelo dimensional para BI
+├── 📁 dbt/                        # Projeto dbt — transformações das camadas Silver e Gold
+│   ├── 📁 macros/                 # Macros reutilizáveis
+│   ├── 📁 models/
+│   │   ├── 📁 silver/             # Camada Silver — limpeza e padronização
+│   │   └── 📁 gold/               # Camada Gold — modelo dimensional para BI
+│   └── 📁 seeds/                  # Dados estáticos (CSV)
 │
-├── notebooks/                  # Análise exploratória dos dados
+├── 📁 notebooks/                  # Análise exploratória dos dados
 │
-├── postgres/
-│   └── init/                   # Scripts de inicialização do PostgreSQL
+├── 📁 postgres/
+│   └── 📁 init/                   # Scripts de inicialização do PostgreSQL
 │
-└── scripts/                    # Scripts Python de ingestão
+├── 📁 scripts/                    # Scripts Python de ingestão
+│
+├── 📄 .env                        # Variáveis de ambiente e credenciais sensíveis
+├── 📄 .gitignore                  # Arquivos e pastas ignorados pelo Git
+├── 📄 docker-compose.yml          # Definição e orquestração dos serviços Docker
+├── 📄 LICENSE                     # Termos de licença e uso do projeto
+├── 📄 pyproject.toml              # Configurações de dependências e build do Python
+├── 📄 README.md                   # Documentação principal do projeto
+└── 📄 uv.lock                     # Travamento de versões das dependências (uv)
 ```
+
+## 🔨 DBT (Data Build Tool)
+
+A etapa de transformação de dados foi realizada com DBT através de comandos SQL
+
+### Camadas
+
+### Silver (Cleaned Data)
+
+Dados limpos, padronizados e validados.
+
+**Modelos:**
+
+- `silver_exports.sql` - Padronização dos dados de exportação
+- `silver_imports.sql` - Padronização dos dados de importação
+- `silver_cities.sql` - Enriquecimento com tabelas auxiliares de estados
+- `silver_countries.sql` - Padronização de nomenclaturas
+- `silver_cpi.sql` - Padronização de datas e nomenclaturas
+
+### Gold (Modelo Dimensional)
+
+Dados prontos para consumo analítico
+
+**Modelos:**
+
+- `fact_trades.sql` - União de fatos de importação e exportação e padronização de FKs (Foreign Keys)
+- `dim_cities.sql` - Dimensão de cidades, categorizadas por estado e região
+- `dim_countries.sql` - Dimensão de países
+- `dim_product_categories.sql` - Dimensão de categoria de produtos, com ID (código SH4), nome e descrição
+
+### Seeds
+
+Alimentam a camada analítica com arquivos CSV estáticos
+
+**Arquivos:**
+
+- `seed_product_categories.csv` - Categoria de produtos, com ID (código SH4), nome e descrição
+- `seed_state_regions.csv` - Regiões do Brasil para cada estado
+
+### Testes de Qualidade
+
+- **Uniqueness**: IDs únicos
+- **Not Null**: Campos obrigatórios
+- **Relationships**: Integridade referencial
 
 ## 🗄️ PostgresSQL - Data Warehouse
 
