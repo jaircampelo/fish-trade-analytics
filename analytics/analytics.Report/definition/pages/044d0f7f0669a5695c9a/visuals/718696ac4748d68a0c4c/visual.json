@@ -3,11 +3,11 @@
   "name": "718696ac4748d68a0c4c",
   "position": {
     "x": 1561.1136890951275,
-    "y": 77.111368909512777,
+    "y": 78.097447795823683,
     "z": 5000,
     "height": 82.69141531322505,
     "width": 330.7656612529002,
-    "tabOrder": 6000
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "slicer",
@@ -43,7 +43,7 @@
               },
               "queryRef": "dim_calendario.MesNomeAbreviado",
               "nativeQueryRef": "MesNomeAbreviado",
-              "active": false
+              "active": true
             }
           ]
         }
@@ -82,7 +82,20 @@
             "isPinned": true
           }
         ],
-        "root": {}
+        "root": {
+          "children": [
+            {
+              "identityValues": [
+                {
+                  "Literal": {
+                    "Value": "2026L"
+                  }
+                }
+              ],
+              "isToggled": true
+            }
+          ]
+        }
       }
     ],
     "objects": {

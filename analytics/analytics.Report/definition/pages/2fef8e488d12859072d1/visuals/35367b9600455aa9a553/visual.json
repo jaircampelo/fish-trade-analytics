@@ -38,7 +38,7 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "Top N Market Share Importacoes Negativo"
+                  "Property": "PC - Top N Market Share Importacoes Negativo"
                 }
               },
               "queryRef": "fact_trades.Top N Market Share Importacoes Negativo",
@@ -68,7 +68,7 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "Top N Market Share IExportacoes Positivo"
+                  "Property": "PC - Top N Market Share Exportacoes Positivo"
                 }
               },
               "queryRef": "fact_trades.Top N Market Share IExportacoes Positivo",
@@ -442,37 +442,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "88d8c262e155386005ae",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_countries"
-              }
-            },
-            "Property": "country_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "aa7f6607026c74e9aa96",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_trades"
-              }
-            },
-            "Property": "Top N Market Share Importacoes Negativo"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

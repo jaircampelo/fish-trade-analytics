@@ -1,7 +1,7 @@
-table TopN
+table aux_topn
 	lineageTag: db7a2d43-3ddd-4ed9-b09b-6dfff1059a39
 
-	measure 'TopN Value' = SELECTEDVALUE('TopN'[TopN])
+	measure 'TopN Value' = SELECTEDVALUE('aux_topn'[TopN])
 		formatString: 0
 		lineageTag: 0ce96fa5-f1ca-4918-bed8-2be6e3180122
 
@@ -18,7 +18,7 @@ table TopN
 
 		annotation SummarizationSetBy = User
 
-	partition TopN = calculated
+	partition aux_topn = calculated
 		mode: import
 		source = GENERATESERIES(1, 20, 1)
 

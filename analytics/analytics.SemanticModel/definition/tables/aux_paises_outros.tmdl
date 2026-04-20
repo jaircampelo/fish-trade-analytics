@@ -1,0 +1,22 @@
+table aux_paises_outros
+	lineageTag: 92c0b2cb-3f6c-4e14-805a-9b6f16d2b396
+
+	column country_name
+		lineageTag: d3abbaed-f4f7-4cae-9d17-2d91c699d22d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dim_countries[country_name]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition aux_paises_outros = calculated
+		mode: import
+		source =
+				
+				UNION(
+				    ALLNOBLANKROW(dim_countries[country_name]),
+				    {"Outros"}
+				)
+
+	annotation PBI_Id = 9c355d91a41649919d6674a936337c56
+

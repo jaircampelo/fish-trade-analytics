@@ -62,7 +62,7 @@ table fact_trades
 				RETURN
 				__Formato
 
-	measure '$ Balança Comercial' = [$ Exportacoes] - [$ Importacoes]
+	measure '$ Balanca Comercial' = [$ Exportacoes] - [$ Importacoes]
 		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: 507bec1c-18ff-4d6e-af4a-67811d9b2cd8
 
@@ -199,39 +199,44 @@ table fact_trades
 		displayFolder: Medidas\02. Volume
 		lineageTag: a6c7e583-7cde-4e03-bc02-85ee170151fc
 
-	measure 'Top N Paises Parceiros Exportacoes' =
+	measure 'Top N % Exportacoes Paises Parceiros' =
 			
 			VAR __TopN =
 			TOPN(
 			    [TopN Value],
-			    ALL(dim_countries[country_name]),
-			    [$ Exportacoes], DESC
+			    ALL(aux_paises_outros),
+			    [% Participacao no Total Exportacoes], DESC
 			)
 			
-			VAR __Result = 0
-			
-			RETURN
+			VAR __ExpTopN =
 			CALCULATE(
-			    [$ Exportacoes],
+			    [% Participacao no Total Exportacoes],
 			    KEEPFILTERS(__TopN)
 			)
+			
+			VAR __Outros =
+			EXCEPT(ALL(aux_paises_outros), __TopN)
+			
+			VAR __ExpOutros =
+			CALCULATE(
+			    [% Participacao no Total Exportacoes],
+			    __Outros
+			)
+			
+			VAR __Result =
+			IF(
+			    SELECTEDVALUE(aux_paises_outros[country_name]) = "Outros",
+			    __ExpOutros,
+			    __ExpTopN
+			)
+			
+			RETURN
+			__Result
+		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Medidas\04. Rankings
 		lineageTag: eb82da6a-5d3d-4e4f-9893-2615f5df18a6
 
-		formatStringDefinition =
-				VAR __Valor = SELECTEDMEASURE()
-				VAR __Formato =
-				SWITCH(
-				    TRUE(),
-				    __Valor > 1000000000, "#0,,,.00 Bi",
-				    __Valor > 1000000, "#0,,.00 Mi",
-				    __Valor > 1000, "#0,.00 K",
-				    "#0"
-				)
-				RETURN
-				__Formato
-
-	measure '$ Importacoes Negativo' = -[$ Importacoes]
+	measure 'VG - $ Importacoes Negativo' = -[$ Importacoes]
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 9b38854f-f7d2-494c-b69b-8febe3cf801b
 
@@ -280,7 +285,18 @@ table fact_trades
 		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: cc37b285-4f4d-4dc7-8ecd-b4976126f22a
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
 
 	measure '$ Importacoes LY' =
 			
@@ -291,11 +307,22 @@ table fact_trades
 		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: 489939dc-d672-4b86-b3ce-423a0d368940
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
 
 	measure '% Exportacoes YoY' =
 			
-			VAR __Ly = [$ Exportacoes]
+			VAR __Ly = [$ Exportacoes LY]
 			
 			VAR __Result = DIVIDE( [$ Exportacoes] - __Ly, __Ly)
 			
@@ -307,7 +334,7 @@ table fact_trades
 
 	measure '% Importacoes YoY' =
 			
-			VAR __Ly = [$ Importacoes]
+			VAR __Ly = [$ Importacoes LY]
 			
 			VAR __Result = DIVIDE( [$ Importacoes] - __Ly, __Ly)
 			
@@ -393,22 +420,40 @@ table fact_trades
 				RETURN
 				__Formato
 
-	measure 'Top N Paises Parceiros Importacoes' =
+	measure 'Top N % Importacoes Paises Parceiros' =
 			
 			VAR __TopN =
 			TOPN(
 			    [TopN Value],
-			    ALL(dim_countries[country_name]),
-			    [$ Importacoes], DESC
+			    ALL(aux_paises_outros),
+			    [% Participacao no Total Importacoes], DESC
 			)
 			
-			VAR __Result = 0
-			
-			RETURN
+			VAR __ExpTopN =
 			CALCULATE(
-			    [$ Importacoes],
+			    [% Participacao no Total Importacoes],
 			    KEEPFILTERS(__TopN)
 			)
+			
+			VAR __Outros =
+			EXCEPT(ALL(aux_paises_outros), __TopN)
+			
+			VAR __ExpOutros =
+			CALCULATE(
+			    [% Participacao no Total Importacoes],
+			    __Outros
+			)
+			
+			
+			VAR __Result =
+			IF(
+			    SELECTEDVALUE(aux_paises_outros[country_name]) = "Outros",
+			    __ExpOutros,
+			    __ExpTopN
+			)
+			
+			RETURN
+			__Result
 		displayFolder: Medidas\04. Rankings
 		lineageTag: b3293131-bbf7-4157-acb4-9c8f4b65eba7
 
@@ -517,7 +562,7 @@ table fact_trades
 
 		formatStringDefinition = "#,0.00;#,0.00;#,0.00"
 
-	measure 'Produto Mais Exportado' =
+	measure 'P - Produto Mais Exportado' =
 			
 			TOPN(
 			    1,
@@ -527,7 +572,7 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 5a4e15f1-14c5-4534-b462-c440f9113f42
 
-	measure 'Produto Mais Importado' =
+	measure 'P - Produto Mais Importado' =
 			
 			TOPN(
 			    1,
@@ -537,7 +582,7 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 7ade20cc-2a97-4c9d-b355-ee8f06e4d1d9
 
-	measure 'Produto Maior Valor Agregado Exportacoes' =
+	measure 'P - Produto Maior Valor Agregado Exportacoes' =
 			
 			TOPN(
 			    1,
@@ -547,12 +592,12 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: be0bed65-e13f-4ca8-9277-285518c386dd
 
-	measure 'Visual Heatmap' =
+	measure 'BC - Visual Heatmap' =
 			
 			IF(
 			    HASONEVALUE(dim_calendario[MesNomeIniciais]),
 			    "ㅤ",
-			    [$ Balança Comercial]
+			    [$ Balanca Comercial]
 			)
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 422d01b3-40dc-4e6a-85ff-2eb1913b8d97
@@ -575,24 +620,7 @@ table fact_trades
 		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: e778a78c-f81a-426a-96ae-0f4ea7376d5e
 
-	measure 'Rotulo Importacoes' = ABS([$ Importacoes Negativo])
-		displayFolder: Medidas\07. Storytelling
-		lineageTag: 6861a073-6496-45ae-985c-f2de7e01d86c
-
-		formatStringDefinition =
-				VAR __Valor = SELECTEDMEASURE()
-				VAR __Formato =
-				SWITCH(
-				    TRUE(),
-				    __Valor > 1000000000, "#0,,,.00 Bi",
-				    __Valor > 1000000, "#0,,.00 Mi",
-				    __Valor > 1000, "#0,.00 K",
-				    "#0"
-				)
-				RETURN
-				__Formato
-
-	measure 'Top N Market Share Importacoes Negativo' = - [Top N Market Share Importacoes (por Corrente)]
+	measure 'PC - Top N Market Share Importacoes Negativo' = - [Top N Market Share Importacoes (por Corrente)]
 		formatString: #0.00%;#0.00%
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 6fedb16f-a91a-4ed3-a777-6f341295e0e9
@@ -608,13 +636,14 @@ table fact_trades
 			    [$ Corrente], DESC
 			)
 			
-			VAR __Result = 0
-			
-			RETURN
+			VAR __Result =
 			CALCULATE(
 			    [% Participacao no Total Importacoes],
 			    KEEPFILTERS(__TopN)
 			)
+			
+			RETURN
+			__Result
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Medidas\04. Rankings
 		lineageTag: 4c31a01a-6303-41ef-a6d0-a0e8aa496845
@@ -628,13 +657,14 @@ table fact_trades
 			    [$ Corrente], DESC
 			)
 			
-			VAR __Result = 0
-			
-			RETURN
+			VAR __Result =
 			CALCULATE(
 			    [% Participacao no Total Exportacoes],
 			    KEEPFILTERS(__TopN)
 			)
+			
+			RETURN
+			__Result
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Medidas\04. Rankings
 		lineageTag: dcb8a5a5-21f5-4a7d-8204-055941758787
@@ -654,7 +684,7 @@ table fact_trades
 		displayFolder: Medidas\04. Rankings
 		lineageTag: 930b8056-f4ca-434d-bd10-004705297176
 
-	measure 'Maior Pais Parceiro Exportacoes' =
+	measure 'PC - Maior Pais Parceiro Exportacoes' =
 			
 			TOPN(
 			    1,
@@ -664,7 +694,7 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 87d700fe-4cdf-432b-9807-2bcf46343b8d
 
-	measure 'Maior Pais Parceiro Importacoes' =
+	measure 'PC - Maior Pais Parceiro Importacoes' =
 			
 			TOPN(
 			    1,
@@ -693,19 +723,19 @@ table fact_trades
 		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: 683cff61-98d5-45c7-873c-72abfd71391b
 
-	measure 'Faixa Baixa Medidor HHI' = 0.15
+	measure 'PC - Faixa Baixa Medidor HHI' = 0.15
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 0251635b-347c-41fb-8857-a2f34b4a4e82
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Faixa Media Medidor HHI' = 0.1
+	measure 'PC - Faixa Media Medidor HHI' = 0.1
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: a536a162-99d0-48b2-bc88-78ef9b5fef28
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Faixa Alta Medidor HHI' = 0.75
+	measure 'PC - Faixa Alta Medidor HHI' = 0.75
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: ebc930b7-b8f9-4613-8637-092000a1564c
 
@@ -808,10 +838,460 @@ table fact_trades
 		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: 081a4425-0797-40e0-aa4a-e79f5e5d3d94
 
-	measure 'Top N Market Share IExportacoes Positivo' = [Top N Market Share Exportacoes (por Corrente)]
+	measure 'PC - Top N Market Share Exportacoes Positivo' = [Top N Market Share Exportacoes (por Corrente)]
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 03df3fae-e227-4c33-a7fe-f63eded6b146
+
+	measure '$ Corrente LY' =
+			
+			CALCULATE(
+			    [$ Corrente],
+			    SAMEPERIODLASTYEAR(dim_calendario[Data])
+			)
+		displayFolder: Medidas\06. Time Intelligence
+		lineageTag: 40703011-1d1c-4290-9e73-0787f42acdbf
+
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
+
+	measure '% Corrente YoY' =
+			
+			VAR __Ly = [$ Corrente LY]
+			
+			VAR __Result = DIVIDE( [$ Corrente] - __Ly, __Ly)
+			
+			RETURN
+			__Result
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Medidas\06. Time Intelligence
+		lineageTag: bd54c39b-f3fb-4877-b391-082cf965cd20
+
+	measure '$ Balanca Comercial LY' =
+			
+			CALCULATE(
+			    [$ Balanca Comercial],
+			    SAMEPERIODLASTYEAR(dim_calendario[Data])
+			)
+		displayFolder: Medidas\06. Time Intelligence
+		lineageTag: d2b1e86e-6ba5-4091-83b9-929b348c7547
+
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
+
+	measure '$ Balanca Comercial YoY' = [$ Balanca Comercial] - [$ Balanca Comercial LY]
+		displayFolder: Medidas\06. Time Intelligence
+		lineageTag: 2854566d-e2bb-4c7b-aca1-cb50d0b54b31
+
+		formatStringDefinition =
+				VAR __Valor = ABS(SELECTEDMEASURE())
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
+
+	measure '$ Preco Medio por Quilo Exportacoes LY' =
+			
+			CALCULATE(
+			    [$ Preco Medio por Quilo Exportacoes],
+			    SAMEPERIODLASTYEAR(dim_calendario[Data])
+			)
+		displayFolder: Medidas\06. Time Intelligence
+		lineageTag: 6b8f034a-d303-40af-9bbc-8156a74ef3e4
+
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    __Valor > 1000000000, "#0,,,.00 Bi",
+				    __Valor > 1000000, "#0,,.00 Mi",
+				    __Valor > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
+
+	measure '% Preco Medio por Quilo Exportacoes YoY' =
+			
+			VAR __Ly = [$ Preco Medio por Quilo Exportacoes LY]
+			
+			VAR __Result = DIVIDE([$ Preco Medio por Quilo Exportacoes] - __Ly, __Ly)
+			
+			RETURN
+			__Result
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Medidas\06. Time Intelligence
+		lineageTag: 12c2832a-13f7-4764-8a5b-b85393a63b69
+
+	measure '% Taxa de Cobertura LY' =
+			
+			CALCULATE(
+			    [% Taxa de Cobertura],
+			    SAMEPERIODLASTYEAR(dim_calendario[Data])
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Medidas\06. Time Intelligence
+		lineageTag: a428a0a8-ff28-4ca6-9c1f-a4bafdc74b6a
+
+	measure 'VG - Rotulo Taxa de Cobertura YoY' = ```
+			
+			 VAR __Variacao = [Var Taxa de Cobertura YoY]
+			
+			 VAR __Result =
+			SWITCH(
+			    TRUE(),
+			    __Variacao > 0, FORMAT(__Variacao, "+0.0") & " p.p.",
+			    __Variacao < 0, FORMAT(__Variacao, "-0.0") & " p.p.",
+			    FORMAT(__Variacao, "0.0") & " p.p."
+			)
+			
+			RETURN
+			__Result
+			```
+		formatString: +#0.0 p.p.;-#0.0 p.p.
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: e9598d00-c048-4af9-9b32-7a1e550ae750
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Var Taxa de Cobertura YoY' = [% Taxa de Cobertura] - [% Taxa de Cobertura LY]
+		displayFolder: Medidas\06. Time Intelligence
+		lineageTag: a5661ea0-7c46-414f-905f-937b0095d761
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'VG - Subtitulo Visual Serie Historica' = ```
+			
+			VAR __MaxImp =
+			MAXX(
+			    ALL(dim_calendario[MesAnoNome]),
+			    [$ Importacoes]
+			)
+			
+			VAR __MaxData = 
+			TOPN(
+			    1,
+			    ALL(dim_calendario[MesAnoNome]),
+			    [$ Importacoes], DESC
+			)
+			VAR __MaxDataEscalar =
+			CONCATENATEX(__MaxData, dim_calendario[MesAnoNome])
+			
+			VAR __FormatMax =
+			SWITCH(
+			    TRUE(),
+			    __MaxImp > 1000000000, FORMAT(__MaxImp, "#0,,,.00 Bi"),
+			    __MaxImp > 1000000, FORMAT(__MaxImp, "#0,,.00 Mi"),
+			    __MaxImp > 1000, FORMAT(__MaxImp, "#0,.00 K"),
+			    FORMAT(__MaxImp, "#0")
+			)
+			
+			VAR __Texto =
+			"O Brasil se destaca como um importador líquido de pescado, atingindo a máxima histórica de "
+			& __FormatMax
+			& " de dólares em "
+			& __MaxDataEscalar
+			
+			RETURN
+			__Texto
+			```
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: f2185dff-d2f9-4a34-80fb-73bbabe5991e
+
+	measure '$ Exportacoes Acc por Produto' =
+			
+			VAR __Window =
+			WINDOW(
+			    1, ABS,
+			    0, REL,
+			    ALLSELECTED(dim_product_categories[product_category_name]),
+			    ORDERBY([$ Exportacoes], DESC)
+			)
+			
+			VAR __Acc =
+			CALCULATE(
+			    [$ Exportacoes],
+			    __Window
+			)
+			
+			RETURN
+			__Acc
+		displayFolder: Medidas\03. Performance & Preço
+		lineageTag: 4be9b1ce-4e3b-44f6-b6b5-baf0b25a2e20
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% Exportacoes Pareto' =
+			
+			VAR __Window =
+			WINDOW(
+			    1, ABS,
+			    -1, ABS,
+			    ALLSELECTED(dim_product_categories[product_category_name]),
+			    ORDERBY([$ Exportacoes], DESC)
+			)
+			
+			VAR __Total =
+			CALCULATE(
+			    [$ Exportacoes],
+			    __Window
+			)
+			
+			VAR __Result = DIVIDE([$ Exportacoes Acc por Produto], __Total)
+			
+			RETURN
+			__Result
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Medidas\03. Performance & Preço
+		lineageTag: ddd85306-482e-4dbd-948e-bd23c1d9c10b
+
+	measure 'VG - Subtitulo Produtos' =
+			
+			-- Busca todas as categorias
+			VAR __TodasCategorias =
+			ALLSELECTED(dim_product_categories[product_category_name], dim_product_categories[product_category_id])
+			
+			-- Extrai o Top 1 e o Top 2 por valor de exportações
+			VAR __Top1 =
+			TOPN(1, __TodasCategorias, [$ Exportacoes], DESC)
+			VAR __SemTop1 =
+			EXCEPT(__TodasCategorias, __Top1)
+			VAR __Top2 =
+			TOPN(1, __SemTop1, [$ Exportacoes], DESC)
+			
+			-- Assegura um valor escalar para inserir no texto
+			VAR __EscalarTop1Nome = CONCATENATEX(__Top1, dim_product_categories[product_category_name])
+			VAR __EscalarTop1Id = CONCATENATEX(__Top1, dim_product_categories[product_category_id])
+			
+			VAR __EscalarTop2Nome = CONCATENATEX(__Top2, dim_product_categories[product_category_name])
+			VAR __EscalarTop2Id = CONCATENATEX(__Top2, dim_product_categories[product_category_id])
+			
+			--Extrai o percentual do Top 1 e do Top 2
+			VAR __Top1Percent =
+			FORMAT(
+			    CALCULATE(
+			        [% Participacao no Total Exportacoes],
+			        __Top1
+			    ),
+			    "#0.0%"
+			)
+			VAR __Top2Percent =
+			FORMAT(
+			    CALCULATE(
+			        [% Participacao no Total Exportacoes],
+			        __Top2
+			    ),
+			    "#0.0%"
+			)
+			
+			VAR __Texto =
+			"A categoria "
+			& __EscalarTop1Nome & " (" & __EscalarTop1Id & ") domina "
+			&  __Top1Percent
+			& " do mercado de exportações, seguida de "
+			& __EscalarTop2Nome & " (" & __EscalarTop2Id & "), com "
+			& __Top2Percent & "."
+			
+			RETURN
+			__Texto
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 9f28283c-1368-4703-a02e-c8498b7e3044
+
+	measure 'VG - Titulo Top N Estados' =
+			
+			VAR __TopNValor = SELECTEDVALUE('aux_topn'[TopN])
+			
+			VAR __TextoTop1 =
+			"Quem é o Top 1 estado que mais exporta?"
+			
+			VAR __TextoTopMaiorQue1 =
+			"Quem são os Top "
+			& __TopNValor
+			& " estados que mais exportam?"
+			
+			VAR __Texto =
+			IF(
+			    __TopNValor > 1,
+			    __TextoTopMaiorQue1,
+			    __TextoTop1
+			)
+			
+			RETURN
+			__Texto
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 9e0d4ffb-0855-489b-8c4e-a9757b61bea5
+
+	measure 'VG - Subtitulo Top N Estados' = ```
+			
+			VAR __Data =
+			ALLSELECTED(dim_calendario[MesAnoNome], dim_calendario[MesAnoNumero])
+			
+			VAR __MinNumero = 
+			MINX(
+			    FILTER(__Data, [$ Exportacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			
+			VAR __MaxNumero = 
+			MAXX(
+			    FILTER(__Data, [$ Exportacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			
+			VAR __MinNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MinNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			
+			VAR __MaxNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MaxNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			
+			VAR __Texto =
+			"Ranking dos estados que mais exportaram, em dólares, no período de "
+			& __MinNome & " - " & __MaxNome
+			
+			RETURN
+			__Texto
+			```
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 1450d53a-519e-4e23-9e5b-b85eec50729d
+
+	measure 'Ranking Exportacoes por Pais' =
+			
+			RANK(
+			    DENSE,
+			    ALLSELECTED(aux_paises_outros[country_name]),
+			    ORDERBY([$ Exportacoes], DESC)
+			)
+		formatString: 0
+		displayFolder: Medidas\04. Rankings
+		lineageTag: e9dcdb97-ed69-40a0-a5fd-54cd7054cdab
+
+	measure 'VG - Titulo Top N Paises' =
+			
+			VAR __TopNValor = SELECTEDVALUE('aux_topn'[TopN])
+			
+			VAR __TextoTop1 =
+			"Quem é o principal parceiro comercial do Brasil nas exportações?"
+			
+			VAR __TextoTopMaiorQue1 =
+			"Quem são os Top "
+			& __TopNValor
+			& " parceiros comerciais do Brasil nas exportações?"
+			
+			VAR __Texto =
+			IF(
+			    __TopNValor > 1,
+			    __TextoTopMaiorQue1,
+			    __TextoTop1
+			)
+			
+			RETURN
+			__Texto
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: b41feede-3752-42f8-a499-f5a1c4739491
+
+	measure 'VG - Subtitulo Top N Paises' = ```
+			
+			------------------------------------------
+			-- CALCULANDO VALORES
+			------------------------------------------
+			VAR __Pais =
+			TOPN(
+			    1,
+			    ALLSELECTED(aux_paises_outros[country_name]),
+			    [$ Exportacoes], DESC
+			)
+			VAR __Valor =
+			CALCULATE(
+			    [$ Exportacoes],
+			    __Pais
+			)
+			VAR __FormatValor =
+			SWITCH(
+			    TRUE(),
+			    __Valor > 1000000000, FORMAT(__Valor, "#0,,,.00 Bi"),
+			    __Valor > 1000000, FORMAT(__Valor, "#0,,.00 Mi"),
+			    __Valor > 1000, FORMAT(__Valor, "#0,.00 K"),
+			    FORMAT(__Valor, "#0")
+			)
+			VAR __Pct =
+			CALCULATE(
+			    [% Participacao no Total Exportacoes],
+			    __Pais
+			)
+			
+			------------------------------------------
+			-- CALCULANDO RANGE DE DATAS
+			------------------------------------------
+			VAR __Data =
+			ALLSELECTED(dim_calendario[MesAnoNome], dim_calendario[MesAnoNumero])
+			VAR __MinNumero = 
+			MINX(
+			    FILTER(__Data, [$ Exportacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MaxNumero = 
+			MAXX(
+			    FILTER(__Data, [$ Exportacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MinNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MinNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			VAR __MaxNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MaxNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			
+			VAR __Texto =
+			__Pais
+			& " lidera as exportações brasileiras de pescado, absorvendo " 
+			& FORMAT(__Pct, "0.0%")
+			& " do total, equivalente a U$ " 
+			& __FormatValor
+			& " durante o período de "
+			& __MinNome & " - " & __MaxNome
+			
+			RETURN
+			__Texto
+			```
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: d3503ebc-941d-41ea-9cee-36ac7c70951f
 
 	column trade_date
 		dataType: dateTime

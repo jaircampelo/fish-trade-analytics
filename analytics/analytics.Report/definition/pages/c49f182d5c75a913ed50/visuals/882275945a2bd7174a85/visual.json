@@ -23,11 +23,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "Produto Mais Exportado"
+                  "Property": "P - Produto Mais Exportado"
                 }
               },
               "queryRef": "fact_trades.$ Produto mais Exportado",
-              "nativeQueryRef": "Produto mais Exportado"
+              "nativeQueryRef": "P - Produto Mais Exportado"
             },
             {
               "field": {
@@ -37,11 +37,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "Produto Mais Importado"
+                  "Property": "P - Produto Mais Importado"
                 }
               },
               "queryRef": "fact_trades.Produto mais Importado",
-              "nativeQueryRef": "Produto mais Importado"
+              "nativeQueryRef": "P - Produto Mais Importado"
             },
             {
               "field": {
@@ -51,11 +51,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "Produto Maior Valor Agregado Exportacoes"
+                  "Property": "P - Produto Maior Valor Agregado Exportacoes"
                 }
               },
               "queryRef": "fact_trades.Produto Maior Valor Agregado Exportacoes",
-              "nativeQueryRef": "Produto Maior Valor Agregado Exportacoes"
+              "nativeQueryRef": "P - Produto Maior Valor Agregado Exportacoes"
             }
           ]
         }
@@ -70,7 +70,7 @@
                     "Entity": "fact_trades"
                   }
                 },
-                "Property": "Produto Mais Exportado"
+                "Property": "P - Produto Mais Exportado"
               }
             },
             "direction": "Ascending"

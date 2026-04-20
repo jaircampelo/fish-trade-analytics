@@ -17,8 +17,9 @@ ref table dim_countries
 ref table dim_product_categories
 ref table fact_trades
 ref table dim_calendario
-ref table Tipo
-ref table TopN
+ref table aux_tipo
+ref table aux_topn
+ref table aux_paises_outros
 
 ref cultureInfo pt-BR
 

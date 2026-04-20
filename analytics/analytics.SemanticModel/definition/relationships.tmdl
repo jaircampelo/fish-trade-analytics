@@ -14,3 +14,9 @@ relationship bc75091c-855c-f31b-2099-2b6b06bfa391
 	fromColumn: fact_trades.trade_country_id
 	toColumn: dim_countries.country_id
 
+relationship 14a38deb-5e41-947a-3727-fc37b6e5f3c1
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: dim_countries.country_name
+	toColumn: aux_paises_outros.country_name
+
