@@ -24,17 +24,16 @@
         },
         {
           "location": {
-            "x": 520.38305001469371,
+            "x": 793.74054871420788,
             "y": 0
           },
           "nodeIndex": "dim_countries",
           "nodeLineageTag": "fe7449eb-7b01-461a-af59-fb33036195a6",
           "size": {
-            "height": 104,
+            "height": 128,
             "width": 234
           },
-          "zIndex": 5,
-          "expandedHeight": 128
+          "zIndex": 5
         },
         {
           "location": {
@@ -66,7 +65,7 @@
         },
         {
           "location": {
-            "x": 776.38305001469371,
+            "x": 531.46737198911728,
             "y": 0
           },
           "nodeIndex": "dim_calendario",
@@ -77,10 +76,49 @@
           },
           "zIndex": 4,
           "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 1125.0320177690994,
+            "y": 0
+          },
+          "nodeIndex": "aux_paises_outros",
+          "nodeLineageTag": "92c0b2cb-3f6c-4e14-805a-9b6f16d2b396",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1125.0320177690994,
+            "y": 456.86002741331697
+          },
+          "nodeIndex": "aux_tipo",
+          "nodeLineageTag": "fb384420-4310-4f61-9aab-c4666c7ace97",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1125.0320177690992,
+            "y": 217.02697925009545
+          },
+          "nodeIndex": "aux_topn",
+          "nodeLineageTag": "db7a2d43-3ddd-4ed9-b09b-6dfff1059a39",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "Todas as tabelas",
-      "zoomValue": 100,
+      "zoomValue": 63.287087723234045,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

@@ -21,6 +21,7 @@ dbt/.user.yml
 # airflow
 airflow/logs/*
 !.gitkeep
+airflow/plugins/
 
 # Power BI
 **/.pbi/localSettings.json

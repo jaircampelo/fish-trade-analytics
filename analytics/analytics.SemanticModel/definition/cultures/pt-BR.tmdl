@@ -2649,22 +2649,22 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.balança_comercial": {
+			    "fact_trade.balanca_comercial": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "$ Balança Comercial"
+			          "ConceptualProperty": "$ Balanca Comercial"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "$ balança comercial": {
+			          "$ balanca comercial": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "dollar balança comercial": {
+			          "dollar balanca comercial": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -6468,7 +6468,7 @@ cultureInfo pt-BR
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Top N Paises Parceiros Exportacoes"
+			          "ConceptualProperty": "Top N % Exportacoes Paises Parceiros"
 			        }
 			      },
 			      "State": "Generated",
@@ -6540,28 +6540,54 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.importacoes_negativo": {
+			    "fact_trade.VG___importacoes_negativo": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "$ Importacoes Negativo"
+			          "ConceptualProperty": "VG - $ Importacoes Negativo"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "$ importacoes negativo": {
+			          "VG - $ importacoes negativo": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "dollar importacoe negativo": {
+			          "VG $ importacoes negativo": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "vg - dollar importacoe negativo": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.609
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "vg dollar importacoe negativo": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "$ Importacoes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -6916,7 +6942,7 @@ cultureInfo pt-BR
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Top N Paises Parceiros Importacoes"
+			          "ConceptualProperty": "Top N % Importacoes Paises Parceiros"
 			        }
 			      },
 			      "State": "Generated",
@@ -7121,31 +7147,38 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.entity___balança_comercial_FormatString": {
+			    "fact_trade.corrente_YoY": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "_$ Balança Comercial FormatString"
+			          "ConceptualProperty": "% Corrente YoY"
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
-			          "_$ balança comercial FormatString": {
+			          "% corrente YoY": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "_ dollar balança comercial formatstring": {
+			          "percentage corrente yoy": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.624
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct corrente yoy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
 			          }
 			        }
 			      ]
@@ -7286,18 +7319,24 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.top_n_market_share_importacoes_negativo": {
+			    "fact_trade.PC__top_n_market_share_importacoes_negativo": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Top N Market Share Importacoes Negativo"
+			          "ConceptualProperty": "PC - Top N Market Share Importacoes Negativo"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "top n market share importacoes negativo": {
+			          "PC - top n market share importacoes negativo": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PC top n market share importacoes negativo": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        },
 			        {
@@ -7391,7 +7430,7 @@ cultureInfo pt-BR
 			    "tipo": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Tipo"
+			          "ConceptualEntity": "aux_tipo"
 			        }
 			      },
 			      "State": "Generated",
@@ -7406,7 +7445,7 @@ cultureInfo pt-BR
 			    "tipo.tipo": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Tipo",
+			          "ConceptualEntity": "aux_tipo",
 			          "ConceptualProperty": "Tipo"
 			        }
 			      },
@@ -7428,7 +7467,7 @@ cultureInfo pt-BR
 			    "tipo.tipo_field": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Tipo",
+			          "ConceptualEntity": "aux_tipo",
 			          "ConceptualProperty": "Tipo Fields"
 			        }
 			      },
@@ -7547,7 +7586,7 @@ cultureInfo pt-BR
 			    "tipo.tipo_order": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "Tipo",
+			          "ConceptualEntity": "aux_tipo",
 			          "ConceptualProperty": "Tipo Order"
 			        }
 			      },
@@ -7701,31 +7740,28 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.entity___importacoes_negativo_FormatString": {
+			    "fact_trade.corrente_LY": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "_$ Importacoes Negativo FormatString"
+			          "ConceptualProperty": "$ Corrente LY"
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
-			          "_$ importacoes negativo FormatString": {
+			          "$ corrente LY": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "_ dollar importacoe negativo formatstring": {
+			          "dollar corrente ly": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.624
+			            "Weight": 0.609
 			          }
 			        }
 			      ]
@@ -7744,22 +7780,6 @@ cultureInfo pt-BR
 			      "Terms": [
 			        {
 			          "_# peso líquido importacoes FormatString": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "fact_trade.rotulo_importacoes": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Rotulo Importacoes"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "rotulo importacoes": {
 			            "State": "Generated"
 			          }
 			        }
@@ -7850,66 +7870,90 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.produto_mais_exportado": {
+			    "fact_trade.p__produto_mais_exportado": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Produto Mais Exportado"
+			          "ConceptualProperty": "P - Produto Mais Exportado"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "produto mais exportado": {
+			          "p - produto mais exportado": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "p produto mais exportado": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        }
 			      ]
 			    },
-			    "fact_trade.produto_mais_importado": {
+			    "fact_trade.p__produto_mais_importado": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Produto Mais Importado"
+			          "ConceptualProperty": "P - Produto Mais Importado"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "produto mais importado": {
+			          "p - produto mais importado": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "p produto mais importado": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        }
 			      ]
 			    },
-			    "fact_trade.produto_maior_valor_agregado_exportacoes": {
+			    "fact_trade.p__produto_maior_valor_agregado_exportacoes": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Produto Maior Valor Agregado Exportacoes"
+			          "ConceptualProperty": "P - Produto Maior Valor Agregado Exportacoes"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "produto maior valor agregado exportacoes": {
+			          "p - produto maior valor agregado exportacoes": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "p produto maior valor agregado exportacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        }
 			      ]
 			    },
-			    "fact_trade.visual_heatmap": {
+			    "fact_trade.BC__visual_heatmap": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Visual Heatmap"
+			          "ConceptualProperty": "BC - Visual Heatmap"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "visual heatmap": {
+			          "BC - visual heatmap": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "BC visual heatmap": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        }
 			      ]
@@ -8031,7 +8075,7 @@ cultureInfo pt-BR
 			    "top_N": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "TopN"
+			          "ConceptualEntity": "aux_topn"
 			        }
 			      },
 			      "State": "Generated",
@@ -8120,7 +8164,7 @@ cultureInfo pt-BR
 			    "top_N.top_N": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "TopN",
+			          "ConceptualEntity": "aux_topn",
 			          "ConceptualProperty": "TopN"
 			        }
 			      },
@@ -8209,7 +8253,7 @@ cultureInfo pt-BR
 			    "top_N.TopN_value": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "TopN",
+			          "ConceptualEntity": "aux_topn",
 			          "ConceptualProperty": "TopN Value"
 			        }
 			      },
@@ -8338,34 +8382,46 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.maior_pais_parceiro_exportacoes": {
+			    "fact_trade.PC__maior_pais_parceiro_exportacoes": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Maior Pais Parceiro Exportacoes"
+			          "ConceptualProperty": "PC - Maior Pais Parceiro Exportacoes"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "maior pais parceiro exportacoes": {
+			          "PC - maior pais parceiro exportacoes": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PC maior pais parceiro exportacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        }
 			      ]
 			    },
-			    "fact_trade.maior_pais_parceiro_importacoes": {
+			    "fact_trade.PC__maior_pais_parceiro_importacoes": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Maior Pais Parceiro Importacoes"
+			          "ConceptualProperty": "PC - Maior Pais Parceiro Importacoes"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "maior pais parceiro importacoes": {
+			          "PC - maior pais parceiro importacoes": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PC maior pais parceiro importacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        }
 			      ]
@@ -8452,50 +8508,68 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.faixa_baixa_medidor_HHI": {
+			    "fact_trade.PC__faixa_baixa_medidor_HHI": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Faixa Baixa Medidor HHI"
+			          "ConceptualProperty": "PC - Faixa Baixa Medidor HHI"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "faixa baixa medidor HHI": {
+			          "PC - faixa baixa medidor HHI": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PC faixa baixa medidor HHI": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        }
 			      ]
 			    },
-			    "fact_trade.faixa_media_medidor_HHI": {
+			    "fact_trade.PC__faixa_media_medidor_HHI": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Faixa Media Medidor HHI"
+			          "ConceptualProperty": "PC - Faixa Media Medidor HHI"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "faixa media medidor HHI": {
+			          "PC - faixa media medidor HHI": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PC faixa media medidor HHI": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        }
 			      ]
 			    },
-			    "fact_trade.faixa_alta_medidor_HHI": {
+			    "fact_trade.PC__faixa_alta_medidor_HHI": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Faixa Alta Medidor HHI"
+			          "ConceptualProperty": "PC - Faixa Alta Medidor HHI"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "faixa alta medidor HHI": {
+			          "PC - faixa alta medidor HHI": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PC faixa alta medidor HHI": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        }
 			      ]
@@ -8751,18 +8825,24 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.top_n_market_share_IExportacoes_positivo": {
+			    "fact_trade.PC__top_n_market_share_exportacoes_positivo": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Top N Market Share IExportacoes Positivo"
+			          "ConceptualProperty": "PC - Top N Market Share Exportacoes Positivo"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "top n market share IExportacoes positivo": {
+			          "PC - top n market share exportacoes positivo": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PC top n market share exportacoes positivo": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        },
 			        {
@@ -8776,75 +8856,359 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "fact_trade.balanca_comercial_LY": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "$ Balanca Comercial LY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "$ balanca comercial LY": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dollar balanca comercial ly": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.balanca_comercial_YoY": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "$ Balanca Comercial YoY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "$ balanca comercial YoY": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dollar balanca comercial yoy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.preco_medio_por_quilo_exportacoes_LY": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "$ Preco Medio por Quilo Exportacoes LY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "$ preco medio por quilo exportacoes LY": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.preco_medio_por_quilo_exportacoes_YoY": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "% Preco Medio por Quilo Exportacoes YoY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% preco medio por quilo exportacoes YoY": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.taxa_de_cobertura_LY": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "% Taxa de Cobertura LY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% taxa de cobertura LY": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage taxon de cobertura ly": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "pct taxon de cobertura ly": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.rotulo_taxa_de_cobertura_YoY": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "VG - Rotulo Taxa de Cobertura YoY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "rotulo taxa de cobertura YoY": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.var_taxa_de_cobertura_YoY": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Var Taxa de Cobertura YoY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "var taxa de cobertura YoY": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___balanca_comercial_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Balanca Comercial FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ balanca comercial FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ dollar balanca comercial formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity__VG___importacoes_negativo_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_VG - $ Importacoes Negativo FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_VG - $ importacoes negativo FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_VG $ importacoes negativo FormatString": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___exportacoes_LY_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Exportacoes LY FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ exportacoes LY FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ dollar exportacoe ly formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___importacoes_LY_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Importacoes LY FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ importacoes LY FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ dollar importacoe ly formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___corrente_LY_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Corrente LY FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ corrente LY FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ dollar corrente ly formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___balanca_comercial_LY_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Balanca Comercial LY FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ balanca comercial LY FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___balanca_comercial_YoY_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Balanca Comercial YoY FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ balanca comercial YoY FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___preco_medio_por_quilo_exportacoes_LY_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Preco Medio por Quilo Exportacoes LY FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ preco medio por quilo exportacoes LY FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "fact_trade_has_qtd_municipios_exportacoes": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.qtd_municipios_exportacoes": {
-			          "Target": {
-			            "Entity": "fact_trade.qtd_municipios_exportacoes"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.qtd_municipios_exportacoes"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have__qtd_municipios_exportacoes"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_HHI_pais_dinamico": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.HHI_pais_dinamico": {
-			          "Target": {
-			            "Entity": "fact_trade.HHI_pais_dinamico"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.HHI_pais_dinamico"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have__HHI_pais_dinamico"
-			        }
-			      ]
-			    },
 			    "fact_trade_has_participacao_no_total_por_pais": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
@@ -8911,7 +9275,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_faixa_alta_medidor_HHI": {
+			    "fact_trade_has_PC__faixa_alta_medidor_HHI": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -8922,9 +9286,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.faixa_alta_medidor_HHI": {
+			        "fact_trade.PC__faixa_alta_medidor_HHI": {
 			          "Target": {
-			            "Entity": "fact_trade.faixa_alta_medidor_HHI"
+			            "Entity": "fact_trade.PC__faixa_alta_medidor_HHI"
 			          }
 			        }
 			      },
@@ -8935,16 +9299,16 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.faixa_alta_medidor_HHI"
+			              "Role": "fact_trade.PC__faixa_alta_medidor_HHI"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_faixa_alta_medidor_HHI"
+			          "ID": "fact_trades_have_PC__faixa_alta_medidor_HHI"
 			        }
 			      ]
 			    },
-			    "fact_trade_has_faixa_media_medidor_HHI": {
+			    "fact_trade_has_PC__faixa_media_medidor_HHI": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -8955,9 +9319,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.faixa_media_medidor_HHI": {
+			        "fact_trade.PC__faixa_media_medidor_HHI": {
 			          "Target": {
-			            "Entity": "fact_trade.faixa_media_medidor_HHI"
+			            "Entity": "fact_trade.PC__faixa_media_medidor_HHI"
 			          }
 			        }
 			      },
@@ -8968,16 +9332,16 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.faixa_media_medidor_HHI"
+			              "Role": "fact_trade.PC__faixa_media_medidor_HHI"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_faixa_media_medidor_HHI"
+			          "ID": "fact_trades_have_PC__faixa_media_medidor_HHI"
 			        }
 			      ]
 			    },
-			    "fact_trade_has_faixa_baixa_medidor_HHI": {
+			    "fact_trade_has_PC__faixa_baixa_medidor_HHI": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -8988,9 +9352,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.faixa_baixa_medidor_HHI": {
+			        "fact_trade.PC__faixa_baixa_medidor_HHI": {
 			          "Target": {
-			            "Entity": "fact_trade.faixa_baixa_medidor_HHI"
+			            "Entity": "fact_trade.PC__faixa_baixa_medidor_HHI"
 			          }
 			        }
 			      },
@@ -9001,12 +9365,12 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.faixa_baixa_medidor_HHI"
+			              "Role": "fact_trade.PC__faixa_baixa_medidor_HHI"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_faixa_baixa_medidor_HHI"
+			          "ID": "fact_trades_have_PC__faixa_baixa_medidor_HHI"
 			        }
 			      ]
 			    },
@@ -9076,7 +9440,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_maior_pais_parceiro_importacoes": {
+			    "fact_trade_has_PC__maior_pais_parceiro_importacoes": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -9087,9 +9451,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.maior_pais_parceiro_importacoes": {
+			        "fact_trade.PC__maior_pais_parceiro_importacoes": {
 			          "Target": {
-			            "Entity": "fact_trade.maior_pais_parceiro_importacoes"
+			            "Entity": "fact_trade.PC__maior_pais_parceiro_importacoes"
 			          }
 			        }
 			      },
@@ -9100,16 +9464,16 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.maior_pais_parceiro_importacoes"
+			              "Role": "fact_trade.PC__maior_pais_parceiro_importacoes"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_maior_pais_parceiro_importacoes"
+			          "ID": "fact_trades_have_PC__maior_pais_parceiro_importacoes"
 			        }
 			      ]
 			    },
-			    "dim_country_has_fact_trade_maior_pais_parceiro_importacoes": {
+			    "dim_country_has_fact_trade_PC__maior_pais_parceiro_importacoes": {
 			      "Binding": {
 			        "ConceptualEntity": "dim_countries"
 			      },
@@ -9120,9 +9484,9 @@ cultureInfo pt-BR
 			            "Entity": "dim_country"
 			          }
 			        },
-			        "fact_trade.maior_pais_parceiro_importacoes": {
+			        "fact_trade.PC__maior_pais_parceiro_importacoes": {
 			          "Target": {
-			            "Entity": "fact_trade.maior_pais_parceiro_importacoes"
+			            "Entity": "fact_trade.PC__maior_pais_parceiro_importacoes"
 			          }
 			        }
 			      },
@@ -9133,16 +9497,16 @@ cultureInfo pt-BR
 			              "Role": "dim_country"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.maior_pais_parceiro_importacoes"
+			              "Role": "fact_trade.PC__maior_pais_parceiro_importacoes"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_countries_have_maior_pais_parceiro_importacoes"
+			          "ID": "dim_countries_have_PC__maior_pais_parceiro_importacoes"
 			        }
 			      ]
 			    },
-			    "fact_trade_has_maior_pais_parceiro_exportacoes": {
+			    "fact_trade_has_PC__maior_pais_parceiro_exportacoes": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -9153,9 +9517,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.maior_pais_parceiro_exportacoes": {
+			        "fact_trade.PC__maior_pais_parceiro_exportacoes": {
 			          "Target": {
-			            "Entity": "fact_trade.maior_pais_parceiro_exportacoes"
+			            "Entity": "fact_trade.PC__maior_pais_parceiro_exportacoes"
 			          }
 			        }
 			      },
@@ -9166,16 +9530,16 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.maior_pais_parceiro_exportacoes"
+			              "Role": "fact_trade.PC__maior_pais_parceiro_exportacoes"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_maior_pais_parceiro_exportacoes"
+			          "ID": "fact_trades_have_PC__maior_pais_parceiro_exportacoes"
 			        }
 			      ]
 			    },
-			    "dim_country_has_fact_trade_maior_pais_parceiro_exportacoes": {
+			    "dim_country_has_fact_trade_PC__maior_pais_parceiro_exportacoes": {
 			      "Binding": {
 			        "ConceptualEntity": "dim_countries"
 			      },
@@ -9186,9 +9550,9 @@ cultureInfo pt-BR
 			            "Entity": "dim_country"
 			          }
 			        },
-			        "fact_trade.maior_pais_parceiro_exportacoes": {
+			        "fact_trade.PC__maior_pais_parceiro_exportacoes": {
 			          "Target": {
-			            "Entity": "fact_trade.maior_pais_parceiro_exportacoes"
+			            "Entity": "fact_trade.PC__maior_pais_parceiro_exportacoes"
 			          }
 			        }
 			      },
@@ -9199,12 +9563,12 @@ cultureInfo pt-BR
 			              "Role": "dim_country"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.maior_pais_parceiro_exportacoes"
+			              "Role": "fact_trade.PC__maior_pais_parceiro_exportacoes"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_countries_have_maior_pais_parceiro_exportacoes"
+			          "ID": "dim_countries_have_PC__maior_pais_parceiro_exportacoes"
 			        }
 			      ]
 			    },
@@ -9243,7 +9607,7 @@ cultureInfo pt-BR
 			    },
 			    "top_N_has_TopN_value": {
 			      "Binding": {
-			        "ConceptualEntity": "TopN"
+			        "ConceptualEntity": "aux_topn"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -9276,7 +9640,7 @@ cultureInfo pt-BR
 			    },
 			    "top_N_has_top_N": {
 			      "Binding": {
-			        "ConceptualEntity": "TopN"
+			        "ConceptualEntity": "aux_topn"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -9307,7 +9671,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_visual_heatmap": {
+			    "fact_trade_has_BC__visual_heatmap": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -9318,9 +9682,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.visual_heatmap": {
+			        "fact_trade.BC__visual_heatmap": {
 			          "Target": {
-			            "Entity": "fact_trade.visual_heatmap"
+			            "Entity": "fact_trade.BC__visual_heatmap"
 			          }
 			        }
 			      },
@@ -9331,16 +9695,16 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.visual_heatmap"
+			              "Role": "fact_trade.BC__visual_heatmap"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_visual_heatmap"
+			          "ID": "fact_trades_have_BC__visual_heatmap"
 			        }
 			      ]
 			    },
-			    "dim_calendario_has_fact_trade_visual_heatmap": {
+			    "dim_calendario_has_fact_trade_BC__visual_heatmap": {
 			      "Binding": {
 			        "ConceptualEntity": "dim_calendario"
 			      },
@@ -9351,9 +9715,9 @@ cultureInfo pt-BR
 			            "Entity": "dim_calendario"
 			          }
 			        },
-			        "fact_trade.visual_heatmap": {
+			        "fact_trade.BC__visual_heatmap": {
 			          "Target": {
-			            "Entity": "fact_trade.visual_heatmap"
+			            "Entity": "fact_trade.BC__visual_heatmap"
 			          }
 			        }
 			      },
@@ -9364,16 +9728,16 @@ cultureInfo pt-BR
 			              "Role": "dim_calendario"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.visual_heatmap"
+			              "Role": "fact_trade.BC__visual_heatmap"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_calendarios_have_visual_heatmap"
+			          "ID": "dim_calendarios_have_BC__visual_heatmap"
 			        }
 			      ]
 			    },
-			    "fact_trade_has_produto_maior_valor_agregado_exportacoes": {
+			    "fact_trade_has_p__produto_maior_valor_agregado_exportacoes": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -9384,9 +9748,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.produto_maior_valor_agregado_exportacoes": {
+			        "fact_trade.p__produto_maior_valor_agregado_exportacoes": {
 			          "Target": {
-			            "Entity": "fact_trade.produto_maior_valor_agregado_exportacoes"
+			            "Entity": "fact_trade.p__produto_maior_valor_agregado_exportacoes"
 			          }
 			        }
 			      },
@@ -9397,16 +9761,16 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.produto_maior_valor_agregado_exportacoes"
+			              "Role": "fact_trade.p__produto_maior_valor_agregado_exportacoes"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_produto_maior_valor_agregado_exportacoes"
+			          "ID": "fact_trades_have_p__produto_maior_valor_agregado_exportacoes"
 			        }
 			      ]
 			    },
-			    "dim_product_category_has_fact_trade_produto_maior_valor_agregado_exportacoes": {
+			    "dim_product_category_has_fact_trade_p__produto_maior_valor_agregado_exportacoes": {
 			      "Binding": {
 			        "ConceptualEntity": "dim_product_categories"
 			      },
@@ -9417,9 +9781,9 @@ cultureInfo pt-BR
 			            "Entity": "dim_product_category"
 			          }
 			        },
-			        "fact_trade.produto_maior_valor_agregado_exportacoes": {
+			        "fact_trade.p__produto_maior_valor_agregado_exportacoes": {
 			          "Target": {
-			            "Entity": "fact_trade.produto_maior_valor_agregado_exportacoes"
+			            "Entity": "fact_trade.p__produto_maior_valor_agregado_exportacoes"
 			          }
 			        }
 			      },
@@ -9430,16 +9794,16 @@ cultureInfo pt-BR
 			              "Role": "dim_product_category"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.produto_maior_valor_agregado_exportacoes"
+			              "Role": "fact_trade.p__produto_maior_valor_agregado_exportacoes"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_product_categories_have_produto_maior_valor_agregado_exportacoes"
+			          "ID": "dim_product_categories_have_p__produto_maior_valor_agregado_exportacoes"
 			        }
 			      ]
 			    },
-			    "fact_trade_has_produto_mais_importado": {
+			    "fact_trade_has_p__produto_mais_importado": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -9450,9 +9814,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.produto_mais_importado": {
+			        "fact_trade.p__produto_mais_importado": {
 			          "Target": {
-			            "Entity": "fact_trade.produto_mais_importado"
+			            "Entity": "fact_trade.p__produto_mais_importado"
 			          }
 			        }
 			      },
@@ -9463,16 +9827,16 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.produto_mais_importado"
+			              "Role": "fact_trade.p__produto_mais_importado"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_produto_mais_importado"
+			          "ID": "fact_trades_have_p__produto_mais_importado"
 			        }
 			      ]
 			    },
-			    "dim_product_category_has_fact_trade_produto_mais_importado": {
+			    "dim_product_category_has_fact_trade_p__produto_mais_importado": {
 			      "Binding": {
 			        "ConceptualEntity": "dim_product_categories"
 			      },
@@ -9483,9 +9847,9 @@ cultureInfo pt-BR
 			            "Entity": "dim_product_category"
 			          }
 			        },
-			        "fact_trade.produto_mais_importado": {
+			        "fact_trade.p__produto_mais_importado": {
 			          "Target": {
-			            "Entity": "fact_trade.produto_mais_importado"
+			            "Entity": "fact_trade.p__produto_mais_importado"
 			          }
 			        }
 			      },
@@ -9496,16 +9860,16 @@ cultureInfo pt-BR
 			              "Role": "dim_product_category"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.produto_mais_importado"
+			              "Role": "fact_trade.p__produto_mais_importado"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_product_categories_have_produto_mais_importado"
+			          "ID": "dim_product_categories_have_p__produto_mais_importado"
 			        }
 			      ]
 			    },
-			    "fact_trade_has_produto_mais_exportado": {
+			    "fact_trade_has_p__produto_mais_exportado": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -9516,9 +9880,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.produto_mais_exportado": {
+			        "fact_trade.p__produto_mais_exportado": {
 			          "Target": {
-			            "Entity": "fact_trade.produto_mais_exportado"
+			            "Entity": "fact_trade.p__produto_mais_exportado"
 			          }
 			        }
 			      },
@@ -9529,16 +9893,16 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.produto_mais_exportado"
+			              "Role": "fact_trade.p__produto_mais_exportado"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_produto_mais_exportado"
+			          "ID": "fact_trades_have_p__produto_mais_exportado"
 			        }
 			      ]
 			    },
-			    "dim_product_category_has_fact_trade_produto_mais_exportado": {
+			    "dim_product_category_has_fact_trade_p__produto_mais_exportado": {
 			      "Binding": {
 			        "ConceptualEntity": "dim_product_categories"
 			      },
@@ -9549,9 +9913,9 @@ cultureInfo pt-BR
 			            "Entity": "dim_product_category"
 			          }
 			        },
-			        "fact_trade.produto_mais_exportado": {
+			        "fact_trade.p__produto_mais_exportado": {
 			          "Target": {
-			            "Entity": "fact_trade.produto_mais_exportado"
+			            "Entity": "fact_trade.p__produto_mais_exportado"
 			          }
 			        }
 			      },
@@ -9562,12 +9926,12 @@ cultureInfo pt-BR
 			              "Role": "dim_product_category"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.produto_mais_exportado"
+			              "Role": "fact_trade.p__produto_mais_exportado"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_product_categories_have_produto_mais_exportado"
+			          "ID": "dim_product_categories_have_p__produto_mais_exportado"
 			        }
 			      ]
 			    },
@@ -9637,9 +10001,42 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
+			    "fact_trade_has_corrente_LY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.corrente_LY": {
+			          "Target": {
+			            "Entity": "fact_trade.corrente_LY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.corrente_LY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__corrente_LY"
+			        }
+			      ]
+			    },
 			    "tipo_has_tipo": {
 			      "Binding": {
-			        "ConceptualEntity": "Tipo"
+			        "ConceptualEntity": "aux_tipo"
 			      },
 			      "State": "Generated",
 			      "Roles": {
@@ -9716,7 +10113,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_top_n_market_share_importacoes_negativo": {
+			    "fact_trade_has_PC__top_n_market_share_importacoes_negativo": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -9727,9 +10124,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.top_n_market_share_importacoes_negativo": {
+			        "fact_trade.PC__top_n_market_share_importacoes_negativo": {
 			          "Target": {
-			            "Entity": "fact_trade.top_n_market_share_importacoes_negativo"
+			            "Entity": "fact_trade.PC__top_n_market_share_importacoes_negativo"
 			          }
 			        }
 			      },
@@ -9740,12 +10137,12 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.top_n_market_share_importacoes_negativo"
+			              "Role": "fact_trade.PC__top_n_market_share_importacoes_negativo"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_top_n_market_share_importacoes_negativo"
+			          "ID": "fact_trades_have_PC__top_n_market_share_importacoes_negativo"
 			        }
 			      ]
 			    },
@@ -9878,6 +10275,39 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_trades_have__preco_medio_por_quilo_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_corrente_YoY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.corrente_YoY": {
+			          "Target": {
+			            "Entity": "fact_trade.corrente_YoY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.corrente_YoY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__corrente_YoY"
 			        }
 			      ]
 			    },
@@ -10310,7 +10740,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_importacoes_negativo": {
+			    "fact_trade_has_VG___importacoes_negativo": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -10321,9 +10751,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.importacoes_negativo": {
+			        "fact_trade.VG___importacoes_negativo": {
 			          "Target": {
-			            "Entity": "fact_trade.importacoes_negativo"
+			            "Entity": "fact_trade.VG___importacoes_negativo"
 			          }
 			        }
 			      },
@@ -10334,12 +10764,12 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.importacoes_negativo"
+			              "Role": "fact_trade.VG___importacoes_negativo"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have__importacoes_negativo"
+			          "ID": "fact_trades_have_VG___importacoes_negativo"
 			        }
 			      ]
 			    },
@@ -14468,7 +14898,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_balança_comercial": {
+			    "fact_trade_has_balanca_comercial": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -14479,9 +14909,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.balança_comercial": {
+			        "fact_trade.balanca_comercial": {
 			          "Target": {
-			            "Entity": "fact_trade.balança_comercial"
+			            "Entity": "fact_trade.balanca_comercial"
 			          }
 			        }
 			      },
@@ -14492,12 +14922,12 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.balança_comercial"
+			              "Role": "fact_trade.balanca_comercial"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have__balança_comercial"
+			          "ID": "fact_trades_have__balanca_comercial"
 			        }
 			      ]
 			    },
@@ -15434,6 +15864,72 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
+			    "fact_trade_has_HHI_pais_dinamico": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.HHI_pais_dinamico": {
+			          "Target": {
+			            "Entity": "fact_trade.HHI_pais_dinamico"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.HHI_pais_dinamico"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__HHI_pais_dinamico"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_qtd_municipios_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.qtd_municipios_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.qtd_municipios_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.qtd_municipios_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__qtd_municipios_exportacoes"
+			        }
+			      ]
+			    },
 			    "fact_trade_has_qtd_municipios_importacoes": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
@@ -15533,7 +16029,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_top_n_market_share_IExportacoes_positivo": {
+			    "fact_trade_has_PC__top_n_market_share_exportacoes_positivo": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -15544,9 +16040,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.top_n_market_share_IExportacoes_positivo": {
+			        "fact_trade.PC__top_n_market_share_exportacoes_positivo": {
 			          "Target": {
-			            "Entity": "fact_trade.top_n_market_share_IExportacoes_positivo"
+			            "Entity": "fact_trade.PC__top_n_market_share_exportacoes_positivo"
 			          }
 			        }
 			      },
@@ -15557,12 +16053,243 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.top_n_market_share_IExportacoes_positivo"
+			              "Role": "fact_trade.PC__top_n_market_share_exportacoes_positivo"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_top_n_market_share_IExportacoes_positivo"
+			          "ID": "fact_trades_have_PC__top_n_market_share_exportacoes_positivo"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_balanca_comercial_LY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.balanca_comercial_LY": {
+			          "Target": {
+			            "Entity": "fact_trade.balanca_comercial_LY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.balanca_comercial_LY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__balanca_comercial_LY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_balanca_comercial_YoY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.balanca_comercial_YoY": {
+			          "Target": {
+			            "Entity": "fact_trade.balanca_comercial_YoY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.balanca_comercial_YoY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__balanca_comercial_YoY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_preco_medio_por_quilo_exportacoes_LY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.preco_medio_por_quilo_exportacoes_LY": {
+			          "Target": {
+			            "Entity": "fact_trade.preco_medio_por_quilo_exportacoes_LY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.preco_medio_por_quilo_exportacoes_LY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__preco_medio_por_quilo_exportacoes_LY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_preco_medio_por_quilo_exportacoes_YoY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.preco_medio_por_quilo_exportacoes_YoY": {
+			          "Target": {
+			            "Entity": "fact_trade.preco_medio_por_quilo_exportacoes_YoY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.preco_medio_por_quilo_exportacoes_YoY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__preco_medio_por_quilo_exportacoes_YoY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_taxa_de_cobertura_LY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.taxa_de_cobertura_LY": {
+			          "Target": {
+			            "Entity": "fact_trade.taxa_de_cobertura_LY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.taxa_de_cobertura_LY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__taxa_de_cobertura_LY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_rotulo_taxa_de_cobertura_YoY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.rotulo_taxa_de_cobertura_YoY": {
+			          "Target": {
+			            "Entity": "fact_trade.rotulo_taxa_de_cobertura_YoY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.rotulo_taxa_de_cobertura_YoY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_rotulo_taxa_de_cobertura_YoY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_var_taxa_de_cobertura_YoY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.var_taxa_de_cobertura_YoY": {
+			          "Target": {
+			            "Entity": "fact_trade.var_taxa_de_cobertura_YoY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.var_taxa_de_cobertura_YoY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_var_taxa_de_cobertura_YoY"
 			        }
 			      ]
 			    },

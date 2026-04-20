@@ -23,11 +23,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "Maior Pais Parceiro Exportacoes"
+                  "Property": "PC - Maior Pais Parceiro Exportacoes"
                 }
               },
               "queryRef": "fact_trades.Maior Pais Parceiro Exportacoes",
-              "nativeQueryRef": "Maior Pais Parceiro Exportacoes"
+              "nativeQueryRef": "PC - Maior Pais Parceiro Exportacoes"
             },
             {
               "field": {
@@ -37,11 +37,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "Maior Pais Parceiro Importacoes"
+                  "Property": "PC - Maior Pais Parceiro Importacoes"
                 }
               },
               "queryRef": "fact_trades.Maior Pais Parceiro Importacoes",
-              "nativeQueryRef": "Maior Pais Parceiro Importacoes"
+              "nativeQueryRef": "PC - Maior Pais Parceiro Importacoes"
             }
           ]
         }
@@ -56,7 +56,7 @@
                     "Entity": "fact_trades"
                   }
                 },
-                "Property": "Maior Pais Parceiro Exportacoes"
+                "Property": "PC - Maior Pais Parceiro Exportacoes"
               }
             },
             "direction": "Ascending"

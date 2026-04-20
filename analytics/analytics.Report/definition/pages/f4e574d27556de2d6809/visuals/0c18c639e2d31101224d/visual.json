@@ -20,7 +20,7 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "TopN"
+                      "Entity": "aux_topn"
                     }
                   },
                   "Property": "TopN"
@@ -40,7 +40,7 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "TopN"
+                    "Entity": "aux_topn"
                   }
                 },
                 "Property": "TopN"
@@ -58,7 +58,7 @@
             "numericStart": {
               "expr": {
                 "Literal": {
-                  "Value": "20D"
+                  "Value": "5D"
                 }
               }
             },
@@ -107,7 +107,7 @@
                 "From": [
                   {
                     "Name": "t",
-                    "Entity": "TopN",
+                    "Entity": "aux_topn",
                     "Type": 0
                   }
                 ],
@@ -128,7 +128,7 @@
                         },
                         "Right": {
                           "Literal": {
-                            "Value": "20D"
+                            "Value": "5D"
                           }
                         }
                       }

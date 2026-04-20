@@ -1,4 +1,4 @@
-table Tipo
+table aux_tipo
 	lineageTag: fb384420-4310-4f61-9aab-c4666c7ace97
 
 	column Tipo
@@ -36,7 +36,7 @@ table Tipo
 
 		annotation SummarizationSetBy = Automatic
 
-	partition Tipo = calculated
+	partition aux_tipo = calculated
 		mode: import
 		source =
 				{

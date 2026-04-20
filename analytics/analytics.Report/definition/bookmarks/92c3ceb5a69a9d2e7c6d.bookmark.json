@@ -7,19 +7,20 @@
     "targetVisualNames": [
       "8f257c1f0669a8a57081",
       "d309fa93dc840ae55009",
-      "e37a8ea6bdcea014dc70",
-      "79ab8d55000d0b9ea203",
-      "11c086343bebd930baa9",
-      "7f7cde430d7368005c78",
-      "53c457d8d9a91010a1e5",
-      "ea613dc00a4c01e3d718",
       "020a8b60081b24803c34",
-      "ad79377eb5d008006306",
-      "fa1abd88751a93da9548",
-      "b1a22411a6beb74d3060",
+      "11c086343bebd930baa9",
+      "22f809e19de47be80cab",
+      "53c457d8d9a91010a1e5",
+      "79ab8d55000d0b9ea203",
+      "7f7cde430d7368005c78",
       "ac2afd8d722d87a64b07",
-      "22f809e19de47be80cab"
-    ]
+      "ad79377eb5d008006306",
+      "b1a22411a6beb74d3060",
+      "e37a8ea6bdcea014dc70",
+      "ea613dc00a4c01e3d718",
+      "fa1abd88751a93da9548"
+    ],
+    "suppressData": true
   },
   "explorationState": {
     "version": "1.3",
@@ -27,11 +28,66 @@
     "sections": {
       "c49f182d5c75a913ed50": {
         "visualContainers": {
+          "020a8b60081b24803c34": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "52866c2364c61322e5a3",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_cities"
+                        }
+                      },
+                      "Property": "state_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_cities"
+                        }
+                      },
+                      "Property": "state_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
           "0c0dd68d7a0130419003": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "fb6e4b2e0e04c72c1141",
+                  "name": "83f467422d515c9d292b",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
@@ -46,7 +102,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "0cba9711d2758b012e2c",
+                  "name": "c8ca633605b29039406b",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -61,7 +117,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "2f6b40bd403c74c2622c",
+                  "name": "d5ab7b26a076adcb0377",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -111,11 +167,66 @@
               }
             }
           },
+          "11c086343bebd930baa9": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "5888470eec909e146e32",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_product_categories"
+                        }
+                      },
+                      "Property": "product_category_name"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_product_categories"
+                        }
+                      },
+                      "Property": "product_category_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
           "21107af03093b0002309": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "4d5c25299284b0328795",
+                  "name": "366381a810d4432cae0b",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -130,7 +241,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "fcd8e3bbd0beb1037e84",
+                  "name": "6389d9d27b13d658b066",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -180,11 +291,17 @@
               }
             }
           },
+          "22f809e19de47be80cab": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
           "3b7c5c8b12b38d2997c2": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "43e5deef90cd16beee4a",
+                  "name": "c66704eccb51a11ca8cc",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
@@ -199,7 +316,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "b4e24e004aacd347cc4d",
+                  "name": "95c98c953894168cab7b",
                   "type": "Advanced",
                   "expression": {
                     "Measure": {
@@ -249,209 +366,11 @@
               }
             }
           },
-          "882275945a2bd7174a85": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "d6fd6026b013b30bde12",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "fact_trades"
-                        }
-                      },
-                      "Property": "Produto Mais Exportado"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "52389249964656378e93",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "fact_trades"
-                        }
-                      },
-                      "Property": "Produto Mais Importado"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "8986c9bcab0e0e8052e7",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "fact_trades"
-                        }
-                      },
-                      "Property": "Produto Maior Valor Agregado Exportacoes"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "cardVisual",
-              "objects": {},
-              "orderBy": [
-                {
-                  "Direction": 1,
-                  "Expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "fact_trades"
-                        }
-                      },
-                      "Property": "Produto Mais Exportado"
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          "d309fa93dc840ae55009": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "e37a8ea6bdcea014dc70": {
-            "singleVisual": {
-              "visualType": "shape",
-              "objects": {}
-            }
-          },
-          "79ab8d55000d0b9ea203": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "11c086343bebd930baa9": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "7053d49b00c8e30050e2",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_product_categories"
-                        }
-                      },
-                      "Property": "product_category_name"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_product_categories"
-                        }
-                      },
-                      "Property": "product_category_name"
-                    }
-                  }
-                ]
-              }
-            }
-          },
-          "7f7cde430d7368005c78": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "fc95f3e4503c5b274765",
-                  "type": "Categorical",
-                  "expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_countries"
-                        }
-                      },
-                      "Property": "country_name"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "dim_countries"
-                        }
-                      },
-                      "Property": "country_name"
-                    }
-                  }
-                ]
-              }
-            }
-          },
           "53c457d8d9a91010a1e5": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "fc2245513c900ca615d2",
+                  "name": "b1135612c010b4d20492",
                   "type": "Advanced",
                   "expression": {
                     "Column": {
@@ -466,7 +385,7 @@
                   "howCreated": 0
                 },
                 {
-                  "name": "e0a46f1ded040878de95",
+                  "name": "efff714b3053c7e38580",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -555,20 +474,26 @@
               ]
             }
           },
-          "ea613dc00a4c01e3d718": {
+          "79ab8d55000d0b9ea203": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "7f7cde430d7368005c78": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "77b629877740ea8a0dba",
+                  "name": "7d613f2625c05b9eb80e",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "dim_cities"
+                          "Entity": "dim_countries"
                         }
                       },
-                      "Property": "region"
+                      "Property": "country_name"
                     }
                   },
                   "howCreated": 0
@@ -600,30 +525,60 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "dim_cities"
+                          "Entity": "dim_countries"
                         }
                       },
-                      "Property": "region"
+                      "Property": "country_name"
                     }
                   }
                 ]
               }
             }
           },
-          "020a8b60081b24803c34": {
+          "882275945a2bd7174a85": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "1bf850175479d98c281d",
-                  "type": "Categorical",
+                  "name": "5de9665ba4ce3ba4ce48",
+                  "type": "Advanced",
                   "expression": {
-                    "Column": {
+                    "Measure": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "dim_cities"
+                          "Entity": "fact_trades"
                         }
                       },
-                      "Property": "state_name"
+                      "Property": "P - Produto Mais Exportado"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "9392a9981d5e08883380",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_trades"
+                        }
+                      },
+                      "Property": "P - Produto Mais Importado"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "51ba56097a1145dde305",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fact_trades"
+                        }
+                      },
+                      "Property": "P - Produto Maior Valor Agregado Exportacoes"
                     }
                   },
                   "howCreated": 0
@@ -631,45 +586,36 @@
               ]
             },
             "singleVisual": {
-              "visualType": "slicer",
-              "objects": {
-                "merge": {
-                  "data": [
-                    {
-                      "properties": {
-                        "mode": {
-                          "expr": {
-                            "Literal": {
-                              "Value": "'Dropdown'"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  ]
-                }
-              },
-              "activeProjections": {
-                "Values": [
-                  {
-                    "Column": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Measure": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "dim_cities"
+                          "Entity": "fact_trades"
                         }
                       },
-                      "Property": "state_name"
+                      "Property": "P - Produto Mais Exportado"
                     }
                   }
-                ]
-              }
+                }
+              ]
+            }
+          },
+          "ac2afd8d722d87a64b07": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
             }
           },
           "ad79377eb5d008006306": {
             "filters": {
               "byExpr": [
                 {
-                  "name": "509a67a01dd1374321a2",
+                  "name": "1af43af5418dd90ce723",
                   "type": "Categorical",
                   "expression": {
                     "Column": {
@@ -714,6 +660,79 @@
                         }
                       },
                       "Property": "city_name"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "b1a22411a6beb74d3060": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "d309fa93dc840ae55009": {
+            "singleVisual": {
+              "visualType": "actionButton",
+              "objects": {}
+            }
+          },
+          "e37a8ea6bdcea014dc70": {
+            "singleVisual": {
+              "visualType": "shape",
+              "objects": {}
+            }
+          },
+          "ea613dc00a4c01e3d718": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "e5f98912b5d57601100a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_cities"
+                        }
+                      },
+                      "Property": "region"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_cities"
+                        }
+                      },
+                      "Property": "region"
                     }
                   }
                 ]
@@ -723,24 +742,6 @@
           "fa1abd88751a93da9548": {
             "singleVisual": {
               "visualType": "textbox",
-              "objects": {}
-            }
-          },
-          "b1a22411a6beb74d3060": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "ac2afd8d722d87a64b07": {
-            "singleVisual": {
-              "visualType": "actionButton",
-              "objects": {}
-            }
-          },
-          "22f809e19de47be80cab": {
-            "singleVisual": {
-              "visualType": "shape",
               "objects": {}
             }
           }

@@ -14,11 +14,11 @@
 
 -- Bring the source bronze tables
 with export_source as (
-	select substring("noMunMinsgUf" for position(' - ' in "noMunMinsgUf"))	as "city_name"
+	select regexp_replace(lower(unaccent("noMunMinsgUf")), '[^a-z]', '', 'g')	as "city_name_norm"
 		 , "year"
 		 , "monthNumber"
 		 , "country"
-		 , regexp_replace(lower(unaccent("country")), '[^a-z]', '', 'g') 	as "country_name_norm"
+		 , regexp_replace(lower(unaccent("country")), '[^a-z]', '', 'g') 		as "country_name_norm"
 		 , "state"
 		 , "headingCode"
 		 , "heading"
@@ -34,7 +34,7 @@ with export_source as (
 ),
 cities_source as (
 	select "id"
-	 	 , substring("text" for position(' - ' in "text"))	as "city_name"
+	 	 , regexp_replace(lower(unaccent("text")), '[^a-z]', '', 'g')	as "city_name_norm"
 	 	 , "noMunMin"
 	  from {{ source('bronze', 'cities') }}
 ),
@@ -53,7 +53,7 @@ joined as (
 		 , p."id" as "country_id"
 	  from export_source 	e
 	  left
-	  join cities_source 	c on e."city_name" = c."city_name"
+	  join cities_source 	c on e."city_name_norm" = c."city_name_norm"
 	  left
 	  join countries_source p on e."country_name_norm" = p."country_name_norm"
 ),

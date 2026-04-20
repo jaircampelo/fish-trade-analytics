@@ -23,11 +23,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "Faixa Baixa Medidor HHI"
+                  "Property": "PC - Faixa Baixa Medidor HHI"
                 }
               },
               "queryRef": "fact_trades.Faixa Baixa Medidor HHI",
-              "nativeQueryRef": "Faixa Baixa Medidor HHI"
+              "nativeQueryRef": "PC - Faixa Baixa Medidor HHI"
             },
             {
               "field": {
@@ -37,11 +37,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "Faixa Media Medidor HHI"
+                  "Property": "PC - Faixa Media Medidor HHI"
                 }
               },
               "queryRef": "fact_trades.Faixa Media Medidor HHI",
-              "nativeQueryRef": "Faixa Media Medidor HHI"
+              "nativeQueryRef": "PC - Faixa Media Medidor HHI"
             },
             {
               "field": {
@@ -51,11 +51,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "Faixa Alta Medidor HHI"
+                  "Property": "PC - Faixa Alta Medidor HHI"
                 }
               },
               "queryRef": "fact_trades.Faixa Alta Medidor HHI",
-              "nativeQueryRef": "Faixa Alta Medidor HHI"
+              "nativeQueryRef": "PC - Faixa Alta Medidor HHI"
             }
           ]
         }
@@ -70,7 +70,7 @@
                     "Entity": "fact_trades"
                   }
                 },
-                "Property": "Faixa Baixa Medidor HHI"
+                "Property": "PC - Faixa Baixa Medidor HHI"
               }
             },
             "direction": "Descending"

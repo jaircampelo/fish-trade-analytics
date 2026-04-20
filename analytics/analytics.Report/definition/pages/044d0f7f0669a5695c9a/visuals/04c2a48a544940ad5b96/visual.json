@@ -277,6 +277,27 @@
                   "Value": "'markerCircleDefault'"
                 }
               }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Top'"
+                }
+              }
+            },
+            "showTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Valores em dólares (U$)'"
+                }
+              }
             }
           }
         }
@@ -285,7 +306,15 @@
     "visualContainerObjects": {
       "title": [
         {
-          "properties": {}
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Somos importadores ou exportadores de pescado?'"
+                }
+              }
+            }
+          }
         }
       ],
       "stylePreset": [
@@ -295,6 +324,24 @@
               "expr": {
                 "Literal": {
                   "Value": "''"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "VG - Subtitulo Visual Serie Historica"
                 }
               }
             }

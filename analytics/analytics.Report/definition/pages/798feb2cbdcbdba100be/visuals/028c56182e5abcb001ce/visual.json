@@ -37,7 +37,7 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "$ Balança Comercial"
+                  "Property": "$ Balanca Comercial"
                 }
               },
               "queryRef": "fact_trades.$ Balança Comercial",

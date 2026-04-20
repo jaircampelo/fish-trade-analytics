@@ -3,8 +3,7 @@
 
 // Select "Run" to try this sample DAX query.
 EVALUATE
-TOPN(
-    5,
-    ALLSELECTED(dim_cities[state_name]),
-    [$ Valor Exportacoes], DESC
+UNION(
+    ALLNOBLANKROW(dim_countries[country_name]),
+    {"Outros"}
 )

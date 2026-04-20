@@ -2,52 +2,37 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "11c878ca559bacad0067",
   "position": {
-    "x": 1282,
-    "y": 368.57142857142861,
+    "x": 1280.4640371229698,
+    "y": 368.35266821345709,
     "z": 2000,
-    "height": 677.14285714285722,
-    "width": 602,
+    "height": 676.56612529002314,
+    "width": 602.64501160092811,
     "tabOrder": 2000
   },
   "visual": {
-    "visualType": "pivotTable",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
-        "Rows": {
+        "Category": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_cities"
+                      "Entity": "aux_paises_outros"
                     }
                   },
-                  "Property": "region"
+                  "Property": "country_name"
                 }
               },
-              "queryRef": "dim_cities.region",
-              "nativeQueryRef": "region",
-              "active": false
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_cities"
-                    }
-                  },
-                  "Property": "state_name"
-                }
-              },
-              "queryRef": "dim_cities.state_name",
-              "nativeQueryRef": "state_name",
+              "queryRef": "aux_paises_outros.country_name",
+              "nativeQueryRef": "country_name",
               "active": true
             }
           ]
         },
-        "Values": {
+        "Tooltips": {
           "projections": [
             {
               "field": {
@@ -57,12 +42,16 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "$ Importacoes Negativo"
+                  "Property": "Ranking Exportacoes por Pais"
                 }
               },
-              "queryRef": "fact_trades.$ Valor Importacoes Negativo",
-              "nativeQueryRef": "$ Importacoes Negativo"
-            },
+              "queryRef": "fact_trades.Ranking Exportacoes por Pais",
+              "nativeQueryRef": "Ranking Exportacoes por Pais"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
             {
               "field": {
                 "Measure": {
@@ -71,11 +60,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "$ Exportacoes"
+                  "Property": "Top N % Exportacoes Paises Parceiros"
                 }
               },
-              "queryRef": "fact_trades.$ Valor Exportacoes",
-              "nativeQueryRef": "$ Exportacoes"
+              "queryRef": "fact_trades.Top N % Exportacoes Paises Parceiros",
+              "nativeQueryRef": "Top N % Exportacoes Paises Parceiros"
             }
           ]
         }
@@ -90,55 +79,32 @@
                     "Entity": "fact_trades"
                   }
                 },
-                "Property": "$ Exportacoes"
+                "Property": "Ranking Exportacoes por Pais"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
         ]
       }
     },
-    "expansionStates": [
-      {
-        "roles": [
-          "Rows"
-        ],
-        "levels": [
-          {
-            "queryRefs": [
-              "dim_cities.region"
-            ],
-            "isCollapsed": true,
-            "identityKeys": [
-              {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_cities"
-                    }
-                  },
-                  "Property": "region"
-                }
-              }
-            ],
-            "isPinned": true
-          },
-          {
-            "queryRefs": [
-              "dim_cities.state_name"
-            ],
-            "isCollapsed": true,
-            "isPinned": true
-          }
-        ],
-        "root": {}
-      }
-    ],
     "objects": {
-      "rowHeaders": [
+      "valueAxis": [
         {
           "properties": {
-            "showExpandCollapseButtons": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -148,148 +114,57 @@
           }
         }
       ],
-      "columnFormatting": [
+      "dataPoint": [
         {
           "properties": {
-            "dataBars": {
-              "positiveColor": {
-                "solid": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'maxColor'"
-                      }
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": 0.2
                     }
-                  }
-                }
-              },
-              "negativeColor": {
-                "solid": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'#e68f96'"
-                      }
-                    }
-                  }
-                }
-              },
-              "axisColor": {
-                "solid": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'foreground'"
-                      }
-                    }
-                  }
-                }
-              },
-              "reverseDirection": {
-                "expr": {
-                  "Literal": {
-                    "Value": "false"
-                  }
-                }
-              },
-              "hideText": {
-                "expr": {
-                  "Literal": {
-                    "Value": "false"
-                  }
-                }
-              },
-              "totalMatchingOption": {
-                "expr": {
-                  "Literal": {
-                    "Value": "1L"
                   }
                 }
               }
             }
           },
           "selector": {
-            "metadata": "fact_trades.$ Valor Exportacoes"
-          }
-        },
-        {
-          "properties": {
-            "dataBars": {
-              "positiveColor": {
-                "solid": {
-                  "color": {
-                    "expr": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "aux_paises_outros"
+                          }
+                        },
+                        "Property": "country_name"
+                      }
+                    },
+                    "Right": {
                       "Literal": {
-                        "Value": "'#005F73'"
+                        "Value": "'Outros'"
                       }
                     }
-                  }
-                }
-              },
-              "negativeColor": {
-                "solid": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'#CA6702'"
-                      }
-                    }
-                  }
-                }
-              },
-              "axisColor": {
-                "solid": {
-                  "color": {
-                    "expr": {
-                      "Literal": {
-                        "Value": "'foreground'"
-                      }
-                    }
-                  }
-                }
-              },
-              "reverseDirection": {
-                "expr": {
-                  "Literal": {
-                    "Value": "false"
-                  }
-                }
-              },
-              "hideText": {
-                "expr": {
-                  "Literal": {
-                    "Value": "false"
-                  }
-                }
-              },
-              "totalMatchingOption": {
-                "expr": {
-                  "Literal": {
-                    "Value": "1L"
                   }
                 }
               }
-            }
-          },
-          "selector": {
-            "metadata": "fact_trades.$ Valor Importacoes Negativo"
+            ]
           }
         }
       ],
-      "subTotals": [
+      "categoryAxis": [
         {
           "properties": {
-            "columnSubtotals": {
+            "innerPadding": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "rowSubtotals": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "30L"
                 }
               }
             }
@@ -304,7 +179,44 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "VG - Titulo Top N Paises"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "VG - Subtitulo Top N Paises"
                 }
               }
             }
@@ -313,5 +225,61 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d04790605b016757a911",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_trades"
+              }
+            },
+            "Property": "Top N % Exportacoes Paises Parceiros"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "f",
+              "Entity": "fact_trades",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "f"
+                            }
+                          },
+                          "Property": "Top N % Exportacoes Paises Parceiros"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 }

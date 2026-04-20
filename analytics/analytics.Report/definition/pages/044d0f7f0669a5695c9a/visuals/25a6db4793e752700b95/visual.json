@@ -128,6 +128,18 @@
                   "Value": "true"
                 }
               }
+            },
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "VG - Titulo Top N Estados"
+                }
+              }
             }
           }
         }
@@ -149,6 +161,31 @@
         {
           "properties": {
             "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "VG - Subtitulo Top N Estados"
+                }
+              }
+            },
+            "titleWrap": {
               "expr": {
                 "Literal": {
                   "Value": "true"
