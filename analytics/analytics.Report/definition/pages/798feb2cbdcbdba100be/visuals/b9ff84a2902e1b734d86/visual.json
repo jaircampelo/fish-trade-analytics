@@ -4,10 +4,10 @@
   "position": {
     "x": 36.334106728538281,
     "y": 202.96983758700696,
-    "z": 4000,
+    "z": 3000,
     "height": 145.33642691415312,
     "width": 664.03712296983758,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,10 +19,18 @@
               {
                 "textRuns": [
                   {
-                    "value": "Aqui vai um texto chamativo e completo pra essa página",
+                    "value": {
+                      "propertyIdentifier": {
+                        "objectName": "values",
+                        "propertyName": "expr"
+                      },
+                      "selector": {
+                        "id": "Value"
+                      }
+                    },
                     "textStyle": {
-                      "fontFamily": "Segoe UI Semibold",
-                      "fontSize": "18pt",
+                      "fontWeight": "bold",
+                      "fontSize": "16pt",
                       "color": "#001219"
                     }
                   }
@@ -40,6 +48,64 @@
                 ]
               }
             ]
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "expr": {
+              "expr": {
+                "Min": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "Subquery": {
+                          "Query": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "f",
+                                "Entity": "fact_trades",
+                                "Type": 0
+                              }
+                            ],
+                            "Select": [
+                              {
+                                "Measure": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "f"
+                                    }
+                                  },
+                                  "Property": "BC - Titulo Pagina"
+                                },
+                                "Name": "fact_trades.BC - Titulo Pagina"
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      "Property": "fact_trades.BC - Titulo Pagina"
+                    }
+                  },
+                  "IncludeAllTypes": 1
+                },
+                "Annotations": {
+                  "NaturalLanguage": {
+                    "version": 1,
+                    "kind": "NaturalLanguage",
+                    "annotation": {
+                      "name": "Value",
+                      "utterance": "BC - Titulo Pagina"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "Value"
           }
         }
       ]
@@ -60,5 +126,6 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "isHidden": true
 }

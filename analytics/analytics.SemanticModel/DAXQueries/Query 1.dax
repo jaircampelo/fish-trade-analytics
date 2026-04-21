@@ -3,7 +3,19 @@
 
 // Select "Run" to try this sample DAX query.
 EVALUATE
-UNION(
-    ALLNOBLANKROW(dim_countries[country_name]),
-    {"Outros"}
+VAR __TabTop1Anos =
+ADDCOLUMNS(
+    ALLSELECTED(dim_calendario[Ano]),
+    "@Top1Cat",
+    CONCATENATEX(
+        TOPN(
+            1,
+            ALLSELECTED(dim_product_categories[product_category_name]),
+            [$ Exportacoes], DESC
+        ),
+        dim_product_categories[product_category_name]
+    )
 )
+
+RETURN
+__TabTop1Anos

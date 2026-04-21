@@ -4,7 +4,7 @@
   "position": {
     "x": 35.012468827930178,
     "y": 203,
-    "z": 2000,
+    "z": 1000,
     "height": 145.43640897755611,
     "width": 1850.2743142144639,
     "tabOrder": 0
@@ -291,6 +291,44 @@
           "selector": {
             "id": "default"
           }
+        },
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "PC - Titulo Card Exportacoes"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_trades.Maior Pais Parceiro Exportacoes"
+          }
+        },
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "PC - Titulo Card Importacoes"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_trades.Maior Pais Parceiro Importacoes"
+          }
         }
       ],
       "cardCalloutArea": [
@@ -352,5 +390,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e9fcb9800006c0ae2caa",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_trades"
+              }
+            },
+            "Property": "PC - Maior Pais Parceiro Exportacoes"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ac18b1f1a040ea86287c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_trades"
+              }
+            },
+            "Property": "PC - Maior Pais Parceiro Importacoes"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -4,10 +4,10 @@
   "position": {
     "x": 35.714285714285715,
     "y": 368.57142857142861,
-    "z": 2000,
+    "z": 1000,
     "height": 321.42857142857144,
     "width": 1225.7142857142858,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "lineChart",
@@ -258,6 +258,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'markerCircleDefault'"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Top'"
                 }
               }
             }
@@ -606,7 +613,15 @@
     "visualContainerObjects": {
       "title": [
         {
-          "properties": {}
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Exportações por Categoria (em dólares) - Evolução Anual'"
+                }
+              }
+            }
+          }
         }
       ],
       "stylePreset": [
@@ -616,6 +631,31 @@
               "expr": {
                 "Literal": {
                   "Value": "''"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "P - Subtitulo Exportacoes por Categoria"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

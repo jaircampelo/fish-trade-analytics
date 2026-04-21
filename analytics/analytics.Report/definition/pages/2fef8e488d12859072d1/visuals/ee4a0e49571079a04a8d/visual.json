@@ -4,7 +4,7 @@
   "position": {
     "x": 652.76102088167056,
     "y": 368.35266821345709,
-    "z": 4000,
+    "z": 3000,
     "height": 275.63805104408351,
     "width": 1232.8538283062644,
     "tabOrder": 3000
@@ -23,11 +23,11 @@
                       "Entity": "dim_calendario"
                     }
                   },
-                  "Property": "Data"
+                  "Property": "Ano"
                 }
               },
-              "queryRef": "dim_calendario.Data",
-              "nativeQueryRef": "Data",
+              "queryRef": "dim_calendario.Ano",
+              "nativeQueryRef": "Ano",
               "active": true
             }
           ]
