@@ -419,8 +419,13 @@
             },
             "text": {
               "expr": {
-                "Literal": {
-                  "Value": "'Título'"
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "PC - Titulo Visual Tornado"
                 }
               }
             }

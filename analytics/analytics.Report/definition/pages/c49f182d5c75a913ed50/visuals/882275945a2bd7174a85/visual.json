@@ -4,7 +4,7 @@
   "position": {
     "x": 35.012468827930178,
     "y": 203,
-    "z": 1000,
+    "z": 7000,
     "height": 145.43640897755611,
     "width": 1850.2743142144639,
     "tabOrder": 1000
@@ -37,11 +37,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "P - Produto Mais Importado"
+                  "Property": "P - Titulo Produto Maior Valor Agregado"
                 }
               },
-              "queryRef": "fact_trades.Produto mais Importado",
-              "nativeQueryRef": "P - Produto Mais Importado"
+              "queryRef": "fact_trades.P - Titulo Produto Maior Valor Agregado",
+              "nativeQueryRef": "P - Titulo Produto Maior Valor Agregado"
             },
             {
               "field": {
@@ -51,11 +51,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "P - Produto Maior Valor Agregado Exportacoes"
+                  "Property": "P - Titulo Produto Mais Importado"
                 }
               },
-              "queryRef": "fact_trades.Produto Maior Valor Agregado Exportacoes",
-              "nativeQueryRef": "P - Produto Maior Valor Agregado Exportacoes"
+              "queryRef": "fact_trades.P - Titulo Produto Mais Importado",
+              "nativeQueryRef": "P - Titulo Produto Mais Importado"
             }
           ]
         }
@@ -260,10 +260,83 @@
                   "Value": "true"
                 }
               }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'belowValue'"
+                }
+              }
             }
           },
           "selector": {
             "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "P - Subtitulo Card Mais Exportado"
+                }
+              }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_trades.$ Produto mais Exportado"
+          }
+        },
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'É a categoria mais importada para o mesmo período.'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_trades.P - Titulo Produto Mais Importado"
+          }
+        },
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "P - Subtitulo Produto Maior Valor Agregado"
+                }
+              }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_trades.P - Titulo Produto Maior Valor Agregado"
           }
         }
       ],

@@ -4,10 +4,10 @@
   "position": {
     "x": 36.359102244389028,
     "y": 704.28927680798006,
-    "z": 3000,
+    "z": 2000,
     "height": 339.35162094763092,
     "width": 1225.4364089775561,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "lineChart",
@@ -99,6 +99,13 @@
                   "Value": "12D"
                 }
               }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           }
         }
@@ -133,6 +140,13 @@
                   "Value": "13D"
                 }
               }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
             }
           }
         }
@@ -154,7 +168,15 @@
     "visualContainerObjects": {
       "title": [
         {
-          "properties": {}
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Preço Médio por Quilo (U$/kg) - Evolução Anual'"
+                }
+              }
+            }
+          }
         }
       ],
       "stylePreset": [
@@ -164,6 +186,31 @@
               "expr": {
                 "Literal": {
                   "Value": "''"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "P - Subtitulo Preco por Quilo Anual Exportacoes"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

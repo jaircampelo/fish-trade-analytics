@@ -71,13 +71,9 @@ table fact_trades
 				VAR __Formato =
 				SWITCH(
 				    TRUE(),
-				    __Valor = 0, "0",
-				    __Valor > 1000000000, "#0,,,.00 Bi",
-				    __Valor < -1000000000, "#0,,,.00 Bi",
-				    __Valor > 1000000, "#0,,.00 Mi",
-				    __Valor < -1000000, "#0,,.00 Mi",
-				    __Valor > 1000, "#0,.00 K",
-				    __Valor < -1000, "#0,.00 K",
+				    ABS(__Valor) > 1000000000, "#0,,,.00 Bi",
+				    ABS(__Valor) > 1000000, "#0,,.00 Mi",
+				    ABS(__Valor) > 1000, "#0,.00 K",
 				    "#0"
 				)
 				RETURN
@@ -116,7 +112,7 @@ table fact_trades
 			VAR __Total =
 			CALCULATE(
 			    [$ Exportacoes],
-			    ALL(fact_trades)
+			    ALLSELECTED(fact_trades)
 			)
 			
 			VAR __Result = DIVIDE([$ Exportacoes], __Total)
@@ -259,11 +255,21 @@ table fact_trades
 			    [$ Exportacoes],
 			    dim_calendario[Data] <= MAX(dim_calendario[Data])
 			)
-		formatString: \$#,0;(\$#,0);\$#,0
 		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: 146b0a9f-7f85-48d2-8505-87e2d8e9328d
 
-		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    ABS(__Valor) > 1000000000, "#0,,,.00 Bi",
+				    ABS(__Valor) > 1000000, "#0,,.00 Mi",
+				    ABS(__Valor) > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
 
 	measure '$ Importacoes Acc' =
 			
@@ -274,7 +280,18 @@ table fact_trades
 		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: 6aaa1f0c-5c81-4dd1-b0ee-e4a4c39a8569
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    ABS(__Valor) > 1000000000, "#0,,,.00 Bi",
+				    ABS(__Valor) > 1000000, "#0,,.00 Mi",
+				    ABS(__Valor) > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
 
 	measure '$ Exportacoes LY' =
 			
@@ -386,7 +403,18 @@ table fact_trades
 		displayFolder: Medidas\05. Valor Real
 		lineageTag: a8ad9f67-51b3-481d-82c6-3854360cf78f
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		formatStringDefinition =
+				VAR __Valor = SELECTEDMEASURE()
+				VAR __Formato =
+				SWITCH(
+				    TRUE(),
+				    ABS(__Valor) > 1000000000, "#0,,,.00 Bi",
+				    ABS(__Valor) > 1000000, "#0,,.00 Mi",
+				    ABS(__Valor) > 1000, "#0,.00 K",
+				    "#0"
+				)
+				RETURN
+				__Formato
 
 	measure 'Top N Municipios Importacoes' =
 			
@@ -564,45 +592,46 @@ table fact_trades
 
 	measure 'P - Produto Mais Exportado' =
 			
-			TOPN(
-			    1,
-			    ALLSELECTED(dim_product_categories[product_category_name]),
-			    [$ Exportacoes], DESC
+			CONCATENATEX(
+			    TOPN(
+			        1,
+			        ALLSELECTED(dim_product_categories[product_category_name]),
+			        [$ Exportacoes], DESC
+			    ),
+			    dim_product_categories[product_category_name]
 			)
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 5a4e15f1-14c5-4534-b462-c440f9113f42
 
 	measure 'P - Produto Mais Importado' =
 			
-			TOPN(
-			    1,
-			    ALLSELECTED(dim_product_categories[product_category_name]),
-			    [$ Importacoes], DESC
+			CONCATENATEX(
+			    TOPN(
+			        1,
+			        ALLSELECTED(dim_product_categories[product_category_name]),
+			        [$ Importacoes], DESC
+			    ),
+			    dim_product_categories[product_category_name]
 			)
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 7ade20cc-2a97-4c9d-b355-ee8f06e4d1d9
 
 	measure 'P - Produto Maior Valor Agregado Exportacoes' =
 			
-			TOPN(
-			    1,
-			    ALLSELECTED(dim_product_categories[product_category_name]),
-			    [$ Preco Medio por Quilo Exportacoes], DESC
+			CONCATENATEX(
+			    TOPN(
+			        1,
+			        ALLSELECTED(dim_product_categories[product_category_name]),
+			        [$ Preco Medio por Quilo Exportacoes], DESC
+			    ),
+			    dim_product_categories[product_category_name]
 			)
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: be0bed65-e13f-4ca8-9277-285518c386dd
 
-	measure 'BC - Visual Heatmap' =
-			
-			IF(
-			    HASONEVALUE(dim_calendario[MesNomeIniciais]),
-			    "ㅤ",
-			    [$ Balanca Comercial]
-			)
+	measure 'BC - Dummy Visual Heatmap' = " "
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 422d01b3-40dc-4e6a-85ff-2eb1913b8d97
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure '% Participacao no Total Importacoes' =
 			
@@ -960,11 +989,11 @@ table fact_trades
 		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: a428a0a8-ff28-4ca6-9c1f-a4bafdc74b6a
 
-	measure 'VG - Rotulo Taxa de Cobertura YoY' = ```
+	measure 'VG - Rotulo Taxa de Cobertura YoY' =
 			
-			 VAR __Variacao = [Var Taxa de Cobertura YoY]
+			VAR __Variacao = [Var Taxa de Cobertura YoY]
 			
-			 VAR __Result =
+			VAR __Result =
 			SWITCH(
 			    TRUE(),
 			    __Variacao > 0, FORMAT(__Variacao, "+0.0") & " p.p.",
@@ -974,7 +1003,6 @@ table fact_trades
 			
 			RETURN
 			__Result
-			```
 		formatString: +#0.0 p.p.;-#0.0 p.p.
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: e9598d00-c048-4af9-9b32-7a1e550ae750
@@ -1292,6 +1320,663 @@ table fact_trades
 			```
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: d3503ebc-941d-41ea-9cee-36ac7c70951f
+
+	measure 'BC - Titulo Pagina' =
+			
+			VAR __TopBottomBalanca =
+			TOPN(
+			    1,
+			    ALLSELECTED(dim_calendario[MesAnoNome]),
+			    [$ Balanca Comercial], ASC
+			)
+			VAR __EscalarTopBottom =
+			CONCATENATEX(__TopBottomBalanca, dim_calendario[MesAnoNome])
+			
+			VAR __ValorTopBottom =
+			CALCULATE(
+			    [$ Balanca Comercial],
+			    __TopBottomBalanca
+			)
+			VAR __FormatValorTopBottom =
+			SWITCH(
+			    TRUE(),
+			    ABS(__ValorTopBottom) > 1000000000, FORMAT(__ValorTopBottom, "#0,,,.00 Bi"),
+			    ABS(__ValorTopBottom) > 1000000, FORMAT(__ValorTopBottom, "#0,,.00 Mi"),
+			    ABS(__ValorTopBottom) > 1000, FORMAT(__ValorTopBottom, "#0,.00 K"),
+			    FORMAT(__ValorTopBottom, "#0")
+			)
+			
+			VAR __Texto =
+			"A Balança Comercial de pescado atingiu a mínima histórica em "
+			& __EscalarTopBottom
+			& ", chegando a "
+			& __FormatValorTopBottom
+			& " de dólares."
+			
+			RETURN
+			__Texto
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 10d9b78f-81b6-4f8f-bb8d-031b8db32a49
+
+	measure 'BC - Subtitulo Nominal vs Real' =
+			
+			VAR __TodosMeses = ALLSELECTED(dim_calendario[MesAnoNome], dim_calendario[MesAnoNumero])
+			
+			VAR __TopDiffValor =
+			MAXX(
+			    FILTER(__TodosMeses, [$ Balança Comercial Real]),
+			    ABS([$ Balança Comercial Real] - [$ Balanca Comercial])
+			)
+			VAR __FormatTopDiffValor =
+			SWITCH(
+			    TRUE(),
+			    __TopDiffValor > 1000000000, FORMAT(__TopDiffValor, "#0,,,.00 Bi"),
+			    __TopDiffValor > 1000000, FORMAT(__TopDiffValor, "#0,,.00 Mi"),
+			    __TopDiffValor > 1000, FORMAT(__TopDiffValor, "#0,.00 K"),
+			    FORMAT(__TopDiffValor, "#0")
+			)
+			
+			VAR __TopDiffMes =
+			MAXX(
+			    FILTER(__TodosMeses, ABS([$ Balança Comercial Real] - [$ Balanca Comercial]) = __TopDiffValor),
+			    dim_calendario[MesAnoNome]
+			)
+			
+			VAR __Texto =
+			"Ao comparar o valor nominal da balança comercial com o valor corrigido pela CPI (Consumer Price Index), verificamos que a maior distorção entre o valor nominal e o real foi de "
+			& __FormatTopDiffValor
+			& " de dólares em "
+			& __TopDiffMes & "."
+			
+			RETURN
+			__Texto
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 5ce81b44-e0bc-42c9-a700-4792fe234ab3
+
+	measure 'BC - Subtitulo Acumulado' = ```
+			
+			VAR __TodosAnos = ALLSELECTED(dim_calendario[Ano])
+			
+			VAR __TradeDiff =
+			CALCULATE(
+			    ABS([$ Exportacoes Acc] - [$ Importacoes Acc]),
+			    __TodosAnos
+			)
+			VAR __FormatTradeDiff =
+			SWITCH(
+			    TRUE(),
+			    __TradeDiff > 1000000000, FORMAT(__TradeDiff, "#0,,,.00 Bi"),
+			    __TradeDiff > 1000000, FORMAT(__TradeDiff, "#0,,.00 Mi"),
+			    __TradeDiff > 1000, FORMAT(__TradeDiff, "#0,.00 K"),
+			    FORMAT(__TradeDiff, "#0")
+			)
+			
+			VAR __Data =
+			ALLSELECTED(dim_calendario[MesAnoNome], dim_calendario[MesAnoNumero])
+			VAR __MinNumero = 
+			MINX(
+			    FILTER(__Data, [$ Exportacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MaxNumero = 
+			MAXX(
+			    FILTER(__Data, [$ Exportacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MinNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MinNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			VAR __MaxNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MaxNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			
+			VAR __TextoDeficit =
+			"Para o peíodo de "
+			& __MinNome & " - " & __MaxNome
+			& ", o Brasil possui um déficit acumulado de "
+			& __FormatTradeDiff & " de dólares."
+			VAR __TextoSuperavit =
+			"Para o peíodo de "
+			& __MinNome & " - " & __MaxNome
+			& ", o Brasil possui um superávit acumulado de "
+			& __FormatTradeDiff & " de dólares."
+			
+			RETURN
+			IF(
+			    [$ Exportacoes Acc] > [$ Importacoes Acc],
+			    __TextoSuperavit,
+			    __TextoDeficit
+			)
+			```
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: a3c40b74-0bf9-4ded-8359-95a509229902
+
+	measure 'BC - Subtitulo Heatmap' = ```
+			
+			VAR __TabMediaMensal =
+			ADDCOLUMNS(
+			    ALLSELECTED(dim_calendario[MesNome]),
+			    "@MediaMensal",
+			    AVERAGEX(
+			        ALLSELECTED(dim_calendario[Ano]),
+			        [$ Balanca Comercial]
+			    )
+			)
+			
+			VAR __MinVal = MINX(__TabMediaMensal, [@MediaMensal])
+			VAR __MaxVal = MAXX(__TabMediaMensal, [@MediaMensal])
+			VAR __FormatMinVal =
+			SWITCH(
+			    TRUE(),
+			    ABS(__MinVal) > 1000000000, FORMAT(__MinVal, "#0,,,.00 Bi"),
+			    ABS(__MinVal) > 1000000, FORMAT(__MinVal, "#0,,.00 Mi"),
+			    ABS(__MinVal) > 1000, FORMAT(__MinVal, "#0,.00 K"),
+			    FORMAT(__MinVal, "#0")
+			)
+			VAR __FormatMaxVal =
+			SWITCH(
+			    TRUE(),
+			    ABS(__MaxVal) > 1000000000, FORMAT(__MaxVal, "#0,,,.00 Bi"),
+			    ABS(__MaxVal) > 1000000, FORMAT(__MaxVal, "#0,,.00 Mi"),
+			    ABS(__MaxVal) > 1000, FORMAT(__MaxVal, "#0,.00 K"),
+			    FORMAT(__MaxVal, "#0")
+			)
+			
+			VAR __MesMin = 
+			MAXX(
+			    FILTER(__TabMediaMensal, [@MediaMensal] = __MinVal),
+			    dim_calendario[MesNome]
+			)
+			VAR __MesMax = 
+			MAXX(
+			    FILTER(__TabMediaMensal, [@MediaMensal] = __MaxVal),
+			    dim_calendario[MesNome]
+			)
+			
+			VAR __Texto =
+			__MesMin & " registra o pior saldo médio mensal (" & __FormatMinVal & ") e "
+			& __MesMax & " o melhor (" & __FormatMaxVal & ") ao longo dos 20 anos"
+			
+			RETURN
+			__Texto
+			```
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: aeb61735-ec6a-4aea-8f92-81a6605811c8
+
+	measure 'P - Subtitulo Card Mais Exportado' = ```
+			
+			VAR __Data =
+			ALLSELECTED(dim_calendario[MesAnoNome], dim_calendario[MesAnoNumero])
+			VAR __MinNumero = 
+			MINX(
+			    FILTER(__Data, [$ Exportacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MaxNumero = 
+			MAXX(
+			    FILTER(__Data, [$ Exportacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MinNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MinNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			VAR __MaxNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MaxNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			
+			VAR __Texto =
+			"Lideram as exportações acumuladas no período de "
+			& __MinNome & " - " & __MaxNome
+			
+			RETURN
+			__Texto
+			```
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 1b1c7fc9-e1e7-4821-ba56-c3e2943d453f
+
+	measure 'P - Titulo Produto Mais Importado' =
+			
+			"...e " & [P - Produto Mais Importado]
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 5858aa8a-e4fa-4710-93ef-32d7b0dab8f5
+
+	measure 'P - Titulo Produto Maior Valor Agregado' =
+			
+			"...mas " & [P - Produto Maior Valor Agregado Exportacoes]
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 6b8bc1d9-d5e2-414c-9d0a-d29b124c335c
+
+	measure 'P - Subtitulo Produto Maior Valor Agregado' =
+			
+			VAR __Top1Exp =
+			TOPN(
+			    1,
+			    ALLSELECTED(dim_product_categories[product_category_name]),
+			    [$ Exportacoes], DESC
+			)
+			VAR __Top1ValorPorQuilo =
+			TOPN(
+			    1,
+			    ALLSELECTED(dim_product_categories[product_category_name]),
+			    [$ Preco Medio por Quilo Exportacoes], DESC
+			)
+			
+			VAR __ValorTop1Exp =
+			CALCULATE(
+			    [$ Preco Medio por Quilo Exportacoes],
+			    __Top1Exp
+			)
+			VAR __ValorTop1PorQuilo =
+			CALCULATE(
+			    [$ Preco Medio por Quilo Exportacoes],
+			    __Top1ValorPorQuilo
+			)
+			
+			VAR __Relacao =
+			DIVIDE(__ValorTop1PorQuilo, __ValorTop1Exp)
+			
+			VAR __Texto =
+			"É a categoria de maior valor agregado, valendo "
+			& FORMAT(__Relacao, "#0x")
+			& " mais por quilo."
+			
+			RETURN
+			__Texto
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 67acff90-de02-4c00-82da-5fc942116919
+
+	measure 'P - Subtitulo Exportacoes por Categoria' = ```
+			
+			-- CRIA UMA TABELA MOSTRANDO A TOP 1 CATEGORIA DE CADA ANO NAS EXPORTAÇÕES
+			VAR __TabTop1Anos =
+			ADDCOLUMNS(
+			    ALLSELECTED(dim_calendario[Ano]),
+			    "@Top1Cat",
+			    CONCATENATEX(
+			        TOPN(
+			            1,
+			            ALLSELECTED(dim_product_categories[product_category_name]),
+			            [$ Exportacoes], DESC
+			        ),
+			        dim_product_categories[product_category_name]
+			    )
+			)
+			
+			-- RETORNA O LÍDER DE COMÉRCIO NO ANO MAIS RECENTE
+			VAR __AnoMaisRecente =
+			MAXX(__TabTop1Anos, dim_calendario[Ano])
+			VAR __Top1CatRecente =
+			MAXX(
+			    FILTER(__TabTop1Anos, dim_calendario[Ano] = __AnoMaisRecente),
+			    [@Top1Cat]
+			)
+			
+			-- RETORNA A QUANTO TEMPO O LÍDER MAIS RECENTE ESTÁ NO TOPO
+			VAR __AnoMaisRecenteSemTop1 =
+			MAXX(
+			    FILTER(__TabTop1Anos, [@Top1Cat] <> __Top1CatRecente),
+			    dim_calendario[Ano]
+			)
+			VAR __PeriodoLideranca =
+			__AnoMaisRecente - __AnoMaisRecenteSemTop1
+			
+			-- RETORNA O VALOR DO COMÉRCIO ACUMULADO DO TOP 1 MAIS RECENTE
+			VAR __Acc =
+			CALCULATE(
+			    [$ Exportacoes Acc],
+			    FILTER(
+			        dim_product_categories,
+			        dim_product_categories[product_category_name] = __Top1CatRecente
+			    )
+			)
+			VAR __FormatAcc =
+			SWITCH(
+			    TRUE(),
+			    ABS(__Acc) > 1000000000, FORMAT(__Acc, "#0,,,.00 Bi"),
+			    ABS(__Acc) > 1000000, FORMAT(__Acc, "#0,,.00 Mi"),
+			    ABS(__Acc) > 1000, FORMAT(__Acc, "#0,.00 K"),
+			    FORMAT(__Acc, "#0")
+			)
+			
+			-- RETORNA A DATA MÍNIMA E MÁXIMA DO PERÍODO SELECIONADO NOS FILTROS
+			VAR __Data =
+			ALLSELECTED(dim_calendario[MesAnoNome], dim_calendario[MesAnoNumero])
+			VAR __MinNumero = 
+			MINX(
+			    FILTER(__Data, [$ Exportacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MaxNumero = 
+			MAXX(
+			    FILTER(__Data, [$ Exportacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MinNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MinNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			VAR __MaxNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MaxNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			
+			RETURN
+			__Top1CatRecente
+			& " lideram as exportações há "
+			& __PeriodoLideranca
+			& " anos consecutivos e acumularam "
+			& __FormatAcc
+			& " entre "
+			& __MinNome & " - " & __MaxNome & "."
+			```
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: e344f7b0-0d5a-4d93-b0a1-2fef0e4ba4e0
+
+	measure 'P - Subtitulo Preco por Quilo Anual Exportacoes' =
+			
+			VAR __Media =
+			CALCULATE(
+			    [$ Preco Medio por Quilo Exportacoes],
+			    ALLSELECTED(dim_calendario[Ano])
+			)
+			VAR __PicoValor =
+			MAXX(
+			    ALLSELECTED(dim_calendario[Ano]),
+			    [$ Preco Medio por Quilo Exportacoes]
+			)
+			VAR __PicoAno =
+			CONCATENATEX(
+			    TOPN(
+			        1,
+			        ALLSELECTED(dim_calendario[Ano]),
+			        [$ Preco Medio por Quilo Exportacoes], DESC
+			    ),
+			    dim_calendario[Ano]
+			)
+			
+			RETURN
+			"Média geral de "
+			& FORMAT(__Media, "#0.00 U$/kg")
+			& " e pico de "
+			& FORMAT(__PicoValor, "#0.00 U$/kg")
+			& " no ano de "
+			& __PicoAno & "."
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: baceb763-b229-4a8f-b252-08257cc539bc
+
+	measure 'P - Subtitulo Preco por Quilo Categoria Exportacoes' =
+			
+			VAR __Top1Cat = [P - Produto Maior Valor Agregado Exportacoes]
+			VAR __Top1CatValor =
+			CALCULATE(
+			    [$ Preco Medio por Quilo Exportacoes],
+			    dim_product_categories[product_category_name] = __Top1Cat
+			)
+			
+			RETURN
+			__Top1Cat
+			& " é a categoria exportada com maior valor agregado ("
+			& FORMAT(__Top1CatValor, "#0.00 U$/kg")
+			& ")."
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 5dff55cb-2c89-4138-b1c8-079241be8110
+
+	measure 'P - Subtitulo Importacoes por Categoria' = ```
+			
+			-- CRIA UMA TABELA MOSTRANDO A TOP 1 CATEGORIA DE CADA ANO NAS IMPORTAÇÕES
+			VAR __TabTop1Anos =
+			ADDCOLUMNS(
+			    ALLSELECTED(dim_calendario[Ano]),
+			    "@Top1Cat",
+			    CONCATENATEX(
+			        TOPN(
+			            1,
+			            ALLSELECTED(dim_product_categories[product_category_name]),
+			            [$ Importacoes], DESC
+			        ),
+			        dim_product_categories[product_category_name]
+			    )
+			)
+			
+			-- RETORNA O LÍDER DE COMÉRCIO NO ANO MAIS RECENTE
+			VAR __AnoMaisRecente =
+			MAXX(__TabTop1Anos, dim_calendario[Ano])
+			VAR __Top1CatRecente =
+			MAXX(
+			    FILTER(__TabTop1Anos, dim_calendario[Ano] = __AnoMaisRecente),
+			    [@Top1Cat]
+			)
+			
+			-- RETORNA A QUANTO TEMPO O LÍDER MAIS RECENTE ESTÁ NO TOPO
+			VAR __AnoMaisRecenteSemTop1 =
+			MAXX(
+			    FILTER(__TabTop1Anos, [@Top1Cat] <> __Top1CatRecente),
+			    dim_calendario[Ano]
+			)
+			VAR __PeriodoLideranca =
+			__AnoMaisRecente - __AnoMaisRecenteSemTop1
+			
+			-- RETORNA O VALOR DO COMÉRCIO ACUMULADO DO TOP 1 MAIS RECENTE
+			VAR __Acc =
+			CALCULATE(
+			    [$ Importacoes Acc],
+			    FILTER(
+			        dim_product_categories,
+			        dim_product_categories[product_category_name] = __Top1CatRecente
+			    )
+			)
+			VAR __FormatAcc =
+			SWITCH(
+			    TRUE(),
+			    ABS(__Acc) > 1000000000, FORMAT(__Acc, "#0,,,.00 Bi"),
+			    ABS(__Acc) > 1000000, FORMAT(__Acc, "#0,,.00 Mi"),
+			    ABS(__Acc) > 1000, FORMAT(__Acc, "#0,.00 K"),
+			    FORMAT(__Acc, "#0")
+			)
+			
+			-- RETORNA A DATA MÍNIMA E MÁXIMA DO PERÍODO SELECIONADO NOS FILTROS
+			VAR __Data =
+			ALLSELECTED(dim_calendario[MesAnoNome], dim_calendario[MesAnoNumero])
+			VAR __MinNumero = 
+			MINX(
+			    FILTER(__Data, [$ Importacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MaxNumero = 
+			MAXX(
+			    FILTER(__Data, [$ Importacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MinNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MinNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			VAR __MaxNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MaxNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			
+			RETURN
+			__Top1CatRecente
+			& " lideram as importações há "
+			& __PeriodoLideranca
+			& " anos consecutivos e acumularam "
+			& __FormatAcc
+			& " entre "
+			& __MinNome & " - " & __MaxNome & "."
+			```
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 5e75c1c0-4b3c-4f9d-a632-2b7ac8c724cb
+
+	measure 'P - Subtitulo Preco por Quilo Anual Importacoes' =
+			
+			VAR __Media =
+			CALCULATE(
+			    [$ Preco Medio por Quilo Importacoes],
+			    ALLSELECTED(dim_calendario[Ano])
+			)
+			VAR __PicoValor =
+			MAXX(
+			    ALLSELECTED(dim_calendario[Ano]),
+			    [$ Preco Medio por Quilo Importacoes]
+			)
+			VAR __PicoAno =
+			CONCATENATEX(
+			    TOPN(
+			        1,
+			        ALLSELECTED(dim_calendario[Ano]),
+			        [$ Preco Medio por Quilo Importacoes], DESC
+			    ),
+			    dim_calendario[Ano]
+			)
+			
+			RETURN
+			"Média geral de "
+			& FORMAT(__Media, "#0.00 U$/kg")
+			& " e pico de "
+			& FORMAT(__PicoValor, "#0.00 U$/kg")
+			& " no ano de "
+			& __PicoAno & "."
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: bf1d5cda-99cb-4268-a3fe-5c7b0094eaf5
+
+	measure 'P - Subtitulo Preco por Quilo Categoria Importacoes' =
+			
+			VAR __Top1Cat = [P - Produto Maior Valor Agregado Importacoes]
+			VAR __Top1CatValor =
+			CALCULATE(
+			    [$ Preco Medio por Quilo Importacoes],
+			    dim_product_categories[product_category_name] = __Top1Cat
+			)
+			
+			RETURN
+			__Top1Cat
+			& " é a categoria exportada com maior valor agregado ("
+			& FORMAT(__Top1CatValor, "#0.00 U$/kg")
+			& ")."
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 34affca2-2b02-4dbe-9a53-2426bd319a36
+
+	measure 'P - Produto Maior Valor Agregado Importacoes' =
+			
+			CONCATENATEX(
+			    TOPN(
+			        1,
+			        ALLSELECTED(dim_product_categories[product_category_name]),
+			        [$ Preco Medio por Quilo Importacoes], DESC
+			    ),
+			    dim_product_categories[product_category_name]
+			)
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 4a260b5d-ca7f-4ad5-a590-3928dad7f05f
+
+	measure 'PC - Titulo Card Exportacoes' =
+			
+			VAR __CategoriasSelecionadas = VALUES(dim_product_categories[product_category_name])
+			VAR __QtdSelecionadas = COUNTROWS(__CategoriasSelecionadas)
+			VAR __UmaCategoria = SELECTEDVALUE(dim_product_categories[product_category_name])
+			
+			VAR __TabComPct =
+			ADDCOLUMNS(
+			    ALLSELECTED(dim_countries[country_name]),
+			    "@Pct",
+			    CALCULATE([% Participacao no Total Exportacoes])
+			)
+			VAR __Top1Pct =
+			MAXX(
+			    TOPN(1, __TabComPct, [@Pct], DESC),
+			    [@Pct]
+			)
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    __QtdSelecionadas = COUNTROWS(ALL(dim_product_categories[product_category_name])),
+			        "Destino de " & FORMAT(__Top1Pct, "#0.00%") & " de tudo que o Brasil exporta em pescado",
+			    __QtdSelecionadas = 1,
+			        "Destino de " & FORMAT(__Top1Pct, "#0.00%") & " de tudo que o Brasil exporta em " & __UmaCategoria,
+			    "Destino de " & FORMAT(__Top1Pct, "#0.00%") & " de tudo que o Brasil exporta para as categorias selecionadas"
+			)
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 25ae6151-c1e2-46a3-999f-f84f367507ec
+
+	measure 'PC - Titulo Card Importacoes' =
+			
+			VAR __CategoriasSelecionadas = VALUES(dim_product_categories[product_category_name])
+			VAR __QtdSelecionadas = COUNTROWS(__CategoriasSelecionadas)
+			VAR __UmaCategoria = SELECTEDVALUE(dim_product_categories[product_category_name])
+			
+			VAR __TabComPct =
+			ADDCOLUMNS(
+			    ALLSELECTED(dim_countries[country_name]),
+			    "@Pct",
+			    CALCULATE([% Participacao no Total Exportacoes])
+			)
+			VAR __Top1Pct =
+			MAXX(
+			    TOPN(1, __TabComPct, [@Pct], DESC),
+			    [@Pct]
+			)
+			
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    __QtdSelecionadas = COUNTROWS(ALL(dim_product_categories[product_category_name])),
+			        "Destino de " & FORMAT(__Top1Pct, "#0.00%") & " de tudo que o Brasil importa em pescado",
+			    __QtdSelecionadas = 1,
+			        "Destino de " & FORMAT(__Top1Pct, "#0.00%") & " de tudo que o Brasil importa em " & __UmaCategoria,
+			    "Destino de " & FORMAT(__Top1Pct, "#0.00%") & " de tudo que o Brasil importa para as categorias selecionadas"
+			)
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: f9125df3-d98b-453a-98fa-644f8d8e9d29
+
+	measure Teste =
+			
+			VAR __TabComPct =
+			ADDCOLUMNS(
+			    ALLSELECTED(dim_countries[country_name]),
+			    "@Pct",
+			    CALCULATE([% Participacao no Total Exportacoes])
+			)
+			
+			VAR __Top1Pct =
+			MAXX(
+			    TOPN(1, __TabComPct, [@Pct], DESC),
+			    [@Pct]
+			)
+			
+			RETURN
+			__Top1Pct
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Medidas
+		lineageTag: 8a14d6b0-b17e-4b38-89a3-2d8fcb0dc3f6
+
+	measure 'PC - Titulo Visual Tornado' = ```
+			
+			VAR __TopN = SELECTEDVALUE(aux_topn[TopN])
+			
+			VAR __Texto = 
+			"Importações e Exportações dos "
+			& __TopN 
+			& " maiores parceiros comerciais do Brasil"
+			
+			RETURN
+			__Texto
+			```
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 655e083a-76c6-4108-8c97-4265478ad234
 
 	column trade_date
 		dataType: dateTime

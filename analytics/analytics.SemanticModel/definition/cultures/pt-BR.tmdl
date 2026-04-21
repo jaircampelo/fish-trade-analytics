@@ -6464,7 +6464,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.top_n_paises_parceiros_exportacoes": {
+			    "fact_trade.top_n__exportacoes_paises_parceiros": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
@@ -6474,68 +6474,8 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "top n paises parceiros exportacoes": {
+			          "top n % exportacoes paises parceiros": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "best n paise parceiro exportacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.605
-			          }
-			        },
-			        {
-			          "first n paise parceiro exportacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.605
-			          }
-			        },
-			        {
-			          "leading n paise parceiro exportacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.605
-			          }
-			        },
-			        {
-			          "maximum n paise parceiro exportacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.605
-			          }
-			        },
-			        {
-			          "peak n paise parceiro exportacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.605
-			          }
-			        },
-			        {
-			          "upper n paise parceiro exportacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.605
 			          }
 			        }
 			      ]
@@ -6578,16 +6518,6 @@ cultureInfo pt-BR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.617
-			          }
-			        },
-			        {
-			          "$ Importacoes": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -6938,7 +6868,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.top_n_paises_parceiros_importacoes": {
+			    "fact_trade.top_n__importacoes_paises_parceiros": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
@@ -6948,68 +6878,8 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "top n paises parceiros importacoes": {
+			          "top n % importacoes paises parceiros": {
 			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "best n paise parceiro importacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.605
-			          }
-			        },
-			        {
-			          "first n paise parceiro importacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.605
-			          }
-			        },
-			        {
-			          "leading n paise parceiro importacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.605
-			          }
-			        },
-			        {
-			          "maximum n paise parceiro importacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.605
-			          }
-			        },
-			        {
-			          "peak n paise parceiro importacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.605
-			          }
-			        },
-			        {
-			          "upper n paise parceiro importacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.605
 			          }
 			        }
 			      ]
@@ -7427,7 +7297,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "tipo": {
+			    "aux_tipo": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "aux_tipo"
@@ -7436,13 +7306,20 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "tipo": {
+			          "aux tipo": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aux_tipo": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
 			          }
 			        }
 			      ]
 			    },
-			    "tipo.tipo": {
+			    "aux_tipo.tipo": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "aux_tipo",
@@ -7455,16 +7332,10 @@ cultureInfo pt-BR
 			          "tipo": {
 			            "State": "Generated"
 			          }
-			        },
-			        {
-			          "tipo name": {
-			            "State": "Generated"
-			          }
 			        }
-			      ],
-			      "NameType": "Name"
+			      ]
 			    },
-			    "tipo.tipo_field": {
+			    "aux_tipo.tipo_field": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "aux_tipo",
@@ -7583,7 +7454,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "tipo.tipo_order": {
+			    "aux_tipo.tipo_order": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "aux_tipo",
@@ -7940,7 +7811,7 @@ cultureInfo pt-BR
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "BC - Visual Heatmap"
+			          "ConceptualProperty": "BC - Dummy Visual Heatmap"
 			        }
 			      },
 			      "State": "Generated",
@@ -7977,21 +7848,38 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.entity__top_n_paises_parceiros_exportacoes_FormatString": {
+			    "fact_trade.exportacoes_pareto": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "_Top N Paises Parceiros Exportacoes FormatString"
+			          "ConceptualProperty": "% Exportacoes Pareto"
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
-			          "_top n paises parceiros exportacoes FormatString": {
+			          "% exportacoes pareto": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage exportacoe pareto": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct exportacoe pareto": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
 			          }
 			        }
 			      ]
@@ -8015,21 +7903,28 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.entity__top_n_paises_parceiros_importacoes_FormatString": {
+			    "fact_trade.exportacoes_acc_por_produto": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "_Top N Paises Parceiros Importacoes FormatString"
+			          "ConceptualProperty": "$ Exportacoes Acc por Produto"
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
-			          "_top n paises parceiros importacoes FormatString": {
+			          "$ exportacoes acc por produto": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dollar exportacoe acc por produto": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
 			          }
 			        }
 			      ]
@@ -8072,7 +7967,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "top_N": {
+			    "aux_topn": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "aux_topn"
@@ -8081,87 +7976,20 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "top N": {
-			            "State": "Generated",
-			            "Weight": 0.87
+			          "aux topn": {
+			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "TopN": {
+			          "aux_topn": {
 			            "Type": "Noun",
 			            "State": "Generated",
-			            "Weight": 0.8613
-			          }
-			        },
-			        {
-			          "N": {
-			            "State": "Generated",
-			            "Weight": 0.8439
-			          }
-			        },
-			        {
-			          "best n": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        },
-			        {
-			          "first n": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        },
-			        {
-			          "leading n": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        },
-			        {
-			          "maximum n": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        },
-			        {
-			          "peak n": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
-			          }
-			        },
-			        {
-			          "upper n": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
+			            "Weight": 0.99
 			          }
 			        }
 			      ]
 			    },
-			    "top_N.top_N": {
+			    "aux_topn.top_N": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "aux_topn",
@@ -8250,7 +8078,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "top_N.TopN_value": {
+			    "aux_topn.TopN_value": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "aux_topn",
@@ -8806,21 +8634,24 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.entity__rotulo_importacoes_FormatString": {
+			    "fact_trade.VG__subtitulo_visual_serie_historica": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "_Rotulo Importacoes FormatString"
+			          "ConceptualProperty": "VG - Subtitulo Visual Serie Historica"
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
-			          "_rotulo importacoes FormatString": {
+			          "VG - subtitulo visual serie historica": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "VG subtitulo visual serie historica": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        }
 			      ]
@@ -8977,7 +8808,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.rotulo_taxa_de_cobertura_YoY": {
+			    "fact_trade.VG__rotulo_taxa_de_cobertura_YoY": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
@@ -8987,8 +8818,14 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "rotulo taxa de cobertura YoY": {
+			          "VG - rotulo taxa de cobertura YoY": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "VG rotulo taxa de cobertura YoY": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        }
 			      ]
@@ -9206,9 +9043,862 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "fact_trade.VG__subtitulo_produtos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "VG - Subtitulo Produtos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "VG - subtitulo produtos": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "VG subtitulo produtos": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.VG__titulo_top_n_estados": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "VG - Titulo Top N Estados"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "VG - titulo top n estados": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "VG titulo top n estados": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "vg titulo best n estado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg titulo first n estado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg titulo leading n estado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg titulo maximum n estado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg titulo peak n estado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg titulo upper n estado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.VG__subtitulo_top_n_estados": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "VG - Subtitulo Top N Estados"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "VG - subtitulo top n estados": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "VG subtitulo top n estados": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "vg subtitulo best n estado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg subtitulo first n estado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg subtitulo leading n estado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg subtitulo maximum n estado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg subtitulo peak n estado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg subtitulo upper n estado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.ranking_exportacoes_por_pais": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Ranking Exportacoes por Pais"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ranking exportacoes por pais": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.VG__titulo_top_n_paises": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "VG - Titulo Top N Paises"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "VG - titulo top n paises": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "VG titulo top n paises": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "vg titulo best n paise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg titulo first n paise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg titulo leading n paise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg titulo maximum n paise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg titulo peak n paise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg titulo upper n paise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.VG__subtitulo_top_n_paises": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "VG - Subtitulo Top N Paises"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "VG - subtitulo top n paises": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "VG subtitulo top n paises": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "vg subtitulo best n paise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg subtitulo first n paise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg subtitulo leading n paise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg subtitulo maximum n paise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg subtitulo peak n paise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "vg subtitulo upper n paise": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.BC__titulo_pagina": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "BC - Titulo Pagina"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "BC - titulo pagina": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "BC titulo pagina": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.BC__subtitulo_nominal_vs_real": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "BC - Subtitulo Nominal vs Real"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "BC - subtitulo nominal vs real": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "BC subtitulo nominal vs real": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.BC__subtitulo_acumulado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "BC - Subtitulo Acumulado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "BC - subtitulo acumulado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "BC subtitulo acumulado": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.BC__subtitulo_heatmap": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "BC - Subtitulo Heatmap"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "BC - subtitulo heatmap": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "BC subtitulo heatmap": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___exportacoes_acc_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Exportacoes Acc FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ exportacoes acc FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ dollar exportacoe acc formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___importacoes_acc_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Importacoes Acc FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ importacoes acc FormatString": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ dollar importacoe acc formatstring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity___balança_comercial_real_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_$ Balança Comercial Real FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_$ balança comercial real FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.entity__top_n__importacoes_paises_parceiros_FormatString": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "_Top N % Importacoes Paises Parceiros FormatString"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "_top n % importacoes paises parceiros FormatString": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "aux_paises_outro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "aux_paises_outros"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "aux paises outro": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aux paise outro": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "aux_paises_outros": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "aux_paises_outro.country_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "aux_paises_outros",
+			          "ConceptualProperty": "country_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "country name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "country_name": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "country": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "nation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "location": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "country nickname": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "country title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "country label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "country tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "nation name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "location name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "fact_trade_has_HHI_estado_dinamico": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.HHI_estado_dinamico": {
+			          "Target": {
+			            "Entity": "fact_trade.HHI_estado_dinamico"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.HHI_estado_dinamico"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__HHI_estado_dinamico"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_participacao_no_total_por_estado": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.participacao_no_total_por_estado": {
+			          "Target": {
+			            "Entity": "fact_trade.participacao_no_total_por_estado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.participacao_no_total_por_estado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__participacao_no_total_por_estado"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_qtd_municipios_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.qtd_municipios_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.qtd_municipios_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.qtd_municipios_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__qtd_municipios_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_qtd_municipios_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.qtd_municipios_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.qtd_municipios_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.qtd_municipios_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__qtd_municipios_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_HHI_pais_dinamico": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.HHI_pais_dinamico": {
+			          "Target": {
+			            "Entity": "fact_trade.HHI_pais_dinamico"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.HHI_pais_dinamico"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__HHI_pais_dinamico"
+			        }
+			      ]
+			    },
 			    "fact_trade_has_participacao_no_total_por_pais": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
@@ -9605,20 +10295,20 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "top_N_has_TopN_value": {
+			    "aux_topn_has_TopN_value": {
 			      "Binding": {
 			        "ConceptualEntity": "aux_topn"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "top_N": {
+			        "aux_topn": {
 			          "Target": {
-			            "Entity": "top_N"
+			            "Entity": "aux_topn"
 			          }
 			        },
-			        "top_N.TopN_value": {
+			        "aux_topn.TopN_value": {
 			          "Target": {
-			            "Entity": "top_N.TopN_value"
+			            "Entity": "aux_topn.TopN_value"
 			          }
 			        }
 			      },
@@ -9626,32 +10316,32 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "top_N"
+			              "Role": "aux_topn"
 			            },
 			            "Object": {
-			              "Role": "top_N.TopN_value"
+			              "Role": "aux_topn.TopN_value"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "top_Ns_have_TopN_value"
+			          "ID": "aux_topns_have_TopN_value"
 			        }
 			      ]
 			    },
-			    "top_N_has_top_N": {
+			    "aux_topn_has_top_N": {
 			      "Binding": {
 			        "ConceptualEntity": "aux_topn"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "top_N": {
+			        "aux_topn": {
 			          "Target": {
-			            "Entity": "top_N"
+			            "Entity": "aux_topn"
 			          }
 			        },
-			        "top_N.top_N": {
+			        "aux_topn.top_N": {
 			          "Target": {
-			            "Entity": "top_N.top_N"
+			            "Entity": "aux_topn.top_N"
 			          }
 			        }
 			      },
@@ -9659,15 +10349,81 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "top_N"
+			              "Role": "aux_topn"
 			            },
 			            "Object": {
-			              "Role": "top_N.top_N"
+			              "Role": "aux_topn.top_N"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "top_Ns_have_top_Ns"
+			          "ID": "aux_topns_have_top_Ns"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_exportacoes_acc_por_produto": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.exportacoes_acc_por_produto": {
+			          "Target": {
+			            "Entity": "fact_trade.exportacoes_acc_por_produto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.exportacoes_acc_por_produto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__exportacoes_acc_por_produto"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_exportacoes_pareto": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.exportacoes_pareto": {
+			          "Target": {
+			            "Entity": "fact_trade.exportacoes_pareto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.exportacoes_pareto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__exportacoes_pareto"
 			        }
 			      ]
 			    },
@@ -9968,39 +10724,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_rotulo_importacoes": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.rotulo_importacoes": {
-			          "Target": {
-			            "Entity": "fact_trade.rotulo_importacoes"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.rotulo_importacoes"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_rotulo_importacoes"
-			        }
-			      ]
-			    },
 			    "fact_trade_has_corrente_LY": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
@@ -10034,20 +10757,20 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "tipo_has_tipo": {
+			    "aux_tipo_has_tipo": {
 			      "Binding": {
 			        "ConceptualEntity": "aux_tipo"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "tipo": {
+			        "aux_tipo": {
 			          "Target": {
-			            "Entity": "tipo"
+			            "Entity": "aux_tipo"
 			          }
 			        },
-			        "tipo.tipo": {
+			        "aux_tipo.tipo": {
 			          "Target": {
-			            "Entity": "tipo.tipo"
+			            "Entity": "aux_tipo.tipo"
 			          }
 			        }
 			      },
@@ -10055,28 +10778,15 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "tipo"
+			              "Role": "aux_tipo"
 			            },
 			            "Object": {
-			              "Role": "tipo.tipo"
+			              "Role": "aux_tipo.tipo"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "tipos_have_tipos"
-			        },
-			        {
-			          "Name": {
-			            "Subject": {
-			              "Role": "tipo"
-			            },
-			            "Name": {
-			              "Role": "tipo.tipo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "tipos_are_names_IDs_of_tipos"
+			          "ID": "aux_tipos_have_tipos"
 			        }
 			      ]
 			    },
@@ -10344,7 +11054,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_top_n_paises_parceiros_importacoes": {
+			    "fact_trade_has_top_n__importacoes_paises_parceiros": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -10355,9 +11065,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.top_n_paises_parceiros_importacoes": {
+			        "fact_trade.top_n__importacoes_paises_parceiros": {
 			          "Target": {
-			            "Entity": "fact_trade.top_n_paises_parceiros_importacoes"
+			            "Entity": "fact_trade.top_n__importacoes_paises_parceiros"
 			          }
 			        }
 			      },
@@ -10368,12 +11078,45 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.top_n_paises_parceiros_importacoes"
+			              "Role": "fact_trade.top_n__importacoes_paises_parceiros"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_top_n_paises_parceiros_importacoes"
+			          "ID": "fact_trades_have_top_n__importacoes_paises_parceiros"
+			        }
+			      ]
+			    },
+			    "aux_paises_outro_has_fact_trade_top_n__importacoes_paises_parceiros": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_paises_outros"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_paises_outro": {
+			          "Target": {
+			            "Entity": "aux_paises_outro"
+			          }
+			        },
+			        "fact_trade.top_n__importacoes_paises_parceiros": {
+			          "Target": {
+			            "Entity": "fact_trade.top_n__importacoes_paises_parceiros"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_paises_outro"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.top_n__importacoes_paises_parceiros"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_paises_outros_have_top_n__importacoes_paises_parceiros"
 			        }
 			      ]
 			    },
@@ -10773,7 +11516,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_top_n_paises_parceiros_exportacoes": {
+			    "fact_trade_has_top_n__exportacoes_paises_parceiros": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -10784,9 +11527,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.top_n_paises_parceiros_exportacoes": {
+			        "fact_trade.top_n__exportacoes_paises_parceiros": {
 			          "Target": {
-			            "Entity": "fact_trade.top_n_paises_parceiros_exportacoes"
+			            "Entity": "fact_trade.top_n__exportacoes_paises_parceiros"
 			          }
 			        }
 			      },
@@ -10797,12 +11540,45 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.top_n_paises_parceiros_exportacoes"
+			              "Role": "fact_trade.top_n__exportacoes_paises_parceiros"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_top_n_paises_parceiros_exportacoes"
+			          "ID": "fact_trades_have_top_n__exportacoes_paises_parceiros"
+			        }
+			      ]
+			    },
+			    "aux_paises_outro_has_fact_trade_top_n__exportacoes_paises_parceiros": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_paises_outros"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_paises_outro": {
+			          "Target": {
+			            "Entity": "aux_paises_outro"
+			          }
+			        },
+			        "fact_trade.top_n__exportacoes_paises_parceiros": {
+			          "Target": {
+			            "Entity": "fact_trade.top_n__exportacoes_paises_parceiros"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_paises_outro"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.top_n__exportacoes_paises_parceiros"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_paises_outros_have_top_n__exportacoes_paises_parceiros"
 			        }
 			      ]
 			    },
@@ -15687,6 +16463,51 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
+			    "aux_paises_outro_in_country_name": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_paises_outros"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_paises_outro": {
+			          "Target": {
+			            "Entity": "aux_paises_outro"
+			          }
+			        },
+			        "aux_paises_outro.country_name": {
+			          "Target": {
+			            "Entity": "aux_paises_outro.country_name"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "Where": {
+			          "Role": "aux_paises_outro.country_name"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "aux_paises_outro"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "aux_paises_outro.country_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_paises_outros_are_in_country_names"
+			        }
+			      ]
+			    },
 			    "dim_city_in_region": {
 			      "Binding": {
 			        "ConceptualEntity": "dim_cities"
@@ -15864,20 +16685,20 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_HHI_pais_dinamico": {
+			    "dim_calendario_has_fact_trade_VG__subtitulo_visual_serie_historica": {
 			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
+			        "ConceptualEntity": "dim_calendario"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "fact_trade": {
+			        "dim_calendario": {
 			          "Target": {
-			            "Entity": "fact_trade"
+			            "Entity": "dim_calendario"
 			          }
 			        },
-			        "fact_trade.HHI_pais_dinamico": {
+			        "fact_trade.VG__subtitulo_visual_serie_historica": {
 			          "Target": {
-			            "Entity": "fact_trade.HHI_pais_dinamico"
+			            "Entity": "fact_trade.VG__subtitulo_visual_serie_historica"
 			          }
 			        }
 			      },
@@ -15885,19 +16706,19 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "fact_trade"
+			              "Role": "dim_calendario"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.HHI_pais_dinamico"
+			              "Role": "fact_trade.VG__subtitulo_visual_serie_historica"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have__HHI_pais_dinamico"
+			          "ID": "dim_calendarios_have_VG__subtitulo_visual_serie_historica"
 			        }
 			      ]
 			    },
-			    "fact_trade_has_qtd_municipios_exportacoes": {
+			    "fact_trade_has_VG__subtitulo_visual_serie_historica": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -15908,9 +16729,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.qtd_municipios_exportacoes": {
+			        "fact_trade.VG__subtitulo_visual_serie_historica": {
 			          "Target": {
-			            "Entity": "fact_trade.qtd_municipios_exportacoes"
+			            "Entity": "fact_trade.VG__subtitulo_visual_serie_historica"
 			          }
 			        }
 			      },
@@ -15921,111 +16742,12 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.qtd_municipios_exportacoes"
+			              "Role": "fact_trade.VG__subtitulo_visual_serie_historica"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have__qtd_municipios_exportacoes"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_qtd_municipios_importacoes": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.qtd_municipios_importacoes": {
-			          "Target": {
-			            "Entity": "fact_trade.qtd_municipios_importacoes"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.qtd_municipios_importacoes"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have__qtd_municipios_importacoes"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_participacao_no_total_por_estado": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.participacao_no_total_por_estado": {
-			          "Target": {
-			            "Entity": "fact_trade.participacao_no_total_por_estado"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.participacao_no_total_por_estado"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have__participacao_no_total_por_estado"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_HHI_estado_dinamico": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.HHI_estado_dinamico": {
-			          "Target": {
-			            "Entity": "fact_trade.HHI_estado_dinamico"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.HHI_estado_dinamico"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have__HHI_estado_dinamico"
+			          "ID": "fact_trades_have_VG__subtitulo_visual_serie_historica"
 			        }
 			      ]
 			    },
@@ -16227,7 +16949,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_rotulo_taxa_de_cobertura_YoY": {
+			    "fact_trade_has_VG__rotulo_taxa_de_cobertura_YoY": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -16238,9 +16960,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.rotulo_taxa_de_cobertura_YoY": {
+			        "fact_trade.VG__rotulo_taxa_de_cobertura_YoY": {
 			          "Target": {
-			            "Entity": "fact_trade.rotulo_taxa_de_cobertura_YoY"
+			            "Entity": "fact_trade.VG__rotulo_taxa_de_cobertura_YoY"
 			          }
 			        }
 			      },
@@ -16251,12 +16973,12 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.rotulo_taxa_de_cobertura_YoY"
+			              "Role": "fact_trade.VG__rotulo_taxa_de_cobertura_YoY"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_rotulo_taxa_de_cobertura_YoY"
+			          "ID": "fact_trades_have_VG__rotulo_taxa_de_cobertura_YoY"
 			        }
 			      ]
 			    },
@@ -16290,6 +17012,600 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_trades_have_var_taxa_de_cobertura_YoY"
+			        }
+			      ]
+			    },
+			    "dim_product_category_has_fact_trade_VG__subtitulo_produtos": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product_categories"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product_category": {
+			          "Target": {
+			            "Entity": "dim_product_category"
+			          }
+			        },
+			        "fact_trade.VG__subtitulo_produtos": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__subtitulo_produtos"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product_category"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__subtitulo_produtos"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_product_categories_have_VG__subtitulo_produtos"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_VG__subtitulo_produtos": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.VG__subtitulo_produtos": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__subtitulo_produtos"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__subtitulo_produtos"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_VG__subtitulo_produtos"
+			        }
+			      ]
+			    },
+			    "aux_topn_has_fact_trade_VG__titulo_top_n_estados": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_topn"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_topn": {
+			          "Target": {
+			            "Entity": "aux_topn"
+			          }
+			        },
+			        "fact_trade.VG__titulo_top_n_estados": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__titulo_top_n_estados"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_topn"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__titulo_top_n_estados"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_topns_have_VG__titulo_top_n_estados"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_trade_VG__subtitulo_top_n_estados": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_trade.VG__subtitulo_top_n_estados": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__subtitulo_top_n_estados"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__subtitulo_top_n_estados"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_VG__subtitulo_top_n_estados"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_ranking_exportacoes_por_pais": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.ranking_exportacoes_por_pais": {
+			          "Target": {
+			            "Entity": "fact_trade.ranking_exportacoes_por_pais"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.ranking_exportacoes_por_pais"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_ranking_exportacoes_por_pais"
+			        }
+			      ]
+			    },
+			    "aux_topn_has_fact_trade_VG__titulo_top_n_paises": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_topn"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_topn": {
+			          "Target": {
+			            "Entity": "aux_topn"
+			          }
+			        },
+			        "fact_trade.VG__titulo_top_n_paises": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__titulo_top_n_paises"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_topn"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__titulo_top_n_paises"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_topns_have_VG__titulo_top_n_paises"
+			        }
+			      ]
+			    },
+			    "aux_paises_outro_has_fact_trade_VG__subtitulo_top_n_paises": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_paises_outros"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_paises_outro": {
+			          "Target": {
+			            "Entity": "aux_paises_outro"
+			          }
+			        },
+			        "fact_trade.VG__subtitulo_top_n_paises": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__subtitulo_top_n_paises"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_paises_outro"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__subtitulo_top_n_paises"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_paises_outros_have_VG__subtitulo_top_n_paises"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_trade_VG__subtitulo_top_n_paises": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_trade.VG__subtitulo_top_n_paises": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__subtitulo_top_n_paises"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__subtitulo_top_n_paises"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_VG__subtitulo_top_n_paises"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_VG__subtitulo_top_n_paises": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.VG__subtitulo_top_n_paises": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__subtitulo_top_n_paises"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__subtitulo_top_n_paises"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_VG__subtitulo_top_n_paises"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_trade_BC__titulo_pagina": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_trade.BC__titulo_pagina": {
+			          "Target": {
+			            "Entity": "fact_trade.BC__titulo_pagina"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.BC__titulo_pagina"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_BC__titulo_pagina"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_BC__titulo_pagina": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.BC__titulo_pagina": {
+			          "Target": {
+			            "Entity": "fact_trade.BC__titulo_pagina"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.BC__titulo_pagina"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_BC__titulo_pagina"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_trade_BC__subtitulo_nominal_vs_real": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_trade.BC__subtitulo_nominal_vs_real": {
+			          "Target": {
+			            "Entity": "fact_trade.BC__subtitulo_nominal_vs_real"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.BC__subtitulo_nominal_vs_real"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_BC__subtitulo_nominal_vs_real"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_BC__subtitulo_nominal_vs_real": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.BC__subtitulo_nominal_vs_real": {
+			          "Target": {
+			            "Entity": "fact_trade.BC__subtitulo_nominal_vs_real"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.BC__subtitulo_nominal_vs_real"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_BC__subtitulo_nominal_vs_real"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_trade_BC__subtitulo_acumulado": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_trade.BC__subtitulo_acumulado": {
+			          "Target": {
+			            "Entity": "fact_trade.BC__subtitulo_acumulado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.BC__subtitulo_acumulado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_BC__subtitulo_acumulado"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_BC__subtitulo_acumulado": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.BC__subtitulo_acumulado": {
+			          "Target": {
+			            "Entity": "fact_trade.BC__subtitulo_acumulado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.BC__subtitulo_acumulado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_BC__subtitulo_acumulado"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_BC__subtitulo_heatmap": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.BC__subtitulo_heatmap": {
+			          "Target": {
+			            "Entity": "fact_trade.BC__subtitulo_heatmap"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.BC__subtitulo_heatmap"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_BC__subtitulo_heatmap"
+			        }
+			      ]
+			    },
+			    "aux_paises_outro_has_country_name": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_paises_outros"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_paises_outro": {
+			          "Target": {
+			            "Entity": "aux_paises_outro"
+			          }
+			        },
+			        "aux_paises_outro.country_name": {
+			          "Target": {
+			            "Entity": "aux_paises_outro.country_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_paises_outro"
+			            },
+			            "Object": {
+			              "Role": "aux_paises_outro.country_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_paises_outros_have_country_names"
+			        }
+			      ]
+			    },
+			    "dim_country_has_aux_paises_outro": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_countries"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_country": {
+			          "Target": {
+			            "Entity": "dim_country"
+			          }
+			        },
+			        "aux_paises_outro": {
+			          "Target": {
+			            "Entity": "aux_paises_outro"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_country"
+			            },
+			            "Object": {
+			              "Role": "aux_paises_outro"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_countries_have_aux_paises_outros"
 			        }
 			      ]
 			    },
@@ -16474,6 +17790,39 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_countries_have_fact_trades"
+			        }
+			      ]
+			    },
+			    "aux_paises_outro_has_dim_country": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_paises_outros"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_paises_outro": {
+			          "Target": {
+			            "Entity": "aux_paises_outro"
+			          }
+			        },
+			        "dim_country": {
+			          "Target": {
+			            "Entity": "dim_country"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_paises_outro"
+			            },
+			            "Object": {
+			              "Role": "dim_country"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_paises_outros_have_dim_countries"
 			        }
 			      ]
 			    }

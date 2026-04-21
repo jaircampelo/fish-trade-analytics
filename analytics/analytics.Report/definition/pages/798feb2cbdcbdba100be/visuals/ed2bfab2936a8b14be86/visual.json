@@ -2,15 +2,15 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
   "name": "ed2bfab2936a8b14be86",
   "position": {
-    "x": 36.334106728538281,
-    "y": 666.54292343387465,
+    "x": 35.862068965517246,
+    "y": 666.20689655172418,
     "z": 1000,
-    "height": 373.36426914153134,
-    "width": 1345.6148491879351,
+    "height": 373.79310344827587,
+    "width": 1346.2068965517242,
     "tabOrder": 1000
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "areaChart",
     "query": {
       "queryState": {
         "Category": {
@@ -42,11 +42,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "$ Balança Comercial Real"
+                  "Property": "$ Importacoes Acc"
                 }
               },
-              "queryRef": "fact_trades.$ Balança Comercial Real",
-              "nativeQueryRef": "$ Balança Comercial Real"
+              "queryRef": "fact_trades.$ Importacoes Acc",
+              "nativeQueryRef": "$ Importacoes Acc"
             },
             {
               "field": {
@@ -56,11 +56,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "$ Balanca Comercial"
+                  "Property": "$ Exportacoes Acc"
                 }
               },
-              "queryRef": "fact_trades.$ Balança Comercial",
-              "nativeQueryRef": "$ Balança Comercial"
+              "queryRef": "fact_trades.$ Exportacoes Acc",
+              "nativeQueryRef": "$ Exportacoes Acc"
             }
           ]
         }
@@ -75,7 +75,7 @@
                     "Entity": "fact_trades"
                   }
                 },
-                "Property": "$ Balança Comercial Real"
+                "Property": "$ Importacoes Acc"
               }
             },
             "direction": "Descending"
@@ -89,6 +89,41 @@
         {
           "properties": {
             "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "logAxisScale": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "invertAxis": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "switchAxisPosition": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -120,20 +155,7 @@
       ],
       "dataPoint": [
         {
-          "properties": {
-            "fill": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          }
+          "properties": {}
         },
         {
           "properties": {
@@ -186,13 +208,6 @@
                   }
                 }
               }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "38D"
-                }
-              }
             }
           },
           "selector": {
@@ -212,17 +227,41 @@
                   }
                 }
               }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "38D"
+            }
+          },
+          "selector": {
+            "metadata": "fact_trades.$ Balança Comercial"
+          }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             }
           },
           "selector": {
-            "metadata": "fact_trades.$ Balança Comercial"
+            "metadata": "fact_trades.$ Importacoes Acc"
           }
         }
       ],
@@ -233,6 +272,13 @@
               "expr": {
                 "Literal": {
                   "Value": "11D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -259,6 +305,32 @@
           }
         }
       ],
+      "y2Axis": [
+        {
+          "properties": {
+            "secLabelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "seriesLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "lineStyles": [
         {
           "properties": {
@@ -268,120 +340,20 @@
                   "Value": "true"
                 }
               }
-            },
-            "strokeTransparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
             }
-          },
-          "selector": {
-            "metadata": "fact_trades.$ Balança Comercial"
           }
         }
       ],
-      "y1AxisReferenceLine": [
+      "zoom": [
         {
           "properties": {
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "displayName": {
-              "expr": {
-                "Literal": {
-                  "Value": "'$ 0.00'"
-                }
-              }
-            },
-            "lineColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.2
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "autoScale": {
-              "expr": {
-                "Literal": {
                   "Value": "false"
-                }
-              }
-            },
-            "shadeShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "dataLabelShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "dataLabelHorizontalPosition": {
-              "expr": {
-                "Literal": {
-                  "Value": "'right'"
-                }
-              }
-            },
-            "dataLabelText": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Name'"
-                }
-              }
-            },
-            "dataLabelColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 9,
-                      "Percent": 0.4
-                    }
-                  }
-                }
-              }
-            },
-            "dataLabelDecimalPoints": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "width": {
-              "expr": {
-                "Literal": {
-                  "Value": "3D"
                 }
               }
             }
-          },
-          "selector": {
-            "id": "1"
           }
         }
       ]
@@ -393,7 +365,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
@@ -415,6 +387,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Qual o saldo acumulado do comércio internacional de pescado no Brasil?'"
                 }
               }
             }
@@ -493,6 +472,25 @@
               "expr": {
                 "Literal": {
                   "Value": "'12'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "BC - Subtitulo Acumulado"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

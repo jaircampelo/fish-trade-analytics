@@ -196,7 +196,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Qual o produto (código SH4) mais exportado?'"
+                  "Value": "'Qual categoria de produto mais exportada?'"
                 }
               }
             }

@@ -28,76 +28,6 @@
     "sections": {
       "798feb2cbdcbdba100be": {
         "visualContainers": {
-          "028c56182e5abcb001ce": {
-            "filters": {
-              "byExpr": [
-                {
-                  "name": "0f50350b20c26b04c502",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "fact_trades"
-                        }
-                      },
-                      "Property": "$ Corrente"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "5298cf01934064176492",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "fact_trades"
-                        }
-                      },
-                      "Property": "$ Balanca Comercial"
-                    }
-                  },
-                  "howCreated": 0
-                },
-                {
-                  "name": "ababf3784103bc52c026",
-                  "type": "Advanced",
-                  "expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "fact_trades"
-                        }
-                      },
-                      "Property": "% Taxa de Cobertura"
-                    }
-                  },
-                  "howCreated": 0
-                }
-              ]
-            },
-            "singleVisual": {
-              "visualType": "cardVisual",
-              "objects": {},
-              "orderBy": [
-                {
-                  "Direction": 2,
-                  "Expression": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "fact_trades"
-                        }
-                      },
-                      "Property": "$ Corrente"
-                    }
-                  }
-                }
-              ]
-            }
-          },
           "1f8de820863dd34000d9": {
             "filters": {
               "byExpr": [
@@ -623,7 +553,7 @@
                           "Entity": "fact_trades"
                         }
                       },
-                      "Property": "BC - Visual Heatmap"
+                      "Property": "BC - Dummy Visual Heatmap"
                     }
                   },
                   "howCreated": 0
