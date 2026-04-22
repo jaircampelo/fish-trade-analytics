@@ -46,6 +46,30 @@ Esse tipo de arquitetura em camadas é utilizado para organizar logicamente os d
 
 No modelo ETL (Extract, Transform, Load) os dados são carregados para dentro do banco somente após as transformações, deixando toda a documentação do projeto a cargo do desenvolvedor. Já o padrão ELT (Extract, Load, Transform) aproveita todo o poder do banco de dados para a realização das transformações e aproveita a capacidade do dbt de gerar documentações técnicas acerca do projeto.
 
+## 🖥️ Projeto em Funcionamento
+
+### Apache Airflow — Orquestração de DAG
+
+Uma DAG cobrindo o pipeline completo até a camada analítica, com execução mensal.
+
+![airflow](docs/images/airflow_dag.png)
+
+###  DBT Docs — Documentação Automática
+
+Catálogo de dados gerado automaticamente pelo DBT, com descrição de colunas, testes de qualidade (uniqueness, not_null) e lineage entre modelos.
+
+![dbt-docs](docs/images/dbt_docs.png)
+
+### PostgreSQL — Camada Gold no DBeaver
+
+Dados na camada Gold prontos para consumo e estruturados através da modelagem dimensional Star Schema.
+
+![postgresql](docs/images/dbeaver_gold.png)
+
+### Power BI — Dashboard de Comércio Internacional de Pescado
+
+![powerbi](docs/images/powerbi.png)
+
 ## 📁 Estrutura do Projeto
 
 ```
@@ -144,3 +168,7 @@ Dentro do banco de dados é onde a mágica acontece. Os arquivos *raw* são carr
 ### Scripts de Inicialização
 
 O script `create_database_airflow.sh` na pasta init/ é executado automaticamente na primeira vez que o container PostgreSQL é iniciado, em ordem alfabética.
+
+## 📝 Licença
+
+MIT License — veja [LICENSE](LICENSE) para detalhes.
