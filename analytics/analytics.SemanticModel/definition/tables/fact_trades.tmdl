@@ -130,15 +130,11 @@ table fact_trades
 
 	measure 'Ranking Exportacoes por Estado' =
 			
-			VAR __Rank =
 			RANK(
 			    DENSE,
 			    ALLSELECTED(dim_cities[state_name]),
 			    ORDERBY([$ Exportacoes], DESC)
 			)
-			
-			RETURN
-			__Rank
 		formatString: 0
 		displayFolder: Medidas\04. Rankings
 		lineageTag: 6ce5d103-ce7e-4114-b585-0f184742de1c
@@ -717,20 +713,26 @@ table fact_trades
 
 	measure 'PC - Maior Pais Parceiro Exportacoes' =
 			
-			TOPN(
-			    1,
-			    ALLSELECTED(dim_countries[country_name]),
-			    [$ Exportacoes], DESC
+			CONCATENATEX(
+			    TOPN(
+			        1,
+			        ALLSELECTED(dim_countries[country_name]),
+			        [$ Exportacoes], DESC
+			    ),
+			    dim_countries[country_name]
 			)
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 87d700fe-4cdf-432b-9807-2bcf46343b8d
 
 	measure 'PC - Maior Pais Parceiro Importacoes' =
 			
-			TOPN(
-			    1,
-			    ALLSELECTED(dim_countries[country_name]),
-			    [$ Importacoes], DESC
+			CONCATENATEX(
+			    TOPN(
+			        1,
+			        ALLSELECTED(dim_countries[country_name]),
+			        [$ Importacoes], DESC
+			    ),
+			    dim_countries[country_name]
 			)
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 4e1fe88e-90c5-4a0d-a213-659eda618a1c
@@ -2223,6 +2225,480 @@ table fact_trades
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Medidas\04. Rankings
 		lineageTag: 1a923093-9cd8-4e1a-a19e-84fc59fe8843
+
+	measure 'B - Maior Estado Exportacoes' =
+			
+			CONCATENATEX(
+			    TOPN(
+			        1,
+			        ALLSELECTED(dim_cities[state_name]),
+			        [$ Exportacoes], DESC
+			    ),
+			    dim_cities[state_name]
+			)
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 9a301565-17f5-4cd4-bb77-68b290bbabbe
+
+	measure 'B - Maior Estado Importacoes' =
+			
+			CONCATENATEX(
+			    TOPN(
+			        1,
+			        ALLSELECTED(dim_cities[state_name]),
+			        [$ Importacoes], DESC
+			    ),
+			    dim_cities[state_name]
+			)
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 51e38a0f-be53-461d-ba98-ec8a9f131dd7
+
+	measure 'Ranking % HHI Exportacoes por Estado' =
+			
+			RANK(
+			    DENSE,
+			    ALLSELECTED(aux_estados_outros[state_name]),
+			    ORDERBY([$ Exportacoes], DESC)
+			)
+		formatString: 0
+		displayFolder: Medidas\04. Rankings
+		lineageTag: 0be073f8-0736-4fda-ae92-4283e2dbca23
+
+	measure 'Ranking % HHI Importacoes por Estado' =
+			
+			RANK(
+			    DENSE,
+			    ALLSELECTED(aux_estados_outros[state_name]),
+			    ORDERBY([$ Importacoes], DESC)
+			)
+		formatString: 0
+		displayFolder: Medidas\04. Rankings
+		lineageTag: 77f14e9b-0202-4b9f-b2c9-bad61cfaeea4
+
+	measure 'B - Subtitulo Card Exportacoes' = ```
+			
+			VAR __MaiorEstadoTab =
+			    INDEX(
+			        1,
+			        ALLSELECTED(dim_cities[state_name]),
+			        ORDERBY([$ Exportacoes], DESC)
+			    )
+			VAR __MaiorEstadoNome =
+			    CONCATENATEX(__MaiorEstadoTab, dim_cities[state_name])
+			VAR __TabMaiorEstadoComValor =
+			    ADDCOLUMNS(
+			        ALLSELECTED(dim_cities[state_name]),
+			        "@Valor",
+			        [$ Exportacoes],
+			        "@Peso",
+			        [# Peso Líquido Exportacoes]
+			    )
+			VAR __MaiorEstadoValor =
+			    MAXX(
+			        TOPN(1, __TabMaiorEstadoComValor, [@Valor], DESC),
+			        [@Valor]
+			    )
+			VAR __FormatMaiorEstadoValor =
+			    SWITCH(
+			        TRUE(),
+			        ABS(__MaiorEstadoValor) > 1000000000, FORMAT(__MaiorEstadoValor, "#0,,,.00 Bi"),
+			        ABS(__MaiorEstadoValor) > 1000000, FORMAT(__MaiorEstadoValor, "#0,,.00 Mi"),
+			        ABS(__MaiorEstadoValor) > 1000, FORMAT(__MaiorEstadoValor, "#0,.00 K"),
+			        FORMAT(__MaiorEstadoValor, "#0")
+			    )
+			VAR __MaiorEstadoPeso =
+			    MAXX(
+			        TOPN(1, __TabMaiorEstadoComValor, [@Peso], DESC),
+			        [@Peso]
+			    )
+			VAR __FormatMaiorEstadoPeso =
+			    SWITCH(
+			        TRUE(),
+			        ABS(__MaiorEstadoPeso) >= 1000, FORMAT(__MaiorEstadoPeso, "#,#0,.00 Ton"),
+			        FORMAT(__MaiorEstadoPeso, "#0 Kg")
+			    )
+			
+			VAR __Data =
+			ALLSELECTED(dim_calendario[MesAnoNome], dim_calendario[MesAnoNumero])
+			VAR __MinNumero = 
+			MINX(
+			    FILTER(__Data, [$ Exportacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MaxNumero = 
+			MAXX(
+			    FILTER(__Data, [$ Exportacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MinNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MinNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			VAR __MaxNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MaxNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			
+			VAR __Texto =
+			    "Foi o estado que mais exportou pescado no período de "
+			    & __MinNome & " - " & __MaxNome
+			    & ", acumulando o valor de "
+			    & __FormatMaiorEstadoValor
+			    & " de dólares e um volume total de "
+			    & __FormatMaiorEstadoPeso & "."
+			RETURN
+			__Texto
+			```
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 6ae60983-8e9b-4c8f-ade0-1054236e2850
+
+	measure 'B - Subtitulo Card Importacoes' = ```
+			
+			VAR __MaiorEstadoTab =
+			    INDEX(
+			        1,
+			        ALLSELECTED(dim_cities[state_name]),
+			        ORDERBY([$ Importacoes], DESC)
+			    )
+			VAR __MaiorEstadoNome =
+			    CONCATENATEX(__MaiorEstadoTab, dim_cities[state_name])
+			VAR __TabMaiorEstadoComValor =
+			    ADDCOLUMNS(
+			        ALLSELECTED(dim_cities[state_name]),
+			        "@Valor",
+			        [$ Importacoes],
+			        "@Peso",
+			        [# Peso Líquido Importacoes]
+			    )
+			VAR __MaiorEstadoValor =
+			    MAXX(
+			        TOPN(1, __TabMaiorEstadoComValor, [@Valor], DESC),
+			        [@Valor]
+			    )
+			VAR __FormatMaiorEstadoValor =
+			    SWITCH(
+			        TRUE(),
+			        ABS(__MaiorEstadoValor) > 1000000000, FORMAT(__MaiorEstadoValor, "#0,,,.00 Bi"),
+			        ABS(__MaiorEstadoValor) > 1000000, FORMAT(__MaiorEstadoValor, "#0,,.00 Mi"),
+			        ABS(__MaiorEstadoValor) > 1000, FORMAT(__MaiorEstadoValor, "#0,.00 K"),
+			        FORMAT(__MaiorEstadoValor, "#0")
+			    )
+			VAR __MaiorEstadoPeso =
+			    MAXX(
+			        TOPN(1, __TabMaiorEstadoComValor, [@Peso], DESC),
+			        [@Peso]
+			    )
+			VAR __FormatMaiorEstadoPeso =
+			    SWITCH(
+			        TRUE(),
+			        ABS(__MaiorEstadoPeso) >= 1000, FORMAT(__MaiorEstadoPeso, "#,#0,.00 Ton"),
+			        FORMAT(__MaiorEstadoPeso, "#0 Kg")
+			    )
+			
+			VAR __Data =
+			ALLSELECTED(dim_calendario[MesAnoNome], dim_calendario[MesAnoNumero])
+			VAR __MinNumero = 
+			MINX(
+			    FILTER(__Data, [$ Importacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MaxNumero = 
+			MAXX(
+			    FILTER(__Data, [$ Importacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MinNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MinNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			VAR __MaxNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MaxNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			
+			VAR __Texto =
+			    "por outro lado, foi o estado que mais importou pescado para o mesmo período, acumulando o valor de "
+			    & __FormatMaiorEstadoValor
+			    & " de dólares e um volume total de "
+			    & __FormatMaiorEstadoPeso & "."
+			RETURN
+			__Texto
+			```
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: a4bbb62b-ee5e-438c-93fb-8087e05b1bef
+
+	measure 'B - Titulo Top Municipios Exportacoes' = ```
+			
+			VAR __TopN = [TopN Value]
+			VAR __Data =
+			ALLSELECTED(dim_calendario[MesAnoNome], dim_calendario[MesAnoNumero])
+			VAR __MinNumero = 
+			MINX(
+			    FILTER(__Data, [$ Exportacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MaxNumero = 
+			MAXX(
+			    FILTER(__Data, [$ Exportacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MinNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MinNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			VAR __MaxNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MaxNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			VAR __Texto =
+			    "Exibindo os "
+			    & __TopN
+			    & " estados que mais exportaram pescado no período de "
+			    & __MinNome & " - " & __MaxNome
+			
+			RETURN
+			    __Texto
+			```
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: ecc3c6c2-4f17-4b7d-8370-2f99919c2b69
+
+	measure 'B - Subtitulo Top Municipios Exportacoes' =
+			
+			VAR __MaiorMunTab =
+			    INDEX(
+			        1,
+			        ALLSELECTED(dim_cities[city_uf]),
+			        ORDERBY([$ Exportacoes], DESC)
+			    )
+			VAR __MaiorMunTabValor =
+			    ADDCOLUMNS(
+			        ALLSELECTED(dim_cities[city_uf]),
+			        "@Valor",
+			        [$ Exportacoes]
+			    )
+			VAR __MaiorMunNome =
+			    CONCATENATEX(__MaiorMunTab, dim_cities[city_uf])
+			VAR __MaiorMunValor =
+			MAXX(
+			    TOPN(1, __MaiorMunTabValor, [@Valor], DESC),
+			    [@Valor]
+			)
+			VAR __FormarMaiorMunValor =
+			    SWITCH(
+			        TRUE(),
+			        ABS(__MaiorMunValor) > 1000000000, FORMAT(__MaiorMunValor, "#0,,,.00 Bi"),
+			        ABS(__MaiorMunValor) > 1000000, FORMAT(__MaiorMunValor, "#0,,.00 Mi"),
+			        ABS(__MaiorMunValor) > 1000, FORMAT(__MaiorMunValor, "#0,.00 K"),
+			        FORMAT(__MaiorMunValor, "#0")
+			    )
+			
+			VAR __Texto =
+			    __MaiorMunNome
+			    & " se destaca como o maior exportador de pescado (U$ "
+			    & __FormarMaiorMunValor
+			    & ") para o período selecionado."
+			
+			RETURN
+			__Texto
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: b37aafe0-622e-4dde-98cc-e679e2b36580
+
+	measure 'B - Subtitulo Municipios Ativos Exportacoes' =
+			
+			VAR __TopStateTab =
+			    ADDCOLUMNS(
+			        ALLSELECTED(dim_cities[state_name]),
+			        "@Valor",
+			        [# Qtd Municipios Exportacoes]
+			    )
+			
+			VAR __TopStateNome =
+			    CONCATENATEX(TOPN(1, __TopStateTab, [@Valor], DESC), dim_cities[state_name])
+			VAR __TopStateValor =
+			    MAXX(TOPN(1, __TopStateTab, [@Valor], DESC), [@Valor])
+			
+			VAR __Texto =
+			    __TopStateNome
+			    & " lidera o ranking nacional com "
+			    & __TopStateValor
+			    & " municípios participantes no mercado externo de exportações."
+			
+			RETURN
+			    __Texto
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: f2ebebde-ff6c-43d7-93ce-5e61bd839ffd
+
+	measure 'B - Subtitulo Mapa Exportacoes' =
+			
+			VAR __TopStateTab =
+			    ADDCOLUMNS(
+			        ALLSELECTED(dim_cities[state_name]),
+			        "@Valor",
+			        [$ Exportacoes]
+			    )
+			
+			VAR __TopStateNome =
+			    CONCATENATEX(TOPN(1, __TopStateTab, [@Valor], DESC), dim_cities[state_name])
+			VAR __TopStateValor =
+			    MAXX(TOPN(1, __TopStateTab, [@Valor], DESC), [@Valor])
+			VAR __FormatTopStateValor =
+			    SWITCH(
+			        TRUE(),
+			        ABS(__TopStateValor) > 1000000000, FORMAT(__TopStateValor, "#0,,,.00 Bi"),
+			        ABS(__TopStateValor) > 1000000, FORMAT(__TopStateValor, "#0,,.00 Mi"),
+			        ABS(__TopStateValor) > 1000, FORMAT(__TopStateValor, "#0,.00 K"),
+			        FORMAT(__TopStateValor, "#0")
+			    )
+			
+			VAR __Texto =
+			    __TopStateNome
+			    & " (U$ " & __FormatTopStateValor
+			    & ") apresenta o maior volume financeiro acumulado no período selecionado."
+			
+			RETURN
+			    __Texto
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 426f7a37-aea2-4e07-b72c-fb98f3c57312
+
+	measure 'B - Subtitulo Mapa Importacoes' =
+			
+			VAR __TopStateTab =
+			    ADDCOLUMNS(
+			        ALLSELECTED(dim_cities[state_name]),
+			        "@Valor",
+			        [$ Importacoes]
+			    )
+			
+			VAR __TopStateNome =
+			    CONCATENATEX(TOPN(1, __TopStateTab, [@Valor], DESC), dim_cities[state_name])
+			VAR __TopStateValor =
+			    MAXX(TOPN(1, __TopStateTab, [@Valor], DESC), [@Valor])
+			VAR __FormatTopStateValor =
+			    SWITCH(
+			        TRUE(),
+			        ABS(__TopStateValor) > 1000000000, FORMAT(__TopStateValor, "#0,,,.00 Bi"),
+			        ABS(__TopStateValor) > 1000000, FORMAT(__TopStateValor, "#0,,.00 Mi"),
+			        ABS(__TopStateValor) > 1000, FORMAT(__TopStateValor, "#0,.00 K"),
+			        FORMAT(__TopStateValor, "#0")
+			    )
+			
+			VAR __Texto =
+			    __TopStateNome
+			    & " (U$ " & __FormatTopStateValor
+			    & ") apresenta o maior volume financeiro acumulado no período selecionado."
+			
+			RETURN
+			    __Texto
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: a7ba43b2-96fe-406d-ab81-306f709a6981
+
+	measure 'B - Subtitulo Municipios Ativos Importacoes' =
+			
+			VAR __TopStateTab =
+			    ADDCOLUMNS(
+			        ALLSELECTED(dim_cities[state_name]),
+			        "@Valor",
+			        [# Qtd Municipios Importacoes]
+			    )
+			
+			VAR __TopStateNome =
+			    CONCATENATEX(TOPN(1, __TopStateTab, [@Valor], DESC), dim_cities[state_name])
+			VAR __TopStateValor =
+			    MAXX(TOPN(1, __TopStateTab, [@Valor], DESC), [@Valor])
+			
+			VAR __Texto =
+			    __TopStateNome
+			    & " lidera o ranking nacional com "
+			    & __TopStateValor
+			    & " municípios participantes no mercado de importacoes."
+			
+			RETURN
+			    __Texto
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: a2a2c197-3fa7-4288-922b-cb7c71d986d8
+
+	measure 'B - Subtitulo Top Municipios Importacoes' =
+			
+			VAR __MaiorMunTab =
+			    INDEX(
+			        1,
+			        ALLSELECTED(dim_cities[city_uf]),
+			        ORDERBY([$ Importacoes], DESC)
+			    )
+			VAR __MaiorMunTabValor =
+			    ADDCOLUMNS(
+			        ALLSELECTED(dim_cities[city_uf]),
+			        "@Valor",
+			        [$ Importacoes]
+			    )
+			VAR __MaiorMunNome =
+			    CONCATENATEX(__MaiorMunTab, dim_cities[city_uf])
+			VAR __MaiorMunValor =
+			MAXX(
+			    TOPN(1, __MaiorMunTabValor, [@Valor], DESC),
+			    [@Valor]
+			)
+			VAR __FormarMaiorMunValor =
+			    SWITCH(
+			        TRUE(),
+			        ABS(__MaiorMunValor) > 1000000000, FORMAT(__MaiorMunValor, "#0,,,.00 Bi"),
+			        ABS(__MaiorMunValor) > 1000000, FORMAT(__MaiorMunValor, "#0,,.00 Mi"),
+			        ABS(__MaiorMunValor) > 1000, FORMAT(__MaiorMunValor, "#0,.00 K"),
+			        FORMAT(__MaiorMunValor, "#0")
+			    )
+			
+			VAR __Texto =
+			    __MaiorMunNome
+			    & " se destaca como o maior importador de pescado (U$ "
+			    & __FormarMaiorMunValor
+			    & ") para o período selecionado."
+			
+			RETURN
+			__Texto
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: e6c510f2-0d31-460e-aaba-eff897c1cb43
+
+	measure 'B - Titulo Top Municipios Importacoes' = ```
+			
+			VAR __TopN = [TopN Value]
+			VAR __Data =
+			ALLSELECTED(dim_calendario[MesAnoNome], dim_calendario[MesAnoNumero])
+			VAR __MinNumero = 
+			MINX(
+			    FILTER(__Data, [$ Importacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MaxNumero = 
+			MAXX(
+			    FILTER(__Data, [$ Importacoes] > 0), 
+			    dim_calendario[MesAnoNumero]
+			)
+			VAR __MinNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MinNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			VAR __MaxNome = 
+			MAXX(
+			    FILTER(__Data, dim_calendario[MesAnoNumero] = __MaxNumero), 
+			    dim_calendario[MesAnoNome]
+			)
+			VAR __Texto =
+			    "Exibindo os "
+			    & __TopN
+			    & " estados que mais exportaram pescado no período de "
+			    & __MinNome & " - " & __MaxNome
+			
+			RETURN
+			    __Texto
+			```
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: e58c237e-03f3-4ffe-8b6e-44fcf7ac0c01
 
 	column trade_date
 		dataType: dateTime
