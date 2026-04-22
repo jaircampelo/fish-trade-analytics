@@ -7,7 +7,7 @@
     "z": 1500,
     "height": 146.58932714617168,
     "width": 330.7656612529002,
-    "tabOrder": 11001
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "slicer",
@@ -58,7 +58,7 @@
             "numericStart": {
               "expr": {
                 "Literal": {
-                  "Value": "5D"
+                  "Value": "3D"
                 }
               }
             },
@@ -109,7 +109,7 @@
                         },
                         "Right": {
                           "Literal": {
-                            "Value": "5D"
+                            "Value": "3D"
                           }
                         }
                       }
@@ -201,6 +201,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "TopN",
+      "fieldChanges": true,
+      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   },

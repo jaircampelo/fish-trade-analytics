@@ -23,11 +23,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "PC - Maior Pais Parceiro Exportacoes"
+                  "Property": "B - Maior Estado Exportacoes"
                 }
               },
-              "queryRef": "fact_trades.Maior Pais Parceiro Exportacoes",
-              "nativeQueryRef": "Maior Pais Parceiro Exportacoes"
+              "queryRef": "fact_trades.B - Maior Estado Exportacoes",
+              "nativeQueryRef": "B - Maior Estado Exportacoes"
             },
             {
               "field": {
@@ -37,11 +37,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "PC - Maior Pais Parceiro Importacoes"
+                  "Property": "B - Maior Estado Importacoes"
                 }
               },
-              "queryRef": "fact_trades.Maior Pais Parceiro Importacoes",
-              "nativeQueryRef": "Maior Pais Parceiro Importacoes"
+              "queryRef": "fact_trades.B - Maior Estado Importacoes",
+              "nativeQueryRef": "B - Maior Estado Importacoes"
             }
           ]
         }
@@ -290,6 +290,72 @@
           },
           "selector": {
             "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'belowValue'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "B - Subtitulo Card Exportacoes"
+                }
+              }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_trades.B - Maior Estado Exportacoes"
+          }
+        },
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'belowValue'"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "B - Subtitulo Card Importacoes"
+                }
+              }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_trades.B - Maior Estado Importacoes"
           }
         }
       ],

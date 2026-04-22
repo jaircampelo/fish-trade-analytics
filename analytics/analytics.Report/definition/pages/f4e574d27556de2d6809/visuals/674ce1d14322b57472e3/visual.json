@@ -7,7 +7,7 @@
     "z": 4500,
     "height": 676.56612529002314,
     "width": 603.89791183294665,
-    "tabOrder": 11005
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "azureMap",
@@ -285,6 +285,46 @@
               "expr": {
                 "Literal": {
                   "Value": "80D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "subTitle": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "B - Subtitulo Mapa Importacoes"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Distribuição Geográfica das Exportações de Pescado'"
                 }
               }
             }
