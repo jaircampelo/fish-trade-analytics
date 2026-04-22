@@ -74,35 +74,39 @@ Dados na camada Gold prontos para consumo e estruturados através da modelagem d
 
 ```
 📁 fish-trade-analytics/
+│   
+├── 📁 airflow/                     # Orquestração do pipeline com Apache Airflow
+│   ├── 📁 dags/                    # Definição das DAGs
+│   ├── 📁 logs/                    # Logs de execução
 │
-├── 📁 airflow/                    # Orquestração do pipeline com Apache Airflow
-│   ├── 📁 dags/                   # Definição das DAGs
-│   ├── 📁 logs/                   # Logs de execução
+├── 📁 analytics/                   # Power BI Project
+│   ├── 📁 analytics.Report/        # Definição visual, layout das páginas e metadados do relatório (Power BI)
+│   ├── 📁 analytics.SemanticModel/ # Modelo semântico: tabelas, medidas DAX, relacionamentos e scripts M
 │
 ├── 📁 data/
-│   └── 📁 raw/                    # Zona de pouso — arquivos Parquet extraídos da API
+│   └── 📁 raw/                     # Zona de pouso — arquivos Parquet extraídos da API
 │
-├── 📁 dbt/                        # Projeto dbt — transformações das camadas Silver e Gold
-│   ├── 📁 macros/                 # Macros reutilizáveis
-│   ├── 📁 models/
-│   │   ├── 📁 silver/             # Camada Silver — limpeza e padronização
-│   │   └── 📁 gold/               # Camada Gold — modelo dimensional para BI
-│   └── 📁 seeds/                  # Dados estáticos (CSV)
+├── 📁 dbt/                         # Projeto dbt — transformações das camadas Silver e Gold
+│   ├── 📁 macros/                  # Macros reutilizáveis
+│   ├── 📁 models/  
+│   │   ├── 📁 silver/              # Camada Silver — limpeza e padronização
+│   │   └── 📁 gold/                # Camada Gold — modelo dimensional para BI
+│   └── 📁 seeds/                   # Dados estáticos (CSV)
 │
-├── 📁 notebooks/                  # Análise exploratória dos dados
+├── 📁 notebooks/                   # Análise exploratória dos dados
 │
 ├── 📁 postgres/
-│   └── 📁 init/                   # Scripts de inicialização do PostgreSQL
+│   └── 📁 init/                    # Scripts de inicialização do PostgreSQL
 │
-├── 📁 scripts/                    # Scripts Python de ingestão
+├── 📁 scripts/                     # Scripts Python de ingestão
 │
-├── 📄 .env                        # Variáveis de ambiente e credenciais sensíveis
-├── 📄 .gitignore                  # Arquivos e pastas ignorados pelo Git
-├── 📄 docker-compose.yml          # Definição e orquestração dos serviços Docker
-├── 📄 LICENSE                     # Termos de licença e uso do projeto
-├── 📄 pyproject.toml              # Configurações de dependências e build do Python
-├── 📄 README.md                   # Documentação principal do projeto
-└── 📄 uv.lock                     # Travamento de versões das dependências (uv)
+├── 📄 .env                         # Variáveis de ambiente e credenciais sensíveis
+├── 📄 .gitignore                   # Arquivos e pastas ignorados pelo Git
+├── 📄 docker-compose.yml           # Definição e orquestração dos serviços Docker
+├── 📄 LICENSE                      # Termos de licença e uso do projeto
+├── 📄 pyproject.toml               # Configurações de dependências e build do Python
+├── 📄 README.md                    # Documentação principal do projeto
+└── 📄 uv.lock                      # Travamento de versões das dependências (uv)
 ```
 
 ## 🔨 DBT (Data Build Tool)
