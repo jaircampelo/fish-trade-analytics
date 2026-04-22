@@ -20,6 +20,7 @@ ref table dim_calendario
 ref table aux_tipo
 ref table aux_topn
 ref table aux_paises_outros
+ref table aux_estados_outros
 
 ref cultureInfo pt-BR
 

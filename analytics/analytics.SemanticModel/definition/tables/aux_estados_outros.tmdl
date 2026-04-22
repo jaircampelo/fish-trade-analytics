@@ -1,0 +1,22 @@
+table aux_estados_outros
+	lineageTag: 245c0d90-5da5-4650-84f2-e52fae394acb
+
+	column state_name
+		lineageTag: a9dfda3e-56af-4ddc-938b-7654572544df
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dim_cities[state_name]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition aux_estados_outros = calculated
+		mode: import
+		source =
+				
+				UNION(
+				    ALLNOBLANKROW(dim_cities[state_name]),
+				    {"Outros"}
+				)
+
+	annotation PBI_Id = 369d93b7e837465d88abf4e11a878c54
+

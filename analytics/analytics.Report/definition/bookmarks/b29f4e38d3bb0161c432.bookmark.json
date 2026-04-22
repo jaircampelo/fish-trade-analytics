@@ -553,7 +553,7 @@
                           "Entity": "fact_trades"
                         }
                       },
-                      "Property": "BC - Dummy Visual Heatmap"
+                      "Property": "_Dummy Visual"
                     }
                   },
                   "howCreated": 0

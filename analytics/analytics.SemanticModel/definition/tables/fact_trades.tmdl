@@ -112,7 +112,7 @@ table fact_trades
 			VAR __Total =
 			CALCULATE(
 			    [$ Exportacoes],
-			    ALLSELECTED(fact_trades)
+			    ALL(fact_trades)
 			)
 			
 			VAR __Result = DIVIDE([$ Exportacoes], __Total)
@@ -152,13 +152,14 @@ table fact_trades
 			    [$ Exportacoes], DESC
 			)
 			
-			VAR __Result = 0
-			
-			RETURN
+			VAR __Result =
 			CALCULATE(
 			    [$ Exportacoes],
 			    KEEPFILTERS(__TopN)
 			)
+			
+			RETURN
+			__Result
 		displayFolder: Medidas\04. Rankings
 		lineageTag: a74cea51-dc20-4c93-a4cd-f9dc59fd671b
 
@@ -425,13 +426,14 @@ table fact_trades
 			    [$ Importacoes], DESC
 			)
 			
-			VAR __Result = 0
-			
-			RETURN
+			VAR __Result =
 			CALCULATE(
 			    [$ Importacoes],
 			    KEEPFILTERS(__TopN)
 			)
+			
+			RETURN
+			__Result
 		displayFolder: Medidas\04. Rankings
 		lineageTag: c800d8f9-6a31-434c-bf92-30d53031020a
 
@@ -629,7 +631,7 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: be0bed65-e13f-4ca8-9277-285518c386dd
 
-	measure 'BC - Dummy Visual Heatmap' = " "
+	measure '_Dummy Visual' = " "
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 422d01b3-40dc-4e6a-85ff-2eb1913b8d97
 
@@ -1977,6 +1979,250 @@ table fact_trades
 			```
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 655e083a-76c6-4108-8c97-4265478ad234
+
+	measure 'PC - Subtitulo Tornado' = ```
+			
+			----------------------------------
+			-- MEDIDAS PARA EXPORTAÇÕES
+			----------------------------------
+			VAR __TopExpTab =
+			    INDEX(
+			        1,
+			        ALLSELECTED(dim_countries[country_name]),
+			        ORDERBY([$ Exportacoes], DESC)
+			    )
+			
+			VAR __TopExpNome =
+			    SELECTCOLUMNS(__TopExpTab, "@Nome", dim_countries[country_name])
+			
+			VAR __TabExpComPct =
+			    ADDCOLUMNS(
+			        ALLSELECTED(dim_countries[country_name]),
+			        "@Pct",
+			        CALCULATE([% Participacao no Total Exportacoes])
+			    )
+			
+			VAR __TopExpPct = 
+			    MAXX(
+			        TOPN(1, __TabExpComPct, [@Pct], DESC),
+			        [@Pct]
+			    )
+			    
+			----------------------------------
+			-- MEDIDAS PARA IMPORTAÇÕES
+			----------------------------------
+			VAR __TopImpTab =
+			    INDEX(
+			        1,
+			        ALLSELECTED(dim_countries[country_name]),
+			        ORDERBY([$ Importacoes], DESC)
+			    )
+			
+			VAR __TopImpNome =
+			    SELECTCOLUMNS(__TopImpTab, "@Nome", dim_countries[country_name])
+			
+			VAR __TabImpComPct =
+			    ADDCOLUMNS(
+			        ALLSELECTED(dim_countries[country_name]),
+			        "@Pct",
+			        CALCULATE([% Participacao no Total Importacoes])
+			    )
+			
+			VAR __TopImpPct = 
+			    MAXX(
+			        TOPN(1, __TabImpComPct, [@Pct], DESC),
+			        [@Pct]
+			    )
+			
+			VAR __N = [TopN Value]
+			VAR __Texto =
+			    "Top " & __N & " parceiros — " 
+			    & __TopExpNome & " lidera as exportações (" & FORMAT(__TopExpPct, "0,0%") & ") "
+			    & "e " & __TopImpNome & " as importações (" & FORMAT(__TopImpPct, "0,0%") & ")"
+			
+			RETURN
+			__Texto
+			```
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 628f1ae6-dfa7-44f1-bd2d-2c19de9ed10f
+
+	measure 'PC - Cor Barra HHI por Ano' =
+			
+			VAR __FlowSelec = SELECTEDVALUE(fact_trades[trade_flag])
+			
+			VAR __Result =
+			IF(
+			    __FlowSelec = "imp",
+			    "RED",
+			    "BLUE"
+			)
+			
+			RETURN
+			__Result
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 5bb0e2ab-2683-489c-a5d3-62cb32c463cb
+
+	measure 'PC - Subtitulo HHI' =
+			
+			VAR __HHIInicio =
+			    CALCULATE(
+			        [% HHI Pais Dinamico],
+			        FILTER(
+			            ALL(dim_calendario),
+			            dim_calendario[Ano] = MIN(dim_calendario[Ano])
+			        )
+			    )
+			
+			VAR __HHIFim =
+			    CALCULATE(
+			        [% HHI Pais Dinamico],
+			        FILTER(
+			            ALL(dim_calendario),
+			            dim_calendario[Ano] = MAX(dim_calendario[Ano])
+			        )
+			    )
+			
+			VAR __Variacao = __HHIFim - __HHIInicio
+			
+			VAR __AnoInicio = MIN(dim_calendario[Ano])
+			VAR __AnoFim = MAX(dim_calendario[Ano])
+			
+			VAR __TextoDinamico =
+			    IF(
+			        __Variacao < 0,
+			        "o mercado se diversificou " & FORMAT(ABS(__Variacao), "#0.0%") & " desde " & __AnoInicio,
+			        "a concentração aumentou " & FORMAT(__Variacao, "#0.0%") & " desde " & __AnoInicio
+			    )
+			
+			VAR __TextoFinal =
+			    "HHI: índice de concentração de mercado (quanto maior, mais dependente de poucos parceiros) indica que "
+			    & __TextoDinamico
+			
+			RETURN
+			    __TextoFinal
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: b42d4cec-6299-46de-ade2-901ecad902fc
+
+	measure 'PC - Titulo HHI' =
+			
+			VAR __FlagSelec =
+			    IF(
+			        SELECTEDVALUE(fact_trades[trade_flag]) = "imp",
+			        "Importações",
+			        "Exportações"
+			    )
+			
+			VAR __Texto =
+			"Análise de Concentração de Mercado (HHI) para "
+			& __FlagSelec
+			& " - Evolução Anual"
+			
+			RETURN
+			__Texto
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 56a52ba1-1464-47be-aca0-2dc1e8407e00
+
+	measure '% HHI Estado Exportacoes' = ```
+			
+			VAR __TabelaShare = 
+			    ADDCOLUMNS(
+			        VALUES(dim_cities[state_name]),
+			        "@Share", [% Participacao no Total Exportacoes]
+			    )
+			RETURN
+			    SUMX(__TabelaShare, [@Share] ^ 2)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Medidas\03. Performance & Preço
+		lineageTag: d4cd0ca3-a3ce-4246-9906-e471eb404802
+
+	measure '% HHI Estado Importacoes' = ```
+			
+			VAR __TabelaShare = 
+			    ADDCOLUMNS(
+			        VALUES(dim_cities[state_name]),
+			        "@Share", [% Participacao no Total Importacoes]
+			    )
+			RETURN
+			    SUMX(__TabelaShare, [@Share] ^ 2)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Medidas\03. Performance & Preço
+		lineageTag: d1d33ddd-4cf9-4a22-b382-f093c17e8186
+
+	measure 'Top N % HHI Estado Exportacoes' =
+			
+			VAR __TopN =
+			TOPN(
+			    [TopN Value],
+			    ALL(aux_estados_outros),
+			    [% HHI Estado Exportacoes], DESC
+			)
+			
+			VAR __ExpTopN =
+			CALCULATE(
+			    [% HHI Estado Exportacoes],
+			    KEEPFILTERS(__TopN)
+			)
+			
+			VAR __Outros =
+			EXCEPT(ALL(aux_estados_outros), __TopN)
+			
+			VAR __ExpOutros =
+			CALCULATE(
+			    [% HHI Estado Exportacoes],
+			    __Outros
+			)
+			
+			VAR __Result =
+			IF(
+			    SELECTEDVALUE(aux_estados_outros[state_name]) = "Outros",
+			    __ExpOutros,
+			    __ExpTopN
+			)
+			
+			RETURN
+			__Result
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Medidas\04. Rankings
+		lineageTag: 7a9e56df-2c2f-457f-baa0-e215a064bfa0
+
+	measure 'Top N % HHI Estado Importacoes' =
+			
+			VAR __TopN =
+			TOPN(
+			    [TopN Value],
+			    ALL(aux_estados_outros),
+			    [% HHI Estado Importacoes], DESC
+			)
+			
+			VAR __ExpTopN =
+			CALCULATE(
+			    [% HHI Estado Importacoes],
+			    KEEPFILTERS(__TopN)
+			)
+			
+			VAR __Outros =
+			EXCEPT(ALL(aux_estados_outros), __TopN)
+			
+			VAR __ExpOutros =
+			CALCULATE(
+			    [% HHI Estado Importacoes],
+			    __Outros
+			)
+			
+			VAR __Result =
+			IF(
+			    SELECTEDVALUE(aux_estados_outros[state_name]) = "Outros",
+			    __ExpOutros,
+			    __ExpTopN
+			)
+			
+			RETURN
+			__Result
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: Medidas\04. Rankings
+		lineageTag: 1a923093-9cd8-4e1a-a19e-84fc59fe8843
 
 	column trade_date
 		dataType: dateTime

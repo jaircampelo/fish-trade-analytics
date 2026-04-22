@@ -420,6 +420,9 @@ cultureInfo pt-BR
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "state name": {
@@ -7807,24 +7810,28 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.BC__visual_heatmap": {
+			    "fact_trade.entity__dummy_visual": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "BC - Dummy Visual Heatmap"
+			          "ConceptualProperty": "_Dummy Visual"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "BC - visual heatmap": {
+			          "_dummy visual": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "BC visual heatmap": {
-			            "State": "Generated",
-			            "Weight": 0.97
+			          "Flag": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -9731,9 +9738,2784 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "fact_trade.p__subtitulo_card_mais_exportado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "P - Subtitulo Card Mais Exportado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "p - subtitulo card mais exportado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "p subtitulo card mais exportado": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.p__titulo_produto_mais_importado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "P - Titulo Produto Mais Importado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "p - titulo produto mais importado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "p titulo produto mais importado": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.p__titulo_produto_maior_valor_agregado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "P - Titulo Produto Maior Valor Agregado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "p - titulo produto maior valor agregado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "p titulo produto maior valor agregado": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.p__subtitulo_produto_maior_valor_agregado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "P - Subtitulo Produto Maior Valor Agregado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "p - subtitulo produto maior valor agregado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "p subtitulo produto maior valor agregado": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.p__subtitulo_exportacoes_por_categoria": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "P - Subtitulo Exportacoes por Categoria"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "p - subtitulo exportacoes por categoria": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "p subtitulo exportacoes por categoria": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.p__subtitulo_preco_por_quilo_anual_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "P - Subtitulo Preco por Quilo Anual Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "p - subtitulo preco por quilo anual exportacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "p subtitulo preco por quilo anual exportacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.p__subtitulo_preco_por_quilo_categoria_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "P - Subtitulo Preco por Quilo Categoria Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "p - subtitulo preco por quilo categoria exportacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "p subtitulo preco por quilo categoria exportacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.p__subtitulo_importacoes_por_categoria": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "P - Subtitulo Importacoes por Categoria"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "p - subtitulo importacoes por categoria": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "p subtitulo importacoes por categoria": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.p__subtitulo_preco_por_quilo_anual_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "P - Subtitulo Preco por Quilo Anual Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "p - subtitulo preco por quilo anual importacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "p subtitulo preco por quilo anual importacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.p__subtitulo_preco_por_quilo_categoria_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "P - Subtitulo Preco por Quilo Categoria Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "p - subtitulo preco por quilo categoria importacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "p subtitulo preco por quilo categoria importacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.p__produto_maior_valor_agregado_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "P - Produto Maior Valor Agregado Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "p - produto maior valor agregado importacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "p produto maior valor agregado importacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.PC__titulo_card_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "PC - Titulo Card Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "PC - titulo card exportacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PC titulo card exportacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.PC__titulo_card_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "PC - Titulo Card Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "PC - titulo card importacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PC titulo card importacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.teste": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Teste"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "teste": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.PC__titulo_visual_tornado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "PC - Titulo Visual Tornado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "PC - titulo visual tornado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PC titulo visual tornado": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "pc - titulo visual cyclone": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "pc - titulo visual twister": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "pc - titulo visual hurricane": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "pc - titulo visual windstorm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "pc titulo visual cyclone": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "pc titulo visual twister": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "pc titulo visual hurricane": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "pc titulo visual windstorm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "pc - titulo visual whirlwind": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "pc - titulo visual storm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.PC__subtitulo_tornado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "PC - Subtitulo Tornado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "PC - subtitulo tornado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PC subtitulo tornado": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "pc - subtitulo cyclone": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "pc - subtitulo twister": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "pc - subtitulo hurricane": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "pc - subtitulo windstorm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "pc subtitulo cyclone": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "pc subtitulo twister": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "pc subtitulo hurricane": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "pc subtitulo windstorm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "pc - subtitulo whirlwind": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "pc - subtitulo storm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.PC__cor_barra_HHI_por_ano": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "PC - Cor Barra HHI por Ano"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "PC - cor barra HHI por ano": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PC cor barra HHI por ano": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.PC__subtitulo_HHI": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "PC - Subtitulo HHI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "PC - subtitulo HHI": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PC subtitulo HHI": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.PC__titulo_HHI": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "PC - Titulo HHI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "PC - titulo HHI": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PC titulo HHI": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.HHI_estado_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "% HHI Estado Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% HHI estado exportacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage hhi estado exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "pct hhi estado exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.HHI_estado_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "% HHI Estado Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% HHI estado importacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage hhi estado importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "pct hhi estado importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.top_n__HHI_estado_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Top N % HHI Estado Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "top n % HHI estado exportacoes": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.top_n__HHI_estado_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Top N % HHI Estado Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "top n % HHI estado importacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "% HHI Importações": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "aux_estados_outro": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "aux_estados_outros"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "aux estados outro": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aux estado outro": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "aux_estados_outros": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "aux_estados_outro.state_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "aux_estados_outros",
+			          "ConceptualProperty": "state_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "state name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "state_name": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "state": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "location": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "province": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "territory": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "nation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "state nickname": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "state title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "state label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "state tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "condition": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "location name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "Estado": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "fact_trade_has_top_n__HHI_estado_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.top_n__HHI_estado_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.top_n__HHI_estado_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.top_n__HHI_estado_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_top_n__HHI_estado_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_top_n__HHI_estado_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.top_n__HHI_estado_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.top_n__HHI_estado_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.top_n__HHI_estado_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_top_n__HHI_estado_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_HHI_estado_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.HHI_estado_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.HHI_estado_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.HHI_estado_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__HHI_estado_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_HHI_estado_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.HHI_estado_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.HHI_estado_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.HHI_estado_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__HHI_estado_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_PC__titulo_HHI": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.PC__titulo_HHI": {
+			          "Target": {
+			            "Entity": "fact_trade.PC__titulo_HHI"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.PC__titulo_HHI"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_PC__titulo_HHI"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_PC__subtitulo_HHI": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.PC__subtitulo_HHI": {
+			          "Target": {
+			            "Entity": "fact_trade.PC__subtitulo_HHI"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.PC__subtitulo_HHI"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_PC__subtitulo_HHI"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_PC__cor_barra_HHI_por_ano": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.PC__cor_barra_HHI_por_ano": {
+			          "Target": {
+			            "Entity": "fact_trade.PC__cor_barra_HHI_por_ano"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.PC__cor_barra_HHI_por_ano"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_PC__cor_barra_HHI_por_ano"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_PC__subtitulo_tornado": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.PC__subtitulo_tornado": {
+			          "Target": {
+			            "Entity": "fact_trade.PC__subtitulo_tornado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.PC__subtitulo_tornado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_PC__subtitulo_tornado"
+			        }
+			      ]
+			    },
+			    "aux_topn_has_fact_trade_PC__titulo_visual_tornado": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_topn"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_topn": {
+			          "Target": {
+			            "Entity": "aux_topn"
+			          }
+			        },
+			        "fact_trade.PC__titulo_visual_tornado": {
+			          "Target": {
+			            "Entity": "fact_trade.PC__titulo_visual_tornado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_topn"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.PC__titulo_visual_tornado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_topns_have_PC__titulo_visual_tornado"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_teste": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.teste": {
+			          "Target": {
+			            "Entity": "fact_trade.teste"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.teste"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_teste"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_PC__titulo_card_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.PC__titulo_card_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.PC__titulo_card_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.PC__titulo_card_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_PC__titulo_card_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_PC__titulo_card_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.PC__titulo_card_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.PC__titulo_card_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.PC__titulo_card_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_PC__titulo_card_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_p__produto_maior_valor_agregado_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.p__produto_maior_valor_agregado_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.p__produto_maior_valor_agregado_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__produto_maior_valor_agregado_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_p__produto_maior_valor_agregado_importacoes"
+			        }
+			      ]
+			    },
+			    "dim_product_category_has_fact_trade_p__produto_maior_valor_agregado_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product_categories"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product_category": {
+			          "Target": {
+			            "Entity": "dim_product_category"
+			          }
+			        },
+			        "fact_trade.p__produto_maior_valor_agregado_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.p__produto_maior_valor_agregado_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product_category"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__produto_maior_valor_agregado_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_product_categories_have_p__produto_maior_valor_agregado_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_p__subtitulo_preco_por_quilo_categoria_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.p__subtitulo_preco_por_quilo_categoria_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.p__subtitulo_preco_por_quilo_categoria_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__subtitulo_preco_por_quilo_categoria_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_p__subtitulo_preco_por_quilo_categoria_importacoes"
+			        }
+			      ]
+			    },
+			    "dim_product_category_has_fact_trade_p__subtitulo_preco_por_quilo_categoria_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product_categories"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product_category": {
+			          "Target": {
+			            "Entity": "dim_product_category"
+			          }
+			        },
+			        "fact_trade.p__subtitulo_preco_por_quilo_categoria_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.p__subtitulo_preco_por_quilo_categoria_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product_category"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__subtitulo_preco_por_quilo_categoria_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_product_categories_have_p__subtitulo_preco_por_quilo_categoria_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_p__subtitulo_preco_por_quilo_anual_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.p__subtitulo_preco_por_quilo_anual_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.p__subtitulo_preco_por_quilo_anual_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__subtitulo_preco_por_quilo_anual_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_p__subtitulo_preco_por_quilo_anual_importacoes"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_trade_p__subtitulo_preco_por_quilo_anual_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_trade.p__subtitulo_preco_por_quilo_anual_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.p__subtitulo_preco_por_quilo_anual_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__subtitulo_preco_por_quilo_anual_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_p__subtitulo_preco_por_quilo_anual_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_p__subtitulo_importacoes_por_categoria": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.p__subtitulo_importacoes_por_categoria": {
+			          "Target": {
+			            "Entity": "fact_trade.p__subtitulo_importacoes_por_categoria"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__subtitulo_importacoes_por_categoria"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_p__subtitulo_importacoes_por_categoria"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_p__subtitulo_preco_por_quilo_categoria_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.p__subtitulo_preco_por_quilo_categoria_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.p__subtitulo_preco_por_quilo_categoria_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__subtitulo_preco_por_quilo_categoria_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_p__subtitulo_preco_por_quilo_categoria_exportacoes"
+			        }
+			      ]
+			    },
+			    "dim_product_category_has_fact_trade_p__subtitulo_preco_por_quilo_categoria_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product_categories"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product_category": {
+			          "Target": {
+			            "Entity": "dim_product_category"
+			          }
+			        },
+			        "fact_trade.p__subtitulo_preco_por_quilo_categoria_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.p__subtitulo_preco_por_quilo_categoria_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product_category"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__subtitulo_preco_por_quilo_categoria_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_product_categories_have_p__subtitulo_preco_por_quilo_categoria_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_p__subtitulo_preco_por_quilo_anual_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.p__subtitulo_preco_por_quilo_anual_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.p__subtitulo_preco_por_quilo_anual_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__subtitulo_preco_por_quilo_anual_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_p__subtitulo_preco_por_quilo_anual_exportacoes"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_trade_p__subtitulo_preco_por_quilo_anual_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_trade.p__subtitulo_preco_por_quilo_anual_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.p__subtitulo_preco_por_quilo_anual_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__subtitulo_preco_por_quilo_anual_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_p__subtitulo_preco_por_quilo_anual_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_p__subtitulo_exportacoes_por_categoria": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.p__subtitulo_exportacoes_por_categoria": {
+			          "Target": {
+			            "Entity": "fact_trade.p__subtitulo_exportacoes_por_categoria"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__subtitulo_exportacoes_por_categoria"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_p__subtitulo_exportacoes_por_categoria"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_p__subtitulo_produto_maior_valor_agregado": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.p__subtitulo_produto_maior_valor_agregado": {
+			          "Target": {
+			            "Entity": "fact_trade.p__subtitulo_produto_maior_valor_agregado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__subtitulo_produto_maior_valor_agregado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_p__subtitulo_produto_maior_valor_agregado"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_p__titulo_produto_maior_valor_agregado": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.p__titulo_produto_maior_valor_agregado": {
+			          "Target": {
+			            "Entity": "fact_trade.p__titulo_produto_maior_valor_agregado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__titulo_produto_maior_valor_agregado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_p__titulo_produto_maior_valor_agregado"
+			        }
+			      ]
+			    },
+			    "dim_product_category_has_fact_trade_p__titulo_produto_maior_valor_agregado": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product_categories"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product_category": {
+			          "Target": {
+			            "Entity": "dim_product_category"
+			          }
+			        },
+			        "fact_trade.p__titulo_produto_maior_valor_agregado": {
+			          "Target": {
+			            "Entity": "fact_trade.p__titulo_produto_maior_valor_agregado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product_category"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__titulo_produto_maior_valor_agregado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_product_categories_have_p__titulo_produto_maior_valor_agregado"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_p__titulo_produto_mais_importado": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.p__titulo_produto_mais_importado": {
+			          "Target": {
+			            "Entity": "fact_trade.p__titulo_produto_mais_importado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__titulo_produto_mais_importado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_p__titulo_produto_mais_importado"
+			        }
+			      ]
+			    },
+			    "dim_product_category_has_fact_trade_p__titulo_produto_mais_importado": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product_categories"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product_category": {
+			          "Target": {
+			            "Entity": "dim_product_category"
+			          }
+			        },
+			        "fact_trade.p__titulo_produto_mais_importado": {
+			          "Target": {
+			            "Entity": "fact_trade.p__titulo_produto_mais_importado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product_category"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__titulo_produto_mais_importado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_product_categories_have_p__titulo_produto_mais_importado"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_trade_p__subtitulo_card_mais_exportado": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_trade.p__subtitulo_card_mais_exportado": {
+			          "Target": {
+			            "Entity": "fact_trade.p__subtitulo_card_mais_exportado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.p__subtitulo_card_mais_exportado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_p__subtitulo_card_mais_exportado"
+			        }
+			      ]
+			    },
+			    "aux_paises_outro_has_country_name": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_paises_outros"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_paises_outro": {
+			          "Target": {
+			            "Entity": "aux_paises_outro"
+			          }
+			        },
+			        "aux_paises_outro.country_name": {
+			          "Target": {
+			            "Entity": "aux_paises_outro.country_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_paises_outro"
+			            },
+			            "Object": {
+			              "Role": "aux_paises_outro.country_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_paises_outros_have_country_names"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_BC__subtitulo_heatmap": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.BC__subtitulo_heatmap": {
+			          "Target": {
+			            "Entity": "fact_trade.BC__subtitulo_heatmap"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.BC__subtitulo_heatmap"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_BC__subtitulo_heatmap"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_BC__subtitulo_acumulado": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.BC__subtitulo_acumulado": {
+			          "Target": {
+			            "Entity": "fact_trade.BC__subtitulo_acumulado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.BC__subtitulo_acumulado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_BC__subtitulo_acumulado"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_trade_BC__subtitulo_acumulado": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_trade.BC__subtitulo_acumulado": {
+			          "Target": {
+			            "Entity": "fact_trade.BC__subtitulo_acumulado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.BC__subtitulo_acumulado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_BC__subtitulo_acumulado"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_BC__subtitulo_nominal_vs_real": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.BC__subtitulo_nominal_vs_real": {
+			          "Target": {
+			            "Entity": "fact_trade.BC__subtitulo_nominal_vs_real"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.BC__subtitulo_nominal_vs_real"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_BC__subtitulo_nominal_vs_real"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_trade_BC__subtitulo_nominal_vs_real": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_trade.BC__subtitulo_nominal_vs_real": {
+			          "Target": {
+			            "Entity": "fact_trade.BC__subtitulo_nominal_vs_real"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.BC__subtitulo_nominal_vs_real"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_BC__subtitulo_nominal_vs_real"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_BC__titulo_pagina": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.BC__titulo_pagina": {
+			          "Target": {
+			            "Entity": "fact_trade.BC__titulo_pagina"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.BC__titulo_pagina"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_BC__titulo_pagina"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_trade_BC__titulo_pagina": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_trade.BC__titulo_pagina": {
+			          "Target": {
+			            "Entity": "fact_trade.BC__titulo_pagina"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.BC__titulo_pagina"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_BC__titulo_pagina"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_VG__subtitulo_top_n_paises": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.VG__subtitulo_top_n_paises": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__subtitulo_top_n_paises"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__subtitulo_top_n_paises"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_VG__subtitulo_top_n_paises"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_trade_VG__subtitulo_top_n_paises": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_trade.VG__subtitulo_top_n_paises": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__subtitulo_top_n_paises"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__subtitulo_top_n_paises"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_VG__subtitulo_top_n_paises"
+			        }
+			      ]
+			    },
+			    "aux_paises_outro_has_fact_trade_VG__subtitulo_top_n_paises": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_paises_outros"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_paises_outro": {
+			          "Target": {
+			            "Entity": "aux_paises_outro"
+			          }
+			        },
+			        "fact_trade.VG__subtitulo_top_n_paises": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__subtitulo_top_n_paises"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_paises_outro"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__subtitulo_top_n_paises"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_paises_outros_have_VG__subtitulo_top_n_paises"
+			        }
+			      ]
+			    },
+			    "aux_topn_has_fact_trade_VG__titulo_top_n_paises": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_topn"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_topn": {
+			          "Target": {
+			            "Entity": "aux_topn"
+			          }
+			        },
+			        "fact_trade.VG__titulo_top_n_paises": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__titulo_top_n_paises"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_topn"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__titulo_top_n_paises"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_topns_have_VG__titulo_top_n_paises"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_ranking_exportacoes_por_pais": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.ranking_exportacoes_por_pais": {
+			          "Target": {
+			            "Entity": "fact_trade.ranking_exportacoes_por_pais"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.ranking_exportacoes_por_pais"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_ranking_exportacoes_por_pais"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_trade_VG__subtitulo_top_n_estados": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_trade.VG__subtitulo_top_n_estados": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__subtitulo_top_n_estados"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__subtitulo_top_n_estados"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_VG__subtitulo_top_n_estados"
+			        }
+			      ]
+			    },
+			    "aux_topn_has_fact_trade_VG__titulo_top_n_estados": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_topn"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_topn": {
+			          "Target": {
+			            "Entity": "aux_topn"
+			          }
+			        },
+			        "fact_trade.VG__titulo_top_n_estados": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__titulo_top_n_estados"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_topn"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__titulo_top_n_estados"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_topns_have_VG__titulo_top_n_estados"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_VG__subtitulo_produtos": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.VG__subtitulo_produtos": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__subtitulo_produtos"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__subtitulo_produtos"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_VG__subtitulo_produtos"
+			        }
+			      ]
+			    },
+			    "dim_product_category_has_fact_trade_VG__subtitulo_produtos": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_product_categories"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_product_category": {
+			          "Target": {
+			            "Entity": "dim_product_category"
+			          }
+			        },
+			        "fact_trade.VG__subtitulo_produtos": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__subtitulo_produtos"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_product_category"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__subtitulo_produtos"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_product_categories_have_VG__subtitulo_produtos"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_var_taxa_de_cobertura_YoY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.var_taxa_de_cobertura_YoY": {
+			          "Target": {
+			            "Entity": "fact_trade.var_taxa_de_cobertura_YoY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.var_taxa_de_cobertura_YoY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_var_taxa_de_cobertura_YoY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_VG__rotulo_taxa_de_cobertura_YoY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.VG__rotulo_taxa_de_cobertura_YoY": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__rotulo_taxa_de_cobertura_YoY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__rotulo_taxa_de_cobertura_YoY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_VG__rotulo_taxa_de_cobertura_YoY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_taxa_de_cobertura_LY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.taxa_de_cobertura_LY": {
+			          "Target": {
+			            "Entity": "fact_trade.taxa_de_cobertura_LY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.taxa_de_cobertura_LY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__taxa_de_cobertura_LY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_preco_medio_por_quilo_exportacoes_YoY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.preco_medio_por_quilo_exportacoes_YoY": {
+			          "Target": {
+			            "Entity": "fact_trade.preco_medio_por_quilo_exportacoes_YoY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.preco_medio_por_quilo_exportacoes_YoY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__preco_medio_por_quilo_exportacoes_YoY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_preco_medio_por_quilo_exportacoes_LY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.preco_medio_por_quilo_exportacoes_LY": {
+			          "Target": {
+			            "Entity": "fact_trade.preco_medio_por_quilo_exportacoes_LY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.preco_medio_por_quilo_exportacoes_LY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__preco_medio_por_quilo_exportacoes_LY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_balanca_comercial_YoY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.balanca_comercial_YoY": {
+			          "Target": {
+			            "Entity": "fact_trade.balanca_comercial_YoY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.balanca_comercial_YoY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__balanca_comercial_YoY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_balanca_comercial_LY": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.balanca_comercial_LY": {
+			          "Target": {
+			            "Entity": "fact_trade.balanca_comercial_LY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.balanca_comercial_LY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__balanca_comercial_LY"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_PC__top_n_market_share_exportacoes_positivo": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.PC__top_n_market_share_exportacoes_positivo": {
+			          "Target": {
+			            "Entity": "fact_trade.PC__top_n_market_share_exportacoes_positivo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.PC__top_n_market_share_exportacoes_positivo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_PC__top_n_market_share_exportacoes_positivo"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_VG__subtitulo_visual_serie_historica": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.VG__subtitulo_visual_serie_historica": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__subtitulo_visual_serie_historica"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__subtitulo_visual_serie_historica"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_VG__subtitulo_visual_serie_historica"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_trade_VG__subtitulo_visual_serie_historica": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_trade.VG__subtitulo_visual_serie_historica": {
+			          "Target": {
+			            "Entity": "fact_trade.VG__subtitulo_visual_serie_historica"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.VG__subtitulo_visual_serie_historica"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_VG__subtitulo_visual_serie_historica"
+			        }
+			      ]
+			    },
 			    "fact_trade_has_HHI_estado_dinamico": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
@@ -10427,7 +13209,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_BC__visual_heatmap": {
+			    "fact_trade_has_entity__dummy_visual": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -10438,9 +13220,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.BC__visual_heatmap": {
+			        "fact_trade.entity__dummy_visual": {
 			          "Target": {
-			            "Entity": "fact_trade.BC__visual_heatmap"
+			            "Entity": "fact_trade.entity__dummy_visual"
 			          }
 			        }
 			      },
@@ -10451,45 +13233,12 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.BC__visual_heatmap"
+			              "Role": "fact_trade.entity__dummy_visual"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_BC__visual_heatmap"
-			        }
-			      ]
-			    },
-			    "dim_calendario_has_fact_trade_BC__visual_heatmap": {
-			      "Binding": {
-			        "ConceptualEntity": "dim_calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_calendario": {
-			          "Target": {
-			            "Entity": "dim_calendario"
-			          }
-			        },
-			        "fact_trade.BC__visual_heatmap": {
-			          "Target": {
-			            "Entity": "fact_trade.BC__visual_heatmap"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendario"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.BC__visual_heatmap"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_calendarios_have_BC__visual_heatmap"
+			          "ID": "fact_trades_have__dummy_visual"
 			        }
 			      ]
 			    },
@@ -16248,39 +18997,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "dim_city_has_state_name": {
-			      "Binding": {
-			        "ConceptualEntity": "dim_cities"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_city": {
-			          "Target": {
-			            "Entity": "dim_city"
-			          }
-			        },
-			        "dim_city.state_name": {
-			          "Target": {
-			            "Entity": "dim_city.state_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_city"
-			            },
-			            "Object": {
-			              "Role": "dim_city.state_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_cities_have_state_names"
-			        }
-			      ]
-			    },
 			    "dim_city_has_city_name": {
 			      "Binding": {
 			        "ConceptualEntity": "dim_cities"
@@ -16463,6 +19179,51 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
+			    "aux_estados_outro_in_state_name": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_estados_outros"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_estados_outro": {
+			          "Target": {
+			            "Entity": "aux_estados_outro"
+			          }
+			        },
+			        "aux_estados_outro.state_name": {
+			          "Target": {
+			            "Entity": "aux_estados_outro.state_name"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "Where": {
+			          "Role": "aux_estados_outro.state_name"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "aux_estados_outro"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "aux_estados_outro.state_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_estados_outros_are_in_state_names"
+			        }
+			      ]
+			    },
 			    "aux_paises_outro_in_country_name": {
 			      "Binding": {
 			        "ConceptualEntity": "aux_paises_outros"
@@ -16598,51 +19359,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "dim_city_in_state_name": {
-			      "Binding": {
-			        "ConceptualEntity": "dim_cities"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_city": {
-			          "Target": {
-			            "Entity": "dim_city"
-			          }
-			        },
-			        "dim_city.state_name": {
-			          "Target": {
-			            "Entity": "dim_city.state_name"
-			          }
-			        }
-			      },
-			      "SemanticSlots": {
-			        "Where": {
-			          "Role": "dim_city.state_name"
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Preposition": {
-			            "Subject": {
-			              "Role": "dim_city"
-			            },
-			            "Prepositions": [
-			              {
-			                "in": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
-			              "Role": "dim_city.state_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_cities_are_in_state_names"
-			        }
-			      ]
-			    },
 			    "fact_trade_is_traded_on_trade_date": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
@@ -16685,20 +19401,20 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "dim_calendario_has_fact_trade_VG__subtitulo_visual_serie_historica": {
+			    "aux_estados_outro_has_state_name": {
 			      "Binding": {
-			        "ConceptualEntity": "dim_calendario"
+			        "ConceptualEntity": "aux_estados_outros"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "dim_calendario": {
+			        "aux_estados_outro": {
 			          "Target": {
-			            "Entity": "dim_calendario"
+			            "Entity": "aux_estados_outro"
 			          }
 			        },
-			        "fact_trade.VG__subtitulo_visual_serie_historica": {
+			        "aux_estados_outro.state_name": {
 			          "Target": {
-			            "Entity": "fact_trade.VG__subtitulo_visual_serie_historica"
+			            "Entity": "aux_estados_outro.state_name"
 			          }
 			        }
 			      },
@@ -16706,32 +19422,32 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dim_calendario"
+			              "Role": "aux_estados_outro"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.VG__subtitulo_visual_serie_historica"
+			              "Role": "aux_estados_outro.state_name"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_calendarios_have_VG__subtitulo_visual_serie_historica"
+			          "ID": "aux_estados_outros_have_state_names"
 			        }
 			      ]
 			    },
-			    "fact_trade_has_VG__subtitulo_visual_serie_historica": {
+			    "dim_city_has_aux_estados_outro": {
 			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
+			        "ConceptualEntity": "dim_cities"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "fact_trade": {
+			        "dim_city": {
 			          "Target": {
-			            "Entity": "fact_trade"
+			            "Entity": "dim_city"
 			          }
 			        },
-			        "fact_trade.VG__subtitulo_visual_serie_historica": {
+			        "aux_estados_outro": {
 			          "Target": {
-			            "Entity": "fact_trade.VG__subtitulo_visual_serie_historica"
+			            "Entity": "aux_estados_outro"
 			          }
 			        }
 			      },
@@ -16739,840 +19455,28 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "fact_trade"
+			              "Role": "dim_city"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.VG__subtitulo_visual_serie_historica"
+			              "Role": "aux_estados_outro"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_VG__subtitulo_visual_serie_historica"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_PC__top_n_market_share_exportacoes_positivo": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
+			          "ID": "dim_cities_have_aux_estados_outros"
 			        },
-			        "fact_trade.PC__top_n_market_share_exportacoes_positivo": {
-			          "Target": {
-			            "Entity": "fact_trade.PC__top_n_market_share_exportacoes_positivo"
-			          }
-			        }
-			      },
-			      "Phrasings": [
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "fact_trade"
+			              "Role": "aux_estados_outro"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.PC__top_n_market_share_exportacoes_positivo"
+			              "Role": "dim_city"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have_PC__top_n_market_share_exportacoes_positivo"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_balanca_comercial_LY": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.balanca_comercial_LY": {
-			          "Target": {
-			            "Entity": "fact_trade.balanca_comercial_LY"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.balanca_comercial_LY"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have__balanca_comercial_LY"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_balanca_comercial_YoY": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.balanca_comercial_YoY": {
-			          "Target": {
-			            "Entity": "fact_trade.balanca_comercial_YoY"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.balanca_comercial_YoY"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have__balanca_comercial_YoY"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_preco_medio_por_quilo_exportacoes_LY": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.preco_medio_por_quilo_exportacoes_LY": {
-			          "Target": {
-			            "Entity": "fact_trade.preco_medio_por_quilo_exportacoes_LY"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.preco_medio_por_quilo_exportacoes_LY"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have__preco_medio_por_quilo_exportacoes_LY"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_preco_medio_por_quilo_exportacoes_YoY": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.preco_medio_por_quilo_exportacoes_YoY": {
-			          "Target": {
-			            "Entity": "fact_trade.preco_medio_por_quilo_exportacoes_YoY"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.preco_medio_por_quilo_exportacoes_YoY"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have__preco_medio_por_quilo_exportacoes_YoY"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_taxa_de_cobertura_LY": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.taxa_de_cobertura_LY": {
-			          "Target": {
-			            "Entity": "fact_trade.taxa_de_cobertura_LY"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.taxa_de_cobertura_LY"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have__taxa_de_cobertura_LY"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_VG__rotulo_taxa_de_cobertura_YoY": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.VG__rotulo_taxa_de_cobertura_YoY": {
-			          "Target": {
-			            "Entity": "fact_trade.VG__rotulo_taxa_de_cobertura_YoY"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.VG__rotulo_taxa_de_cobertura_YoY"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_VG__rotulo_taxa_de_cobertura_YoY"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_var_taxa_de_cobertura_YoY": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.var_taxa_de_cobertura_YoY": {
-			          "Target": {
-			            "Entity": "fact_trade.var_taxa_de_cobertura_YoY"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.var_taxa_de_cobertura_YoY"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_var_taxa_de_cobertura_YoY"
-			        }
-			      ]
-			    },
-			    "dim_product_category_has_fact_trade_VG__subtitulo_produtos": {
-			      "Binding": {
-			        "ConceptualEntity": "dim_product_categories"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_product_category": {
-			          "Target": {
-			            "Entity": "dim_product_category"
-			          }
-			        },
-			        "fact_trade.VG__subtitulo_produtos": {
-			          "Target": {
-			            "Entity": "fact_trade.VG__subtitulo_produtos"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_product_category"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.VG__subtitulo_produtos"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_product_categories_have_VG__subtitulo_produtos"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_VG__subtitulo_produtos": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.VG__subtitulo_produtos": {
-			          "Target": {
-			            "Entity": "fact_trade.VG__subtitulo_produtos"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.VG__subtitulo_produtos"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_VG__subtitulo_produtos"
-			        }
-			      ]
-			    },
-			    "aux_topn_has_fact_trade_VG__titulo_top_n_estados": {
-			      "Binding": {
-			        "ConceptualEntity": "aux_topn"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "aux_topn": {
-			          "Target": {
-			            "Entity": "aux_topn"
-			          }
-			        },
-			        "fact_trade.VG__titulo_top_n_estados": {
-			          "Target": {
-			            "Entity": "fact_trade.VG__titulo_top_n_estados"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "aux_topn"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.VG__titulo_top_n_estados"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "aux_topns_have_VG__titulo_top_n_estados"
-			        }
-			      ]
-			    },
-			    "dim_calendario_has_fact_trade_VG__subtitulo_top_n_estados": {
-			      "Binding": {
-			        "ConceptualEntity": "dim_calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_calendario": {
-			          "Target": {
-			            "Entity": "dim_calendario"
-			          }
-			        },
-			        "fact_trade.VG__subtitulo_top_n_estados": {
-			          "Target": {
-			            "Entity": "fact_trade.VG__subtitulo_top_n_estados"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendario"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.VG__subtitulo_top_n_estados"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_calendarios_have_VG__subtitulo_top_n_estados"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_ranking_exportacoes_por_pais": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.ranking_exportacoes_por_pais": {
-			          "Target": {
-			            "Entity": "fact_trade.ranking_exportacoes_por_pais"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.ranking_exportacoes_por_pais"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_ranking_exportacoes_por_pais"
-			        }
-			      ]
-			    },
-			    "aux_topn_has_fact_trade_VG__titulo_top_n_paises": {
-			      "Binding": {
-			        "ConceptualEntity": "aux_topn"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "aux_topn": {
-			          "Target": {
-			            "Entity": "aux_topn"
-			          }
-			        },
-			        "fact_trade.VG__titulo_top_n_paises": {
-			          "Target": {
-			            "Entity": "fact_trade.VG__titulo_top_n_paises"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "aux_topn"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.VG__titulo_top_n_paises"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "aux_topns_have_VG__titulo_top_n_paises"
-			        }
-			      ]
-			    },
-			    "aux_paises_outro_has_fact_trade_VG__subtitulo_top_n_paises": {
-			      "Binding": {
-			        "ConceptualEntity": "aux_paises_outros"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "aux_paises_outro": {
-			          "Target": {
-			            "Entity": "aux_paises_outro"
-			          }
-			        },
-			        "fact_trade.VG__subtitulo_top_n_paises": {
-			          "Target": {
-			            "Entity": "fact_trade.VG__subtitulo_top_n_paises"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "aux_paises_outro"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.VG__subtitulo_top_n_paises"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "aux_paises_outros_have_VG__subtitulo_top_n_paises"
-			        }
-			      ]
-			    },
-			    "dim_calendario_has_fact_trade_VG__subtitulo_top_n_paises": {
-			      "Binding": {
-			        "ConceptualEntity": "dim_calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_calendario": {
-			          "Target": {
-			            "Entity": "dim_calendario"
-			          }
-			        },
-			        "fact_trade.VG__subtitulo_top_n_paises": {
-			          "Target": {
-			            "Entity": "fact_trade.VG__subtitulo_top_n_paises"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendario"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.VG__subtitulo_top_n_paises"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_calendarios_have_VG__subtitulo_top_n_paises"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_VG__subtitulo_top_n_paises": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.VG__subtitulo_top_n_paises": {
-			          "Target": {
-			            "Entity": "fact_trade.VG__subtitulo_top_n_paises"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.VG__subtitulo_top_n_paises"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_VG__subtitulo_top_n_paises"
-			        }
-			      ]
-			    },
-			    "dim_calendario_has_fact_trade_BC__titulo_pagina": {
-			      "Binding": {
-			        "ConceptualEntity": "dim_calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_calendario": {
-			          "Target": {
-			            "Entity": "dim_calendario"
-			          }
-			        },
-			        "fact_trade.BC__titulo_pagina": {
-			          "Target": {
-			            "Entity": "fact_trade.BC__titulo_pagina"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendario"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.BC__titulo_pagina"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_calendarios_have_BC__titulo_pagina"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_BC__titulo_pagina": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.BC__titulo_pagina": {
-			          "Target": {
-			            "Entity": "fact_trade.BC__titulo_pagina"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.BC__titulo_pagina"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_BC__titulo_pagina"
-			        }
-			      ]
-			    },
-			    "dim_calendario_has_fact_trade_BC__subtitulo_nominal_vs_real": {
-			      "Binding": {
-			        "ConceptualEntity": "dim_calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_calendario": {
-			          "Target": {
-			            "Entity": "dim_calendario"
-			          }
-			        },
-			        "fact_trade.BC__subtitulo_nominal_vs_real": {
-			          "Target": {
-			            "Entity": "fact_trade.BC__subtitulo_nominal_vs_real"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendario"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.BC__subtitulo_nominal_vs_real"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_calendarios_have_BC__subtitulo_nominal_vs_real"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_BC__subtitulo_nominal_vs_real": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.BC__subtitulo_nominal_vs_real": {
-			          "Target": {
-			            "Entity": "fact_trade.BC__subtitulo_nominal_vs_real"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.BC__subtitulo_nominal_vs_real"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_BC__subtitulo_nominal_vs_real"
-			        }
-			      ]
-			    },
-			    "dim_calendario_has_fact_trade_BC__subtitulo_acumulado": {
-			      "Binding": {
-			        "ConceptualEntity": "dim_calendario"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_calendario": {
-			          "Target": {
-			            "Entity": "dim_calendario"
-			          }
-			        },
-			        "fact_trade.BC__subtitulo_acumulado": {
-			          "Target": {
-			            "Entity": "fact_trade.BC__subtitulo_acumulado"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_calendario"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.BC__subtitulo_acumulado"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_calendarios_have_BC__subtitulo_acumulado"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_BC__subtitulo_acumulado": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.BC__subtitulo_acumulado": {
-			          "Target": {
-			            "Entity": "fact_trade.BC__subtitulo_acumulado"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.BC__subtitulo_acumulado"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_BC__subtitulo_acumulado"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_BC__subtitulo_heatmap": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.BC__subtitulo_heatmap": {
-			          "Target": {
-			            "Entity": "fact_trade.BC__subtitulo_heatmap"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.BC__subtitulo_heatmap"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_BC__subtitulo_heatmap"
-			        }
-			      ]
-			    },
-			    "aux_paises_outro_has_country_name": {
-			      "Binding": {
-			        "ConceptualEntity": "aux_paises_outros"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "aux_paises_outro": {
-			          "Target": {
-			            "Entity": "aux_paises_outro"
-			          }
-			        },
-			        "aux_paises_outro.country_name": {
-			          "Target": {
-			            "Entity": "aux_paises_outro.country_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "aux_paises_outro"
-			            },
-			            "Object": {
-			              "Role": "aux_paises_outro.country_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "aux_paises_outros_have_country_names"
+			          "ID": "aux_estados_outros_have_dim_cities"
 			        }
 			      ]
 			    },

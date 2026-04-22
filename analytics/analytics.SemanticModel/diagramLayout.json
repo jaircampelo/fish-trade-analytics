@@ -16,11 +16,10 @@
           "nodeIndex": "dim_cities",
           "nodeLineageTag": "c220c70b-ec8d-47f3-a990-4b1e5e7395b6",
           "size": {
-            "height": 104,
+            "height": 176,
             "width": 234
           },
-          "zIndex": 1,
-          "expandedHeight": 176
+          "zIndex": 1
         },
         {
           "location": {
@@ -85,36 +84,53 @@
           "nodeIndex": "aux_paises_outros",
           "nodeLineageTag": "92c0b2cb-3f6c-4e14-805a-9b6f16d2b396",
           "size": {
-            "height": 200,
+            "height": 104,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 0,
+          "expandedHeight": 200
         },
         {
           "location": {
-            "x": 1125.0320177690994,
-            "y": 456.86002741331697
+            "x": 1126.6121189176515,
+            "y": 325.71163208349219
           },
           "nodeIndex": "aux_tipo",
           "nodeLineageTag": "fb384420-4310-4f61-9aab-c4666c7ace97",
           "size": {
-            "height": 152,
+            "height": 72,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 0,
+          "expandedHeight": 152
         },
         {
           "location": {
-            "x": 1125.0320177690992,
-            "y": 217.02697925009545
+            "x": 1126.6121189176513,
+            "y": 239.14839532982489
           },
           "nodeIndex": "aux_topn",
           "nodeLineageTag": "db7a2d43-3ddd-4ed9-b09b-6dfff1059a39",
           "size": {
-            "height": 224,
+            "height": 72,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 0,
+          "expandedHeight": 224
+        },
+        {
+          "location": {
+            "x": 1126.1939121782725,
+            "y": 118.50758614140796
+          },
+          "nodeIndex": "aux_estados_outros",
+          "nodeLineageTag": "245c0d90-5da5-4650-84f2-e52fae394acb",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 200
         }
       ],
       "name": "Todas as tabelas",

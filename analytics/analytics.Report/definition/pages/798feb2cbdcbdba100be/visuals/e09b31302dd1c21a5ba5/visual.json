@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "e09b31302dd1c21a5ba5",
   "position": {
     "x": 1396.9837587006959,
@@ -62,7 +62,7 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "BC - Dummy Visual Heatmap"
+                  "Property": "_Dummy Visual"
                 }
               },
               "queryRef": "fact_trades.Visual Heatmap",

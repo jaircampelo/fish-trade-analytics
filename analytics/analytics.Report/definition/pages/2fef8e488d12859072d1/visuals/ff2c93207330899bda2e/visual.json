@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "0c18c639e2d31101224d",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "ff2c93207330899bda2e",
   "position": {
-    "x": 529.51578947368421,
-    "y": 377.26315789473682,
-    "z": 6000,
-    "height": 75.452631578947361,
-    "width": 102.4,
-    "tabOrder": 6000
+    "x": 1561,
+    "y": 568.45243619489554,
+    "z": 1500,
+    "height": 146.58932714617168,
+    "width": 330.7656612529002,
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "slicer",
@@ -58,7 +58,7 @@
             "numericStart": {
               "expr": {
                 "Literal": {
-                  "Value": "5D"
+                  "Value": "10D"
                 }
               }
             },
@@ -72,41 +72,22 @@
           }
         }
       ],
-      "header": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "slider": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
       "general": [
         {
           "properties": {
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
             "filter": {
               "filter": {
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "t",
+                    "Name": "a",
                     "Entity": "aux_topn",
                     "Type": 0
                   }
@@ -120,7 +101,7 @@
                           "Column": {
                             "Expression": {
                               "SourceRef": {
-                                "Source": "t"
+                                "Source": "a"
                               }
                             },
                             "Property": "TopN"
@@ -128,7 +109,7 @@
                         },
                         "Right": {
                           "Literal": {
-                            "Value": "5D"
+                            "Value": "10D"
                           }
                         }
                       }
@@ -139,8 +120,89 @@
             }
           }
         }
+      ],
+      "header": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Top N'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "slider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "697eb1805edc96b4e000"
 }

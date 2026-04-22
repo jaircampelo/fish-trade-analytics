@@ -20,3 +20,8 @@ relationship 14a38deb-5e41-947a-3727-fc37b6e5f3c1
 	fromColumn: dim_countries.country_name
 	toColumn: aux_paises_outros.country_name
 
+relationship d41a324b-2b64-bc99-8346-c98b0d0165d4
+	crossFilteringBehavior: bothDirections
+	fromColumn: dim_cities.state_name
+	toColumn: aux_estados_outros.state_name
+
