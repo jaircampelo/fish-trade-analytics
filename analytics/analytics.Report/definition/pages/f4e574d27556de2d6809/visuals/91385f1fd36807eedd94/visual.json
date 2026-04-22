@@ -114,7 +114,7 @@
             "defaultStyle": {
               "expr": {
                 "Literal": {
-                  "Value": "'road'"
+                  "Value": "'blank'"
                 }
               }
             },
