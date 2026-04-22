@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "981d4519ba6a3d2a1380",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "76193c4fde15b382c1cd",
   "position": {
-    "x": 533.73549883990722,
-    "y": 375.87006960556846,
-    "z": 2000,
-    "height": 65.1508120649652,
-    "width": 102.73781902552204,
-    "tabOrder": 1000
+    "x": 1561,
+    "y": 567.11136890951275,
+    "z": 1500,
+    "height": 146.58932714617168,
+    "width": 330.7656612529002,
+    "tabOrder": 11001
   },
   "visual": {
     "visualType": "slicer",
@@ -58,7 +58,7 @@
             "numericStart": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "5D"
                 }
               }
             },
@@ -87,7 +87,7 @@
                 "Version": 2,
                 "From": [
                   {
-                    "Name": "t",
+                    "Name": "a",
                     "Entity": "aux_topn",
                     "Type": 0
                   }
@@ -101,7 +101,7 @@
                           "Column": {
                             "Expression": {
                               "SourceRef": {
-                                "Source": "t"
+                                "Source": "a"
                               }
                             },
                             "Property": "TopN"
@@ -109,7 +109,7 @@
                         },
                         "Right": {
                           "Literal": {
-                            "Value": "10D"
+                            "Value": "5D"
                           }
                         }
                       }
@@ -127,7 +127,21 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Top N'"
                 }
               }
             }
@@ -135,6 +149,46 @@
         }
       ],
       "slider": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
         {
           "properties": {
             "show": {
@@ -148,21 +202,7 @@
         }
       ]
     },
-    "visualContainerObjects": {
-      "stylePreset": [
-        {
-          "properties": {
-            "name": {
-              "expr": {
-                "Literal": {
-                  "Value": "''"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "parentGroupName": "0d3a91bcdcbcd6a242b7"
 }

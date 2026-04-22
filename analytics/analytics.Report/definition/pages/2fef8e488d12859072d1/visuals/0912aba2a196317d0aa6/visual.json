@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "0912aba2a196317d0aa6",
   "position": {
-    "x": 959.72157772621813,
+    "x": 652.76102088167056,
     "y": 661.5313225058004,
     "z": 5000,
     "height": 383.38747099767983,
     "width": 925.893271461717,
-    "tabOrder": 5000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "columnChart",
@@ -92,70 +92,12 @@
                                           "Entity": "fact_trades"
                                         }
                                       },
-                                      "Property": "% HHI Pais Destino"
+                                      "Property": "% HHI Pais Dinamico"
                                     }
                                   },
                                   "Right": {
-                                    "RangePercent": {
-                                      "Min": {
-                                        "ScopedEval": {
-                                          "Expression": {
-                                            "Aggregation": {
-                                              "Expression": {
-                                                "ScopedEval": {
-                                                  "Expression": {
-                                                    "Measure": {
-                                                      "Expression": {
-                                                        "SourceRef": {
-                                                          "Entity": "fact_trades"
-                                                        }
-                                                      },
-                                                      "Property": "% HHI Pais Destino"
-                                                    }
-                                                  },
-                                                  "Scope": [
-                                                    {
-                                                      "AllRolesRef": {}
-                                                    }
-                                                  ]
-                                                }
-                                              },
-                                              "Function": 3
-                                            }
-                                          },
-                                          "Scope": []
-                                        }
-                                      },
-                                      "Max": {
-                                        "ScopedEval": {
-                                          "Expression": {
-                                            "Aggregation": {
-                                              "Expression": {
-                                                "ScopedEval": {
-                                                  "Expression": {
-                                                    "Measure": {
-                                                      "Expression": {
-                                                        "SourceRef": {
-                                                          "Entity": "fact_trades"
-                                                        }
-                                                      },
-                                                      "Property": "% HHI Pais Destino"
-                                                    }
-                                                  },
-                                                  "Scope": [
-                                                    {
-                                                      "AllRolesRef": {}
-                                                    }
-                                                  ]
-                                                }
-                                              },
-                                              "Function": 4
-                                            }
-                                          },
-                                          "Scope": []
-                                        }
-                                      },
-                                      "Percent": 0.0025
+                                    "Literal": {
+                                      "Value": "0.25D"
                                     }
                                   }
                                 }
@@ -170,70 +112,12 @@
                                           "Entity": "fact_trades"
                                         }
                                       },
-                                      "Property": "% HHI Pais Destino"
+                                      "Property": "% HHI Pais Dinamico"
                                     }
                                   },
                                   "Right": {
-                                    "RangePercent": {
-                                      "Min": {
-                                        "ScopedEval": {
-                                          "Expression": {
-                                            "Aggregation": {
-                                              "Expression": {
-                                                "ScopedEval": {
-                                                  "Expression": {
-                                                    "Measure": {
-                                                      "Expression": {
-                                                        "SourceRef": {
-                                                          "Entity": "fact_trades"
-                                                        }
-                                                      },
-                                                      "Property": "% HHI Pais Destino"
-                                                    }
-                                                  },
-                                                  "Scope": [
-                                                    {
-                                                      "AllRolesRef": {}
-                                                    }
-                                                  ]
-                                                }
-                                              },
-                                              "Function": 3
-                                            }
-                                          },
-                                          "Scope": []
-                                        }
-                                      },
-                                      "Max": {
-                                        "ScopedEval": {
-                                          "Expression": {
-                                            "Aggregation": {
-                                              "Expression": {
-                                                "ScopedEval": {
-                                                  "Expression": {
-                                                    "Measure": {
-                                                      "Expression": {
-                                                        "SourceRef": {
-                                                          "Entity": "fact_trades"
-                                                        }
-                                                      },
-                                                      "Property": "% HHI Pais Destino"
-                                                    }
-                                                  },
-                                                  "Scope": [
-                                                    {
-                                                      "AllRolesRef": {}
-                                                    }
-                                                  ]
-                                                }
-                                              },
-                                              "Function": 4
-                                            }
-                                          },
-                                          "Scope": []
-                                        }
-                                      },
-                                      "Percent": 0.01
+                                    "Literal": {
+                                      "Value": "1D"
                                     }
                                   }
                                 }
@@ -259,70 +143,12 @@
                                           "Entity": "fact_trades"
                                         }
                                       },
-                                      "Property": "% HHI Pais Destino"
+                                      "Property": "% HHI Pais Dinamico"
                                     }
                                   },
                                   "Right": {
-                                    "RangePercent": {
-                                      "Min": {
-                                        "ScopedEval": {
-                                          "Expression": {
-                                            "Aggregation": {
-                                              "Expression": {
-                                                "ScopedEval": {
-                                                  "Expression": {
-                                                    "Measure": {
-                                                      "Expression": {
-                                                        "SourceRef": {
-                                                          "Entity": "fact_trades"
-                                                        }
-                                                      },
-                                                      "Property": "% HHI Pais Destino"
-                                                    }
-                                                  },
-                                                  "Scope": [
-                                                    {
-                                                      "AllRolesRef": {}
-                                                    }
-                                                  ]
-                                                }
-                                              },
-                                              "Function": 3
-                                            }
-                                          },
-                                          "Scope": []
-                                        }
-                                      },
-                                      "Max": {
-                                        "ScopedEval": {
-                                          "Expression": {
-                                            "Aggregation": {
-                                              "Expression": {
-                                                "ScopedEval": {
-                                                  "Expression": {
-                                                    "Measure": {
-                                                      "Expression": {
-                                                        "SourceRef": {
-                                                          "Entity": "fact_trades"
-                                                        }
-                                                      },
-                                                      "Property": "% HHI Pais Destino"
-                                                    }
-                                                  },
-                                                  "Scope": [
-                                                    {
-                                                      "AllRolesRef": {}
-                                                    }
-                                                  ]
-                                                }
-                                              },
-                                              "Function": 4
-                                            }
-                                          },
-                                          "Scope": []
-                                        }
-                                      },
-                                      "Percent": 0.0015
+                                    "Literal": {
+                                      "Value": "0.15D"
                                     }
                                   }
                                 }
@@ -337,70 +163,12 @@
                                           "Entity": "fact_trades"
                                         }
                                       },
-                                      "Property": "% HHI Pais Destino"
+                                      "Property": "% HHI Pais Dinamico"
                                     }
                                   },
                                   "Right": {
-                                    "RangePercent": {
-                                      "Min": {
-                                        "ScopedEval": {
-                                          "Expression": {
-                                            "Aggregation": {
-                                              "Expression": {
-                                                "ScopedEval": {
-                                                  "Expression": {
-                                                    "Measure": {
-                                                      "Expression": {
-                                                        "SourceRef": {
-                                                          "Entity": "fact_trades"
-                                                        }
-                                                      },
-                                                      "Property": "% HHI Pais Destino"
-                                                    }
-                                                  },
-                                                  "Scope": [
-                                                    {
-                                                      "AllRolesRef": {}
-                                                    }
-                                                  ]
-                                                }
-                                              },
-                                              "Function": 3
-                                            }
-                                          },
-                                          "Scope": []
-                                        }
-                                      },
-                                      "Max": {
-                                        "ScopedEval": {
-                                          "Expression": {
-                                            "Aggregation": {
-                                              "Expression": {
-                                                "ScopedEval": {
-                                                  "Expression": {
-                                                    "Measure": {
-                                                      "Expression": {
-                                                        "SourceRef": {
-                                                          "Entity": "fact_trades"
-                                                        }
-                                                      },
-                                                      "Property": "% HHI Pais Destino"
-                                                    }
-                                                  },
-                                                  "Scope": [
-                                                    {
-                                                      "AllRolesRef": {}
-                                                    }
-                                                  ]
-                                                }
-                                              },
-                                              "Function": 4
-                                            }
-                                          },
-                                          "Scope": []
-                                        }
-                                      },
-                                      "Percent": 0.0025
+                                    "Literal": {
+                                      "Value": "0.25D"
                                     }
                                   }
                                 }
@@ -415,79 +183,45 @@
                         },
                         {
                           "Condition": {
-                            "Comparison": {
-                              "ComparisonKind": 4,
+                            "And": {
                               "Left": {
-                                "Measure": {
-                                  "Expression": {
-                                    "SourceRef": {
-                                      "Entity": "fact_trades"
+                                "Comparison": {
+                                  "ComparisonKind": 2,
+                                  "Left": {
+                                    "Measure": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "fact_trades"
+                                        }
+                                      },
+                                      "Property": "% HHI Pais Dinamico"
                                     }
                                   },
-                                  "Property": "% HHI Pais Destino"
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "0D"
+                                    }
+                                  }
                                 }
                               },
                               "Right": {
-                                "RangePercent": {
-                                  "Min": {
-                                    "ScopedEval": {
+                                "Comparison": {
+                                  "ComparisonKind": 4,
+                                  "Left": {
+                                    "Measure": {
                                       "Expression": {
-                                        "Aggregation": {
-                                          "Expression": {
-                                            "ScopedEval": {
-                                              "Expression": {
-                                                "Measure": {
-                                                  "Expression": {
-                                                    "SourceRef": {
-                                                      "Entity": "fact_trades"
-                                                    }
-                                                  },
-                                                  "Property": "% HHI Pais Destino"
-                                                }
-                                              },
-                                              "Scope": [
-                                                {
-                                                  "AllRolesRef": {}
-                                                }
-                                              ]
-                                            }
-                                          },
-                                          "Function": 3
+                                        "SourceRef": {
+                                          "Entity": "fact_trades"
                                         }
                                       },
-                                      "Scope": []
+                                      "Property": "% HHI Pais Dinamico"
                                     }
                                   },
-                                  "Max": {
-                                    "ScopedEval": {
-                                      "Expression": {
-                                        "Aggregation": {
-                                          "Expression": {
-                                            "ScopedEval": {
-                                              "Expression": {
-                                                "Measure": {
-                                                  "Expression": {
-                                                    "SourceRef": {
-                                                      "Entity": "fact_trades"
-                                                    }
-                                                  },
-                                                  "Property": "% HHI Pais Destino"
-                                                }
-                                              },
-                                              "Scope": [
-                                                {
-                                                  "AllRolesRef": {}
-                                                }
-                                              ]
-                                            }
-                                          },
-                                          "Function": 4
-                                        }
-                                      },
-                                      "Scope": []
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "0.15D"
                                     }
-                                  },
-                                  "Percent": 0.0015
+                                  }
                                 }
                               }
                             }
@@ -543,6 +277,69 @@
                       "Percent": 0
                     }
                   }
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "PC - Titulo HHI"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_trades"
+                    }
+                  },
+                  "Property": "PC - Subtitulo HHI"
+                }
+              }
+            },
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

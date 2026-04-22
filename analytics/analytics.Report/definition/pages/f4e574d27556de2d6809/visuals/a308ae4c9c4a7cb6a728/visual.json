@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
-  "name": "5b9d441000b410154284",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "a308ae4c9c4a7cb6a728",
   "position": {
-    "x": 30.989473684210527,
-    "y": 706.021052631579,
-    "z": 0,
-    "height": 338.18947368421055,
-    "width": 600.92631578947373,
-    "tabOrder": 8000
+    "x": 658,
+    "y": 367,
+    "z": 4875,
+    "height": 676.37894736842111,
+    "width": 602.27368421052631,
+    "tabOrder": 11004
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -42,11 +42,11 @@
                       "Entity": "fact_trades"
                     }
                   },
-                  "Property": "% HHI Estado Dinamico"
+                  "Property": "# Qtd Municipios Importacoes"
                 }
               },
-              "queryRef": "fact_trades.% HHI Estado Dinamico",
-              "nativeQueryRef": "% HHI Estado Dinamico"
+              "queryRef": "fact_trades.# Qtd Municipios Importacoes",
+              "nativeQueryRef": "# Qtd Municipios Importacoes"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "fact_trades"
                   }
                 },
-                "Property": "% HHI Estado Dinamico"
+                "Property": "# Qtd Municipios Importacoes"
               }
             },
             "direction": "Descending"
@@ -103,8 +103,27 @@
             }
           }
         }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
-  }
+  },
+  "isHidden": true
 }
