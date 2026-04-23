@@ -68,6 +68,8 @@ Dados na camada Gold prontos para consumo e estruturados através da modelagem d
 
 ### Power BI — Dashboard de Comércio Internacional de Pescado
 
+Disponível em: [https://app.powerbi.com](https://app.powerbi.com/view?r=eyJrIjoiMTgzNDkyZmEtNGIxZi00NjQ4LThhYTUtODM5Y2E4OThhNTVlIiwidCI6ImViMDcwNTQxLTQ4YWEtNDE4My05MmEyLTFkZWFjMTZmM2M0ZSJ9)
+
 ![powerbi](docs/images/powerbi.png)
 
 ## 📁 Estrutura do Projeto

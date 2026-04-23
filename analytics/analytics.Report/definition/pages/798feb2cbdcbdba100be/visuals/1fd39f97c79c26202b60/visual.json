@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "1fd39f97c79c26202b60",
   "position": {
     "x": 36.334106728538281,
@@ -46,7 +46,8 @@
                 }
               },
               "queryRef": "fact_trades.$ Balanca Comercial",
-              "nativeQueryRef": "$ Balança Comercial"
+              "nativeQueryRef": "Balanca Comercial (nominal)",
+              "displayName": "Balanca Comercial (nominal)"
             },
             {
               "field": {
@@ -60,7 +61,8 @@
                 }
               },
               "queryRef": "fact_trades.$ Balança Comercial Real",
-              "nativeQueryRef": "$ Balança Comercial Real"
+              "nativeQueryRef": "Balança Comercial (real)",
+              "displayName": "Balança Comercial (real)"
             }
           ]
         }

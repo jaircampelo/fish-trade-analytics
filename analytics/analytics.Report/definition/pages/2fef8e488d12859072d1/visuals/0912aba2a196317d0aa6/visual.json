@@ -348,5 +348,37 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1b7fba69c95580db1555",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_calendario"
+              }
+            },
+            "Property": "Ano"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "01fd6453e738a6ba9c3e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_trades"
+              }
+            },
+            "Property": "% HHI Pais Dinamico"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

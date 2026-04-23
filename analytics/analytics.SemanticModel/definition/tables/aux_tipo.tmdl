@@ -13,7 +13,6 @@ table aux_tipo
 		annotation SummarizationSetBy = Automatic
 
 	column 'Tipo Fields'
-		isHidden
 		lineageTag: 90e9a74e-c44b-4bcc-aef0-8c4a99b74a8b
 		summarizeBy: none
 		sourceColumn: [Value2]
@@ -28,7 +27,6 @@ table aux_tipo
 		annotation SummarizationSetBy = Automatic
 
 	column 'Tipo Order'
-		isHidden
 		formatString: 0
 		lineageTag: e263e792-969b-4bde-be91-a560f6d6bb67
 		summarizeBy: sum

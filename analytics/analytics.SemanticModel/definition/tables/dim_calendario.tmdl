@@ -10,6 +10,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: Data
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -22,6 +24,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: DataIndice
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column DiasParaHoje
@@ -31,6 +35,8 @@ table dim_calendario
 		lineageTag: 2a2df7d8-ec40-4ca8-b463-42baa5f920d4
 		summarizeBy: none
 		sourceColumn: DiasParaHoje
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -42,6 +48,8 @@ table dim_calendario
 		sourceColumn: DataAtual
 		sortByColumn: Data
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Ano
@@ -52,6 +60,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: Ano
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column AnoInicio
@@ -61,6 +71,8 @@ table dim_calendario
 		lineageTag: 60f8d797-e587-48d6-88e1-f991035d45c3
 		summarizeBy: none
 		sourceColumn: AnoInicio
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -74,6 +86,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: AnoFim
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -86,6 +100,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: AnoIndice
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column AnoDecrescenteNome
@@ -97,6 +113,8 @@ table dim_calendario
 		sourceColumn: AnoDecrescenteNome
 		sortByColumn: AnoDecrescenteNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column AnoDecrescenteNumero
@@ -106,6 +124,8 @@ table dim_calendario
 		lineageTag: 53963e35-2b9f-451e-a784-d466cd56c623
 		summarizeBy: none
 		sourceColumn: AnoDecrescenteNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -117,6 +137,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: AnosParaHoje
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column AnoAtual
@@ -126,6 +148,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: AnoAtual
 		sortByColumn: Ano
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -137,6 +161,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: DiaDoMes
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column DiaDoAno
@@ -146,6 +172,8 @@ table dim_calendario
 		lineageTag: 778838df-222a-4bec-a24a-9280e018c18e
 		summarizeBy: none
 		sourceColumn: DiaDoAno
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -157,6 +185,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: DiaDaSemanaNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column DiaDaSemanaNome
@@ -166,6 +196,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: DiaDaSemanaNome
 		sortByColumn: DiaDaSemanaNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -177,6 +209,8 @@ table dim_calendario
 		sourceColumn: DiaDaSemanaNomeAbreviado
 		sortByColumn: DiaDaSemanaNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column DiaDaSemanaNomeIniciais
@@ -185,6 +219,8 @@ table dim_calendario
 		lineageTag: 6fea6266-f713-4910-acb7-29c876cf09ab
 		summarizeBy: none
 		sourceColumn: DiaDaSemanaNomeIniciais
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -196,6 +232,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: MesNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column MesNome
@@ -205,6 +243,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: MesNome
 		sortByColumn: MesNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -216,6 +256,8 @@ table dim_calendario
 		sourceColumn: MesNomeAbreviado
 		sortByColumn: MesNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column MesNomeIniciais
@@ -224,6 +266,8 @@ table dim_calendario
 		lineageTag: db53de89-00eb-49b0-abc9-8284e0ccb757
 		summarizeBy: none
 		sourceColumn: MesNomeIniciais
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -235,6 +279,8 @@ table dim_calendario
 		sourceColumn: MesAnoNome
 		sortByColumn: MesAnoNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column MesAnoNumero
@@ -244,6 +290,8 @@ table dim_calendario
 		lineageTag: 411c3426-ad9a-43c1-b4f6-ed4cab1cd007
 		summarizeBy: none
 		sourceColumn: MesAnoNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -255,6 +303,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: MesDiaNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column MesDiaNome
@@ -265,6 +315,8 @@ table dim_calendario
 		sourceColumn: MesDiaNome
 		sortByColumn: MesDiaNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column MesInicio
@@ -274,6 +326,8 @@ table dim_calendario
 		lineageTag: 703b429e-6fc5-46b0-a5f1-fde91858d995
 		summarizeBy: none
 		sourceColumn: MesInicio
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -287,6 +341,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: MesFim
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -299,6 +355,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: MesIndice
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column MesesParaHoje
@@ -308,6 +366,8 @@ table dim_calendario
 		lineageTag: ca1c6a3b-5450-4ab5-9ddc-bdf5c48baab6
 		summarizeBy: none
 		sourceColumn: MesesParaHoje
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -319,6 +379,8 @@ table dim_calendario
 		sourceColumn: MesAtualNome
 		sortByColumn: MesNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column MesAtualNomeAbreviado
@@ -328,6 +390,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: MesAtualNomeAbreviado
 		sortByColumn: MesNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -339,6 +403,8 @@ table dim_calendario
 		sourceColumn: MesAnoAtualNome
 		sortByColumn: MesAnoNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column TrimestreNumero
@@ -348,6 +414,8 @@ table dim_calendario
 		lineageTag: e3240bdd-d60c-44a5-97f0-ca1ca3646aa8
 		summarizeBy: none
 		sourceColumn: TrimestreNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -359,6 +427,8 @@ table dim_calendario
 		sourceColumn: TrimestreNome
 		sortByColumn: TrimestreNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column TrimestreAnoNome
@@ -368,6 +438,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: TrimestreAnoNome
 		sortByColumn: TrimestreAnoNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -379,6 +451,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: TrimestreAnoNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column TrimestreInicio
@@ -388,6 +462,8 @@ table dim_calendario
 		lineageTag: e4d46103-dbf0-4a1a-9b6a-02d18a4bd1b6
 		summarizeBy: none
 		sourceColumn: TrimestreInicio
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -401,6 +477,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: TrimestreFim
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -413,6 +491,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: TrimestreIndice
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column TrimestresParaHoje
@@ -422,6 +502,8 @@ table dim_calendario
 		lineageTag: 768d82a5-c58c-4653-938f-b37f8e23550a
 		summarizeBy: none
 		sourceColumn: TrimestresParaHoje
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -433,6 +515,8 @@ table dim_calendario
 		sourceColumn: TrimestreAtual
 		sortByColumn: TrimestreNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column TrimestreAnoAtual
@@ -442,6 +526,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: TrimestreAnoAtual
 		sortByColumn: TrimestreAnoNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -453,6 +539,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: MesDoTrimestreNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column SemanaDoAnoNumeroISO
@@ -462,6 +550,8 @@ table dim_calendario
 		lineageTag: 25f27779-147c-4142-a326-f7ec80a89b49
 		summarizeBy: none
 		sourceColumn: SemanaDoAnoNumeroISO
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -473,6 +563,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: AnoISO
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column SemanaAnoNumeroISO
@@ -482,6 +574,8 @@ table dim_calendario
 		lineageTag: a62f6ea0-c736-40cb-ba6c-c74cdf99a4e2
 		summarizeBy: none
 		sourceColumn: SemanaAnoNumeroISO
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -493,6 +587,8 @@ table dim_calendario
 		sourceColumn: SemanaAnoNomeISO
 		sortByColumn: SemanaAnoNumeroISO
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column SemanaInicioISO
@@ -502,6 +598,8 @@ table dim_calendario
 		lineageTag: be4732b2-c835-4ccb-8e39-c023d0d65829
 		summarizeBy: none
 		sourceColumn: SemanaInicioISO
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -515,6 +613,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: SemanaFimISO
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -527,6 +627,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: SemanaIndiceISO
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column SemanasParaHojeISO
@@ -536,6 +638,8 @@ table dim_calendario
 		lineageTag: 47338a20-1627-4383-9b88-20cbbefd88fe
 		summarizeBy: none
 		sourceColumn: SemanasParaHojeISO
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -547,6 +651,8 @@ table dim_calendario
 		sourceColumn: SemanaAtualISO
 		sortByColumn: SemanaAnoNumeroISO
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column SemanaPeriodoNome
@@ -556,6 +662,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: SemanaPeriodoNome
 		sortByColumn: SemanaAnoNumeroISO
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -567,6 +675,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: SemanaDoMesNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column SemestreNumero
@@ -576,6 +686,8 @@ table dim_calendario
 		lineageTag: a617fbfe-5b44-49a3-9f20-086ae9508a4a
 		summarizeBy: none
 		sourceColumn: SemestreNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -587,6 +699,8 @@ table dim_calendario
 		sourceColumn: SemestreAnoNome
 		sortByColumn: SemestreAnoNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column SemestreAnoNumero
@@ -596,6 +710,8 @@ table dim_calendario
 		lineageTag: 40c2d82b-50a1-4303-9a61-e91b26ab4267
 		summarizeBy: none
 		sourceColumn: SemestreAnoNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -607,6 +723,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: SemestreIndice
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column SemestresParaHoje
@@ -616,6 +734,8 @@ table dim_calendario
 		lineageTag: 1bda3a05-8430-4d98-89c2-0b5e25f1f775
 		summarizeBy: none
 		sourceColumn: SemestresParaHoje
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -627,6 +747,8 @@ table dim_calendario
 		sourceColumn: SemestreAtual
 		sortByColumn: SemestreAnoNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column BimestreNumero
@@ -636,6 +758,8 @@ table dim_calendario
 		lineageTag: c684c48f-a07d-407d-a90a-57b13fddd535
 		summarizeBy: none
 		sourceColumn: BimestreNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -647,6 +771,8 @@ table dim_calendario
 		sourceColumn: BimestreAnoNome
 		sortByColumn: BimestreAnoNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column BimestreAnoNumero
@@ -656,6 +782,8 @@ table dim_calendario
 		lineageTag: c11a2a59-7933-4a6f-8193-2d2a333d3245
 		summarizeBy: none
 		sourceColumn: BimestreAnoNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -667,6 +795,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: BimestreIndice
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column BimestresParaHoje
@@ -676,6 +806,8 @@ table dim_calendario
 		lineageTag: 52f0481c-b1bd-4677-9a58-de9d4d00811e
 		summarizeBy: none
 		sourceColumn: BimestresParaHoje
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -687,6 +819,8 @@ table dim_calendario
 		sourceColumn: BimestreAtual
 		sortByColumn: BimestreAnoNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column QuinzenaDoMesNumero
@@ -696,6 +830,8 @@ table dim_calendario
 		lineageTag: e28f2956-4427-400e-b6d0-125936944d62
 		summarizeBy: none
 		sourceColumn: QuinzenaDoMesNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -707,6 +843,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: QuinzenaMesNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column QuinzenaMesNome
@@ -716,6 +854,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: QuinzenaMesNome
 		sortByColumn: QuinzenaMesNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -727,6 +867,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: QuinzenaMesAnoNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column QuinzenaMesAnoNome
@@ -736,6 +878,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: QuinzenaMesAnoNome
 		sortByColumn: QuinzenaMesAnoNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -747,6 +891,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: QuinzenaIndice
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column QuinzenasParaHoje
@@ -756,6 +902,8 @@ table dim_calendario
 		lineageTag: d2bf8dc9-53a2-4bda-abd4-1ad2abf05d70
 		summarizeBy: none
 		sourceColumn: QuinzenasParaHoje
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -767,6 +915,8 @@ table dim_calendario
 		sourceColumn: QuinzenaAtual
 		sortByColumn: QuinzenaMesAnoNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column DataDeFechamentoRef
@@ -776,6 +926,8 @@ table dim_calendario
 		lineageTag: 941a7cfb-4cc9-4366-a12a-ab11e657a94c
 		summarizeBy: none
 		sourceColumn: DataDeFechamentoRef
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -789,6 +941,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: AnoFechamento
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column MesFechamentoNome
@@ -798,6 +952,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: MesFechamentoNome
 		sortByColumn: MesFechamentoNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -809,6 +965,8 @@ table dim_calendario
 		sourceColumn: MesFechamentoNomeAbreviado
 		sortByColumn: MesFechamentoNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column MesFechamentoNumero
@@ -818,6 +976,8 @@ table dim_calendario
 		lineageTag: 011c6915-6935-4bbd-8fc7-07ebb96c55c6
 		summarizeBy: none
 		sourceColumn: MesFechamentoNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -829,6 +989,8 @@ table dim_calendario
 		sourceColumn: MesAnoFechamentoNome
 		sortByColumn: MesAnoFechamentoNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column MesAnoFechamentoNumero
@@ -838,6 +1000,8 @@ table dim_calendario
 		lineageTag: 9cabd38f-516f-4e73-a761-64d9146e2eb3
 		summarizeBy: none
 		sourceColumn: MesAnoFechamentoNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -849,6 +1013,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: EstacaoNorteNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column EstacaoNorteNome
@@ -858,6 +1024,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: EstacaoNorteNome
 		sortByColumn: EstacaoNorteNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -869,6 +1037,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: EstacaoSulNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column EstacaoSulNome
@@ -879,6 +1049,8 @@ table dim_calendario
 		sourceColumn: EstacaoSulNome
 		sortByColumn: EstacaoSulNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Feriado
@@ -887,6 +1059,8 @@ table dim_calendario
 		lineageTag: 11c604cb-a996-4ab9-9c93-c9c8a03683de
 		summarizeBy: none
 		sourceColumn: Feriado
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -898,6 +1072,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: DiaUtilNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column DiaUtilNome
@@ -906,6 +1082,8 @@ table dim_calendario
 		lineageTag: 2f538cf9-2e5b-4b01-9cf0-a4aeaf7d7861
 		summarizeBy: none
 		sourceColumn: DiaUtilNome
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -917,6 +1095,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: AnoFiscalInicialNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column AnoFiscalFinalNumero
@@ -927,6 +1107,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: AnoFiscalFinalNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column AnoFiscal
@@ -935,6 +1117,8 @@ table dim_calendario
 		lineageTag: 756ff4f2-8627-464d-8345-0a30374933a9
 		summarizeBy: none
 		sourceColumn: AnoFiscal
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -945,6 +1129,8 @@ table dim_calendario
 		lineageTag: 3945101c-58ba-4283-832d-fc17072958d9
 		summarizeBy: none
 		sourceColumn: AnoFiscalInicio
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -958,6 +1144,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: AnoFiscalFim
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -970,6 +1158,8 @@ table dim_calendario
 		sourceColumn: AnoFiscalAtual
 		sortByColumn: AnoFiscal
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column AnosFiscaisParaHoje
@@ -979,6 +1169,8 @@ table dim_calendario
 		lineageTag: a1ab3816-d476-436b-8387-a7740666bf14
 		summarizeBy: none
 		sourceColumn: AnosFiscaisParaHoje
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -990,6 +1182,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: MesFiscalNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column MesFiscalNome
@@ -999,6 +1193,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: MesFiscalNome
 		sortByColumn: MesFiscalNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -1010,6 +1206,8 @@ table dim_calendario
 		sourceColumn: MesFiscalNomeAbreviado
 		sortByColumn: MesFiscalNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column MesFiscalAtual
@@ -1019,6 +1217,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: MesFiscalAtual
 		sortByColumn: MesFiscalNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -1030,6 +1230,8 @@ table dim_calendario
 		sourceColumn: MesAnoFiscalNome
 		sortByColumn: MesAnoFiscalNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column MesAnoFiscalNumero
@@ -1039,6 +1241,8 @@ table dim_calendario
 		lineageTag: 06c97095-d9c9-4eca-a960-a462a9059604
 		summarizeBy: none
 		sourceColumn: MesAnoFiscalNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -1050,6 +1254,8 @@ table dim_calendario
 		sourceColumn: MesAnoFiscalAtual
 		sortByColumn: MesAnoFiscalNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column MesesFiscaisParaHoje
@@ -1059,6 +1265,8 @@ table dim_calendario
 		lineageTag: 85ed5eb0-c55e-436c-b2a7-4f977d0412e3
 		summarizeBy: none
 		sourceColumn: MesesFiscaisParaHoje
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -1070,6 +1278,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: TrimestreFiscalNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column TrimestreFiscalNome
@@ -1079,6 +1289,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: TrimestreFiscalNome
 		sortByColumn: TrimestreFiscalNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -1090,6 +1302,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: MesDoTrimestreFiscalNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column AnoTrimestreFiscalNome
@@ -1099,6 +1313,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: AnoTrimestreFiscalNome
 		sortByColumn: AnoTrimestreFiscalNumero
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -1110,6 +1326,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: AnoTrimestreFiscalNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column TrimestreFiscalInicio
@@ -1119,6 +1337,8 @@ table dim_calendario
 		lineageTag: 2a1e22b6-686c-4efd-9c1e-bd57c6f6e15f
 		summarizeBy: none
 		sourceColumn: TrimestreFiscalInicio
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -1132,6 +1352,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: TrimestreFiscalFim
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -1144,6 +1366,8 @@ table dim_calendario
 		summarizeBy: none
 		sourceColumn: TrimestresFiscaisParaHoje
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column TrimestreFiscalAtual
@@ -1154,6 +1378,8 @@ table dim_calendario
 		sourceColumn: TrimestreFiscalAtual
 		sortByColumn: AnoTrimestreFiscalNumero
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column DiaDoTrimestreFiscal
@@ -1163,6 +1389,8 @@ table dim_calendario
 		lineageTag: 31087731-c4da-4ea5-85bb-e567d7609635
 		summarizeBy: none
 		sourceColumn: DiaDoTrimestreFiscal
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

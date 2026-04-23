@@ -4,7 +4,7 @@
   "position": {
     "x": 1561,
     "y": 567.11136890951275,
-    "z": 1500,
+    "z": 2000,
     "height": 146.58932714617168,
     "width": 330.7656612529002,
     "tabOrder": 12000
@@ -58,7 +58,7 @@
             "numericStart": {
               "expr": {
                 "Literal": {
-                  "Value": "3D"
+                  "Value": "5D"
                 }
               }
             },
@@ -109,7 +109,7 @@
                         },
                         "Right": {
                           "Literal": {
-                            "Value": "3D"
+                            "Value": "5D"
                           }
                         }
                       }

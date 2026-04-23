@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "c1781cb66eb8d0449bd3",
   "position": {
     "x": 35.012468827930178,
@@ -2393,5 +2393,93 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "1b3d7af335b94275a010",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_trades"
+              }
+            },
+            "Property": "$ Exportacoes"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6e1e09b8e49b51028710",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_trades"
+              }
+            },
+            "Property": "$ Importacoes"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4c1f54c000440d5c4ee0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_trades"
+              }
+            },
+            "Property": "$ Corrente"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c3cb28b580a7705a8570",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_trades"
+              }
+            },
+            "Property": "$ Balanca Comercial"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4b6cccb0c998da053b4e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_trades"
+              }
+            },
+            "Property": "$ Preco Medio por Quilo Exportacoes"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "181bc1d793b2b2b3987a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_trades"
+              }
+            },
+            "Property": "% Taxa de Cobertura"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

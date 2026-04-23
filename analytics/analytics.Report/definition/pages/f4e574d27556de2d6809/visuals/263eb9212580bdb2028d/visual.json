@@ -391,6 +391,34 @@
             }
           ]
         }
+      },
+      {
+        "name": "4f53d6382db4ddd6ece1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "aux_estados_outros"
+              }
+            },
+            "Property": "state_name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4ca4af1266c2ed560109",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "fact_trades"
+              }
+            },
+            "Property": "Ranking % HHI Exportacoes por Estado"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

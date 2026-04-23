@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "ee4a0e49571079a04a8d",
   "position": {
-    "x": 652.76102088167056,
-    "y": 368.35266821345709,
+    "x": 652.41379310344826,
+    "y": 368.27586206896552,
     "z": 3000,
-    "height": 275.63805104408351,
-    "width": 1232.8538283062644,
+    "height": 275.86206896551727,
+    "width": 1233.1034482758621,
     "tabOrder": 1000
   },
   "visual": {
@@ -46,7 +46,8 @@
                 }
               },
               "queryRef": "fact_trades.# Qtd Parceiros Exportacoes",
-              "nativeQueryRef": "# Qtd Parceiros Exportacoes"
+              "nativeQueryRef": "Exportacoes",
+              "displayName": "Exportacoes"
             },
             {
               "field": {
@@ -60,7 +61,8 @@
                 }
               },
               "queryRef": "fact_trades.# Qtd Parceiros Importacoes",
-              "nativeQueryRef": "# Qtd Parceiros Importacoes"
+              "nativeQueryRef": "Importacoes",
+              "displayName": "Importacoes"
             }
           ]
         }
@@ -156,6 +158,27 @@
           },
           "selector": {
             "id": "1"
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 5,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_trades.# Qtd Parceiros Importacoes"
           }
         }
       ]

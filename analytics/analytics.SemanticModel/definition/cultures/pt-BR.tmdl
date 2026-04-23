@@ -2623,6 +2623,16 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.6
 			          }
+			        },
+			        {
+			          "Exportacoes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -2649,6 +2659,16 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.6
 			          }
+			        },
+			        {
+			          "Importacoes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -2674,6 +2694,16 @@ cultureInfo pt-BR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "Balanca Comercial (nominal)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -6283,22 +6313,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.ranking_exportacoes_por_estado": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Ranking Exportacoes por Estado"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ranking exportacoes por estado": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "fact_trade.top_n_municipios_exportacoes": {
 			      "Definition": {
 			        "Binding": {
@@ -6418,6 +6432,16 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.599
 			          }
+			        },
+			        {
+			          "Exportacoes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -6464,6 +6488,16 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.599
 			          }
+			        },
+			        {
+			          "Importacoes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -6479,48 +6513,6 @@ cultureInfo pt-BR
 			        {
 			          "top n % exportacoes paises parceiros": {
 			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "fact_trade.VG___importacoes_negativo": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "VG - $ Importacoes Negativo"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "VG - $ importacoes negativo": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "VG $ importacoes negativo": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "vg - dollar importacoe negativo": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.624
-			          }
-			        },
-			        {
-			          "vg dollar importacoe negativo": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.617
 			          }
 			        }
 			      ]
@@ -6548,6 +6540,16 @@ cultureInfo pt-BR
 			            },
 			            "Weight": 0.609
 			          }
+			        },
+			        {
+			          "Exportacoes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -6573,6 +6575,16 @@ cultureInfo pt-BR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "Importacoes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -6701,22 +6713,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.ranking_importacoes_por_estado": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Ranking Importacoes por Estado"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ranking importacoes por estado": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "fact_trade.importacoes_real": {
 			      "Definition": {
 			        "Binding": {
@@ -6733,32 +6729,6 @@ cultureInfo pt-BR
 			        },
 			        {
 			          "dollar importacoe real": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.609
-			          }
-			        }
-			      ]
-			    },
-			    "fact_trade.exportacoes_real": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "$ Exportacoes Real"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "$ exportacoes real": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "dollar exportacoe real": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -6791,6 +6761,16 @@ cultureInfo pt-BR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "Balança Comercial (real)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -6867,22 +6847,6 @@ cultureInfo pt-BR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.599
-			          }
-			        }
-			      ]
-			    },
-			    "fact_trade.top_n__importacoes_paises_parceiros": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Top N % Importacoes Paises Parceiros"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "top n % importacoes paises parceiros": {
-			            "State": "Generated"
 			          }
 			        }
 			      ]
@@ -7224,82 +7188,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.top_n_estados_importacoes": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Top N Estados Importacoes"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "top n estados importacoes": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "best n estado importacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "first n estado importacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "leading n estado importacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "maximum n estado importacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "peak n estado importacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "upper n estado importacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        }
-			      ]
-			    },
 			    "aux_tipo": {
 			      "Definition": {
 			        "Binding": {
@@ -7346,9 +7234,6 @@ cultureInfo pt-BR
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
 			          "tipo field": {
@@ -7465,9 +7350,6 @@ cultureInfo pt-BR
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
 			          "tipo order": {
@@ -7845,42 +7727,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.exportacoes_pareto": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "% Exportacoes Pareto"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "% exportacoes pareto": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "percentage exportacoe pareto": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.609
-			          }
-			        },
-			        {
-			          "pct exportacoe pareto": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.591
-			          }
-			        }
-			      ]
-			    },
 			    "fact_trade.entity__top_n_municipios_importacoes_FormatString": {
 			      "Definition": {
 			        "Binding": {
@@ -7900,47 +7746,24 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.exportacoes_acc_por_produto": {
+			    "fact_trade.b__maior_estado_importacoes": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "$ Exportacoes Acc por Produto"
+			          "ConceptualProperty": "B - Maior Estado Importacoes"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "$ exportacoes acc por produto": {
+			          "b - maior estado importacoes": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "dollar exportacoe acc por produto": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.624
-			          }
-			        }
-			      ]
-			    },
-			    "fact_trade.entity__top_n_estados_importacoes_FormatString": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "_Top N Estados Importacoes FormatString"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "_top n estados importacoes FormatString": {
-			            "State": "Generated"
+			          "b maior estado importacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        }
 			      ]
@@ -8191,22 +8014,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.ranking_corrente_por_estado": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Ranking Corrente por Estado"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ranking corrente por estado": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "fact_trade.PC__maior_pais_parceiro_exportacoes": {
 			      "Definition": {
 			        "Binding": {
@@ -8247,88 +8054,6 @@ cultureInfo pt-BR
 			          "PC maior pais parceiro importacoes": {
 			            "State": "Generated",
 			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "fact_trade.qtd_parceiros_corrente": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "# Qtd Parceiros Corrente"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "# qtd parceiros corrente": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "no qtd parceiro corrente": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "num qtd parceiro corrente": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "number qtd parceiro corrente": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        }
-			      ]
-			    },
-			    "fact_trade.HHI_pais_destino": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "% HHI Pais Destino"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "% HHI pais destino": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "percentage hhi pais destino": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.617
-			          }
-			        },
-			        {
-			          "pct hhi pais destino": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
 			          }
 			        }
 			      ]
@@ -8395,42 +8120,6 @@ cultureInfo pt-BR
 			          "PC faixa alta medidor HHI": {
 			            "State": "Generated",
 			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "fact_trade.HHI_pais_origem": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "% HHI Pais Origem"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "% HHI pais origem": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "percentage hhi pais origem": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.617
-			          }
-			        },
-			        {
-			          "pct hhi pais origem": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
 			          }
 			        }
 			      ]
@@ -8569,58 +8258,6 @@ cultureInfo pt-BR
 			        },
 			        {
 			          "number qtd municipio importacoe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.599
-			          }
-			        }
-			      ]
-			    },
-			    "fact_trade.participacao_no_total_por_estado": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "% Participacao no Total por Estado"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "% participacao no total por estado": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "fact_trade.HHI_estado_dinamico": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "% HHI Estado Dinamico"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "% HHI estado dinamico": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "percentage hhi estado dinamico": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.617
-			          }
-			        },
-			        {
-			          "pct hhi estado dinamico": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -8872,27 +8509,28 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.entity__VG___importacoes_negativo_FormatString": {
+			    "fact_trade.exportacoes_real": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "_VG - $ Importacoes Negativo FormatString"
+			          "ConceptualProperty": "$ Exportacoes Real"
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
-			          "_VG - $ importacoes negativo FormatString": {
+			          "$ exportacoes real": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "_VG $ importacoes negativo FormatString": {
-			            "State": "Generated",
-			            "Weight": 0.97
+			          "dollar exportacoe real": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
 			          }
 			        }
 			      ]
@@ -9572,21 +9210,24 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.entity__top_n__importacoes_paises_parceiros_FormatString": {
+			    "fact_trade.b__maior_estado_exportacoes": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "_Top N % Importacoes Paises Parceiros FormatString"
+			          "ConceptualProperty": "B - Maior Estado Exportacoes"
 			        }
 			      },
 			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
 			      "Terms": [
 			        {
-			          "_top n % importacoes paises parceiros FormatString": {
+			          "b - maior estado exportacoes": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "b maior estado exportacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
 			          }
 			        }
 			      ]
@@ -10015,22 +9656,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade.teste": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "Teste"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "teste": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
 			    "fact_trade.PC__titulo_visual_tornado": {
 			      "Definition": {
 			        "Binding": {
@@ -10271,28 +9896,6 @@ cultureInfo pt-BR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.499
-			          }
-			        }
-			      ]
-			    },
-			    "fact_trade.PC__cor_barra_HHI_por_ano": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "fact_trades",
-			          "ConceptualProperty": "PC - Cor Barra HHI por Ano"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "PC - cor barra HHI por ano": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "PC cor barra HHI por ano": {
-			            "State": "Generated",
-			            "Weight": 0.97
 			          }
 			        }
 			      ]
@@ -10622,9 +10225,963 @@ cultureInfo pt-BR
 			          }
 			        }
 			      ]
+			    },
+			    "fact_trade.ranking__HHI_exportacoes_por_estado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Ranking % HHI Exportacoes por Estado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ranking % HHI exportacoes por estado": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.ranking__HHI_importacoes_por_estado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "Ranking % HHI Importacoes por Estado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ranking % HHI importacoes por estado": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.b__subtitulo_card_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "B - Subtitulo Card Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "b - subtitulo card exportacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "b subtitulo card exportacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.b__subtitulo_card_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "B - Subtitulo Card Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "b - subtitulo card importacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "b subtitulo card importacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.b__titulo_top_municipios_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "B - Titulo Top Municipios Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "b - titulo top municipios exportacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "b titulo top municipios exportacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "b titulo best municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b titulo first municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b titulo leading municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b titulo maximum municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b titulo peak municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b titulo upper municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.b__subtitulo_top_municipios_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "B - Subtitulo Top Municipios Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "b - subtitulo top municipios exportacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "b subtitulo top municipios exportacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "b subtitulo best municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b subtitulo first municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b subtitulo leading municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b subtitulo maximum municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b subtitulo peak municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b subtitulo upper municipio exportacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.b__subtitulo_municipios_ativos_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "B - Subtitulo Municipios Ativos Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "b - subtitulo municipios ativos exportacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "b subtitulo municipios ativos exportacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.b__subtitulo_mapa_exportacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "B - Subtitulo Mapa Exportacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "b - subtitulo mapa exportacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "b subtitulo mapa exportacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.b__subtitulo_mapa_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "B - Subtitulo Mapa Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "b - subtitulo mapa importacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "b subtitulo mapa importacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.b__subtitulo_municipios_ativos_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "B - Subtitulo Municipios Ativos Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "b - subtitulo municipios ativos importacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "b subtitulo municipios ativos importacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.b__subtitulo_top_municipios_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "B - Subtitulo Top Municipios Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "b - subtitulo top municipios importacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "b subtitulo top municipios importacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "b subtitulo best municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b subtitulo first municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b subtitulo leading municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b subtitulo maximum municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b subtitulo peak municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b subtitulo upper municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "fact_trade.b__titulo_top_municipios_importacoes": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "fact_trades",
+			          "ConceptualProperty": "B - Titulo Top Municipios Importacoes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "b - titulo top municipios importacoes": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "b titulo top municipios importacoes": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "b titulo best municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b titulo first municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b titulo leading municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b titulo maximum municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b titulo peak municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "b titulo upper municipio importacoe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "aux_topn_has_fact_trade_b__titulo_top_municipios_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_topn"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_topn": {
+			          "Target": {
+			            "Entity": "aux_topn"
+			          }
+			        },
+			        "fact_trade.b__titulo_top_municipios_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.b__titulo_top_municipios_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_topn"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.b__titulo_top_municipios_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_topns_have_b__titulo_top_municipios_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_b__subtitulo_top_municipios_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.b__subtitulo_top_municipios_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.b__subtitulo_top_municipios_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.b__subtitulo_top_municipios_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_b__subtitulo_top_municipios_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_b__subtitulo_municipios_ativos_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.b__subtitulo_municipios_ativos_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.b__subtitulo_municipios_ativos_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.b__subtitulo_municipios_ativos_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_b__subtitulo_municipios_ativos_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_b__subtitulo_mapa_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.b__subtitulo_mapa_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.b__subtitulo_mapa_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.b__subtitulo_mapa_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_b__subtitulo_mapa_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_b__subtitulo_mapa_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.b__subtitulo_mapa_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.b__subtitulo_mapa_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.b__subtitulo_mapa_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_b__subtitulo_mapa_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_b__subtitulo_municipios_ativos_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.b__subtitulo_municipios_ativos_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.b__subtitulo_municipios_ativos_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.b__subtitulo_municipios_ativos_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_b__subtitulo_municipios_ativos_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_b__subtitulo_top_municipios_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.b__subtitulo_top_municipios_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.b__subtitulo_top_municipios_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.b__subtitulo_top_municipios_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_b__subtitulo_top_municipios_exportacoes"
+			        }
+			      ]
+			    },
+			    "dim_calendario_has_fact_trade_b__titulo_top_municipios_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_calendario": {
+			          "Target": {
+			            "Entity": "dim_calendario"
+			          }
+			        },
+			        "fact_trade.b__titulo_top_municipios_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.b__titulo_top_municipios_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.b__titulo_top_municipios_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_calendarios_have_b__titulo_top_municipios_exportacoes"
+			        }
+			      ]
+			    },
+			    "aux_topn_has_fact_trade_b__titulo_top_municipios_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_topn"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_topn": {
+			          "Target": {
+			            "Entity": "aux_topn"
+			          }
+			        },
+			        "fact_trade.b__titulo_top_municipios_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.b__titulo_top_municipios_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_topn"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.b__titulo_top_municipios_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_topns_have_b__titulo_top_municipios_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_b__subtitulo_card_importacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.b__subtitulo_card_importacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.b__subtitulo_card_importacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.b__subtitulo_card_importacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_b__subtitulo_card_importacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_b__subtitulo_card_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.b__subtitulo_card_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.b__subtitulo_card_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.b__subtitulo_card_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_b__subtitulo_card_exportacoes"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_ranking__HHI_importacoes_por_estado": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.ranking__HHI_importacoes_por_estado": {
+			          "Target": {
+			            "Entity": "fact_trade.ranking__HHI_importacoes_por_estado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.ranking__HHI_importacoes_por_estado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_ranking__HHI_importacoes_por_estado"
+			        }
+			      ]
+			    },
+			    "fact_trade_has_ranking__HHI_exportacoes_por_estado": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.ranking__HHI_exportacoes_por_estado": {
+			          "Target": {
+			            "Entity": "fact_trade.ranking__HHI_exportacoes_por_estado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.ranking__HHI_exportacoes_por_estado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_ranking__HHI_exportacoes_por_estado"
+			        }
+			      ]
+			    },
+			    "aux_estados_outro_has_state_name": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_estados_outros"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_estados_outro": {
+			          "Target": {
+			            "Entity": "aux_estados_outro"
+			          }
+			        },
+			        "aux_estados_outro.state_name": {
+			          "Target": {
+			            "Entity": "aux_estados_outro.state_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_estados_outro"
+			            },
+			            "Object": {
+			              "Role": "aux_estados_outro.state_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_estados_outros_have_state_names"
+			        }
+			      ]
+			    },
 			    "fact_trade_has_top_n__HHI_estado_importacoes": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
@@ -10823,39 +11380,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_PC__cor_barra_HHI_por_ano": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.PC__cor_barra_HHI_por_ano": {
-			          "Target": {
-			            "Entity": "fact_trade.PC__cor_barra_HHI_por_ano"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.PC__cor_barra_HHI_por_ano"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_PC__cor_barra_HHI_por_ano"
-			        }
-			      ]
-			    },
 			    "fact_trade_has_PC__subtitulo_tornado": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
@@ -10919,39 +11443,6 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "aux_topns_have_PC__titulo_visual_tornado"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_teste": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.teste": {
-			          "Target": {
-			            "Entity": "fact_trade.teste"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.teste"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_teste"
 			        }
 			      ]
 			    },
@@ -11648,6 +12139,72 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
+			    "fact_trade_has_b__maior_estado_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.b__maior_estado_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.b__maior_estado_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.b__maior_estado_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have_b__maior_estado_exportacoes"
+			        }
+			      ]
+			    },
+			    "dim_city_has_fact_trade_b__maior_estado_exportacoes": {
+			      "Binding": {
+			        "ConceptualEntity": "dim_cities"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_city": {
+			          "Target": {
+			            "Entity": "dim_city"
+			          }
+			        },
+			        "fact_trade.b__maior_estado_exportacoes": {
+			          "Target": {
+			            "Entity": "fact_trade.b__maior_estado_exportacoes"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_city"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.b__maior_estado_exportacoes"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_cities_have_b__maior_estado_exportacoes"
+			        }
+			      ]
+			    },
 			    "fact_trade_has_BC__subtitulo_heatmap": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
@@ -12176,6 +12733,39 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
+			    "fact_trade_has_exportacoes_real": {
+			      "Binding": {
+			        "ConceptualEntity": "fact_trades"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_trade": {
+			          "Target": {
+			            "Entity": "fact_trade"
+			          }
+			        },
+			        "fact_trade.exportacoes_real": {
+			          "Target": {
+			            "Entity": "fact_trade.exportacoes_real"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_trade"
+			            },
+			            "Object": {
+			              "Role": "fact_trade.exportacoes_real"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_trades_have__exportacoes_real"
+			        }
+			      ]
+			    },
 			    "fact_trade_has_var_taxa_de_cobertura_YoY": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
@@ -12506,72 +13096,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_HHI_estado_dinamico": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.HHI_estado_dinamico": {
-			          "Target": {
-			            "Entity": "fact_trade.HHI_estado_dinamico"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.HHI_estado_dinamico"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have__HHI_estado_dinamico"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_participacao_no_total_por_estado": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.participacao_no_total_por_estado": {
-			          "Target": {
-			            "Entity": "fact_trade.participacao_no_total_por_estado"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.participacao_no_total_por_estado"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have__participacao_no_total_por_estado"
-			        }
-			      ]
-			    },
 			    "fact_trade_has_qtd_municipios_importacoes": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
@@ -12704,39 +13228,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_HHI_pais_origem": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.HHI_pais_origem": {
-			          "Target": {
-			            "Entity": "fact_trade.HHI_pais_origem"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.HHI_pais_origem"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have__HHI_pais_origem"
-			        }
-			      ]
-			    },
 			    "fact_trade_has_PC__faixa_alta_medidor_HHI": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
@@ -12833,72 +13324,6 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_trades_have_PC__faixa_baixa_medidor_HHI"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_HHI_pais_destino": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.HHI_pais_destino": {
-			          "Target": {
-			            "Entity": "fact_trade.HHI_pais_destino"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.HHI_pais_destino"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have__HHI_pais_destino"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_qtd_parceiros_corrente": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.qtd_parceiros_corrente": {
-			          "Target": {
-			            "Entity": "fact_trade.qtd_parceiros_corrente"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.qtd_parceiros_corrente"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have__qtd_parceiros_corrente"
 			        }
 			      ]
 			    },
@@ -13034,39 +13459,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_ranking_corrente_por_estado": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.ranking_corrente_por_estado": {
-			          "Target": {
-			            "Entity": "fact_trade.ranking_corrente_por_estado"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.ranking_corrente_por_estado"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_ranking_corrente_por_estado"
-			        }
-			      ]
-			    },
 			    "aux_topn_has_TopN_value": {
 			      "Binding": {
 			        "ConceptualEntity": "aux_topn"
@@ -13133,7 +13525,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_exportacoes_acc_por_produto": {
+			    "fact_trade_has_b__maior_estado_importacoes": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
 			      },
@@ -13144,9 +13536,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_trade"
 			          }
 			        },
-			        "fact_trade.exportacoes_acc_por_produto": {
+			        "fact_trade.b__maior_estado_importacoes": {
 			          "Target": {
-			            "Entity": "fact_trade.exportacoes_acc_por_produto"
+			            "Entity": "fact_trade.b__maior_estado_importacoes"
 			          }
 			        }
 			      },
@@ -13157,29 +13549,29 @@ cultureInfo pt-BR
 			              "Role": "fact_trade"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.exportacoes_acc_por_produto"
+			              "Role": "fact_trade.b__maior_estado_importacoes"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have__exportacoes_acc_por_produto"
+			          "ID": "fact_trades_have_b__maior_estado_importacoes"
 			        }
 			      ]
 			    },
-			    "fact_trade_has_exportacoes_pareto": {
+			    "dim_city_has_fact_trade_b__maior_estado_importacoes": {
 			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
+			        "ConceptualEntity": "dim_cities"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "fact_trade": {
+			        "dim_city": {
 			          "Target": {
-			            "Entity": "fact_trade"
+			            "Entity": "dim_city"
 			          }
 			        },
-			        "fact_trade.exportacoes_pareto": {
+			        "fact_trade.b__maior_estado_importacoes": {
 			          "Target": {
-			            "Entity": "fact_trade.exportacoes_pareto"
+			            "Entity": "fact_trade.b__maior_estado_importacoes"
 			          }
 			        }
 			      },
@@ -13187,15 +13579,15 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "fact_trade"
+			              "Role": "dim_city"
 			            },
 			            "Object": {
-			              "Role": "fact_trade.exportacoes_pareto"
+			              "Role": "fact_trade.b__maior_estado_importacoes"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_trades_have__exportacoes_pareto"
+			          "ID": "dim_cities_have_b__maior_estado_importacoes"
 			        }
 			      ]
 			    },
@@ -13496,6 +13888,72 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
+			    "aux_tipo_has_tipo_order": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_tipo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_tipo": {
+			          "Target": {
+			            "Entity": "aux_tipo"
+			          }
+			        },
+			        "aux_tipo.tipo_order": {
+			          "Target": {
+			            "Entity": "aux_tipo.tipo_order"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_tipo"
+			            },
+			            "Object": {
+			              "Role": "aux_tipo.tipo_order"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_tipos_have_tipo_orders"
+			        }
+			      ]
+			    },
+			    "aux_tipo_has_tipo_field": {
+			      "Binding": {
+			        "ConceptualEntity": "aux_tipo"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "aux_tipo": {
+			          "Target": {
+			            "Entity": "aux_tipo"
+			          }
+			        },
+			        "aux_tipo.tipo_field": {
+			          "Target": {
+			            "Entity": "aux_tipo.tipo_field"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "aux_tipo"
+			            },
+			            "Object": {
+			              "Role": "aux_tipo.tipo_field"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "aux_tipos_have_tipo_fields"
+			        }
+			      ]
+			    },
 			    "aux_tipo_has_tipo": {
 			      "Binding": {
 			        "ConceptualEntity": "aux_tipo"
@@ -13526,39 +13984,6 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "aux_tipos_have_tipos"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_top_n_estados_importacoes": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.top_n_estados_importacoes": {
-			          "Target": {
-			            "Entity": "fact_trade.top_n_estados_importacoes"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.top_n_estados_importacoes"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_top_n_estados_importacoes"
 			        }
 			      ]
 			    },
@@ -13793,72 +14218,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_top_n__importacoes_paises_parceiros": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.top_n__importacoes_paises_parceiros": {
-			          "Target": {
-			            "Entity": "fact_trade.top_n__importacoes_paises_parceiros"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.top_n__importacoes_paises_parceiros"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_top_n__importacoes_paises_parceiros"
-			        }
-			      ]
-			    },
-			    "aux_paises_outro_has_fact_trade_top_n__importacoes_paises_parceiros": {
-			      "Binding": {
-			        "ConceptualEntity": "aux_paises_outros"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "aux_paises_outro": {
-			          "Target": {
-			            "Entity": "aux_paises_outro"
-			          }
-			        },
-			        "fact_trade.top_n__importacoes_paises_parceiros": {
-			          "Target": {
-			            "Entity": "fact_trade.top_n__importacoes_paises_parceiros"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "aux_paises_outro"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.top_n__importacoes_paises_parceiros"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "aux_paises_outros_have_top_n__importacoes_paises_parceiros"
-			        }
-			      ]
-			    },
 			    "fact_trade_has_top_n_municipios_importacoes": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
@@ -13925,39 +14284,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_exportacoes_real": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.exportacoes_real": {
-			          "Target": {
-			            "Entity": "fact_trade.exportacoes_real"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.exportacoes_real"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have__exportacoes_real"
-			        }
-			      ]
-			    },
 			    "fact_trade_has_importacoes_real": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
@@ -13988,39 +14314,6 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_trades_have__importacoes_real"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_ranking_importacoes_por_estado": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.ranking_importacoes_por_estado": {
-			          "Target": {
-			            "Entity": "fact_trade.ranking_importacoes_por_estado"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.ranking_importacoes_por_estado"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_ranking_importacoes_por_estado"
 			        }
 			      ]
 			    },
@@ -14222,39 +14515,6 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_trade_has_VG___importacoes_negativo": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.VG___importacoes_negativo": {
-			          "Target": {
-			            "Entity": "fact_trade.VG___importacoes_negativo"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.VG___importacoes_negativo"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_VG___importacoes_negativo"
-			        }
-			      ]
-			    },
 			    "fact_trade_has_top_n__exportacoes_paises_parceiros": {
 			      "Binding": {
 			        "ConceptualEntity": "fact_trades"
@@ -14417,39 +14677,6 @@ cultureInfo pt-BR
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_trades_have_top_n_municipios_exportacoes"
-			        }
-			      ]
-			    },
-			    "fact_trade_has_ranking_exportacoes_por_estado": {
-			      "Binding": {
-			        "ConceptualEntity": "fact_trades"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_trade": {
-			          "Target": {
-			            "Entity": "fact_trade"
-			          }
-			        },
-			        "fact_trade.ranking_exportacoes_por_estado": {
-			          "Target": {
-			            "Entity": "fact_trade.ranking_exportacoes_por_estado"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_trade"
-			            },
-			            "Object": {
-			              "Role": "fact_trade.ranking_exportacoes_por_estado"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_trades_have_ranking_exportacoes_por_estado"
 			        }
 			      ]
 			    },
@@ -19391,20 +19618,20 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "aux_estados_outro_has_state_name": {
+			    "dim_calendario_has_fact_trade_b__titulo_top_municipios_importacoes": {
 			      "Binding": {
-			        "ConceptualEntity": "aux_estados_outros"
+			        "ConceptualEntity": "dim_calendario"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "aux_estados_outro": {
+			        "dim_calendario": {
 			          "Target": {
-			            "Entity": "aux_estados_outro"
+			            "Entity": "dim_calendario"
 			          }
 			        },
-			        "aux_estados_outro.state_name": {
+			        "fact_trade.b__titulo_top_municipios_importacoes": {
 			          "Target": {
-			            "Entity": "aux_estados_outro.state_name"
+			            "Entity": "fact_trade.b__titulo_top_municipios_importacoes"
 			          }
 			        }
 			      },
@@ -19412,15 +19639,15 @@ cultureInfo pt-BR
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "aux_estados_outro"
+			              "Role": "dim_calendario"
 			            },
 			            "Object": {
-			              "Role": "aux_estados_outro.state_name"
+			              "Role": "fact_trade.b__titulo_top_municipios_importacoes"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "aux_estados_outros_have_state_names"
+			          "ID": "dim_calendarios_have_b__titulo_top_municipios_importacoes"
 			        }
 			      ]
 			    },

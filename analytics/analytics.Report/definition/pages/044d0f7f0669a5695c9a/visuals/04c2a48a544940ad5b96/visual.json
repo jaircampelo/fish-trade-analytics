@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "04c2a48a544940ad5b96",
   "position": {
     "x": 35.714285714285715,
@@ -46,7 +46,8 @@
                 }
               },
               "queryRef": "fact_trades.$ Valor Exportacoes",
-              "nativeQueryRef": "$ Exportacoes"
+              "nativeQueryRef": "Exportacoes",
+              "displayName": "Exportacoes"
             },
             {
               "field": {
@@ -60,7 +61,8 @@
                 }
               },
               "queryRef": "fact_trades.$ Valor Importacoes",
-              "nativeQueryRef": "$ Importacoes"
+              "nativeQueryRef": "Importacoes",
+              "displayName": "Importacoes"
             }
           ]
         }

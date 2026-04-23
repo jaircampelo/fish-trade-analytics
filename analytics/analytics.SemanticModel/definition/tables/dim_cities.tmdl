@@ -7,6 +7,8 @@ table dim_cities
 		summarizeBy: none
 		sourceColumn: city_id
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column city_name
@@ -15,6 +17,8 @@ table dim_cities
 		dataCategory: County
 		summarizeBy: none
 		sourceColumn: city_name
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -25,6 +29,8 @@ table dim_cities
 		summarizeBy: none
 		sourceColumn: state_name
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column city_uf
@@ -32,6 +38,8 @@ table dim_cities
 		lineageTag: fb89d549-1306-4fe2-8ae8-19dfd6171672
 		summarizeBy: none
 		sourceColumn: city_uf
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -41,6 +49,8 @@ table dim_cities
 		summarizeBy: none
 		sourceColumn: uf
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column region
@@ -48,6 +58,8 @@ table dim_cities
 		lineageTag: c5fb7e08-79af-45ff-8797-44aae69a9f16
 		summarizeBy: none
 		sourceColumn: region
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

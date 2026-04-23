@@ -7,6 +7,8 @@ table dim_product_categories
 		summarizeBy: none
 		sourceColumn: product_category_id
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column product_category_name
@@ -15,6 +17,8 @@ table dim_product_categories
 		summarizeBy: none
 		sourceColumn: product_category_name
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column product_category_description
@@ -22,6 +26,8 @@ table dim_product_categories
 		lineageTag: aa5562a7-f010-4bbe-b4b5-80b47c950bf7
 		summarizeBy: none
 		sourceColumn: product_category_description
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

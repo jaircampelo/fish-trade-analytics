@@ -18,6 +18,8 @@ table fact_trades
 				RETURN
 				__Formato
 
+		changedProperty = IsHidden
+
 	measure '$ Exportacoes' =
 			
 			CALCULATE(
@@ -39,6 +41,8 @@ table fact_trades
 				)
 				RETURN
 				__Formato
+
+		changedProperty = IsHidden
 
 	measure '$ Importacoes' =
 			
@@ -62,6 +66,8 @@ table fact_trades
 				RETURN
 				__Formato
 
+		changedProperty = IsHidden
+
 	measure '$ Balanca Comercial' = [$ Exportacoes] - [$ Importacoes]
 		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: 507bec1c-18ff-4d6e-af4a-67811d9b2cd8
@@ -78,6 +84,8 @@ table fact_trades
 				)
 				RETURN
 				__Formato
+
+		changedProperty = IsHidden
 
 	measure '# Peso Líquido Exportacoes' =
 			
@@ -101,11 +109,15 @@ table fact_trades
 				RETURN
 				__Formato
 
+		changedProperty = IsHidden
+
 	measure '$ Preco Medio por Quilo Exportacoes' = DIVIDE([$ Exportacoes], [# Peso Líquido Exportacoes])
 		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: 3eaa3fb0-33cf-4c11-9577-b8da2d194ec0
 
 		formatStringDefinition = "#,0.00;#,0.00;#,0.00"
+
+		changedProperty = IsHidden
 
 	measure '% Participacao no Total Exportacoes' =
 			
@@ -123,21 +135,14 @@ table fact_trades
 		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: 025c80d1-c2ee-4b96-b7ab-75f0efdcd968
 
+		changedProperty = IsHidden
+
 	measure '% Taxa de Cobertura' = DIVIDE([$ Exportacoes], [$ Importacoes])
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: 540b50da-7533-4ce0-bf13-cb8111333819
 
-	measure 'Ranking Exportacoes por Estado' =
-			
-			RANK(
-			    DENSE,
-			    ALLSELECTED(dim_cities[state_name]),
-			    ORDERBY([$ Exportacoes], DESC)
-			)
-		formatString: 0
-		displayFolder: Medidas\04. Rankings
-		lineageTag: 6ce5d103-ce7e-4114-b585-0f184742de1c
+		changedProperty = IsHidden
 
 	measure 'Top N Municipios Exportacoes' =
 			
@@ -172,6 +177,8 @@ table fact_trades
 				RETURN
 				__Formato
 
+		changedProperty = IsHidden
+
 	measure '# Qtd Parceiros Exportacoes' =
 			
 			CALCULATE(
@@ -182,6 +189,8 @@ table fact_trades
 		displayFolder: Medidas\02. Volume
 		lineageTag: d7ae89a7-5d4e-4f83-b7fd-c4fe31b944d3
 
+		changedProperty = IsHidden
+
 	measure '# Qtd Parceiros Importacoes' =
 			
 			CALCULATE(
@@ -191,6 +200,8 @@ table fact_trades
 		formatString: 0
 		displayFolder: Medidas\02. Volume
 		lineageTag: a6c7e583-7cde-4e03-bc02-85ee170151fc
+
+		changedProperty = IsHidden
 
 	measure 'Top N % Exportacoes Paises Parceiros' =
 			
@@ -229,22 +240,7 @@ table fact_trades
 		displayFolder: Medidas\04. Rankings
 		lineageTag: eb82da6a-5d3d-4e4f-9893-2615f5df18a6
 
-	measure 'VG - $ Importacoes Negativo' = -[$ Importacoes]
-		displayFolder: Medidas\07. Storytelling
-		lineageTag: 9b38854f-f7d2-494c-b69b-8febe3cf801b
-
-		formatStringDefinition =
-				VAR __Valor = SELECTEDMEASURE()
-				VAR __Formato =
-				SWITCH(
-				    TRUE(),
-				    __Valor < -1000000000, "#0,,,.00 Bi",
-				    __Valor < -1000000, "#0,,.00 Mi",
-				    __Valor < -1000, "#0,.00 K",
-				    "#0"
-				)
-				RETURN
-				__Formato
+		changedProperty = IsHidden
 
 	measure '$ Exportacoes Acc' =
 			
@@ -268,6 +264,8 @@ table fact_trades
 				RETURN
 				__Formato
 
+		changedProperty = IsHidden
+
 	measure '$ Importacoes Acc' =
 			
 			CALCULATE(
@@ -289,6 +287,8 @@ table fact_trades
 				)
 				RETURN
 				__Formato
+
+		changedProperty = IsHidden
 
 	measure '$ Exportacoes LY' =
 			
@@ -312,6 +312,8 @@ table fact_trades
 				RETURN
 				__Formato
 
+		changedProperty = IsHidden
+
 	measure '$ Importacoes LY' =
 			
 			CALCULATE(
@@ -334,6 +336,8 @@ table fact_trades
 				RETURN
 				__Formato
 
+		changedProperty = IsHidden
+
 	measure '% Exportacoes YoY' =
 			
 			VAR __Ly = [$ Exportacoes LY]
@@ -345,6 +349,8 @@ table fact_trades
 		formatString: 0.0%;-0.0%;0.0%
 		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: e029035d-8189-40d8-947e-91ded8160dc1
+
+		changedProperty = IsHidden
 
 	measure '% Importacoes YoY' =
 			
@@ -358,20 +364,7 @@ table fact_trades
 		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: ba612981-3884-4b45-a141-21f412b6f9b3
 
-	measure 'Ranking Importacoes por Estado' =
-			
-			VAR __Rank =
-			RANK(
-			    DENSE,
-			    ALLSELECTED(dim_cities[state_name]),
-			    ORDERBY([$ Importacoes], DESC)
-			)
-			
-			RETURN
-			__Rank
-		formatString: 0
-		displayFolder: Medidas\04. Rankings
-		lineageTag: bb4ab939-ed30-4de1-9b3b-45b4982b1584
+		changedProperty = IsHidden
 
 	measure '$ Importacoes Real' =
 			
@@ -383,18 +376,9 @@ table fact_trades
 		displayFolder: Medidas\05. Valor Real
 		lineageTag: ca9e4265-6fa0-42a1-a244-0d9c6c9806f4
 
+		changedProperty = IsHidden
+
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
-
-	measure '$ Exportacoes Real' =
-			
-			CALCULATE(
-			    SUM(fact_trades[fob_value_real]),
-			    fact_trades[trade_flag] = "exp"
-			)
-		displayFolder: Medidas\05. Valor Real
-		lineageTag: d561e5a1-ef0e-4918-98c5-766cad86af96
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure '$ Balança Comercial Real' = [$ Exportacoes Real] - [$ Importacoes Real]
 		displayFolder: Medidas\05. Valor Real
@@ -412,6 +396,8 @@ table fact_trades
 				)
 				RETURN
 				__Formato
+
+		changedProperty = IsHidden
 
 	measure 'Top N Municipios Importacoes' =
 			
@@ -446,55 +432,7 @@ table fact_trades
 				RETURN
 				__Formato
 
-	measure 'Top N % Importacoes Paises Parceiros' =
-			
-			VAR __TopN =
-			TOPN(
-			    [TopN Value],
-			    ALL(aux_paises_outros),
-			    [% Participacao no Total Importacoes], DESC
-			)
-			
-			VAR __ExpTopN =
-			CALCULATE(
-			    [% Participacao no Total Importacoes],
-			    KEEPFILTERS(__TopN)
-			)
-			
-			VAR __Outros =
-			EXCEPT(ALL(aux_paises_outros), __TopN)
-			
-			VAR __ExpOutros =
-			CALCULATE(
-			    [% Participacao no Total Importacoes],
-			    __Outros
-			)
-			
-			
-			VAR __Result =
-			IF(
-			    SELECTEDVALUE(aux_paises_outros[country_name]) = "Outros",
-			    __ExpOutros,
-			    __ExpTopN
-			)
-			
-			RETURN
-			__Result
-		displayFolder: Medidas\04. Rankings
-		lineageTag: b3293131-bbf7-4157-acb4-9c8f4b65eba7
-
-		formatStringDefinition =
-				VAR __Valor = SELECTEDMEASURE()
-				VAR __Formato =
-				SWITCH(
-				    TRUE(),
-				    __Valor > 1000000000, "#0,,,.00 Bi",
-				    __Valor > 1000000, "#0,,.00 Mi",
-				    __Valor > 1000, "#0,.00 K",
-				    "#0"
-				)
-				RETURN
-				__Formato
+		changedProperty = IsHidden
 
 	measure '# Peso Líquido Importacoes' =
 			
@@ -518,37 +456,7 @@ table fact_trades
 				RETURN
 				__Formato
 
-	measure 'Top N Estados Importacoes' =
-			
-			VAR __TopN =
-			TOPN(
-			    [TopN Value],
-			    ALL(dim_cities[state_name]),
-			    [$ Importacoes], DESC
-			)
-			
-			VAR __Result = 0
-			
-			RETURN
-			CALCULATE(
-			    [$ Importacoes],
-			    KEEPFILTERS(__TopN)
-			)
-		displayFolder: Medidas\04. Rankings
-		lineageTag: 322a61a4-2fc1-45a6-a7d1-c190623d7dd8
-
-		formatStringDefinition =
-				VAR __Valor = SELECTEDMEASURE()
-				VAR __Formato =
-				SWITCH(
-				    TRUE(),
-				    __Valor > 1000000000, "#0,,,.00 Bi",
-				    __Valor > 1000000, "#0,,.00 Mi",
-				    __Valor > 1000, "#0,.00 K",
-				    "#0"
-				)
-				RETURN
-				__Formato
+		changedProperty = IsHidden
 
 	measure 'Top N Estados Exportacoes' =
 			
@@ -559,13 +467,14 @@ table fact_trades
 			    [$ Exportacoes], DESC
 			)
 			
-			VAR __Result = 0
-			
-			RETURN
+			VAR __Result =
 			CALCULATE(
 			    [$ Exportacoes],
 			    KEEPFILTERS(__TopN)
 			)
+			
+			RETURN
+			__Result
 		displayFolder: Medidas\04. Rankings
 		lineageTag: 59fb601c-300d-4cd6-a349-d3634a7f783f
 
@@ -582,11 +491,15 @@ table fact_trades
 				RETURN
 				__Formato
 
+		changedProperty = IsHidden
+
 	measure '$ Preco Medio por Quilo Importacoes' = DIVIDE([$ Importacoes], [# Peso Líquido Importacoes])
 		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: 0b761699-aa56-4f6f-9c08-40b389917c9d
 
 		formatStringDefinition = "#,0.00;#,0.00;#,0.00"
+
+		changedProperty = IsHidden
 
 	measure 'P - Produto Mais Exportado' =
 			
@@ -601,6 +514,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 5a4e15f1-14c5-4534-b462-c440f9113f42
 
+		changedProperty = IsHidden
+
 	measure 'P - Produto Mais Importado' =
 			
 			CONCATENATEX(
@@ -613,6 +528,8 @@ table fact_trades
 			)
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 7ade20cc-2a97-4c9d-b355-ee8f06e4d1d9
+
+		changedProperty = IsHidden
 
 	measure 'P - Produto Maior Valor Agregado Exportacoes' =
 			
@@ -627,9 +544,13 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: be0bed65-e13f-4ca8-9277-285518c386dd
 
+		changedProperty = IsHidden
+
 	measure '_Dummy Visual' = " "
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 422d01b3-40dc-4e6a-85ff-2eb1913b8d97
+
+		changedProperty = IsHidden
 
 	measure '% Participacao no Total Importacoes' =
 			
@@ -647,10 +568,14 @@ table fact_trades
 		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: e778a78c-f81a-426a-96ae-0f4ea7376d5e
 
+		changedProperty = IsHidden
+
 	measure 'PC - Top N Market Share Importacoes Negativo' = - [Top N Market Share Importacoes (por Corrente)]
 		formatString: #0.00%;#0.00%
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 6fedb16f-a91a-4ed3-a777-6f341295e0e9
+
+		changedProperty = IsHidden
 
 		annotation PBI_FormatHint = {"isCustom":true}
 
@@ -675,6 +600,8 @@ table fact_trades
 		displayFolder: Medidas\04. Rankings
 		lineageTag: 4c31a01a-6303-41ef-a6d0-a0e8aa496845
 
+		changedProperty = IsHidden
+
 	measure 'Top N Market Share Exportacoes (por Corrente)' =
 			
 			VAR __TopN =
@@ -696,20 +623,7 @@ table fact_trades
 		displayFolder: Medidas\04. Rankings
 		lineageTag: dcb8a5a5-21f5-4a7d-8204-055941758787
 
-	measure 'Ranking Corrente por Estado' =
-			
-			VAR __Rank =
-			RANK(
-			    DENSE,
-			    ALLSELECTED(dim_cities[state_name]),
-			    ORDERBY([$ Corrente], DESC)
-			)
-			
-			RETURN
-			__Rank
-		formatString: 0
-		displayFolder: Medidas\04. Rankings
-		lineageTag: 930b8056-f4ca-434d-bd10-004705297176
+		changedProperty = IsHidden
 
 	measure 'PC - Maior Pais Parceiro Exportacoes' =
 			
@@ -724,6 +638,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 87d700fe-4cdf-432b-9807-2bcf46343b8d
 
+		changedProperty = IsHidden
+
 	measure 'PC - Maior Pais Parceiro Importacoes' =
 			
 			CONCATENATEX(
@@ -737,28 +653,13 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 4e1fe88e-90c5-4a0d-a213-659eda618a1c
 
-	measure '# Qtd Parceiros Corrente' = DISTINCTCOUNT(fact_trades[trade_country_id])
-		formatString: 0
-		displayFolder: Medidas\02. Volume
-		lineageTag: 968c417c-77d9-4b28-a649-5a7ef9930722
-
-	measure '% HHI Pais Destino' = ```
-			
-			VAR __TabelaShare = 
-			    ADDCOLUMNS(
-			        VALUES(dim_countries[country_name]),
-			        "@Share", [% Participacao no Total Exportacoes]
-			    )
-			RETURN
-			    SUMX(__TabelaShare, [@Share] ^ 2)
-			```
-		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: Medidas\03. Performance & Preço
-		lineageTag: 683cff61-98d5-45c7-873c-72abfd71391b
+		changedProperty = IsHidden
 
 	measure 'PC - Faixa Baixa Medidor HHI' = 0.15
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 0251635b-347c-41fb-8857-a2f34b4a4e82
+
+		changedProperty = IsHidden
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -766,26 +667,15 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: a536a162-99d0-48b2-bc88-78ef9b5fef28
 
+		changedProperty = IsHidden
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'PC - Faixa Alta Medidor HHI' = 0.75
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: ebc930b7-b8f9-4613-8637-092000a1564c
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure '% HHI Pais Origem' = ```
-			
-			VAR __TabelaShare = 
-			    ADDCOLUMNS(
-			        VALUES(dim_countries[country_name]),
-			        "@Share", [% Participacao no Total Importacoes]
-			    )
-			RETURN
-			    SUMX(__TabelaShare, [@Share] ^ 2)
-			```
-		displayFolder: Medidas\03. Performance & Preço
-		lineageTag: cd92f7b1-ea06-454f-a66b-360a491ef552
+		changedProperty = IsHidden
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -804,6 +694,8 @@ table fact_trades
 		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: cb79f373-c847-4973-898b-c562a70f8180
 
+		changedProperty = IsHidden
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure '% HHI Pais Dinamico' = ```
@@ -820,6 +712,8 @@ table fact_trades
 		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: 86fde091-1e62-4f39-bb8a-29e9ca6bed13
 
+		changedProperty = IsHidden
+
 	measure '# Qtd Municipios Exportacoes' =
 			
 			CALCULATE(
@@ -829,6 +723,8 @@ table fact_trades
 		formatString: 0
 		displayFolder: Medidas\02. Volume
 		lineageTag: fad005c8-e5b7-413d-b8a3-736718c814d5
+
+		changedProperty = IsHidden
 
 	measure '# Qtd Municipios Importacoes' =
 			
@@ -840,41 +736,14 @@ table fact_trades
 		displayFolder: Medidas\02. Volume
 		lineageTag: 6aaaed7f-ac67-498d-bfd7-042bdee11084
 
-	measure '% Participacao no Total por Estado' =
-			
-			VAR __Total =
-			CALCULATE(
-			    SUM(fact_trades[fob_value]),
-			    ALL(dim_cities[state_name])
-			)
-			
-			VAR __Result = DIVIDE(SUM(fact_trades[fob_value]), __Total)
-			
-			RETURN
-			__Result
-		displayFolder: Medidas\03. Performance & Preço
-		lineageTag: 922a35eb-2dd1-4dde-882d-1f7883a92049
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure '% HHI Estado Dinamico' = ```
-			
-			VAR __TabelaShare = 
-			    ADDCOLUMNS(
-			        VALUES(dim_cities[state_name]),
-			        "@Share", [% Participacao no Total por Estado]
-			    )
-			RETURN
-			    SUMX(__TabelaShare, [@Share] ^ 2)
-			```
-		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: Medidas\03. Performance & Preço
-		lineageTag: 081a4425-0797-40e0-aa4a-e79f5e5d3d94
+		changedProperty = IsHidden
 
 	measure 'PC - Top N Market Share Exportacoes Positivo' = [Top N Market Share Exportacoes (por Corrente)]
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 03df3fae-e227-4c33-a7fe-f63eded6b146
+
+		changedProperty = IsHidden
 
 	measure '$ Corrente LY' =
 			
@@ -898,6 +767,8 @@ table fact_trades
 				RETURN
 				__Formato
 
+		changedProperty = IsHidden
+
 	measure '% Corrente YoY' =
 			
 			VAR __Ly = [$ Corrente LY]
@@ -909,6 +780,8 @@ table fact_trades
 		formatString: 0.0%;-0.0%;0.0%
 		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: bd54c39b-f3fb-4877-b391-082cf965cd20
+
+		changedProperty = IsHidden
 
 	measure '$ Balanca Comercial LY' =
 			
@@ -932,6 +805,8 @@ table fact_trades
 				RETURN
 				__Formato
 
+		changedProperty = IsHidden
+
 	measure '$ Balanca Comercial YoY' = [$ Balanca Comercial] - [$ Balanca Comercial LY]
 		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: 2854566d-e2bb-4c7b-aca1-cb50d0b54b31
@@ -948,6 +823,8 @@ table fact_trades
 				)
 				RETURN
 				__Formato
+
+		changedProperty = IsHidden
 
 	measure '$ Preco Medio por Quilo Exportacoes LY' =
 			
@@ -971,6 +848,8 @@ table fact_trades
 				RETURN
 				__Formato
 
+		changedProperty = IsHidden
+
 	measure '% Preco Medio por Quilo Exportacoes YoY' =
 			
 			VAR __Ly = [$ Preco Medio por Quilo Exportacoes LY]
@@ -983,6 +862,8 @@ table fact_trades
 		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: 12c2832a-13f7-4764-8a5b-b85393a63b69
 
+		changedProperty = IsHidden
+
 	measure '% Taxa de Cobertura LY' =
 			
 			CALCULATE(
@@ -992,6 +873,8 @@ table fact_trades
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: a428a0a8-ff28-4ca6-9c1f-a4bafdc74b6a
+
+		changedProperty = IsHidden
 
 	measure 'VG - Rotulo Taxa de Cobertura YoY' =
 			
@@ -1011,11 +894,15 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: e9598d00-c048-4af9-9b32-7a1e550ae750
 
+		changedProperty = IsHidden
+
 		annotation PBI_FormatHint = {"isCustom":true}
 
 	measure 'Var Taxa de Cobertura YoY' = [% Taxa de Cobertura] - [% Taxa de Cobertura LY]
 		displayFolder: Medidas\06. Time Intelligence
 		lineageTag: a5661ea0-7c46-414f-905f-937b0095d761
+
+		changedProperty = IsHidden
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -1057,52 +944,7 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: f2185dff-d2f9-4a34-80fb-73bbabe5991e
 
-	measure '$ Exportacoes Acc por Produto' =
-			
-			VAR __Window =
-			WINDOW(
-			    1, ABS,
-			    0, REL,
-			    ALLSELECTED(dim_product_categories[product_category_name]),
-			    ORDERBY([$ Exportacoes], DESC)
-			)
-			
-			VAR __Acc =
-			CALCULATE(
-			    [$ Exportacoes],
-			    __Window
-			)
-			
-			RETURN
-			__Acc
-		displayFolder: Medidas\03. Performance & Preço
-		lineageTag: 4be9b1ce-4e3b-44f6-b6b5-baf0b25a2e20
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure '% Exportacoes Pareto' =
-			
-			VAR __Window =
-			WINDOW(
-			    1, ABS,
-			    -1, ABS,
-			    ALLSELECTED(dim_product_categories[product_category_name]),
-			    ORDERBY([$ Exportacoes], DESC)
-			)
-			
-			VAR __Total =
-			CALCULATE(
-			    [$ Exportacoes],
-			    __Window
-			)
-			
-			VAR __Result = DIVIDE([$ Exportacoes Acc por Produto], __Total)
-			
-			RETURN
-			__Result
-		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: Medidas\03. Performance & Preço
-		lineageTag: ddd85306-482e-4dbd-948e-bd23c1d9c10b
+		changedProperty = IsHidden
 
 	measure 'VG - Subtitulo Produtos' =
 			
@@ -1156,6 +998,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 9f28283c-1368-4703-a02e-c8498b7e3044
 
+		changedProperty = IsHidden
+
 	measure 'VG - Titulo Top N Estados' =
 			
 			VAR __TopNValor = SELECTEDVALUE('aux_topn'[TopN])
@@ -1179,6 +1023,8 @@ table fact_trades
 			__Texto
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 9e0d4ffb-0855-489b-8c4e-a9757b61bea5
+
+		changedProperty = IsHidden
 
 	measure 'VG - Subtitulo Top N Estados' = ```
 			
@@ -1219,6 +1065,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 1450d53a-519e-4e23-9e5b-b85eec50729d
 
+		changedProperty = IsHidden
+
 	measure 'Ranking Exportacoes por Pais' =
 			
 			RANK(
@@ -1229,6 +1077,8 @@ table fact_trades
 		formatString: 0
 		displayFolder: Medidas\04. Rankings
 		lineageTag: e9dcdb97-ed69-40a0-a5fd-54cd7054cdab
+
+		changedProperty = IsHidden
 
 	measure 'VG - Titulo Top N Paises' =
 			
@@ -1253,6 +1103,8 @@ table fact_trades
 			__Texto
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: b41feede-3752-42f8-a499-f5a1c4739491
+
+		changedProperty = IsHidden
 
 	measure 'VG - Subtitulo Top N Paises' = ```
 			
@@ -1325,6 +1177,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: d3503ebc-941d-41ea-9cee-36ac7c70951f
 
+		changedProperty = IsHidden
+
 	measure 'BC - Titulo Pagina' =
 			
 			VAR __TopBottomBalanca =
@@ -1362,6 +1216,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 10d9b78f-81b6-4f8f-bb8d-031b8db32a49
 
+		changedProperty = IsHidden
+
 	measure 'BC - Subtitulo Nominal vs Real' =
 			
 			VAR __TodosMeses = ALLSELECTED(dim_calendario[MesAnoNome], dim_calendario[MesAnoNumero])
@@ -1396,6 +1252,8 @@ table fact_trades
 			__Texto
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 5ce81b44-e0bc-42c9-a700-4792fe234ab3
+
+		changedProperty = IsHidden
 
 	measure 'BC - Subtitulo Acumulado' = ```
 			
@@ -1459,6 +1317,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: a3c40b74-0bf9-4ded-8359-95a509229902
 
+		changedProperty = IsHidden
+
 	measure 'BC - Subtitulo Heatmap' = ```
 			
 			VAR __TabMediaMensal =
@@ -1511,6 +1371,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: aeb61735-ec6a-4aea-8f92-81a6605811c8
 
+		changedProperty = IsHidden
+
 	measure 'P - Subtitulo Card Mais Exportado' = ```
 			
 			VAR __Data =
@@ -1546,17 +1408,23 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 1b1c7fc9-e1e7-4821-ba56-c3e2943d453f
 
+		changedProperty = IsHidden
+
 	measure 'P - Titulo Produto Mais Importado' =
 			
 			"...e " & [P - Produto Mais Importado]
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 5858aa8a-e4fa-4710-93ef-32d7b0dab8f5
 
+		changedProperty = IsHidden
+
 	measure 'P - Titulo Produto Maior Valor Agregado' =
 			
 			"...mas " & [P - Produto Maior Valor Agregado Exportacoes]
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 6b8bc1d9-d5e2-414c-9d0a-d29b124c335c
+
+		changedProperty = IsHidden
 
 	measure 'P - Subtitulo Produto Maior Valor Agregado' =
 			
@@ -1596,6 +1464,8 @@ table fact_trades
 			__Texto
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 67acff90-de02-4c00-82da-5fc942116919
+
+		changedProperty = IsHidden
 
 	measure 'P - Subtitulo Exportacoes por Categoria' = ```
 			
@@ -1686,6 +1556,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: e344f7b0-0d5a-4d93-b0a1-2fef0e4ba4e0
 
+		changedProperty = IsHidden
+
 	measure 'P - Subtitulo Preco por Quilo Anual Exportacoes' =
 			
 			VAR __Media =
@@ -1718,6 +1590,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: baceb763-b229-4a8f-b252-08257cc539bc
 
+		changedProperty = IsHidden
+
 	measure 'P - Subtitulo Preco por Quilo Categoria Exportacoes' =
 			
 			VAR __Top1Cat = [P - Produto Maior Valor Agregado Exportacoes]
@@ -1734,6 +1608,8 @@ table fact_trades
 			& ")."
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 5dff55cb-2c89-4138-b1c8-079241be8110
+
+		changedProperty = IsHidden
 
 	measure 'P - Subtitulo Importacoes por Categoria' = ```
 			
@@ -1824,6 +1700,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 5e75c1c0-4b3c-4f9d-a632-2b7ac8c724cb
 
+		changedProperty = IsHidden
+
 	measure 'P - Subtitulo Preco por Quilo Anual Importacoes' =
 			
 			VAR __Media =
@@ -1856,6 +1734,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: bf1d5cda-99cb-4268-a3fe-5c7b0094eaf5
 
+		changedProperty = IsHidden
+
 	measure 'P - Subtitulo Preco por Quilo Categoria Importacoes' =
 			
 			VAR __Top1Cat = [P - Produto Maior Valor Agregado Importacoes]
@@ -1873,6 +1753,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 34affca2-2b02-4dbe-9a53-2426bd319a36
 
+		changedProperty = IsHidden
+
 	measure 'P - Produto Maior Valor Agregado Importacoes' =
 			
 			CONCATENATEX(
@@ -1885,6 +1767,8 @@ table fact_trades
 			)
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 4a260b5d-ca7f-4ad5-a590-3928dad7f05f
+
+		changedProperty = IsHidden
 
 	measure 'PC - Titulo Card Exportacoes' =
 			
@@ -1916,6 +1800,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 25ae6151-c1e2-46a3-999f-f84f367507ec
 
+		changedProperty = IsHidden
+
 	measure 'PC - Titulo Card Importacoes' =
 			
 			VAR __CategoriasSelecionadas = VALUES(dim_product_categories[product_category_name])
@@ -1946,26 +1832,7 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: f9125df3-d98b-453a-98fa-644f8d8e9d29
 
-	measure Teste =
-			
-			VAR __TabComPct =
-			ADDCOLUMNS(
-			    ALLSELECTED(dim_countries[country_name]),
-			    "@Pct",
-			    CALCULATE([% Participacao no Total Exportacoes])
-			)
-			
-			VAR __Top1Pct =
-			MAXX(
-			    TOPN(1, __TabComPct, [@Pct], DESC),
-			    [@Pct]
-			)
-			
-			RETURN
-			__Top1Pct
-		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: Medidas
-		lineageTag: 8a14d6b0-b17e-4b38-89a3-2d8fcb0dc3f6
+		changedProperty = IsHidden
 
 	measure 'PC - Titulo Visual Tornado' = ```
 			
@@ -1981,6 +1848,8 @@ table fact_trades
 			```
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 655e083a-76c6-4108-8c97-4265478ad234
+
+		changedProperty = IsHidden
 
 	measure 'PC - Subtitulo Tornado' = ```
 			
@@ -2048,21 +1917,7 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 628f1ae6-dfa7-44f1-bd2d-2c19de9ed10f
 
-	measure 'PC - Cor Barra HHI por Ano' =
-			
-			VAR __FlowSelec = SELECTEDVALUE(fact_trades[trade_flag])
-			
-			VAR __Result =
-			IF(
-			    __FlowSelec = "imp",
-			    "RED",
-			    "BLUE"
-			)
-			
-			RETURN
-			__Result
-		displayFolder: Medidas\07. Storytelling
-		lineageTag: 5bb0e2ab-2683-489c-a5d3-62cb32c463cb
+		changedProperty = IsHidden
 
 	measure 'PC - Subtitulo HHI' =
 			
@@ -2105,6 +1960,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: b42d4cec-6299-46de-ade2-901ecad902fc
 
+		changedProperty = IsHidden
+
 	measure 'PC - Titulo HHI' =
 			
 			VAR __FlagSelec =
@@ -2124,6 +1981,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 56a52ba1-1464-47be-aca0-2dc1e8407e00
 
+		changedProperty = IsHidden
+
 	measure '% HHI Estado Exportacoes' = ```
 			
 			VAR __TabelaShare = 
@@ -2138,6 +1997,8 @@ table fact_trades
 		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: d4cd0ca3-a3ce-4246-9906-e471eb404802
 
+		changedProperty = IsHidden
+
 	measure '% HHI Estado Importacoes' = ```
 			
 			VAR __TabelaShare = 
@@ -2151,6 +2012,8 @@ table fact_trades
 		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Medidas\03. Performance & Preço
 		lineageTag: d1d33ddd-4cf9-4a22-b382-f093c17e8186
+
+		changedProperty = IsHidden
 
 	measure 'Top N % HHI Estado Exportacoes' =
 			
@@ -2189,6 +2052,8 @@ table fact_trades
 		displayFolder: Medidas\04. Rankings
 		lineageTag: 7a9e56df-2c2f-457f-baa0-e215a064bfa0
 
+		changedProperty = IsHidden
+
 	measure 'Top N % HHI Estado Importacoes' =
 			
 			VAR __TopN =
@@ -2226,6 +2091,8 @@ table fact_trades
 		displayFolder: Medidas\04. Rankings
 		lineageTag: 1a923093-9cd8-4e1a-a19e-84fc59fe8843
 
+		changedProperty = IsHidden
+
 	measure 'B - Maior Estado Exportacoes' =
 			
 			CONCATENATEX(
@@ -2238,6 +2105,8 @@ table fact_trades
 			)
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 9a301565-17f5-4cd4-bb77-68b290bbabbe
+
+		changedProperty = IsHidden
 
 	measure 'B - Maior Estado Importacoes' =
 			
@@ -2252,6 +2121,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 51e38a0f-be53-461d-ba98-ec8a9f131dd7
 
+		changedProperty = IsHidden
+
 	measure 'Ranking % HHI Exportacoes por Estado' =
 			
 			RANK(
@@ -2263,6 +2134,8 @@ table fact_trades
 		displayFolder: Medidas\04. Rankings
 		lineageTag: 0be073f8-0736-4fda-ae92-4283e2dbca23
 
+		changedProperty = IsHidden
+
 	measure 'Ranking % HHI Importacoes por Estado' =
 			
 			RANK(
@@ -2273,6 +2146,8 @@ table fact_trades
 		formatString: 0
 		displayFolder: Medidas\04. Rankings
 		lineageTag: 77f14e9b-0202-4b9f-b2c9-bad61cfaeea4
+
+		changedProperty = IsHidden
 
 	measure 'B - Subtitulo Card Exportacoes' = ```
 			
@@ -2353,6 +2228,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 6ae60983-8e9b-4c8f-ade0-1054236e2850
 
+		changedProperty = IsHidden
+
 	measure 'B - Subtitulo Card Importacoes' = ```
 			
 			VAR __MaiorEstadoTab =
@@ -2430,6 +2307,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: a4bbb62b-ee5e-438c-93fb-8087e05b1bef
 
+		changedProperty = IsHidden
+
 	measure 'B - Titulo Top Municipios Exportacoes' = ```
 			
 			VAR __TopN = [TopN Value]
@@ -2466,6 +2345,8 @@ table fact_trades
 			```
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: ecc3c6c2-4f17-4b7d-8370-2f99919c2b69
+
+		changedProperty = IsHidden
 
 	measure 'B - Subtitulo Top Municipios Exportacoes' =
 			
@@ -2508,6 +2389,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: b37aafe0-622e-4dde-98cc-e679e2b36580
 
+		changedProperty = IsHidden
+
 	measure 'B - Subtitulo Municipios Ativos Exportacoes' =
 			
 			VAR __TopStateTab =
@@ -2532,6 +2415,8 @@ table fact_trades
 			    __Texto
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: f2ebebde-ff6c-43d7-93ce-5e61bd839ffd
+
+		changedProperty = IsHidden
 
 	measure 'B - Subtitulo Mapa Exportacoes' =
 			
@@ -2565,6 +2450,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: 426f7a37-aea2-4e07-b72c-fb98f3c57312
 
+		changedProperty = IsHidden
+
 	measure 'B - Subtitulo Mapa Importacoes' =
 			
 			VAR __TopStateTab =
@@ -2597,6 +2484,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: a7ba43b2-96fe-406d-ab81-306f709a6981
 
+		changedProperty = IsHidden
+
 	measure 'B - Subtitulo Municipios Ativos Importacoes' =
 			
 			VAR __TopStateTab =
@@ -2621,6 +2510,8 @@ table fact_trades
 			    __Texto
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: a2a2c197-3fa7-4288-922b-cb7c71d986d8
+
+		changedProperty = IsHidden
 
 	measure 'B - Subtitulo Top Municipios Importacoes' =
 			
@@ -2663,6 +2554,8 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: e6c510f2-0d31-460e-aaba-eff897c1cb43
 
+		changedProperty = IsHidden
+
 	measure 'B - Titulo Top Municipios Importacoes' = ```
 			
 			VAR __TopN = [TopN Value]
@@ -2700,6 +2593,19 @@ table fact_trades
 		displayFolder: Medidas\07. Storytelling
 		lineageTag: e58c237e-03f3-4ffe-8b6e-44fcf7ac0c01
 
+		changedProperty = IsHidden
+
+	measure '$ Exportacoes Real' =
+			
+			CALCULATE(
+			    SUM(fact_trades[fob_value_real]),
+			    fact_trades[trade_flag] = "exp"
+			)
+		displayFolder: Medidas\05. Valor Real
+		lineageTag: 8f8a147e-39f3-4631-8bba-1dfd92bf8f64
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column trade_date
 		dataType: dateTime
 		formatString: Short Date
@@ -2707,6 +2613,8 @@ table fact_trades
 		lineageTag: 7194cb88-4a9c-460e-8e0e-db0f703411fd
 		summarizeBy: none
 		sourceColumn: trade_date
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -2719,6 +2627,8 @@ table fact_trades
 		summarizeBy: none
 		sourceColumn: city_id
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column trade_country_id
@@ -2727,6 +2637,8 @@ table fact_trades
 		lineageTag: 5f334f13-e84d-4a2a-9817-e630ab51b4e5
 		summarizeBy: none
 		sourceColumn: trade_country_id
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -2737,6 +2649,8 @@ table fact_trades
 		summarizeBy: none
 		sourceColumn: product_category_id
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column fob_value
@@ -2745,6 +2659,8 @@ table fact_trades
 		lineageTag: 60ca4a3b-ca16-4f60-b044-785a82e96c9a
 		summarizeBy: sum
 		sourceColumn: fob_value
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -2757,6 +2673,8 @@ table fact_trades
 		summarizeBy: sum
 		sourceColumn: fob_value_real
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -2768,6 +2686,8 @@ table fact_trades
 		summarizeBy: sum
 		sourceColumn: net_weight
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -2778,6 +2698,8 @@ table fact_trades
 		lineageTag: fec43dc8-1565-454d-a631-77988fb54ebe
 		summarizeBy: none
 		sourceColumn: trade_flag
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
