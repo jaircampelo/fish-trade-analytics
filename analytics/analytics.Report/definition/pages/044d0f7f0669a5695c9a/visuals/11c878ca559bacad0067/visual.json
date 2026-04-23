@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "11c878ca559bacad0067",
   "position": {
-    "x": 1280.4640371229698,
+    "x": 1279,
     "y": 368.35266821345709,
     "z": 2000,
     "height": 676.56612529002314,
-    "width": 602.64501160092811,
+    "width": 601,
     "tabOrder": 2000
   },
   "visual": {
@@ -279,34 +279,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "f27d8e08e67e3be0a206",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "aux_paises_outros"
-              }
-            },
-            "Property": "country_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "695a8bccc374d59005c0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_trades"
-              }
-            },
-            "Property": "Ranking Exportacoes por Pais"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
