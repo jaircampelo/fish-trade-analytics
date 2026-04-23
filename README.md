@@ -11,13 +11,17 @@
 
 ## 🏛️ Arquitetura
 
+O projeto utiliza o padrão ELT (Extract, Load, Transform) e a Arquitetura Medalhão para garantir a rastreabilidade e qualidade dos dados.
+
 ![architecture](docs/images/architecture.png)
 
 ## 🔎 Problema
 
-Decisões estratégicas de negócio, seja no ambiente privado ou institucional, se não são, deveriam ser tomadas através de dados que sejam confiáveis. Porém, quando se trata de recursos pesqueiros, sejam eles advindos da pesca ou da aquicultura, a disponibilidade de dados e estatísticas é muito carente.
+A tomada de decisões estratégicas no setor pesqueiro e de aquicultura muitas vezes é dificultada pela carência de dados centralizados e confiáveis. Este projeto resolve esse problema ao:
 
-Pensando nisso, esse projeto constrói uma solução do início ao fim e demonstra, através de uma série de processos que vão desde a ingestão incremental dos dados, tratamento de registros e visualização, que através dos dados grandes decisões podem ser tomadas de maneira eficiente e com confiança.
+1. Automatizar a coleta de dados da balança comercial brasileira.
+2. Garantir a integridade dos dados através de testes automatizados.
+3. Transformar registros brutos em KPIs acionáveis para análise de mercado.
 
 ## 🛠️ Stack Tecnológico
 
@@ -25,10 +29,10 @@ Pensando nisso, esse projeto constrói uma solução do início ao fim e demonst
 |:--|:--|:--|
 | 🔄 Ingestão | **Python** | API request (Full/Incremental) |
 | 🗄️ Data Warehouse | **PostgreSQL 15** | Armazenamento estruturado (OLAP) |
-| 🔨 Transformação | **DBT 1.9** | ELT com testes e documentação automática |
-| 🔀 Orquestração | **Apache Airflow 2.8** | DAGs, scheduling, retry |
-| 📊 Visualização | **Power BI** | Dashboards e KPIs de negócio |
-| 🐳 Infra | **Docker Compose** | Todos os serviços containerizados |
+| 🔨 Transformação | **DBT 1.9** | Modelagem SQL, testes e documentação |
+| 🔀 Orquestração | **Apache Airflow 2.8** | Gerenciamento de DAGs e agendamento |
+| 📊 Visualização | **Power BI** | Dashboards e métricas de negócio |
+| 🐳 Infraestrutura | **Docker Compose** | Containerização de todo o ecossistema |
 
 ## 📐 Decisões de Desenvolvimento
 
@@ -50,13 +54,13 @@ No modelo ETL (Extract, Transform, Load) os dados são carregados para dentro do
 
 ### Apache Airflow — Orquestração de DAG
 
-Uma DAG cobrindo o pipeline completo até a camada analítica, com execução mensal.
+A DAG `trade_fish_dag` gerencia o pipeline mensalmente, garantindo que a extração e as transformações ocorram na ordem correta.
 
 ![airflow](docs/images/airflow_dag.png)
 
 ###  DBT Docs — Documentação Automática
 
-Catálogo de dados gerado automaticamente pelo DBT, com descrição de colunas, testes de qualidade (uniqueness, not_null) e lineage entre modelos.
+Toda a linhagem de dados e metadados das colunas são documentados automaticamente.
 
 ![dbt-docs](docs/images/dbt_docs.png)
 
@@ -68,7 +72,9 @@ Dados na camada Gold prontos para consumo e estruturados através da modelagem d
 
 ### Power BI — Dashboard de Comércio Internacional de Pescado
 
-Disponível em: [https://app.powerbi.com](https://app.powerbi.com/view?r=eyJrIjoiMTgzNDkyZmEtNGIxZi00NjQ4LThhYTUtODM5Y2E4OThhNTVlIiwidCI6ImViMDcwNTQxLTQ4YWEtNDE4My05MmEyLTFkZWFjMTZmM2M0ZSJ9)
+Dashboard interativo com as principais métricas de importação e exportação.
+
+[Acesse o Dashboard Online](https://app.powerbi.com/view?r=eyJrIjoiMTgzNDkyZmEtNGIxZi00NjQ4LThhYTUtODM5Y2E4OThhNTVlIiwidCI6ImViMDcwNTQxLTQ4YWEtNDE4My05MmEyLTFkZWFjMTZmM2M0ZSJ9)
 
 ![powerbi](docs/images/powerbi.png)
 
