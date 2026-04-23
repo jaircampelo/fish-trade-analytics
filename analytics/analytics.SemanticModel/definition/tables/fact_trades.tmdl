@@ -2606,6 +2606,27 @@ table fact_trades
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure '_Dados Disponiveis' =
+			
+			VAR __MinData =
+			    CALCULATE(
+			        MIN(fact_trades[trade_date]),
+			        ALL(fact_trades)
+			    )
+			VAR __MaxData =
+			    CALCULATE(
+			        MAX(fact_trades[trade_date]),
+			        ALL(fact_trades)
+			    )
+			
+			RETURN
+			"Dados disponíveis de "
+			& FORMAT(__MinData, "mmm/yyyy")
+			& " a "
+			& FORMAT(__MaxData, "mmm/yyyy")
+		displayFolder: Medidas\07. Storytelling
+		lineageTag: 1ef59376-5a91-46f0-af51-c6321f8a73c2
+
 	column trade_date
 		dataType: dateTime
 		formatString: Short Date

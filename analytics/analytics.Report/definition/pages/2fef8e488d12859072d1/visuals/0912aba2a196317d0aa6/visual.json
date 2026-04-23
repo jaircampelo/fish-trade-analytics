@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "0912aba2a196317d0aa6",
   "position": {
-    "x": 652.76102088167056,
-    "y": 661.5313225058004,
-    "z": 5000,
-    "height": 383.38747099767983,
-    "width": 925.893271461717,
+    "x": 656.51972157772616,
+    "y": 662.784222737819,
+    "z": 4000,
+    "height": 382.13457076566124,
+    "width": 922.13457076566124,
     "tabOrder": 3000
   },
   "visual": {
@@ -348,37 +348,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "1b7fba69c95580db1555",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_calendario"
-              }
-            },
-            "Property": "Ano"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "01fd6453e738a6ba9c3e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_trades"
-              }
-            },
-            "Property": "% HHI Pais Dinamico"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

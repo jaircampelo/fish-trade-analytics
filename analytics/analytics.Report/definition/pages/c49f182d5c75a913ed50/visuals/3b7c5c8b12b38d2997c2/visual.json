@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "3b7c5c8b12b38d2997c2",
   "position": {
-    "x": 36.359102244389028,
-    "y": 704.28927680798006,
+    "x": 36.334106728538281,
+    "y": 710.39443155452432,
     "z": 2000,
-    "height": 339.35162094763092,
-    "width": 1225.4364089775561,
+    "height": 334,
+    "width": 1225,
     "tabOrder": 3000
   },
   "visual": {
@@ -219,37 +219,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "998cf4105439c5100d0d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_calendario"
-              }
-            },
-            "Property": "Ano"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "4291a388c4054eb1c136",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_trades"
-              }
-            },
-            "Property": "$ Preco Medio por Quilo Exportacoes"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "263eb9212580bdb2028d",
   "position": {
-    "x": 34.482758620689658,
-    "y": 704.82758620689663,
+    "x": 36.334106728538281,
+    "y": 699.1183294663573,
     "z": 4000,
-    "height": 339.31034482758622,
-    "width": 601.37931034482756,
+    "height": 345,
+    "width": 601.39211136890947,
     "tabOrder": 7000
   },
   "visual": {
@@ -391,34 +391,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "4f53d6382db4ddd6ece1",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "aux_estados_outros"
-              }
-            },
-            "Property": "state_name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "4ca4af1266c2ed560109",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "fact_trades"
-              }
-            },
-            "Property": "Ranking % HHI Exportacoes por Estado"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
